@@ -2,6 +2,9 @@
 export default defineNuxtConfig({
   ssr: false,
   compatibilityDate: '2025-07-15',
+  experimental: {
+    viteEnvironmentApi: true
+  },
   css: ['~/assets/css/tailwind.css'],
   modules: ['@nuxtjs/tailwindcss'],
   app: {

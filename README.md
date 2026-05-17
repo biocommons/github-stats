@@ -11,6 +11,12 @@ Nuxt + Tailwind scaffold for the biocommons GitHub activity dashboard.
 
 ## Local setup (under 5 minutes)
 
+0. Ensure pnpm version matches project:
+
+```bash
+corepack use pnpm@11.1.2
+```
+
 1. Install dependencies:
 
 ```bash
@@ -51,3 +57,15 @@ pnpm preview
 
 - Placeholder page is live in app shell to verify deploy pipeline.
 - Data-driven tabs (Overview, Issues, PRs, Resolution time, Contributors) are tracked in follow-up issues.
+
+## Troubleshooting
+
+If you see `ERR_PNPM_IGNORED_BUILDS`:
+
+- Confirm [pnpm-workspace.yaml](pnpm-workspace.yaml) has `allowBuilds` booleans for `@parcel/watcher` and `esbuild`.
+- Reinstall cleanly:
+
+```bash
+rm -rf node_modules
+pnpm install
+```
