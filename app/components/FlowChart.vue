@@ -173,13 +173,80 @@ const stockYLabels = computed(() => {
   return labels
 })
 
-// Target ~13 visible x labels regardless of bucket count
+const MONTH_ABB = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'] as const
+
+function bucketYear(b: string): number { return parseInt(b) }
+
+function bucketSub(b: string): number {
+  // '2024W05' → 5, '2024-06' → 6, '2024Q2' → 2
+  return parseInt(b.slice(5))
+}
+
+function formatBucketLabel(b: string, gran: TimeBucket): string {
+  const year = bucketYear(b)
+  const yy = String(year).slice(2)
+  const sub = bucketSub(b)
+  if (gran === 'week') {
+    // Map week number to approximate quarter label
+    if (sub <= 2) return `Jan '${yy}`
+    if (sub <= 15) return `Apr '${yy}`
+    if (sub <= 28) return `Jul '${yy}`
+    return `Oct '${yy}`
+  }
+  if (gran === 'month') return `${MONTH_ABB[sub - 1]} '${yy}`
+  return sub === 1 ? `'${yy}` : `Q${sub} '${yy}`
+}
+
+// Nice calendar-boundary x labels: year/quarter/month anchors scaled to the visible span
 const xLabels = computed(() => {
-  const n = buckets.value.length
-  const step = Math.max(1, Math.ceil(n / 13))
-  return buckets.value
-    .map((b, i) => ({ i, label: b, x: bucketX(i) }))
-    .filter(({ i }) => i % step === 0)
+  const buks = buckets.value
+  if (buks.length === 0) return []
+
+  const gran = props.granularity
+  const firstYear = bucketYear(buks[0]!)
+  const lastYear = bucketYear(buks[buks.length - 1]!)
+  const yearSpan = Math.max(1, lastYear - firstYear + 1)
+
+  const indices = new Set<number>()
+
+  if (gran === 'week') {
+    const targets = yearSpan <= 1 ? [1, 14, 27, 40] : yearSpan <= 2 ? [1, 27] : [1]
+    const years = [...new Set(buks.map(bucketYear))]
+    for (const year of years) {
+      for (const target of targets) {
+        let best = -1, bestDist = Infinity
+        for (let i = 0; i < buks.length; i++) {
+          if (bucketYear(buks[i]!) !== year) continue
+          const d = Math.abs(bucketSub(buks[i]!, gran) - target)
+          if (d < bestDist) { bestDist = d; best = i }
+        }
+        if (best >= 0 && bestDist <= 3) indices.add(best)
+      }
+    }
+  } else {
+    const targets = gran === 'month'
+      ? (yearSpan <= 1 ? [1, 4, 7, 10] : yearSpan <= 3 ? [1, 7] : [1])
+      : (yearSpan <= 2 ? [1, 2, 3, 4] : yearSpan <= 5 ? [1, 3] : [1])
+    const years = [...new Set(buks.map(bucketYear))]
+    for (const year of years) {
+      for (const sub of targets) {
+        const idx = buks.findIndex(b => bucketYear(b) === year && bucketSub(b) === sub)
+        if (idx >= 0) indices.add(idx)
+      }
+    }
+  }
+
+  // Fallback: evenly spaced if too few calendar anchors found
+  if (indices.size < 2) {
+    const step = Math.max(1, Math.ceil(buks.length / 8))
+    return buks
+      .map((b, i) => ({ i, label: formatBucketLabel(b, gran), x: bucketX(i) }))
+      .filter(({ i }) => i % step === 0)
+  }
+
+  return [...indices]
+    .sort((a, b) => a - b)
+    .map(i => ({ i, label: formatBucketLabel(buks[i]!, gran), x: bucketX(i) }))
 })
 
 function onRectMouseEnter(_event: MouseEvent, rect: BarRect) {
@@ -313,16 +380,21 @@ function onRectMouseLeave() {
           opacity="0.8"
         />
 
-        <!-- X-axis labels -->
-        <text
-          v-for="tick in xLabels"
-          :key="tick.label"
-          :x="tick.x"
-          :y="PAD_T + CHART_H + 20"
-          fill="#94a3b8"
-          font-size="13"
-          text-anchor="middle"
-        >{{ tick.label }}</text>
+        <!-- X-axis ticks and labels -->
+        <g v-for="tick in xLabels" :key="tick.i">
+          <line
+            :x1="tick.x" :y1="PAD_T + CHART_H"
+            :x2="tick.x" :y2="PAD_T + CHART_H + 5"
+            stroke="#475569" stroke-width="1"
+          />
+          <text
+            :x="tick.x"
+            :y="PAD_T + CHART_H + 20"
+            fill="#94a3b8"
+            font-size="13"
+            text-anchor="middle"
+          >{{ tick.label }}</text>
+        </g>
 
         <!-- Tooltip -->
         <g v-if="tooltip">
