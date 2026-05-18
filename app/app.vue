@@ -7,7 +7,35 @@ import { useEmbedMode } from '~/composables/useEmbedMode'
 const tabs = ['Overview', 'Issues', 'PRs', 'Resolution Time', 'Contributors'] as const
 type Tab = (typeof tabs)[number]
 
-const activeTab = ref<Tab>('Overview')
+const TAB_SLUG: Record<Tab, string> = {
+  'Overview': 'overview',
+  'Issues': 'issues',
+  'PRs': 'prs',
+  'Resolution Time': 'resolution-time',
+  'Contributors': 'contributors',
+}
+const SLUG_TAB: Record<string, Tab> = Object.fromEntries(
+  Object.entries(TAB_SLUG).map(([tab, slug]) => [slug, tab as Tab])
+)
+
+const route = useRoute()
+const router = useRouter()
+
+function tabFromQuery(): Tab {
+  const slug = typeof route.query.tab === 'string' ? route.query.tab : ''
+  return SLUG_TAB[slug] ?? 'Overview'
+}
+
+const activeTab = ref<Tab>(tabFromQuery())
+
+watch(activeTab, (tab) => {
+  router.replace({ query: { ...route.query, tab: TAB_SLUG[tab] } })
+})
+
+watch(() => route.query.tab, () => {
+  const t = tabFromQuery()
+  if (t !== activeTab.value) activeTab.value = t
+})
 
 const { orgSummary, repoCards, isLoading, collectedAt, relativeTime, formatLocalTime } = useOverviewData()
 const { stats: issueStats, allRepos: issueAllRepos, granularity, selectedRepos, toggleRepo } = useFlowStats('issues')
