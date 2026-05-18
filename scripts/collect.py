@@ -20,7 +20,7 @@ import requests
 from loguru import logger
 
 # Configuration
-REPOS_TO_COLLECT = ['anyvar', 'bioutils', 'eutils', 'hgvs', 'seqrepo', 'seqrepo-rest-service', 'uta']
+REPOS_TO_COLLECT = ['anyvar', 'biocommons.seqrepo', 'bioutils', 'eutils', 'hgvs', 'hgvs-eval', 'seqrepo-rest-service', 'uta', 'uta-align', 'uta-rest-service']
 ORG = 'biocommons'
 DATA_DIR = Path(__file__).parent.parent / 'data'
 
@@ -229,12 +229,9 @@ class DataCollector:
         logger.debug(f'Fetching metadata for {owner}/{repo}...')
         # Collect repo metadata
         repo_data = self.client.get_repo(owner, repo)
-        repo_key = repo
-        if repo_data.get('name') != repo:
-            logger.warning(
-                f"Configured repo slug '{repo}' resolved to GitHub name '{repo_data.get('name')}'. "
-                'Keeping configured slug as dataset key.',
-            )
+        repo_key = repo_data['name']
+        if repo_key != repo:
+            logger.info(f"Slug '{repo}' resolved to GitHub name '{repo_key}' — using canonical name as key.")
         open_issue_count = self.client.get_open_issue_count(
             owner,
             repo,
