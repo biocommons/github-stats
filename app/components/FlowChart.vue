@@ -350,14 +350,19 @@ function onRectMouseLeave() {
         @pointercancel="onPointerUp"
       >
         <defs>
-          <!-- Clips bars and stock lines to the chart rectangle -->
+          <!-- clip-path is evaluated in the group's local space (after transform),
+               so add panOffset to the x so the rect lands at PAD_L in screen space -->
           <clipPath id="chart-area">
-            <rect :x="PAD_L" :y="PAD_T" :width="CHART_W" :height="CHART_H" />
+            <rect
+              :x="PAD_L + (scrollMode ? panOffset : 0)"
+              :y="PAD_T" :width="CHART_W" :height="CHART_H"
+            />
           </clipPath>
-          <!-- Clips annotations (clip markers, x-axis) to the chart columns only,
-               so off-screen markers don't bleed into the Y-axis padding areas -->
           <clipPath id="chart-cols">
-            <rect :x="PAD_L" :y="0" :width="CHART_W" :height="H" />
+            <rect
+              :x="PAD_L + (scrollMode ? panOffset : 0)"
+              :y="0" :width="CHART_W" :height="H"
+            />
           </clipPath>
         </defs>
 
