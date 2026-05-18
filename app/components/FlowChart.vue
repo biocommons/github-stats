@@ -65,12 +65,15 @@ watch(scrollMode, (on) => {
   panOffset.value = on ? maxPan.value : 0
 })
 
-// On initial data load (maxPan 0→N), snap to end. On subsequent changes
-// (granularity switch), just clamp to the new valid range.
+// Snap to end when data first becomes available (immediate catches re-mounts
+// where data is already cached; oldMax===undefined on the first immediate call).
+// On subsequent changes (granularity switch) just clamp the existing offset.
 watch(maxPan, (newMax, oldMax) => {
   if (!scrollMode.value) return
-  panOffset.value = oldMax === 0 && newMax > 0 ? newMax : clampPan(panOffset.value)
-})
+  panOffset.value = (oldMax === undefined || oldMax === 0) && newMax > 0
+    ? newMax
+    : clampPan(panOffset.value)
+}, { immediate: true })
 
 const barWidth = computed(() => {
   if (scrollMode.value) return Math.floor(SCROLL_PITCH * 0.65)
@@ -334,23 +337,16 @@ function onRectMouseLeave() {
         >{{ repoDisplayName(repo) }}</button>
       </div>
 
-      <!-- Scroll/Fit pill toggle -->
-      <button
-        class="ml-auto flex items-center gap-2 text-xs text-slate-400 hover:text-slate-200 transition-colors"
-        :title="scrollMode ? 'Switch to fit view' : 'Switch to scroll view'"
-        @click="scrollMode = !scrollMode"
-      >
-        <span>{{ scrollMode ? 'scroll' : 'fit' }}</span>
-        <div
-          class="relative h-5 w-9 rounded-full transition-colors duration-200"
-          :class="scrollMode ? 'bg-sky-500' : 'bg-slate-700'"
-        >
-          <div
-            class="absolute top-0.5 h-4 w-4 rounded-full bg-white shadow-sm transition-transform duration-200"
-            :class="scrollMode ? 'translate-x-[18px]' : 'translate-x-0.5'"
-          />
-        </div>
-      </button>
+      <!-- Fit/Pan segmented control -->
+      <div class="ml-auto flex items-center rounded-full border border-slate-700 bg-slate-900 p-0.5 text-sm">
+        <button
+          v-for="[mode, label] in [['fit', 'Fit'], ['pan', 'Pan']] as const"
+          :key="mode"
+          class="rounded-full px-3 py-1 transition-colors"
+          :class="(mode === 'pan') === scrollMode ? 'bg-emerald-500/20 text-emerald-300' : 'text-slate-400 hover:text-slate-200'"
+          @click="scrollMode = mode === 'pan'"
+        >{{ label }}</button>
+      </div>
     </div>
 
     <!-- Chart -->
