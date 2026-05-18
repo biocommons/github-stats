@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useOverviewData } from '~/composables/useOverviewData'
 import { useDataSource } from '~/composables/useDataSource'
+import { useFlowStats } from '~/composables/useFlowStats'
 
 const tabs = ['Overview', 'Issues', 'PRs', 'Resolution Time', 'Contributors'] as const
 type Tab = (typeof tabs)[number]
@@ -8,6 +9,7 @@ type Tab = (typeof tabs)[number]
 const activeTab = ref<Tab>('Overview')
 
 const { orgSummary, repoCards, isLoading, collectedAt, relativeTime, formatLocalTime } = useOverviewData()
+const { stats: issueStats, allRepos: issueAllRepos, granularity, selectedRepos, toggleRepo } = useFlowStats('issues')
 const { isLocal, toggle } = useDataSource()
 const isDev = import.meta.dev
 </script>
@@ -77,6 +79,27 @@ const isDev = import.meta.dev
 
           <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <RepoCard v-for="repo in repoCards" :key="repo.name" :repo="repo" />
+          </div>
+        </template>
+      </template>
+
+      <!-- Issues tab -->
+      <template v-else-if="activeTab === 'Issues'">
+        <div v-if="!issueStats" class="flex items-center justify-center py-24 text-slate-500">
+          Loading…
+        </div>
+        <template v-else>
+          <FlowChart
+            :stats="issueStats"
+            :all-repos="issueAllRepos"
+            :granularity="granularity"
+            :selected-repos="selectedRepos"
+            item-label="issues"
+            @update:granularity="granularity = $event"
+            @toggle-repo="toggleRepo"
+          />
+          <div class="mt-10 border-t border-slate-800 pt-8">
+            <ResolutionTime :stats="issueStats" :all-repos="issueAllRepos" item-label="issues" />
           </div>
         </template>
       </template>
