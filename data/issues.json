@@ -2908,6 +2908,19 @@
     "closed_by": null
   },
   {
+    "id": 4471511129,
+    "number": 462,
+    "repo": "anyvar",
+    "created_at": "2026-05-18T18:19:50Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "jsstevenson",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": null
+  },
+  {
     "id": 163496195,
     "number": 1,
     "repo": "bioutils",
