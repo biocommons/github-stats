@@ -1,0 +1,15 @@
+{
+  "collected_at": "2026-05-18T03:36:37.132713",
+  "schema_version": "1.0",
+  "repos": [
+    "anyvar",
+    "bioutils",
+    "eutils",
+    "hgvs",
+    "seqrepo",
+    "seqrepo-rest-service",
+    "uta"
+  ],
+  "run_trigger": "workflow_dispatch",
+  "collection_duration_ms": 82495
+}
