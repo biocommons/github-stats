@@ -124,15 +124,18 @@ const allElements = computed(() => {
   return { rects, clipMarkers }
 })
 
-const maxStock = computed(() => Math.max(1, ...props.stats.stockSeries.map(s => s.openCount)))
+const maxStock = computed(() => {
+  const allCounts = Object.values(props.stats.repoStockSeries).flatMap(s => s.map(p => p.openCount))
+  return Math.max(1, ...allCounts)
+})
 
 function stockY(count: number): number {
   return baseline.value - (count / maxStock.value) * (CHART_H / 2)
 }
 
-const stockPath = computed(() => {
-  const series = props.stats.stockSeries
-  if (series.length < 2) return ''
+function repoStockPath(repo: string): string {
+  const series = props.stats.repoStockSeries[repo]
+  if (!series || series.length < 2) return ''
   return series
     .map((pt, i) => {
       const x = bucketX(i)
@@ -140,7 +143,7 @@ const stockPath = computed(() => {
       return `${i === 0 ? 'M' : 'L'}${x.toFixed(1)},${y.toFixed(1)}`
     })
     .join(' ')
-})
+}
 
 function niceStep(maxVal: number, targetTicks = 4): number {
   if (maxVal <= 0) return 1
@@ -306,14 +309,14 @@ function onRectMouseLeave() {
         <!-- Right Y-axis title (rotated) -->
         <text
           :x="W - 14" :y="PAD_T + CHART_H / 2"
-          fill="#38bdf8" font-size="11" text-anchor="middle"
+          fill="#94a3b8" font-size="11" text-anchor="middle"
           :transform="`rotate(90, ${W - 14}, ${PAD_T + CHART_H / 2})`"
-        >open {{ itemLabel }} (stock)</text>
+        >open {{ itemLabel }} per repo</text>
 
         <!-- Right Y-axis ticks -->
         <g v-for="t in stockYLabels" :key="'r' + t.label">
           <line :x1="W - PAD_R" :y1="t.y" :x2="W - PAD_R + 4" :y2="t.y" stroke="#334155" stroke-width="1" />
-          <text :x="W - PAD_R + 7" :y="t.y + 4.5" fill="#7dd3fc" font-size="13">{{ t.label }}</text>
+          <text :x="W - PAD_R + 7" :y="t.y + 4.5" fill="#94a3b8" font-size="13">{{ t.label }}</text>
         </g>
 
         <!-- Stacked bars (clipped so outlier spikes don't overflow chart bounds) -->
@@ -346,12 +349,13 @@ function onRectMouseLeave() {
           />
         </g>
 
-        <!-- Stock line overlay -->
+        <!-- Per-repo stock lines -->
         <path
-          v-if="stockPath"
-          :d="stockPath"
+          v-for="repo in allRepos"
+          :key="'stock-' + repo"
+          :d="repoStockPath(repo)"
           fill="none"
-          stroke="#38bdf8"
+          :stroke="repoColor(repo)"
           stroke-width="1.5"
           stroke-linejoin="round"
           stroke-linecap="round"
