@@ -9,7 +9,7 @@ aggregates into JSON, and publishes to data/ directory.
 import json
 import os
 import sys
-from datetime import datetime, timedelta
+from datetime import datetime
 from pathlib import Path
 from typing import Any, Optional
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -231,6 +231,7 @@ class DataCollector:
             'stargazers_count': repo_data['stargazers_count'],
             'forks_count': repo_data['forks_count'],
             'open_issues_count': open_issue_count,
+            'open_pr_count': open_pr_count,
             'contributors': contributor_count,
             'latest_release': {
                 'tag_name': latest_release['tag_name'],
@@ -331,6 +332,14 @@ class DataCollector:
         sorted_prs = sorted(self.prs, key=lambda p: (p['repo'], p['id']))
         self.write_json('prs.json', sorted_prs)
 
+        # Write commits.json - sorted by repo then date
+        sorted_commits = sorted(self.commits, key=lambda c: (c['repo'], c['author_date']))
+        self.write_json('commits.json', sorted_commits)
+
+        # Write reviews.json - sorted by repo then date
+        sorted_reviews = sorted(self.reviews, key=lambda r: (r['repo'], r['submitted_at']))
+        self.write_json('reviews.json', sorted_reviews)
+
         # Write contributors.json
         contributors = self.aggregate_contributors()
         self.write_json('contributors.json', contributors)
@@ -347,135 +356,37 @@ class DataCollector:
         }
 
     def aggregate_contributors(self) -> list:
-        """Aggregate contributor data."""
-        contributor_map: dict[str, Any] = {}
+        """Build contributor identity registry: login, avatar_url, first_contribution_at.
 
-        # Merge all events keyed by login
-        all_events: list[dict] = []
+        Counts (all_time, by_repo) are left to the UI, which has all raw event files.
+        first_contribution_at requires scanning all event types, so it stays here.
+        """
+        first_seen: dict[str, str] = {}
 
-        # Issues opened
+        def observe(login: str | None, date: str) -> None:
+            if login and (login not in first_seen or date < first_seen[login]):
+                first_seen[login] = date
+
         for issue in self.issues:
-            if issue['author_login']:
-                all_events.append({
-                    'login': issue['author_login'],
-                    'type': 'issues_opened',
-                    'date': issue['created_at'],
-                    'repo': issue['repo'],
-                })
-
-        # PRs opened
+            observe(issue['author_login'], issue['created_at'])
         for pr in self.prs:
-            if pr['author_login']:
-                all_events.append({
-                    'login': pr['author_login'],
-                    'type': 'prs_opened',
-                    'date': pr['created_at'],
-                    'repo': pr['repo'],
-                })
-
-        # Commits
+            observe(pr['author_login'], pr['created_at'])
         for commit in self.commits:
-            if commit['author_login']:
-                all_events.append({
-                    'login': commit['author_login'],
-                    'type': 'commits',
-                    'date': commit['author_date'],
-                    'repo': commit['repo'],
-                })
-
-        # Reviews
+            observe(commit['author_login'], commit['author_date'])
         for review in self.reviews:
-            if review['reviewer_login']:
-                all_events.append({
-                    'login': review['reviewer_login'],
-                    'type': 'reviews_submitted',
-                    'date': review['submitted_at'],
-                    'repo': review['repo'],
-                })
+            observe(review['reviewer_login'], review['submitted_at'])
 
-        # Aggregate by login
-        for event in all_events:
-            login = event['login']
-
-            if login not in contributor_map:
-                contributor_map[login] = {
+        return sorted(
+            [
+                {
                     'login': login,
-                    'avatar_url': f"https://avatars.githubusercontent.com/{login}",
-                    'first_contribution_at': event['date'],
-                    'all_time': {
-                        'commits': 0,
-                        'issues_opened': 0,
-                        'prs_opened': 0,
-                        'reviews_submitted': 0,
-                    },
-                    'by_repo': {},
-                    'monthly_series': [],
+                    'avatar_url': f'https://avatars.githubusercontent.com/{login}',
+                    'first_contribution_at': date,
                 }
-
-            contrib = contributor_map[login]
-
-            # Update first contribution
-            if event['date'] < contrib['first_contribution_at']:
-                contrib['first_contribution_at'] = event['date']
-
-            # Update all_time counts
-            contrib['all_time'][event['type']] += 1
-
-            # Update by_repo counts
-            if event['repo'] not in contrib['by_repo']:
-                contrib['by_repo'][event['repo']] = {
-                    'commits': 0,
-                    'issues_opened': 0,
-                    'prs_opened': 0,
-                    'reviews_submitted': 0,
-                }
-            contrib['by_repo'][event['repo']][event['type']] += 1
-
-        # Build monthly series
-        for contrib in contributor_map.values():
-            contrib_events = [e for e in all_events if e['login'] == contrib['login']]
-            contrib['monthly_series'] = self.build_monthly_series(contrib_events)
-
-        # Convert to array and sort by login
-        result = sorted(contributor_map.values(), key=lambda c: c['login'])
-        return result
-
-    def build_monthly_series(self, events: list[dict]) -> list:
-        """Build monthly time series for contributor events."""
-        now = datetime.now()
-        month_map: dict[str, dict] = {}
-
-        # Initialize 12 months
-        for i in range(11, -1, -1):
-            d = datetime(now.year, now.month, 1) - timedelta(days=i * 30)
-            d = datetime(d.year, d.month, 1)
-            key = d.strftime('%Y-%m')
-            month_map[key] = {
-                'commits': 0,
-                'issues_opened': 0,
-                'prs_opened': 0,
-                'reviews_submitted': 0,
-            }
-
-        # Aggregate events
-        for event in events:
-            d = datetime.fromisoformat(event['date'].replace('Z', '+00:00'))
-            key = d.strftime('%Y-%m')
-
-            if key in month_map:
-                month_map[key][event['type']] += 1
-
-        # Convert to array
-        series = []
-        for key in sorted(month_map.keys()):
-            year, month = key.split('-')
-            series.append({
-                'year': int(year),
-                'month': int(month),
-                **month_map[key],
-            })
-
-        return series
+                for login, date in first_seen.items()
+            ],
+            key=lambda c: c['login'],
+        )
 
     def get_trigger(self) -> str:
         """Determine the trigger type for this run."""

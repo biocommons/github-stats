@@ -26,3 +26,5 @@ logs
 .env.*
 !.env.example
 __pycache__
+
+settings.local.json
