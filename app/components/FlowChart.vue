@@ -40,20 +40,71 @@ const PAD_B = 38
 const CHART_W = W - PAD_L - PAD_R
 const CHART_H = H - PAD_T - PAD_B
 
+// Fixed pixels-per-bucket in scroll mode; gives comfortable bar widths regardless of dataset size
+const SCROLL_PITCH = 18
+
 const tooltip = ref<{ x: number; y: number; lines: string[] } | null>(null)
+const scrollMode = ref(false)
+const panOffset = ref(0)
+const svgEl = ref<SVGSVGElement | null>(null)
+const dragState = ref<{ startClientX: number; startPan: number } | null>(null)
 
 // Use stockSeries as the authoritative time axis — it includes every bucket,
 // even periods with no opens/closes (stock value unchanged but slot present).
 const buckets = computed(() => props.stats.stockSeries.map(s => s.bucket))
 
+const totalDataW = computed(() => buckets.value.length * SCROLL_PITCH)
+const maxPan = computed(() => Math.max(0, totalDataW.value - CHART_W))
+
+function clampPan(v: number): number {
+  return Math.max(0, Math.min(maxPan.value, v))
+}
+
+// On entering scroll mode, snap to right (most recent data); on exit, reset
+watch(scrollMode, (on) => {
+  panOffset.value = on ? maxPan.value : 0
+})
+
+// Keep pan in bounds when data changes (e.g. granularity switch)
+watch(maxPan, () => {
+  if (scrollMode.value) panOffset.value = clampPan(panOffset.value)
+})
+
 const barWidth = computed(() => {
+  if (scrollMode.value) return Math.floor(SCROLL_PITCH * 0.65)
   const n = buckets.value.length
   return n > 0 ? Math.max(2, Math.floor((CHART_W / n) * 0.65)) : 8
 })
 
 function bucketX(i: number): number {
+  if (scrollMode.value) return PAD_L + (i + 0.5) * SCROLL_PITCH
   const n = buckets.value.length
   return PAD_L + (i + 0.5) * (CHART_W / Math.max(n, 1))
+}
+
+// Convert screen-pixel drag delta to SVG units (SVG is scaled to container width)
+function svgScale(): number {
+  const el = svgEl.value
+  if (!el) return 1
+  const w = el.getBoundingClientRect().width
+  return w > 0 ? W / w : 1
+}
+
+function onPointerDown(e: PointerEvent) {
+  if (!scrollMode.value) return
+  ;(e.currentTarget as SVGSVGElement).setPointerCapture(e.pointerId)
+  dragState.value = { startClientX: e.clientX, startPan: panOffset.value }
+}
+
+function onPointerMove(e: PointerEvent) {
+  if (!dragState.value) return
+  tooltip.value = null
+  const delta = (dragState.value.startClientX - e.clientX) * svgScale()
+  panOffset.value = clampPan(dragState.value.startPan + delta)
+}
+
+function onPointerUp() {
+  dragState.value = null
 }
 
 const maxFlow = computed(() => {
@@ -194,21 +245,21 @@ function formatBucketLabel(b: string, gran: TimeBucket): string {
   return sub === 1 ? `'${yy}` : `Q${sub} '${yy}`
 }
 
-// Nice calendar-boundary x labels: year/quarter/month anchors scaled to the visible span
+// Nice calendar-boundary x labels. In scroll mode, density is based on the visible
+// window width rather than the full dataset span so labels don't crowd.
 const xLabels = computed(() => {
   const buks = buckets.value
   if (buks.length === 0) return []
 
   const gran = props.granularity
-  const firstYear = bucketYear(buks[0]!)
-  const lastYear = bucketYear(buks[buks.length - 1]!)
-  const yearSpan = Math.max(1, lastYear - firstYear + 1)
+  const visibleBuckets = scrollMode.value ? Math.floor(CHART_W / SCROLL_PITCH) : buks.length
+  const visibleYearSpan = Math.max(1, Math.ceil(visibleBuckets / (gran === 'month' ? 12 : 4)))
 
   const indices = new Set<number>()
 
   const targets = gran === 'month'
-    ? (yearSpan <= 1 ? [1, 4, 7, 10] : yearSpan <= 3 ? [1, 7] : [1])
-    : (yearSpan <= 2 ? [1, 2, 3, 4] : yearSpan <= 5 ? [1, 3] : [1])
+    ? (visibleYearSpan <= 1 ? [1, 4, 7, 10] : visibleYearSpan <= 3 ? [1, 7] : [1])
+    : (visibleYearSpan <= 2 ? [1, 2, 3, 4] : visibleYearSpan <= 5 ? [1, 3] : [1])
   const years = [...new Set(buks.map(bucketYear))]
   for (const year of years) {
     for (const sub of targets) {
@@ -231,10 +282,13 @@ const xLabels = computed(() => {
 })
 
 function onRectMouseEnter(_event: MouseEvent, rect: BarRect) {
+  if (dragState.value) return
   const dir = rect.opened > 0 ? 'opened' : 'closed'
   const count = rect.opened > 0 ? rect.opened : rect.closed
+  // rect.x is pre-translate; subtract panOffset to get the bar's display position
+  const displayX = rect.x + rect.w / 2 - (scrollMode.value ? panOffset.value : 0)
   tooltip.value = {
-    x: rect.x + rect.w / 2,
+    x: displayX,
     y: rect.y,
     lines: [rect.repo, `${dir}: ${count}`],
   }
@@ -272,14 +326,38 @@ function onRectMouseLeave() {
           @click="emit('toggle-repo', repo)"
         >{{ repoDisplayName(repo) }}</button>
       </div>
+
+      <!-- Scroll/Fit toggle -->
+      <button
+        class="ml-auto rounded-full border px-2.5 py-0.5 text-sm font-medium transition-colors"
+        :class="scrollMode
+          ? 'border-sky-500/50 bg-sky-500/10 text-sky-400'
+          : 'border-slate-600 text-slate-400 hover:text-slate-200'"
+        @click="scrollMode = !scrollMode"
+      >{{ scrollMode ? 'Fit' : 'Scroll' }}</button>
     </div>
 
     <!-- Chart -->
     <div class="relative">
-      <svg :viewBox="`0 0 ${W} ${H}`" class="block w-full h-auto">
+      <svg
+        ref="svgEl"
+        :viewBox="`0 0 ${W} ${H}`"
+        class="block w-full h-auto select-none"
+        :style="scrollMode ? (dragState ? { cursor: 'grabbing' } : { cursor: 'grab' }) : {}"
+        @pointerdown="onPointerDown"
+        @pointermove="onPointerMove"
+        @pointerup="onPointerUp"
+        @pointercancel="onPointerUp"
+      >
         <defs>
+          <!-- Clips bars and stock lines to the chart rectangle -->
           <clipPath id="chart-area">
             <rect :x="PAD_L" :y="PAD_T" :width="CHART_W" :height="CHART_H" />
+          </clipPath>
+          <!-- Clips annotations (clip markers, x-axis) to the chart columns only,
+               so off-screen markers don't bleed into the Y-axis padding areas -->
+          <clipPath id="chart-cols">
+            <rect :x="PAD_L" :y="0" :width="CHART_W" :height="H" />
           </clipPath>
         </defs>
 
@@ -319,8 +397,8 @@ function onRectMouseLeave() {
           <text :x="W - PAD_R + 7" :y="t.y + 4.5" fill="#94a3b8" font-size="13">{{ t.label }}</text>
         </g>
 
-        <!-- Stacked bars (clipped so outlier spikes don't overflow chart bounds) -->
-        <g clip-path="url(#chart-area)">
+        <!-- Scrollable data layer (bars + stock lines), clipped to chart rectangle -->
+        <g :transform="`translate(${scrollMode ? -panOffset : 0}, 0)`" clip-path="url(#chart-area)">
           <rect
             v-for="(rect, ri) in allElements.rects"
             :key="ri"
@@ -332,53 +410,55 @@ function onRectMouseLeave() {
             @mouseenter="onRectMouseEnter($event, rect)"
             @mouseleave="onRectMouseLeave"
           />
-        </g>
 
-        <!-- Clip markers: two parallel hatch lines at the cut edge of clipped bars -->
-        <g v-for="(m, mi) in allElements.clipMarkers" :key="'cm' + mi">
-          <line
-            v-for="offset in [3, 7]"
-            :key="offset"
-            :x1="m.cx - m.w / 2 + 1"
-            :y1="m.dir === 'up' ? m.cy + offset : m.cy - offset"
-            :x2="m.cx + m.w / 2 - 1"
-            :y2="m.dir === 'up' ? m.cy + offset - (m.w - 2) * 0.577 : m.cy - offset + (m.w - 2) * 0.577"
-            stroke="white"
+          <path
+            v-for="repo in allRepos"
+            :key="'stock-' + repo"
+            :d="repoStockPath(repo)"
+            fill="none"
+            :stroke="repoColor(repo)"
             stroke-width="1.5"
-            stroke-opacity="0.7"
+            stroke-linejoin="round"
+            stroke-linecap="round"
+            opacity="0.8"
           />
         </g>
 
-        <!-- Per-repo stock lines -->
-        <path
-          v-for="repo in allRepos"
-          :key="'stock-' + repo"
-          :d="repoStockPath(repo)"
-          fill="none"
-          :stroke="repoColor(repo)"
-          stroke-width="1.5"
-          stroke-linejoin="round"
-          stroke-linecap="round"
-          opacity="0.8"
-        />
+        <!-- Scrollable annotation layer (clip markers + x-axis), column-clipped only -->
+        <g :transform="`translate(${scrollMode ? -panOffset : 0}, 0)`" clip-path="url(#chart-cols)">
+          <!-- Clip markers: hatch lines at the cut edge of overflowing bars -->
+          <g v-for="(m, mi) in allElements.clipMarkers" :key="'cm' + mi">
+            <line
+              v-for="offset in [3, 7]"
+              :key="offset"
+              :x1="m.cx - m.w / 2 + 1"
+              :y1="m.dir === 'up' ? m.cy + offset : m.cy - offset"
+              :x2="m.cx + m.w / 2 - 1"
+              :y2="m.dir === 'up' ? m.cy + offset - (m.w - 2) * 0.577 : m.cy - offset + (m.w - 2) * 0.577"
+              stroke="white"
+              stroke-width="1.5"
+              stroke-opacity="0.7"
+            />
+          </g>
 
-        <!-- X-axis ticks and labels -->
-        <g v-for="tick in xLabels" :key="tick.i">
-          <line
-            :x1="tick.x" :y1="PAD_T + CHART_H"
-            :x2="tick.x" :y2="PAD_T + CHART_H + 5"
-            stroke="#475569" stroke-width="1"
-          />
-          <text
-            :x="tick.x"
-            :y="PAD_T + CHART_H + 20"
-            fill="#94a3b8"
-            font-size="13"
-            text-anchor="middle"
-          >{{ tick.label }}</text>
+          <!-- X-axis ticks and labels -->
+          <g v-for="tick in xLabels" :key="tick.i">
+            <line
+              :x1="tick.x" :y1="PAD_T + CHART_H"
+              :x2="tick.x" :y2="PAD_T + CHART_H + 5"
+              stroke="#475569" stroke-width="1"
+            />
+            <text
+              :x="tick.x"
+              :y="PAD_T + CHART_H + 20"
+              fill="#94a3b8"
+              font-size="13"
+              text-anchor="middle"
+            >{{ tick.label }}</text>
+          </g>
         </g>
 
-        <!-- Tooltip -->
+        <!-- Tooltip (root SVG coords; x adjusted for pan offset) -->
         <g v-if="tooltip">
           <rect
             :x="Math.min(tooltip.x + 8, W - 120)"
