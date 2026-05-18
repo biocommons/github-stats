@@ -1,29 +1,68 @@
+<script setup lang="ts">
+import { useOverviewData } from '~/composables/useOverviewData'
+
+const tabs = ['Overview', 'Issues', 'PRs', 'Resolution Time', 'Contributors'] as const
+type Tab = (typeof tabs)[number]
+
+const activeTab = ref<Tab>('Overview')
+
+const { orgSummary, repoCards, isLoading } = useOverviewData()
+</script>
+
 <template>
-  <main class="min-h-screen bg-slate-950 text-slate-100">
-    <section class="mx-auto flex min-h-screen w-full max-w-5xl flex-col justify-center gap-8 px-6 py-16">
-      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">
-        biocommons/github-stats
+  <div class="min-h-screen bg-slate-950 text-slate-100">
+    <header class="border-b border-slate-800 px-6 py-4">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300">
+        biocommons · GitHub Stats
       </p>
+    </header>
 
-      <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-        Dashboard scaffold is live.
-      </h1>
-
-      <p class="max-w-2xl text-lg leading-relaxed text-slate-300">
-        This placeholder confirms the Nuxt build and Vercel deploy pipeline are wired for the
-        GitHub activity dashboard project.
-      </p>
-
-      <div class="grid gap-4 sm:grid-cols-2">
-        <article class="rounded-xl border border-slate-800 bg-slate-900/80 p-5">
-          <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-400">Stack</h2>
-          <p class="mt-2 text-slate-200">Nuxt 3/4 runtime, Vite bundling, Tailwind CSS</p>
-        </article>
-        <article class="rounded-xl border border-slate-800 bg-slate-900/80 p-5">
-          <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-400">Next</h2>
-          <p class="mt-2 text-slate-200">Implement tabs for Overview, Issues, PRs, Resolution Time, Contributors.</p>
-        </article>
+    <nav class="border-b border-slate-800 px-6">
+      <div class="flex gap-1">
+        <button
+          v-for="tab in tabs"
+          :key="tab"
+          class="px-4 py-3 text-sm font-medium transition-colors"
+          :class="
+            activeTab === tab
+              ? 'border-b-2 border-emerald-400 text-emerald-300'
+              : 'text-slate-400 hover:text-slate-200'
+          "
+          @click="activeTab = tab"
+        >
+          {{ tab }}
+        </button>
       </div>
-    </section>
-  </main>
+    </nav>
+
+    <main class="mx-auto max-w-6xl px-6 py-8">
+
+      <!-- Overview tab -->
+      <template v-if="activeTab === 'Overview'">
+        <div v-if="isLoading" class="flex items-center justify-center py-24 text-slate-500">
+          Loading…
+        </div>
+        <template v-else>
+          <div v-if="orgSummary" class="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <OrgSummaryCard label="Total stars" :value="orgSummary.totalStars" />
+            <OrgSummaryCard label="Contributors" :value="orgSummary.uniqueContributors" />
+            <OrgSummaryCard label="Open issues" :value="orgSummary.openIssues" />
+            <OrgSummaryCard label="Open PRs" :value="orgSummary.openPRs" />
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <RepoCard v-for="repo in repoCards" :key="repo.name" :repo="repo" />
+          </div>
+        </template>
+      </template>
+
+      <!-- Placeholder tabs -->
+      <template v-else>
+        <div class="flex items-center justify-center py-24 text-slate-500">
+          {{ activeTab }} — coming soon
+        </div>
+      </template>
+
+    </main>
+  </div>
 </template>

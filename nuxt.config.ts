@@ -7,6 +7,21 @@ export default defineNuxtConfig({
   },
   css: ['~/assets/css/tailwind.css'],
   modules: ['@nuxtjs/tailwindcss'],
+  runtimeConfig: {
+    public: {
+      dataBase: 'https://raw.githubusercontent.com/biocommons/github-stats/refs/heads/gh-pages/data',
+    },
+  },
+  $development: {
+    runtimeConfig: {
+      public: {
+        dataBase: '/data',
+      },
+    },
+    nitro: {
+      publicAssets: [{ dir: new URL('./data', import.meta.url).pathname, baseURL: '/data' }],
+    },
+  },
   app: {
     head: {
       title: 'biocommons GitHub Stats',
@@ -18,5 +33,5 @@ export default defineNuxtConfig({
       ]
     }
   },
-  devtools: { enabled: true }
+  devtools: { enabled: true },
 })
