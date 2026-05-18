@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-05-18T05:07:51.371481",
+  "collected_at": "2026-05-18T10:08:09.478871",
   "schema_version": "1.0",
   "repos": [
     "anyvar",
@@ -11,5 +11,5 @@
     "uta"
   ],
   "run_trigger": "schedule",
-  "collection_duration_ms": 65858
+  "collection_duration_ms": 83535
 }
