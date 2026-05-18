@@ -2,6 +2,7 @@
 import { useOverviewData } from '~/composables/useOverviewData'
 import { useDataSource } from '~/composables/useDataSource'
 import { useFlowStats } from '~/composables/useFlowStats'
+import { useEmbedMode } from '~/composables/useEmbedMode'
 
 const tabs = ['Overview', 'Issues', 'PRs', 'Resolution Time', 'Contributors'] as const
 type Tab = (typeof tabs)[number]
@@ -11,20 +12,16 @@ const activeTab = ref<Tab>('Overview')
 const { orgSummary, repoCards, isLoading, collectedAt, relativeTime, formatLocalTime } = useOverviewData()
 const { stats: issueStats, allRepos: issueAllRepos, granularity, selectedRepos, toggleRepo } = useFlowStats('issues')
 const { isLocal, toggle } = useDataSource()
+const { isEmbedded } = useEmbedMode()
 const isDev = import.meta.dev
 </script>
 
 <template>
-  <div class="min-h-screen bg-slate-950 text-slate-100">
-    <header class="flex items-center justify-between border-b border-slate-800 px-6 py-4">
+  <div :class="['text-slate-100', isEmbedded ? 'bg-transparent' : 'min-h-screen bg-slate-950']">
+    <header v-if="!isEmbedded" class="flex items-center justify-between border-b border-slate-800 px-6 py-4">
       <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300">
         biocommons · GitHub Stats
       </p>
-      <p
-        v-if="collectedAt"
-        class="text-xs text-slate-500"
-        :title="formatLocalTime(collectedAt)"
-      >updated {{ relativeTime(collectedAt) }}</p>
     </header>
 
     <nav class="border-b border-slate-800 px-6">
@@ -43,26 +40,34 @@ const isDev = import.meta.dev
           {{ tab }}
         </button>
 
-        <div
-          v-if="isDev"
-          class="ml-auto flex items-center rounded-full border border-slate-700 bg-slate-900 p-0.5 text-xs font-mono"
-          title="Toggle data source between local /data and GitHub raw"
-        >
-          <button
-            class="rounded-full px-3 py-1 transition-colors"
-            :class="isLocal ? 'bg-amber-500/20 text-amber-400' : 'text-slate-500 hover:text-slate-300'"
-            @click="isLocal || toggle()"
-          >local</button>
-          <button
-            class="rounded-full px-3 py-1 transition-colors"
-            :class="!isLocal ? 'bg-sky-500/20 text-sky-400' : 'text-slate-500 hover:text-slate-300'"
-            @click="isLocal && toggle()"
-          >github raw</button>
+        <div class="ml-auto flex items-center gap-4">
+          <p
+            v-if="collectedAt"
+            class="text-xs text-slate-500"
+            :title="formatLocalTime(collectedAt)"
+          >updated {{ relativeTime(collectedAt) }}</p>
+
+          <div
+            v-if="isDev"
+            class="flex items-center rounded-full border border-slate-700 bg-slate-900 p-0.5 text-xs font-mono"
+            title="Toggle data source between local /data and GitHub raw"
+          >
+            <button
+              class="rounded-full px-3 py-1 transition-colors"
+              :class="isLocal ? 'bg-amber-500/20 text-amber-400' : 'text-slate-500 hover:text-slate-300'"
+              @click="isLocal || toggle()"
+            >local</button>
+            <button
+              class="rounded-full px-3 py-1 transition-colors"
+              :class="!isLocal ? 'bg-sky-500/20 text-sky-400' : 'text-slate-500 hover:text-slate-300'"
+              @click="isLocal && toggle()"
+            >github raw</button>
+          </div>
         </div>
       </div>
     </nav>
 
-    <main class="mx-auto max-w-6xl px-6 py-8">
+    <main :class="['mx-auto max-w-6xl px-6', isEmbedded ? 'py-4' : 'py-8']">
 
       <!-- Overview tab -->
       <template v-if="activeTab === 'Overview'">
@@ -70,7 +75,7 @@ const isDev = import.meta.dev
           Loading…
         </div>
         <template v-else>
-          <div v-if="orgSummary" class="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div v-if="orgSummary" class="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             <OrgSummaryCard label="Total stars" :value="orgSummary.totalStars" />
             <OrgSummaryCard label="Contributors" :value="orgSummary.uniqueContributors" />
             <OrgSummaryCard label="Open issues" :value="orgSummary.openIssues" />
