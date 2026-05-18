@@ -62,7 +62,11 @@ const maxFlow = computed(() => {
     totals[p.bucket]!.opened += p.opened
     totals[p.bucket]!.closed += p.closed
   }
-  return Math.max(1, ...Object.values(totals).flatMap(b => [b.opened, b.closed]))
+  const vals = Object.values(totals).map(b => Math.max(b.opened, b.closed)).sort((a, b) => a - b)
+  if (vals.length === 0) return 1
+  const q1 = vals[Math.floor(vals.length * 0.25)] ?? 0
+  const q3 = vals[Math.floor(vals.length * 0.75)] ?? 0
+  return Math.max(1, q3 + 1.5 * (q3 - q1))
 })
 
 const baseline = computed(() => PAD_T + CHART_H / 2)
@@ -71,14 +75,21 @@ function flowToPixels(count: number): number {
   return (count / maxFlow.value) * (CHART_H / 2)
 }
 
-function stackedBars(bucket: string, bx: number, bw: number) {
-  const rects: Array<{ x: number; y: number; w: number; h: number; fill: string; repo: string; opened: number; closed: number }> = []
+interface BarRect {
+  x: number; y: number; w: number; h: number
+  fill: string; repo: string; opened: number; closed: number
+}
+interface ClipMarker { cx: number; cy: number; w: number; dir: 'up' | 'down' }
+
+function stackedBars(bucket: string, bx: number, bw: number): { rects: BarRect[]; markers: ClipMarker[] } {
+  const rects: BarRect[] = []
+  const markers: ClipMarker[] = []
   let topOffset = 0
   let botOffset = 0
   const bl = baseline.value
   const bwHalf = bw / 2
+  const halfH = CHART_H / 2
 
-  // Iterate allRepos for stable ordering; only emit rects for repos with data
   for (const repo of props.allRepos) {
     const pt = props.stats.flowPoints.find(p => p.bucket === bucket && p.repo === repo)
     if (!pt) continue
@@ -94,12 +105,23 @@ function stackedBars(bucket: string, bx: number, bw: number) {
       botOffset += h
     }
   }
-  return rects
+
+  if (topOffset > halfH) markers.push({ cx: bx, cy: PAD_T, w: bw, dir: 'up' })
+  if (botOffset > halfH) markers.push({ cx: bx, cy: PAD_T + CHART_H, w: bw, dir: 'down' })
+
+  return { rects, markers }
 }
 
-const allRects = computed(() =>
-  buckets.value.flatMap((bucket, i) => stackedBars(bucket, bucketX(i), barWidth.value)),
-)
+const allElements = computed(() => {
+  const rects: BarRect[] = []
+  const clipMarkers: ClipMarker[] = []
+  for (const [i, bucket] of buckets.value.entries()) {
+    const el = stackedBars(bucket, bucketX(i), barWidth.value)
+    rects.push(...el.rects)
+    clipMarkers.push(...el.markers)
+  }
+  return { rects, clipMarkers }
+})
 
 const maxStock = computed(() => Math.max(1, ...props.stats.stockSeries.map(s => s.openCount)))
 
@@ -149,7 +171,7 @@ const xLabels = computed(() => {
     .filter(({ i }) => i % step === 0)
 })
 
-function onRectMouseEnter(_event: MouseEvent, rect: ReturnType<typeof stackedBars>[0]) {
+function onRectMouseEnter(_event: MouseEvent, rect: BarRect) {
   const dir = rect.opened > 0 ? 'opened' : 'closed'
   const count = rect.opened > 0 ? rect.opened : rect.closed
   tooltip.value = {
@@ -196,6 +218,12 @@ function onRectMouseLeave() {
     <!-- Chart -->
     <div class="relative">
       <svg :viewBox="`0 0 ${W} ${H}`" class="block w-full h-auto">
+        <defs>
+          <clipPath id="chart-area">
+            <rect :x="PAD_L" :y="PAD_T" :width="CHART_W" :height="CHART_H" />
+          </clipPath>
+        </defs>
+
         <!-- Zero baseline -->
         <line
           :x1="PAD_L" :y1="baseline" :x2="W - PAD_R" :y2="baseline"
@@ -232,18 +260,35 @@ function onRectMouseLeave() {
           <text :x="W - PAD_R + 7" :y="t.y + 4.5" fill="#7dd3fc" font-size="13">{{ t.label }}</text>
         </g>
 
-        <!-- Stacked bars -->
-        <rect
-          v-for="(rect, ri) in allRects"
-          :key="ri"
-          :x="rect.x" :y="rect.y" :width="rect.w" :height="rect.h"
-          :fill="rect.fill"
-          fill-opacity="0.75"
-          class="cursor-pointer"
-          style="transition: fill-opacity 0.1s"
-          @mouseenter="onRectMouseEnter($event, rect)"
-          @mouseleave="onRectMouseLeave"
-        />
+        <!-- Stacked bars (clipped so outlier spikes don't overflow chart bounds) -->
+        <g clip-path="url(#chart-area)">
+          <rect
+            v-for="(rect, ri) in allElements.rects"
+            :key="ri"
+            :x="rect.x" :y="rect.y" :width="rect.w" :height="rect.h"
+            :fill="rect.fill"
+            fill-opacity="0.75"
+            class="cursor-pointer"
+            style="transition: fill-opacity 0.1s"
+            @mouseenter="onRectMouseEnter($event, rect)"
+            @mouseleave="onRectMouseLeave"
+          />
+        </g>
+
+        <!-- Clip markers: two parallel hatch lines at the cut edge of clipped bars -->
+        <g v-for="(m, mi) in allElements.clipMarkers" :key="'cm' + mi">
+          <line
+            v-for="offset in [3, 7]"
+            :key="offset"
+            :x1="m.cx - m.w / 2 + 1"
+            :y1="m.dir === 'up' ? m.cy + offset : m.cy - offset"
+            :x2="m.cx + m.w / 2 - 1"
+            :y2="m.dir === 'up' ? m.cy + offset - (m.w - 2) * 0.577 : m.cy - offset + (m.w - 2) * 0.577"
+            stroke="white"
+            stroke-width="1.5"
+            stroke-opacity="0.7"
+          />
+        </g>
 
         <!-- Stock line overlay -->
         <path
