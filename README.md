@@ -11,7 +11,7 @@ Nuxt + Tailwind scaffold for the biocommons GitHub activity dashboard.
 
 ## Local setup (under 5 minutes)
 
-0. Ensure pnpm version matches project:
+1. Ensure pnpm version matches project:
 
 ```bash
 corepack use pnpm@11.1.2
@@ -23,19 +23,19 @@ corepack use pnpm@11.1.2
 pnpm install
 ```
 
-2. Run dev server:
+1. Run dev server:
 
 ```bash
 pnpm dev
 ```
 
-3. Build for production:
+1. Build for production:
 
 ```bash
 pnpm build
 ```
 
-4. Preview production build locally:
+1. Preview production build locally:
 
 ```bash
 pnpm preview
@@ -44,14 +44,14 @@ pnpm preview
 ## Deployment (Vercel)
 
 1. Import `biocommons/github-stats` in Vercel.
-2. Use framework preset: `Nuxt`.
-3. Keep defaults:
-	- Install command: `pnpm install`
-	- Build command: `pnpm build`
-	- Output: managed by Nuxt/Vercel integration
-4. Confirm deploy behavior:
-	- Push to `main` creates/updates production deploy.
-	- Push to any feature branch creates a preview deployment URL.
+1. Use framework preset: `Nuxt`.
+1. Keep defaults:
+   - Install command: `pnpm install`
+   - Build command: `pnpm build`
+   - Output: managed by Nuxt/Vercel integration
+1. Confirm deploy behavior:
+   - Push to `main` creates/updates production deploy.
+   - Push to any feature branch creates a preview deployment URL.
 
 ## Data collection
 
@@ -70,7 +70,7 @@ export GITHUB_TOKEN=ghp_...
 uv run scripts/collect.py
 ```
 
-API responses are cached in `/tmp/github-stats-cache.sqlite` for 15 minutes by default, so re-runs during development are fast.
+API responses are cached in `/tmp/github-stats-cache/` for 15 minutes by default, so re-runs during development are fast.
 
 ```bash
 uv run scripts/collect.py -v          # INFO logging
