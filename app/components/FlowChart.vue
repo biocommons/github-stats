@@ -104,7 +104,7 @@ const allRects = computed(() =>
 const maxStock = computed(() => Math.max(1, ...props.stats.stockSeries.map(s => s.openCount)))
 
 function stockY(count: number): number {
-  return PAD_T + CHART_H - (count / maxStock.value) * CHART_H
+  return baseline.value - (count / maxStock.value) * (CHART_H / 2)
 }
 
 const stockPath = computed(() => {
