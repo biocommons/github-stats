@@ -50,17 +50,43 @@ export interface FlowStats {
   totalClosed: number
 }
 
+function fillContiguousBuckets(first: string, last: string, granularity: TimeBucket): string[] {
+  const result: string[] = []
+  if (granularity === 'month') {
+    let year = parseInt(first)
+    let month = parseInt(first.slice(5))
+    const endYear = parseInt(last)
+    const endMonth = parseInt(last.slice(5))
+    while (year < endYear || (year === endYear && month <= endMonth)) {
+      result.push(`${year}-${String(month).padStart(2, '0')}`)
+      if (++month > 12) { month = 1; year++ }
+    }
+  } else {
+    let year = parseInt(first)
+    let q = parseInt(first.slice(5))
+    const endYear = parseInt(last)
+    const endQ = parseInt(last.slice(5))
+    while (year < endYear || (year === endYear && q <= endQ)) {
+      result.push(`${year}Q${q}`)
+      if (++q > 4) { q = 1; year++ }
+    }
+  }
+  return result
+}
+
 export function computeFlowStats(records: FlowRecord[], granularity: TimeBucket): FlowStats {
   const repos = [...new Set(records.map(r => r.repo))].sort()
 
-  const allBuckets = new Set<string>()
+  const sparseBuckets = new Set<string>()
   for (const r of records) {
-    allBuckets.add(toBucket(r.created_at, granularity))
-    if (r.closed_at) allBuckets.add(toBucket(r.closed_at, granularity))
+    sparseBuckets.add(toBucket(r.created_at, granularity))
+    if (r.closed_at) sparseBuckets.add(toBucket(r.closed_at, granularity))
   }
   // Always extend the axis through the current period so the chart reads as "up to today"
-  allBuckets.add(toBucket(new Date().toISOString(), granularity))
-  const buckets = [...allBuckets].sort()
+  sparseBuckets.add(toBucket(new Date().toISOString(), granularity))
+  const sorted = [...sparseBuckets].sort()
+  // Fill every period between first and last so the x-axis is evenly spaced with no gaps
+  const buckets = sorted.length >= 2 ? fillContiguousBuckets(sorted[0]!, sorted[sorted.length - 1]!, granularity) : sorted
 
   const openedMap: Record<string, Record<string, number>> = {}
   const closedMap: Record<string, Record<string, number>> = {}
