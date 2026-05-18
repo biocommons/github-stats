@@ -12,21 +12,36 @@ import sys
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any, Optional
-from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
+import click
 import requests
 from loguru import logger
-
-# Configure loguru
-logger.remove()  # Remove default handler
-logger.add(sys.stderr, format="<level>{level: <8}</level> | <cyan>{name}</cyan>:<cyan>{function}</cyan> - <level>{message}</level>")
 
 # Configuration
 REPOS_TO_COLLECT = ['anyvar', 'bioutils', 'eutils', 'hgvs', 'seqrepo', 'seqrepo-rest-service', 'uta']
 ORG = 'biocommons'
 DATA_DIR = Path(__file__).parent.parent / 'data'
-GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
+
+
+def configure_logging(verbosity: int) -> None:
+    """Configure loguru logging level from Unix-style -v flags.
+
+    Default: WARNING, -v: INFO, -vv+: DEBUG.
+    """
+    if verbosity <= 0:
+        level = 'WARNING'
+    elif verbosity == 1:
+        level = 'INFO'
+    else:
+        level = 'DEBUG'
+
+    logger.remove()
+    logger.add(
+        sys.stderr,
+        level=level,
+        format='<level>{level: <8}</level> | <cyan>{name}</cyan>:<cyan>{function}</cyan> - <level>{message}</level>',
+    )
 
 
 class GitHubClient:
@@ -42,13 +57,24 @@ class GitHubClient:
             'User-Agent': 'biocommons/github-stats',
         })
 
-    def request(self, endpoint: str) -> dict | list:
+    def request(
+        self,
+        endpoint: str,
+        *,
+        allow_statuses: tuple[int, ...] = (),
+    ) -> dict | list | None:
         """Make a single GET request to GitHub API."""
         url = f'{self.base_url}{endpoint}'
         try:
             response = self.session.get(url)
             response.raise_for_status()
             return response.json()
+        except requests.exceptions.HTTPError as e:
+            status = e.response.status_code if e.response is not None else None
+            if status in allow_statuses:
+                return None
+            logger.error(f"API request failed for {endpoint}: {e}")
+            raise
         except requests.exceptions.RequestException as e:
             logger.error(f"API request failed for {endpoint}: {e}")
             raise
@@ -82,15 +108,31 @@ class GitHubClient:
         """Get repository metadata."""
         return self.request(f'/repos/{owner}/{repo}')
 
-    def get_open_issue_count(self, owner: str, repo: str) -> int:
+    def get_open_issue_count(self, owner: str, repo: str, *, has_issues: bool) -> int:
         """Get count of open issues."""
-        result = self.request(f'/search/issues?q=repo:{owner}/{repo}+type:issue+state:open')
-        return result['total_count']
+        if not has_issues:
+            return 0
+
+        try:
+            result = self.request(f'/search/issues?q=repo:{owner}/{repo}+type:issue+state:open')
+            if not isinstance(result, dict):
+                return 0
+            return result['total_count']
+        except requests.exceptions.HTTPError as e:
+            status = e.response.status_code if e.response is not None else None
+            if status == 422:
+                # Some repos can reject search queries (for example, issues disabled).
+                logger.warning(
+                    f'Unable to search open issues for {owner}/{repo} (422); defaulting to 0.',
+                )
+                return 0
+            raise
 
     def get_open_pr_count(self, owner: str, repo: str) -> int:
         """Get count of open pull requests."""
-        result = self.request(f'/search/issues?q=repo:{owner}/{repo}+type:pr+state:open')
-        return result['total_count']
+        # Use pulls endpoint to avoid search API edge-case failures.
+        open_prs = self.request_paginated(f'/repos/{owner}/{repo}/pulls?state=open')
+        return len(open_prs)
 
     def get_contributor_count(self, owner: str, repo: str) -> int:
         """Get count of contributors."""
@@ -107,10 +149,15 @@ class GitHubClient:
 
     def get_latest_release(self, owner: str, repo: str) -> Optional[dict]:
         """Get latest release."""
-        try:
-            return self.request(f'/repos/{owner}/{repo}/releases/latest')
-        except requests.exceptions.HTTPError:
+        result = self.request(
+            f'/repos/{owner}/{repo}/releases/latest',
+            allow_statuses=(404,),
+        )
+        if result is None:
             return None
+        if not isinstance(result, dict):
+            return None
+        return result
 
     def get_all_commits(self, owner: str, repo: str) -> list:
         """Get all commits."""
@@ -161,13 +208,23 @@ class DataCollector:
         logger.debug(f'Fetching metadata for {owner}/{repo}...')
         # Collect repo metadata
         repo_data = self.client.get_repo(owner, repo)
-        open_issue_count = self.client.get_open_issue_count(owner, repo)
+        repo_key = repo
+        if repo_data.get('name') != repo:
+            logger.warning(
+                f"Configured repo slug '{repo}' resolved to GitHub name '{repo_data.get('name')}'. "
+                'Keeping configured slug as dataset key.',
+            )
+        open_issue_count = self.client.get_open_issue_count(
+            owner,
+            repo,
+            has_issues=bool(repo_data.get('has_issues', True)),
+        )
         open_pr_count = self.client.get_open_pr_count(owner, repo)
         contributor_count = self.client.get_contributor_count(owner, repo)
         latest_release = self.client.get_latest_release(owner, repo)
 
         self.repos.append({
-            'name': repo_data['name'],
+            'name': repo_key,
             'full_name': repo_data['full_name'],
             'html_url': repo_data['html_url'],
             'description': repo_data['description'],
@@ -193,7 +250,7 @@ class DataCollector:
             self.issues.append({
                 'id': issue['id'],
                 'number': issue['number'],
-                'repo': repo,
+                'repo': repo_key,
                 'created_at': issue['created_at'],
                 'closed_at': issue['closed_at'],
                 'state': issue['state'],
@@ -209,7 +266,7 @@ class DataCollector:
             self.prs.append({
                 'id': pr['id'],
                 'number': pr['number'],
-                'repo': repo,
+                'repo': repo_key,
                 'created_at': pr['created_at'],
                 'closed_at': pr['closed_at'],
                 'merged_at': pr['merged_at'],
@@ -225,7 +282,7 @@ class DataCollector:
             self.commits.append({
                 'author_login': commit.get('author', {}).get('login') if commit.get('author') else None,
                 'author_date': commit['commit']['author']['date'],
-                'repo': repo,
+                'repo': repo_key,
             })
 
         logger.debug(f'Fetching PR reviews for {owner}/{repo}...')
@@ -238,10 +295,10 @@ class DataCollector:
                     self.reviews.append({
                         'reviewer_login': review['user']['login'] if review['user'] else None,
                         'submitted_at': review['submitted_at'],
-                        'repo': repo,
+                        'repo': repo_key,
                     })
 
-    def write(self) -> None:
+    def write(self) -> dict[str, Any]:
         """Write collected data to JSON files."""
         # Ensure data directory exists
         DATA_DIR.mkdir(exist_ok=True)
@@ -278,14 +335,16 @@ class DataCollector:
         contributors = self.aggregate_contributors()
         self.write_json('contributors.json', contributors)
 
-        logger.info(f'Data written to {DATA_DIR}')
-        logger.info(f'Collection took {collection_duration_ms}ms')
-        logger.info(f'Repos: {len(self.repos)}')
-        logger.info(f'Issues: {len(self.issues)}')
-        logger.info(f'PRs: {len(self.prs)}')
-        logger.info(f'Commits: {len(self.commits)}')
-        logger.info(f'Reviews: {len(self.reviews)}')
-        logger.info(f'Contributors: {len(contributors)}')
+        return {
+            'data_dir': str(DATA_DIR),
+            'collection_duration_ms': collection_duration_ms,
+            'repos': len(self.repos),
+            'issues': len(self.issues),
+            'prs': len(self.prs),
+            'commits': len(self.commits),
+            'reviews': len(self.reviews),
+            'contributors': len(contributors),
+        }
 
     def aggregate_contributors(self) -> list:
         """Aggregate contributor data."""
@@ -434,20 +493,39 @@ class DataCollector:
         with open(filepath, 'w') as f:
             json.dump(data, f, indent=2)
             f.write('\n')
-        logger.info(f'✓ {filename}')
+        logger.debug(f'Wrote {filename}')
 
 
-def main():
+@click.command()
+@click.option(
+    '-v',
+    'verbosity',
+    count=True,
+    help='Increase verbosity (-v=INFO, -vv=DEBUG).',
+)
+def main(verbosity: int) -> None:
     """Main entry point."""
-    if not GITHUB_TOKEN:
+    configure_logging(verbosity)
+    github_token = os.getenv('GITHUB_TOKEN')
+
+    if not github_token:
         logger.error('GITHUB_TOKEN environment variable is required')
         sys.exit(1)
 
     try:
-        collector = DataCollector(GITHUB_TOKEN)
+        collector = DataCollector(github_token)
         collector.collect()
-        collector.write()
-        logger.info('Done!')
+        summary = collector.write()
+
+        # Summary should always go to stdout, independent of log verbosity.
+        click.echo(f"Data written to {summary['data_dir']}")
+        click.echo(f"Collection took {summary['collection_duration_ms']}ms")
+        click.echo(f"Repos: {summary['repos']}")
+        click.echo(f"Issues: {summary['issues']}")
+        click.echo(f"PRs: {summary['prs']}")
+        click.echo(f"Commits: {summary['commits']}")
+        click.echo(f"Reviews: {summary['reviews']}")
+        click.echo(f"Contributors: {summary['contributors']}")
     except Exception as e:
         logger.exception(f'Fatal error: {e}')
         sys.exit(1)
