@@ -39,6 +39,22 @@ watch(() => route.query.tab, () => {
 
 const { orgSummary, repoCards, isLoading, collectedAt, relativeTime, formatLocalTime } = useOverviewData()
 const { stats: issueStats, allRepos: issueAllRepos, granularity, selectedRepos, toggleRepo } = useFlowStats('issues')
+
+function granularityFromQuery(): 'month' | 'quarter' {
+  const g = typeof route.query.granularity === 'string' ? route.query.granularity : ''
+  return g === 'quarter' ? 'quarter' : 'month'
+}
+
+granularity.value = granularityFromQuery()
+
+watch(granularity, (g) => {
+  router.replace({ query: { ...route.query, granularity: g } })
+})
+
+watch(() => route.query.granularity, () => {
+  const g = granularityFromQuery()
+  if (g !== granularity.value) granularity.value = g
+})
 const { isLocal, toggle } = useDataSource()
 const { isEmbedded } = useEmbedMode()
 const isDev = import.meta.dev

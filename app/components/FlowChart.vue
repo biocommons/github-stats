@@ -186,13 +186,6 @@ function formatBucketLabel(b: string, gran: TimeBucket): string {
   const year = bucketYear(b)
   const yy = String(year).slice(2)
   const sub = bucketSub(b)
-  if (gran === 'week') {
-    // Map week number to approximate quarter label
-    if (sub <= 2) return `Jan '${yy}`
-    if (sub <= 15) return `Apr '${yy}`
-    if (sub <= 28) return `Jul '${yy}`
-    return `Oct '${yy}`
-  }
   if (gran === 'month') return `${MONTH_ABB[sub - 1]} '${yy}`
   return sub === 1 ? `'${yy}` : `Q${sub} '${yy}`
 }
@@ -209,30 +202,14 @@ const xLabels = computed(() => {
 
   const indices = new Set<number>()
 
-  if (gran === 'week') {
-    const targets = yearSpan <= 1 ? [1, 14, 27, 40] : yearSpan <= 2 ? [1, 27] : [1]
-    const years = [...new Set(buks.map(bucketYear))]
-    for (const year of years) {
-      for (const target of targets) {
-        let best = -1, bestDist = Infinity
-        for (let i = 0; i < buks.length; i++) {
-          if (bucketYear(buks[i]!) !== year) continue
-          const d = Math.abs(bucketSub(buks[i]!, gran) - target)
-          if (d < bestDist) { bestDist = d; best = i }
-        }
-        if (best >= 0 && bestDist <= 3) indices.add(best)
-      }
-    }
-  } else {
-    const targets = gran === 'month'
-      ? (yearSpan <= 1 ? [1, 4, 7, 10] : yearSpan <= 3 ? [1, 7] : [1])
-      : (yearSpan <= 2 ? [1, 2, 3, 4] : yearSpan <= 5 ? [1, 3] : [1])
-    const years = [...new Set(buks.map(bucketYear))]
-    for (const year of years) {
-      for (const sub of targets) {
-        const idx = buks.findIndex(b => bucketYear(b) === year && bucketSub(b) === sub)
-        if (idx >= 0) indices.add(idx)
-      }
+  const targets = gran === 'month'
+    ? (yearSpan <= 1 ? [1, 4, 7, 10] : yearSpan <= 3 ? [1, 7] : [1])
+    : (yearSpan <= 2 ? [1, 2, 3, 4] : yearSpan <= 5 ? [1, 3] : [1])
+  const years = [...new Set(buks.map(bucketYear))]
+  for (const year of years) {
+    for (const sub of targets) {
+      const idx = buks.findIndex(b => bucketYear(b) === year && bucketSub(b) === sub)
+      if (idx >= 0) indices.add(idx)
     }
   }
 
@@ -271,7 +248,7 @@ function onRectMouseLeave() {
       <!-- Granularity selector -->
       <div class="flex items-center rounded-full border border-slate-700 bg-slate-900 p-0.5 text-sm">
         <button
-          v-for="g in (['week', 'month', 'quarter'] as const)"
+          v-for="g in (['month', 'quarter'] as const)"
           :key="g"
           class="rounded-full px-3 py-1 transition-colors capitalize"
           :class="granularity === g ? 'bg-emerald-500/20 text-emerald-300' : 'text-slate-400 hover:text-slate-200'"

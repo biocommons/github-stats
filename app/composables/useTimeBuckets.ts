@@ -4,15 +4,6 @@
  * Returns string keys suitable for grouping and display.
  */
 
-export function toYearWeek(isoDate: string): string {
-  const d = new Date(isoDate)
-  // Thursday-anchored ISO week: shift to Thursday of the same week, then find week number.
-  const thursday = new Date(d)
-  thursday.setUTCDate(d.getUTCDate() - ((d.getUTCDay() + 6) % 7) + 3)
-  const jan4 = new Date(Date.UTC(thursday.getUTCFullYear(), 0, 4))
-  const week = Math.round((thursday.getTime() - jan4.getTime()) / 604_800_000) + 1
-  return `${thursday.getUTCFullYear()}W${String(week).padStart(2, '0')}`
-}
 
 export function toYearMonth(isoDate: string): string {
   const d = new Date(isoDate)
@@ -25,7 +16,7 @@ export function toYearQuarter(isoDate: string): string {
   return `${d.getUTCFullYear()}Q${quarter}`
 }
 
-export type TimeBucket = 'week' | 'month' | 'quarter'
+export type TimeBucket = 'month' | 'quarter'
 
 export function formatLocalTime(iso: string): string {
   return new Date(iso).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' })
@@ -41,7 +32,6 @@ export function relativeTime(iso: string): string {
 }
 
 export function toBucket(isoDate: string, bucket: TimeBucket): string {
-  if (bucket === 'week') return toYearWeek(isoDate)
   if (bucket === 'quarter') return toYearQuarter(isoDate)
   return toYearMonth(isoDate)
 }
