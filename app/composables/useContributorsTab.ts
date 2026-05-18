@@ -10,6 +10,7 @@ export interface ContributorRow {
   sparkline: number[]
   isNew: boolean
   isTop: boolean
+  isAnonymous: boolean
   total: ContributorCounts
   byRepo: Record<string, ContributorCounts>
   totalCount: number
@@ -139,12 +140,39 @@ export function useContributorsTab() {
     withCounts.sort((a, b) => b.totalCount - a.totalCount)
     const topLogins = new Set(withCounts.filter(s => s.totalCount > 0).slice(0, 3).map(s => s.login))
 
+    // Anonymous counts: null-login events in filtered data, aggregated by repo
+    const anonTotal = emptyCounts()
+    const anonByRepo: Record<string, ContributorCounts> = {}
+    function tallyAnon(login: string | null, repo: string, key: keyof ContributorCounts) {
+      if (login !== null) return
+      anonTotal[key]++
+      if (!anonByRepo[repo]) anonByRepo[repo] = emptyCounts()
+      anonByRepo[repo]![key]++
+    }
+    for (const r of commits.filter(r => afterCutoff(r.author_date))) tallyAnon(r.author_login, r.repo, 'commits')
+    for (const r of issues.filter(r => afterCutoff(r.created_at))) tallyAnon(r.author_login, r.repo, 'issues_opened')
+    for (const r of prs.filter(r => afterCutoff(r.created_at))) tallyAnon(r.author_login, r.repo, 'prs_opened')
+    for (const r of reviews.filter(r => afterCutoff(r.submitted_at))) tallyAnon(r.reviewer_login, r.repo, 'reviews_submitted')
+
     const colMaxes = computeColMaxes(filteredStats, repos)
+
+    // Include anonymous counts in normalization so shading is comparable across all rows
+    const countKeys: (keyof ContributorCounts)[] = ['commits', 'issues_opened', 'prs_opened', 'reviews_submitted']
+    for (const k of countKeys) colMaxes['total']![k] = Math.max(colMaxes['total']![k], anonTotal[k])
+    for (const repo of repos) {
+      const ac = anonByRepo[repo] ?? emptyCounts()
+      for (const k of countKeys) colMaxes[repo]![k] = Math.max(colMaxes[repo]![k], ac[k])
+    }
 
     // Sparklines always show last 12 months regardless of timespan filter
     const sparkMap: Record<string, Record<string, number>> = {}
+    const anonSparkMap: Record<string, number> = {}
     function addSpark(login: string | null, month: string) {
-      if (!login || !monthSet.has(month)) return
+      if (!monthSet.has(month)) return
+      if (login === null) {
+        anonSparkMap[month] = (anonSparkMap[month] ?? 0) + 1
+        return
+      }
       if (!sparkMap[login]) sparkMap[login] = {}
       sparkMap[login]![month] = (sparkMap[login]![month] ?? 0) + 1
     }
@@ -167,11 +195,28 @@ export function useContributorsTab() {
           sparkline: months.map(m => sparkMap[s.login]?.[m] ?? 0),
           isNew: daysOld < 90 && allTimeCount >= 3,
           isTop: topLogins.has(s.login),
+          isAnonymous: false,
           total: s.all_time,
           byRepo: s.by_repo,
           totalCount: s.totalCount,
         }
       })
+
+    const anonCount = countTotal(anonTotal)
+    if (anonCount > 0) {
+      rows.push({
+        login: '(anonymous)',
+        avatar_url: '',
+        first_contribution_at: '',
+        sparkline: months.map(m => anonSparkMap[m] ?? 0),
+        isNew: false,
+        isTop: false,
+        isAnonymous: true,
+        total: anonTotal,
+        byRepo: anonByRepo,
+        totalCount: anonCount,
+      })
+    }
 
     return { rows, repos, colMaxes }
   })

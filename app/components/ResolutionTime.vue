@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { FlowStats } from '~/composables/useFlowStats'
 import { RESOLUTION_BUCKETS } from '~/composables/useFlowStats'
+import { repoDisplayName } from '~/config'
 
 const props = defineProps<{
   stats: FlowStats
@@ -63,7 +64,7 @@ const closedLabel = computed(() => props.itemLabel === 'PRs' ? 'merged PRs' : `c
               v-for="seg in stackSegments(bucket)"
               :key="seg.repo"
               :style="{ width: `${seg.pct}%`, background: repoColor(seg.repo) }"
-              :title="`${seg.repo}: ${seg.count} (${seg.pct.toFixed(1)}%)`"
+              :title="`${repoDisplayName(seg.repo)}: ${seg.count} (${seg.pct.toFixed(1)}%)`"
             />
           </div>
           <span class="w-24 shrink-0 text-right text-slate-400">

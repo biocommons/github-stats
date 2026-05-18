@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useContributorsTab, type ContribTimespan } from '~/composables/useContributorsTab'
 import type { ContributorCounts } from '~/composables/useContributorStats'
+import { repoDisplayName } from '~/config'
 
 const { tabData, timespan, isLoading } = useContributorsTab()
 
@@ -16,11 +17,6 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
   return byRepo[repo] ?? EMPTY_COUNTS
 }
 
-function repoLabel(repo: string): string {
-  // Strip org prefix (e.g. "biocommons/hgvs" → "hgvs")
-  const slash = repo.indexOf('/')
-  return slash >= 0 ? repo.slice(slash + 1) : repo
-}
 </script>
 
 <template>
@@ -71,7 +67,7 @@ function repoLabel(repo: string): string {
                 class="px-4 py-3 text-center min-w-[72px]"
                 :title="repo"
               >
-                {{ repoLabel(repo) }}
+                {{ repoDisplayName(repo) }}
               </th>
             </tr>
           </thead>
@@ -84,20 +80,32 @@ function repoLabel(repo: string): string {
               <!-- Contributor identity -->
               <td class="sticky left-0 z-10 bg-slate-950 px-4 py-2">
                 <div class="flex items-center gap-2">
-                  <img
-                    :src="row.avatar_url"
-                    :alt="row.login"
-                    class="h-7 w-7 rounded-full"
-                    loading="lazy"
-                  />
-                  <a
-                    :href="`https://github.com/${row.login}`"
-                    target="_blank"
-                    rel="noopener"
-                    class="font-mono text-slate-300 hover:text-emerald-300 transition-colors"
-                  >{{ row.login }}</a>
-                  <span v-if="row.isTop" title="Top contributor — top 3 by activity" class="text-base leading-none">🚀</span>
-                  <span v-if="row.isNew" title="New contributor — first contribution &lt;90 days ago" class="text-base leading-none">🌱</span>
+                  <template v-if="row.isAnonymous">
+                    <span
+                      class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-700 text-xs text-slate-400"
+                      title="Commits with no linked GitHub account"
+                    >?</span>
+                    <span
+                      class="font-mono text-xs italic text-slate-500"
+                      title="Commits whose git author email is not linked to a GitHub account"
+                    >{{ row.login }}</span>
+                  </template>
+                  <template v-else>
+                    <img
+                      :src="row.avatar_url"
+                      :alt="row.login"
+                      class="h-7 w-7 rounded-full"
+                      loading="lazy"
+                    />
+                    <a
+                      :href="`https://github.com/${row.login}`"
+                      target="_blank"
+                      rel="noopener"
+                      class="font-mono text-slate-300 hover:text-emerald-300 transition-colors"
+                    >{{ row.login }}</a>
+                    <span v-if="row.isTop" title="Top contributor — top 3 by activity" class="text-base leading-none">🚀</span>
+                    <span v-if="row.isNew" title="New contributor — first contribution &lt;90 days ago" class="text-base leading-none">🌱</span>
+                  </template>
                 </div>
               </td>
 

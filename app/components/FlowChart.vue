@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { FlowStats } from '~/composables/useFlowStats'
 import type { TimeBucket } from '~/composables/useTimeBuckets'
+import { repoDisplayName } from '~/config'
 
 const props = defineProps<{
   stats: FlowStats
@@ -266,7 +267,7 @@ function onRectMouseLeave() {
             ? { borderColor: repoColor(repo), color: repoColor(repo), background: repoColor(repo) + '22' }
             : { borderColor: '#334155', color: '#475569' }"
           @click="emit('toggle-repo', repo)"
-        >{{ repo }}</button>
+        >{{ repoDisplayName(repo) }}</button>
       </div>
     </div>
 
