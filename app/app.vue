@@ -7,7 +7,7 @@ type Tab = (typeof tabs)[number]
 
 const activeTab = ref<Tab>('Overview')
 
-const { orgSummary, repoCards, isLoading, collectedAt, relativeTime } = useOverviewData()
+const { orgSummary, repoCards, isLoading, collectedAt, relativeTime, formatLocalTime } = useOverviewData()
 const { isLocal, toggle } = useDataSource()
 const isDev = import.meta.dev
 </script>
@@ -21,7 +21,7 @@ const isDev = import.meta.dev
       <p
         v-if="collectedAt"
         class="text-xs text-slate-500"
-        :title="collectedAt"
+        :title="formatLocalTime(collectedAt)"
       >updated {{ relativeTime(collectedAt) }}</p>
     </header>
 

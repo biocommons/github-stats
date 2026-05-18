@@ -4,8 +4,7 @@ import type { RepoCardData } from '~/composables/useOverviewData'
 defineProps<{ repo: RepoCardData }>()
 
 function formatRelease(published_at: string): string {
-  const d = new Date(published_at)
-  return d.toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' })
+  return new Date(published_at).toLocaleDateString(undefined, { month: 'short', year: 'numeric' })
 }
 </script>
 

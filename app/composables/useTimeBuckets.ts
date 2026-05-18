@@ -27,6 +27,10 @@ export function toYearQuarter(isoDate: string): string {
 
 export type TimeBucket = 'week' | 'month' | 'quarter'
 
+export function formatLocalTime(iso: string): string {
+  return new Date(iso).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' })
+}
+
 export function relativeTime(iso: string): string {
   const mins = Math.floor((Date.now() - new Date(iso).getTime()) / 60_000)
   if (mins < 1) return 'just now'

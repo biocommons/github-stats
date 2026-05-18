@@ -1,4 +1,4 @@
-import { toYearMonth, relativeTime } from './useTimeBuckets'
+import { toYearMonth, relativeTime, formatLocalTime } from './useTimeBuckets'
 
 export interface OrgSummary {
   totalStars: number
@@ -109,5 +109,5 @@ export function useOverviewData() {
 
   const collectedAt = computed(() => data.value?.meta.collected_at ?? null)
 
-  return { orgSummary, repoCards, isLoading: pending, collectedAt, relativeTime }
+  return { orgSummary, repoCards, isLoading: pending, collectedAt, relativeTime, formatLocalTime }
 }

@@ -9,7 +9,7 @@ aggregates into JSON, and publishes to data/ directory.
 import json
 import os
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Optional
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -204,7 +204,7 @@ class DataCollector:
 
     def collect(self) -> None:
         """Collect data from all repositories in parallel."""
-        self.start_time = datetime.now()
+        self.start_time = datetime.now(timezone.utc)
         logger.info('Starting data collection...')
 
         with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
@@ -221,7 +221,7 @@ class DataCollector:
                 except Exception as e:
                     logger.error(f'Error collecting from {ORG}/{repo_name}: {e}')
 
-        self.end_time = datetime.now()
+        self.end_time = datetime.now(timezone.utc)
         logger.info('Data collection complete.')
 
     def collect_repo(self, owner: str, repo: str) -> None:
@@ -333,7 +333,7 @@ class DataCollector:
 
         # Write meta.json
         meta = {
-            'collected_at': datetime.now().isoformat(),
+            'collected_at': datetime.now(timezone.utc).isoformat(),
             'schema_version': '1.0',
             'repos': sorted(self.repo_list),
             'run_trigger': self.get_trigger(),
