@@ -39,6 +39,10 @@ watch(() => route.query.tab, () => {
 
 const { orgSummary, repoCards, isLoading, collectedAt, relativeTime, formatLocalTime } = useOverviewData()
 const { stats: issueStats, allRepos: issueAllRepos, granularity, selectedRepos, toggleRepo } = useFlowStats('issues')
+const { stats: prStats, allRepos: prAllRepos, granularity: prGranularity, selectedRepos: prSelectedRepos, toggleRepo: prToggleRepo } = useFlowStats('prs')
+
+// Keep PR granularity in sync with the shared URL-driven granularity ref
+watch(granularity, (g) => { prGranularity.value = g }, { immediate: true })
 
 function granularityFromQuery(): 'month' | 'quarter' {
   const g = typeof route.query.granularity === 'string' ? route.query.granularity : ''
@@ -149,6 +153,27 @@ const isDev = import.meta.dev
           />
           <div class="mt-10 border-t border-slate-800 pt-8">
             <ResolutionTime :stats="issueStats" :all-repos="issueAllRepos" item-label="issues" />
+          </div>
+        </template>
+      </template>
+
+      <!-- PRs tab -->
+      <template v-else-if="activeTab === 'PRs'">
+        <div v-if="!prStats" class="flex items-center justify-center py-24 text-slate-500">
+          Loading…
+        </div>
+        <template v-else>
+          <FlowChart
+            :stats="prStats"
+            :all-repos="prAllRepos"
+            :granularity="granularity"
+            :selected-repos="prSelectedRepos"
+            item-label="PRs"
+            @update:granularity="granularity = $event"
+            @toggle-repo="prToggleRepo"
+          />
+          <div class="mt-10 border-t border-slate-800 pt-8">
+            <ResolutionTime :stats="prStats" :all-repos="prAllRepos" item-label="PRs" />
           </div>
         </template>
       </template>
