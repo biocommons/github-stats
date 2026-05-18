@@ -67,7 +67,7 @@ const maxFlow = computed(() => {
   if (vals.length === 0) return 1
   const q1 = vals[Math.floor(vals.length * 0.25)] ?? 0
   const q3 = vals[Math.floor(vals.length * 0.75)] ?? 0
-  return Math.max(1, q3 + 1.5 * (q3 - q1))
+  return Math.max(5, q3 + 1.5 * (q3 - q1))
 })
 
 const baseline = computed(() => PAD_T + CHART_H / 2)
@@ -268,7 +268,7 @@ function onRectMouseLeave() {
           class="rounded-full border px-2.5 py-0.5 text-sm font-medium transition-colors"
           :style="selectedRepos.has(repo)
             ? { borderColor: repoColor(repo), color: repoColor(repo), background: repoColor(repo) + '22' }
-            : { borderColor: '#334155', color: '#475569' }"
+            : { borderColor: '#64748b', color: '#94a3b8' }"
           @click="emit('toggle-repo', repo)"
         >{{ repoDisplayName(repo) }}</button>
       </div>
