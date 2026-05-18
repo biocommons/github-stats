@@ -141,25 +141,36 @@ const stockPath = computed(() => {
     .join(' ')
 })
 
-// Left Y-axis: 4 symmetric ticks above and below baseline
+function niceStep(maxVal: number, targetTicks = 4): number {
+  if (maxVal <= 0) return 1
+  const raw = maxVal / targetTicks
+  const mag = Math.pow(10, Math.floor(Math.log10(raw)))
+  const norm = raw / mag
+  const nice = norm <= 1 ? 1 : norm <= 2 ? 2 : norm <= 5 ? 5 : 10
+  return nice * mag
+}
+
+// Left Y-axis: symmetric nice ticks above and below baseline, always including 0
 const flowYLabels = computed(() => {
-  const ticks = [0.25, 0.5, 0.75, 1]
+  const step = niceStep(maxFlow.value)
   const bl = baseline.value
-  return ticks.flatMap(t => {
-    const v = Math.round(maxFlow.value * t)
-    return [
+  const labels: { y: number; label: string }[] = [{ y: bl, label: '0' }]
+  for (let v = step; v <= maxFlow.value; v += step) {
+    labels.push(
       { y: bl - flowToPixels(v), label: `+${v}` },
       { y: bl + flowToPixels(v), label: `-${v}` },
-    ]
-  })
+    )
+  }
+  return labels
 })
 
 const stockYLabels = computed(() => {
-  const ticks = [0, 0.25, 0.5, 0.75, 1]
-  return ticks.map(t => ({
-    y: stockY(maxStock.value * t),
-    label: Math.round(maxStock.value * t).toString(),
-  }))
+  const step = niceStep(maxStock.value)
+  const labels: { y: number; label: string }[] = []
+  for (let v = 0; v <= maxStock.value; v += step) {
+    labels.push({ y: stockY(v), label: v.toString() })
+  }
+  return labels
 })
 
 // Target ~13 visible x labels regardless of bucket count
