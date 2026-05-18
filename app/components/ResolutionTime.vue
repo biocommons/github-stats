@@ -36,9 +36,6 @@ function stackSegments(bucket: (typeof RESOLUTION_BUCKETS)[number]) {
     }))
 }
 
-const maxBucketTotal = computed(() =>
-  Math.max(1, ...props.stats.resolutionRows.map(r => r.total)),
-)
 
 function formatDays(days: number | null): string {
   if (days === null) return '—'
@@ -57,50 +54,22 @@ const closedLabel = computed(() => props.itemLabel === 'PRs' ? 'merged PRs' : `c
   <div class="space-y-4">
     <h3 class="text-sm font-semibold text-slate-300">Resolution time distribution</h3>
 
-    <div class="grid gap-8 sm:grid-cols-2">
-      <!-- % panel -->
-      <div>
-        <p class="mb-3 text-sm text-slate-400">% of all {{ closedLabel }}</p>
-        <div class="space-y-2.5">
-          <div v-for="bucket in RESOLUTION_BUCKETS" :key="bucket">
-            <div class="flex items-center gap-2 text-sm">
-              <span class="w-16 shrink-0 text-slate-300">{{ bucket }}</span>
-              <div class="flex h-5 flex-1 overflow-hidden rounded bg-slate-800">
-                <div
-                  v-for="seg in stackSegments(bucket)"
-                  :key="seg.repo"
-                  :style="{ width: `${seg.pct}%`, background: repoColor(seg.repo) }"
-                  :title="`${seg.repo}: ${seg.count} (${seg.pct.toFixed(1)}%)`"
-                />
-              </div>
-              <span class="w-10 shrink-0 text-right text-slate-400">
-                {{ stats.resolutionRows.find(r => r.bucket === bucket)?.total ?? 0 }}
-              </span>
-            </div>
+    <div class="space-y-2.5">
+      <div v-for="bucket in RESOLUTION_BUCKETS" :key="bucket">
+        <div class="flex items-center gap-2 text-sm">
+          <span class="w-16 shrink-0 text-slate-300">{{ bucket }}</span>
+          <div class="flex h-5 flex-1 overflow-hidden rounded bg-slate-800">
+            <div
+              v-for="seg in stackSegments(bucket)"
+              :key="seg.repo"
+              :style="{ width: `${seg.pct}%`, background: repoColor(seg.repo) }"
+              :title="`${seg.repo}: ${seg.count} (${seg.pct.toFixed(1)}%)`"
+            />
           </div>
-        </div>
-      </div>
-
-      <!-- Count panel -->
-      <div>
-        <p class="mb-3 text-sm text-slate-400">raw count per bucket</p>
-        <div class="space-y-2.5">
-          <div v-for="bucket in RESOLUTION_BUCKETS" :key="bucket">
-            <div class="flex items-center gap-2 text-sm">
-              <span class="w-16 shrink-0 text-slate-300">{{ bucket }}</span>
-              <div class="flex h-5 flex-1 overflow-hidden rounded bg-slate-800">
-                <div
-                  v-for="seg in stackSegments(bucket)"
-                  :key="seg.repo"
-                  :style="{ width: `${(seg.count / maxBucketTotal) * 100}%`, background: repoColor(seg.repo) }"
-                  :title="`${seg.repo}: ${seg.count}`"
-                />
-              </div>
-              <span class="w-10 shrink-0 text-right text-slate-400">
-                {{ stats.resolutionRows.find(r => r.bucket === bucket)?.total ?? 0 }}
-              </span>
-            </div>
-          </div>
+          <span class="w-24 shrink-0 text-right text-slate-400">
+            {{ stats.resolutionRows.find(r => r.bucket === bucket)?.total ?? 0 }}
+            <span class="text-slate-600">({{ totalClosed > 0 ? ((stats.resolutionRows.find(r => r.bucket === bucket)?.total ?? 0) / totalClosed * 100).toFixed(0) : 0 }}%)</span>
+          </span>
         </div>
       </div>
     </div>
