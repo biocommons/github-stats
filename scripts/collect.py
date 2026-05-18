@@ -14,6 +14,7 @@ from pathlib import Path
 from typing import Any, Optional
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
+import diskcache
 import click
 import requests
 from loguru import logger
@@ -47,15 +48,37 @@ def configure_logging(verbosity: int) -> None:
 class GitHubClient:
     """GitHub API client."""
 
-    def __init__(self, token: str):
-        self.token = token
+    def __init__(self, token: str, cache_ttl: int = 900):
         self.base_url = 'https://api.github.com'
+        self._cache_ttl = cache_ttl
+        self._cache: diskcache.Cache | None = None
+        if cache_ttl > 0:
+            cache_dir = Path('/tmp/github-stats-cache')
+            logger.info(
+                f'API cache enabled: ttl={cache_ttl}s, '
+                f'dir={cache_dir} ({"exists" if cache_dir.exists() else "will be created"})'
+            )
+            self._cache = diskcache.Cache(str(cache_dir))
         self.session = requests.Session()
         self.session.headers.update({
             'Authorization': f'token {token}',
             'Accept': 'application/vnd.github.v3+json',
             'User-Agent': 'biocommons/github-stats',
         })
+
+    def _get(self, url: str, params: dict | None = None) -> dict | list:
+        """GET with optional disk cache."""
+        key = (url, tuple(sorted((params or {}).items())))
+        if self._cache is not None:
+            cached = self._cache.get(key)
+            if cached is not None:
+                return cached
+        response = self.session.get(url, params=params)
+        response.raise_for_status()
+        data = response.json()
+        if self._cache is not None:
+            self._cache.set(key, data, expire=self._cache_ttl)
+        return data
 
     def request(
         self,
@@ -66,9 +89,7 @@ class GitHubClient:
         """Make a single GET request to GitHub API."""
         url = f'{self.base_url}{endpoint}'
         try:
-            response = self.session.get(url)
-            response.raise_for_status()
-            return response.json()
+            return self._get(url)
         except requests.exceptions.HTTPError as e:
             status = e.response.status_code if e.response is not None else None
             if status in allow_statuses:
@@ -88,9 +109,7 @@ class GitHubClient:
         while True:
             url = f'{self.base_url}{endpoint}'
             params = {'page': page, 'per_page': per_page}
-            response = self.session.get(url, params=params)
-            response.raise_for_status()
-            items = response.json()
+            items = self._get(url, params=params)
 
             if not items:
                 break
@@ -171,8 +190,10 @@ class GitHubClient:
 class DataCollector:
     """Collects GitHub data and aggregates it."""
 
-    def __init__(self, token: str):
-        self.client = GitHubClient(token)
+    def __init__(self, token: str, cache_ttl: int = 900, max_workers: int = 5, repos: list[str] | None = None):
+        self.client = GitHubClient(token, cache_ttl=cache_ttl)
+        self.max_workers = max_workers
+        self.repo_list = repos if repos else REPOS_TO_COLLECT
         self.issues = []
         self.prs = []
         self.commits = []
@@ -186,10 +207,10 @@ class DataCollector:
         self.start_time = datetime.now()
         logger.info('Starting data collection...')
 
-        with ThreadPoolExecutor(max_workers=5) as executor:
+        with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
             futures = {
                 executor.submit(self.collect_repo, ORG, repo_name): repo_name
-                for repo_name in REPOS_TO_COLLECT
+                for repo_name in self.repo_list
             }
 
             for future in as_completed(futures):
@@ -314,7 +335,7 @@ class DataCollector:
         meta = {
             'collected_at': datetime.now().isoformat(),
             'schema_version': '1.0',
-            'repos': sorted(REPOS_TO_COLLECT),
+            'repos': sorted(self.repo_list),
             'run_trigger': self.get_trigger(),
             'collection_duration_ms': collection_duration_ms,
         }
@@ -414,7 +435,24 @@ class DataCollector:
     count=True,
     help='Increase verbosity (-v=INFO, -vv=DEBUG).',
 )
-def main(verbosity: int) -> None:
+@click.option(
+    '--cache-ttl',
+    default=900,
+    show_default=True,
+    help='Cache API responses in /tmp for N seconds. Set to 0 to disable.',
+)
+@click.option(
+    '--max-workers',
+    default=5,
+    show_default=True,
+    help='Number of parallel threads for repo collection.',
+)
+@click.option(
+    '--repos',
+    multiple=True,
+    help='Repos to collect (default: all). Repeat or comma-separate: --repos hgvs,seqrepo --repos uta',
+)
+def main(verbosity: int, cache_ttl: int, max_workers: int, repos: tuple[str, ...]) -> None:
     """Main entry point."""
     configure_logging(verbosity)
     github_token = os.getenv('GITHUB_TOKEN')
@@ -424,7 +462,8 @@ def main(verbosity: int) -> None:
         sys.exit(1)
 
     try:
-        collector = DataCollector(github_token)
+        repo_list = [r for entry in repos for r in entry.split(',') if r]
+        collector = DataCollector(github_token, cache_ttl=cache_ttl, max_workers=max_workers, repos=repo_list or None)
         collector.collect()
         summary = collector.write()
 
