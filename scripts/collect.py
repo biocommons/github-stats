@@ -13,8 +13,14 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any, Optional
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import requests
+from loguru import logger
+
+# Configure loguru
+logger.remove()  # Remove default handler
+logger.add(sys.stderr, format="<level>{level: <8}</level> | <cyan>{name}</cyan>:<cyan>{function}</cyan> - <level>{message}</level>")
 
 # Configuration
 REPOS_TO_COLLECT = ['anyvar', 'bioutils', 'eutils', 'hgvs', 'seqrepo', 'seqrepo-rest-service', 'uta']
@@ -39,9 +45,13 @@ class GitHubClient:
     def request(self, endpoint: str) -> dict | list:
         """Make a single GET request to GitHub API."""
         url = f'{self.base_url}{endpoint}'
-        response = self.session.get(url)
-        response.raise_for_status()
-        return response.json()
+        try:
+            response = self.session.get(url)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            logger.error(f"API request failed for {endpoint}: {e}")
+            raise
 
     def request_paginated(self, endpoint: str) -> list:
         """Fetch all paginated results from GitHub API."""
@@ -121,24 +131,34 @@ class DataCollector:
         self.commits = []
         self.reviews = []
         self.repos = []
-        self.start_time = datetime.now()
+        self.start_time: Optional[datetime] = None
+        self.end_time: Optional[datetime] = None
 
     def collect(self) -> None:
-        """Collect data from all repositories."""
-        print('Starting data collection...')
+        """Collect data from all repositories in parallel."""
+        self.start_time = datetime.now()
+        logger.info('Starting data collection...')
 
-        for repo_name in REPOS_TO_COLLECT:
-            print(f'Collecting from {ORG}/{repo_name}...')
+        with ThreadPoolExecutor(max_workers=5) as executor:
+            futures = {
+                executor.submit(self.collect_repo, ORG, repo_name): repo_name
+                for repo_name in REPOS_TO_COLLECT
+            }
 
-            try:
-                self.collect_repo(ORG, repo_name)
-            except Exception as e:
-                print(f'Error collecting from {ORG}/{repo_name}: {e}', file=sys.stderr)
+            for future in as_completed(futures):
+                repo_name = futures[future]
+                try:
+                    future.result()
+                    logger.info(f'Completed: {ORG}/{repo_name}')
+                except Exception as e:
+                    logger.error(f'Error collecting from {ORG}/{repo_name}: {e}')
 
-        print('Data collection complete.')
+        self.end_time = datetime.now()
+        logger.info('Data collection complete.')
 
     def collect_repo(self, owner: str, repo: str) -> None:
         """Collect data from a single repository."""
+        logger.debug(f'Fetching metadata for {owner}/{repo}...')
         # Collect repo metadata
         repo_data = self.client.get_repo(owner, repo)
         open_issue_count = self.client.get_open_issue_count(owner, repo)
@@ -161,6 +181,7 @@ class DataCollector:
             } if latest_release else None,
             'default_branch': repo_data['default_branch'],
         })
+        logger.debug(f'Fetching issues for {owner}/{repo}...')
 
         # Collect issues
         issues = self.client.get_all_issues(owner, repo)
@@ -181,6 +202,7 @@ class DataCollector:
                 'closed_by': issue['closed_by']['login'] if issue['closed_by'] else None,
             })
 
+        logger.debug(f'Fetching PRs for {owner}/{repo}...')
         # Collect PRs
         prs = self.client.get_all_prs(owner, repo)
         for pr in prs:
@@ -196,6 +218,7 @@ class DataCollector:
                 'draft': pr['draft'],
             })
 
+        logger.debug(f'Fetching commits for {owner}/{repo}...')
         # Collect commits
         commits = self.client.get_all_commits(owner, repo)
         for commit in commits:
@@ -205,6 +228,7 @@ class DataCollector:
                 'repo': repo,
             })
 
+        logger.debug(f'Fetching PR reviews for {owner}/{repo}...')
         # Collect PR reviews
         for pr in prs:
             reviews = self.client.get_pr_reviews(owner, repo, pr['number'])
@@ -222,7 +246,11 @@ class DataCollector:
         # Ensure data directory exists
         DATA_DIR.mkdir(exist_ok=True)
 
-        start_time = datetime.now()
+        # Calculate actual collection duration
+        if self.start_time and self.end_time:
+            collection_duration_ms = int((self.end_time - self.start_time).total_seconds() * 1000)
+        else:
+            collection_duration_ms = 0
 
         # Write meta.json
         meta = {
@@ -230,7 +258,7 @@ class DataCollector:
             'schema_version': '1.0',
             'repos': sorted(REPOS_TO_COLLECT),
             'run_trigger': self.get_trigger(),
-            'collection_duration_ms': int((datetime.now() - self.start_time).total_seconds() * 1000),
+            'collection_duration_ms': collection_duration_ms,
         }
         self.write_json('meta.json', meta)
 
@@ -250,15 +278,14 @@ class DataCollector:
         contributors = self.aggregate_contributors()
         self.write_json('contributors.json', contributors)
 
-        duration = int((datetime.now() - start_time).total_seconds() * 1000)
-        print(f'\nData written to {DATA_DIR}')
-        print(f'Total collection time: {duration}ms')
-        print(f'Repos: {len(self.repos)}')
-        print(f'Issues: {len(self.issues)}')
-        print(f'PRs: {len(self.prs)}')
-        print(f'Commits: {len(self.commits)}')
-        print(f'Reviews: {len(self.reviews)}')
-        print(f'Contributors: {len(contributors)}')
+        logger.info(f'Data written to {DATA_DIR}')
+        logger.info(f'Collection took {collection_duration_ms}ms')
+        logger.info(f'Repos: {len(self.repos)}')
+        logger.info(f'Issues: {len(self.issues)}')
+        logger.info(f'PRs: {len(self.prs)}')
+        logger.info(f'Commits: {len(self.commits)}')
+        logger.info(f'Reviews: {len(self.reviews)}')
+        logger.info(f'Contributors: {len(contributors)}')
 
     def aggregate_contributors(self) -> list:
         """Aggregate contributor data."""
@@ -407,17 +434,23 @@ class DataCollector:
         with open(filepath, 'w') as f:
             json.dump(data, f, indent=2)
             f.write('\n')
-        print(f'✓ {filename}')
+        logger.info(f'✓ {filename}')
 
 
 def main():
     """Main entry point."""
     if not GITHUB_TOKEN:
-        raise ValueError('GITHUB_TOKEN environment variable is required')
+        logger.error('GITHUB_TOKEN environment variable is required')
+        sys.exit(1)
 
-    collector = DataCollector(GITHUB_TOKEN)
-    collector.collect()
-    collector.write()
+    try:
+        collector = DataCollector(GITHUB_TOKEN)
+        collector.collect()
+        collector.write()
+        logger.info('Done!')
+    except Exception as e:
+        logger.exception(f'Fatal error: {e}')
+        sys.exit(1)
 
 
 if __name__ == '__main__':
