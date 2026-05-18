@@ -7,17 +7,22 @@ type Tab = (typeof tabs)[number]
 
 const activeTab = ref<Tab>('Overview')
 
-const { orgSummary, repoCards, isLoading } = useOverviewData()
+const { orgSummary, repoCards, isLoading, collectedAt, relativeTime } = useOverviewData()
 const { isLocal, toggle } = useDataSource()
 const isDev = import.meta.dev
 </script>
 
 <template>
   <div class="min-h-screen bg-slate-950 text-slate-100">
-    <header class="border-b border-slate-800 px-6 py-4">
+    <header class="flex items-center justify-between border-b border-slate-800 px-6 py-4">
       <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300">
         biocommons · GitHub Stats
       </p>
+      <p
+        v-if="collectedAt"
+        class="text-xs text-slate-500"
+        :title="collectedAt"
+      >updated {{ relativeTime(collectedAt) }}</p>
     </header>
 
     <nav class="border-b border-slate-800 px-6">

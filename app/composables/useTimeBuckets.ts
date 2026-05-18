@@ -27,6 +27,15 @@ export function toYearQuarter(isoDate: string): string {
 
 export type TimeBucket = 'week' | 'month' | 'quarter'
 
+export function relativeTime(iso: string): string {
+  const mins = Math.floor((Date.now() - new Date(iso).getTime()) / 60_000)
+  if (mins < 1) return 'just now'
+  if (mins < 60) return `${mins}m ago`
+  const hours = Math.floor(mins / 60)
+  if (hours < 24) return `${hours}h ago`
+  return `${Math.floor(hours / 24)}d ago`
+}
+
 export function toBucket(isoDate: string, bucket: TimeBucket): string {
   if (bucket === 'week') return toYearWeek(isoDate)
   if (bucket === 'quarter') return toYearQuarter(isoDate)

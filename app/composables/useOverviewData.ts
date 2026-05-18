@@ -1,4 +1,4 @@
-import { toYearMonth } from './useTimeBuckets'
+import { toYearMonth, relativeTime } from './useTimeBuckets'
 
 export interface OrgSummary {
   totalStars: number
@@ -24,12 +24,14 @@ export interface RepoCardData {
 interface RawCommit { author_date: string; repo: string }
 interface RawPR { merged_at: string | null; repo: string }
 interface RawContributor { login: string }
+interface RawMeta { collected_at: string }
 
 interface RawData {
   repos: RepoCardData[]
   commits: RawCommit[]
   prs: RawPR[]
   contributors: RawContributor[]
+  meta: RawMeta
 }
 
 function last12Months(): string[] {
@@ -50,13 +52,14 @@ export function useOverviewData() {
     async () => {
       const base = dataBase.value
       const opts = { responseType: 'json' as const }
-      const [repos, commits, prs, contributors] = await Promise.all([
+      const [repos, commits, prs, contributors, meta] = await Promise.all([
         $fetch<RepoCardData[]>(`${base}/repos.json`, opts),
         $fetch<RawCommit[]>(`${base}/commits.json`, opts),
         $fetch<RawPR[]>(`${base}/prs.json`, opts),
         $fetch<RawContributor[]>(`${base}/contributors.json`, opts),
+        $fetch<RawMeta>(`${base}/meta.json`, opts),
       ])
-      return { repos, commits, prs, contributors }
+      return { repos, commits, prs, contributors, meta }
     },
   )
 
@@ -104,5 +107,7 @@ export function useOverviewData() {
       }))
   })
 
-  return { orgSummary, repoCards, isLoading: pending }
+  const collectedAt = computed(() => data.value?.meta.collected_at ?? null)
+
+  return { orgSummary, repoCards, isLoading: pending, collectedAt, relativeTime }
 }
