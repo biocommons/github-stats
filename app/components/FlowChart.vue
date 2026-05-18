@@ -44,7 +44,7 @@ const CHART_H = H - PAD_T - PAD_B
 const SCROLL_PITCH = 18
 
 const tooltip = ref<{ x: number; y: number; lines: string[] } | null>(null)
-const scrollMode = ref(false)
+const scrollMode = ref(true)
 const panOffset = ref(0)
 const svgEl = ref<SVGSVGElement | null>(null)
 const dragState = ref<{ startClientX: number; startPan: number } | null>(null)
@@ -176,8 +176,13 @@ const allElements = computed(() => {
 })
 
 const maxStock = computed(() => {
-  const allCounts = Object.values(props.stats.repoStockSeries).flatMap(s => s.map(p => p.openCount))
-  return Math.max(1, ...allCounts)
+  const vals = Object.values(props.stats.repoStockSeries)
+    .flatMap(s => s.map(p => p.openCount))
+    .sort((a, b) => a - b)
+  if (vals.length === 0) return 1
+  const q1 = vals[Math.floor(vals.length * 0.25)] ?? 0
+  const q3 = vals[Math.floor(vals.length * 0.75)] ?? 0
+  return Math.max(1, q3 + 1.5 * (q3 - q1))
 })
 
 function stockY(count: number): number {
@@ -327,14 +332,23 @@ function onRectMouseLeave() {
         >{{ repoDisplayName(repo) }}</button>
       </div>
 
-      <!-- Scroll/Fit toggle -->
+      <!-- Scroll/Fit pill toggle -->
       <button
-        class="ml-auto rounded-full border px-2.5 py-0.5 text-sm font-medium transition-colors"
-        :class="scrollMode
-          ? 'border-sky-500/50 bg-sky-500/10 text-sky-400'
-          : 'border-slate-600 text-slate-400 hover:text-slate-200'"
+        class="ml-auto flex items-center gap-2 text-xs text-slate-400 hover:text-slate-200 transition-colors"
+        :title="scrollMode ? 'Switch to fit view' : 'Switch to scroll view'"
         @click="scrollMode = !scrollMode"
-      >{{ scrollMode ? 'Fit' : 'Scroll' }}</button>
+      >
+        <span>{{ scrollMode ? 'scroll' : 'fit' }}</span>
+        <div
+          class="relative h-5 w-9 rounded-full transition-colors duration-200"
+          :class="scrollMode ? 'bg-sky-500' : 'bg-slate-700'"
+        >
+          <div
+            class="absolute top-0.5 h-4 w-4 rounded-full bg-white shadow-sm transition-transform duration-200"
+            :class="scrollMode ? 'translate-x-[18px]' : 'translate-x-0.5'"
+          />
+        </div>
+      </button>
     </div>
 
     <!-- Chart -->
