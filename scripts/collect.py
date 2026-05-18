@@ -9,20 +9,31 @@ aggregates into JSON, and publishes to data/ directory.
 import json
 import os
 import sys
-from datetime import datetime, timezone
-from pathlib import Path
-from typing import Any, Optional
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import UTC, datetime
+from pathlib import Path
+from typing import Any
 
-import diskcache
 import click
+import diskcache
 import requests
 from loguru import logger
 
 # Configuration
-REPOS_TO_COLLECT = ['anyvar', 'biocommons.seqrepo', 'bioutils', 'eutils', 'hgvs', 'hgvs-eval', 'seqrepo-rest-service', 'uta', 'uta-align', 'uta-rest-service']
-ORG = 'biocommons'
-DATA_DIR = Path(__file__).parent.parent / 'data'
+REPOS_TO_COLLECT = [
+    "anyvar",
+    "biocommons.seqrepo",
+    "bioutils",
+    "eutils",
+    "hgvs",
+    "hgvs-eval",
+    "seqrepo-rest-service",
+    "uta",
+    "uta-align",
+    "uta-rest-service",
+]
+ORG = "biocommons"
+DATA_DIR = Path(__file__).parent.parent / "data"
 
 
 def configure_logging(verbosity: int) -> None:
@@ -31,17 +42,20 @@ def configure_logging(verbosity: int) -> None:
     Default: WARNING, -v: INFO, -vv+: DEBUG.
     """
     if verbosity <= 0:
-        level = 'WARNING'
+        level = "WARNING"
     elif verbosity == 1:
-        level = 'INFO'
+        level = "INFO"
     else:
-        level = 'DEBUG'
+        level = "DEBUG"
 
     logger.remove()
     logger.add(
         sys.stderr,
         level=level,
-        format='<level>{level: <8}</level> | <cyan>{name}</cyan>:<cyan>{function}</cyan> - <level>{message}</level>',
+        format=(
+            "<level>{level: <8}</level> | <cyan>{name}</cyan>:<cyan>{function}</cyan>"
+            " - <level>{message}</level>"
+        ),
     )
 
 
@@ -49,22 +63,24 @@ class GitHubClient:
     """GitHub API client."""
 
     def __init__(self, token: str, cache_ttl: int = 900):
-        self.base_url = 'https://api.github.com'
+        self.base_url = "https://api.github.com"
         self._cache_ttl = cache_ttl
         self._cache: diskcache.Cache | None = None
         if cache_ttl > 0:
-            cache_dir = Path('/tmp/github-stats-cache')
+            cache_dir = Path("/tmp/github-stats-cache")
             logger.info(
-                f'API cache enabled: ttl={cache_ttl}s, '
-                f'dir={cache_dir} ({"exists" if cache_dir.exists() else "will be created"})'
+                f"API cache enabled: ttl={cache_ttl}s, "
+                f"dir={cache_dir} ({'exists' if cache_dir.exists() else 'will be created'})"
             )
             self._cache = diskcache.Cache(str(cache_dir))
         self.session = requests.Session()
-        self.session.headers.update({
-            'Authorization': f'token {token}',
-            'Accept': 'application/vnd.github.v3+json',
-            'User-Agent': 'biocommons/github-stats',
-        })
+        self.session.headers.update(
+            {
+                "Authorization": f"token {token}",
+                "Accept": "application/vnd.github.v3+json",
+                "User-Agent": "biocommons/github-stats",
+            }
+        )
 
     def _get(self, url: str, params: dict | None = None) -> dict | list:
         """GET with optional disk cache."""
@@ -87,7 +103,7 @@ class GitHubClient:
         allow_statuses: tuple[int, ...] = (),
     ) -> dict | list | None:
         """Make a single GET request to GitHub API."""
-        url = f'{self.base_url}{endpoint}'
+        url = f"{self.base_url}{endpoint}"
         try:
             return self._get(url)
         except requests.exceptions.HTTPError as e:
@@ -107,8 +123,8 @@ class GitHubClient:
         per_page = 100
 
         while True:
-            url = f'{self.base_url}{endpoint}'
-            params = {'page': page, 'per_page': per_page}
+            url = f"{self.base_url}{endpoint}"
+            params = {"page": page, "per_page": per_page}
             items = self._get(url, params=params)
 
             if not items:
@@ -125,7 +141,7 @@ class GitHubClient:
 
     def get_repo(self, owner: str, repo: str) -> dict:
         """Get repository metadata."""
-        return self.request(f'/repos/{owner}/{repo}')
+        return self.request(f"/repos/{owner}/{repo}")
 
     def get_open_issue_count(self, owner: str, repo: str, *, has_issues: bool) -> int:
         """Get count of open issues."""
@@ -133,16 +149,16 @@ class GitHubClient:
             return 0
 
         try:
-            result = self.request(f'/search/issues?q=repo:{owner}/{repo}+type:issue+state:open')
+            result = self.request(f"/search/issues?q=repo:{owner}/{repo}+type:issue+state:open")
             if not isinstance(result, dict):
                 return 0
-            return result['total_count']
+            return result["total_count"]
         except requests.exceptions.HTTPError as e:
             status = e.response.status_code if e.response is not None else None
             if status == 422:
                 # Some repos can reject search queries (for example, issues disabled).
                 logger.warning(
-                    f'Unable to search open issues for {owner}/{repo} (422); defaulting to 0.',
+                    f"Unable to search open issues for {owner}/{repo} (422); defaulting to 0.",
                 )
                 return 0
             raise
@@ -150,26 +166,30 @@ class GitHubClient:
     def get_open_pr_count(self, owner: str, repo: str) -> int:
         """Get count of open pull requests."""
         # Use pulls endpoint to avoid search API edge-case failures.
-        open_prs = self.request_paginated(f'/repos/{owner}/{repo}/pulls?state=open')
+        open_prs = self.request_paginated(f"/repos/{owner}/{repo}/pulls?state=open")
         return len(open_prs)
 
     def get_contributor_count(self, owner: str, repo: str) -> int:
         """Get count of contributors."""
-        contributors = self.request_paginated(f'/repos/{owner}/{repo}/contributors')
+        contributors = self.request_paginated(f"/repos/{owner}/{repo}/contributors")
         return len(contributors)
 
     def get_all_issues(self, owner: str, repo: str) -> list:
         """Get all issues (open and closed)."""
-        return self.request_paginated(f'/repos/{owner}/{repo}/issues?state=all&sort=created&direction=asc')
+        return self.request_paginated(
+            f"/repos/{owner}/{repo}/issues?state=all&sort=created&direction=asc"
+        )
 
     def get_all_prs(self, owner: str, repo: str) -> list:
         """Get all pull requests."""
-        return self.request_paginated(f'/repos/{owner}/{repo}/pulls?state=all&sort=created&direction=asc')
+        return self.request_paginated(
+            f"/repos/{owner}/{repo}/pulls?state=all&sort=created&direction=asc"
+        )
 
-    def get_latest_release(self, owner: str, repo: str) -> Optional[dict]:
+    def get_latest_release(self, owner: str, repo: str) -> dict | None:
         """Get latest release."""
         result = self.request(
-            f'/repos/{owner}/{repo}/releases/latest',
+            f"/repos/{owner}/{repo}/releases/latest",
             allow_statuses=(404,),
         )
         if result is None:
@@ -180,17 +200,19 @@ class GitHubClient:
 
     def get_all_commits(self, owner: str, repo: str) -> list:
         """Get all commits."""
-        return self.request_paginated(f'/repos/{owner}/{repo}/commits?sort=created&direction=asc')
+        return self.request_paginated(f"/repos/{owner}/{repo}/commits?sort=created&direction=asc")
 
     def get_pr_reviews(self, owner: str, repo: str, pr_number: int) -> list:
         """Get reviews for a pull request."""
-        return self.request_paginated(f'/repos/{owner}/{repo}/pulls/{pr_number}/reviews')
+        return self.request_paginated(f"/repos/{owner}/{repo}/pulls/{pr_number}/reviews")
 
 
 class DataCollector:
     """Collects GitHub data and aggregates it."""
 
-    def __init__(self, token: str, cache_ttl: int = 900, max_workers: int = 5, repos: list[str] | None = None):
+    def __init__(
+        self, token: str, cache_ttl: int = 900, max_workers: int = 5, repos: list[str] | None = None
+    ):
         self.client = GitHubClient(token, cache_ttl=cache_ttl)
         self.max_workers = max_workers
         self.repo_list = repos if repos else REPOS_TO_COLLECT
@@ -199,13 +221,13 @@ class DataCollector:
         self.commits = []
         self.reviews = []
         self.repos = []
-        self.start_time: Optional[datetime] = None
-        self.end_time: Optional[datetime] = None
+        self.start_time: datetime | None = None
+        self.end_time: datetime | None = None
 
     def collect(self) -> None:
         """Collect data from all repositories in parallel."""
-        self.start_time = datetime.now(timezone.utc)
-        logger.info('Starting data collection...')
+        self.start_time = datetime.now(UTC)
+        logger.info("Starting data collection...")
 
         with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
             futures = {
@@ -217,105 +239,121 @@ class DataCollector:
                 repo_name = futures[future]
                 try:
                     future.result()
-                    logger.info(f'Completed: {ORG}/{repo_name}')
+                    logger.info(f"Completed: {ORG}/{repo_name}")
                 except Exception as e:
-                    logger.error(f'Error collecting from {ORG}/{repo_name}: {e}')
+                    logger.error(f"Error collecting from {ORG}/{repo_name}: {e}")
 
-        self.end_time = datetime.now(timezone.utc)
-        logger.info('Data collection complete.')
+        self.end_time = datetime.now(UTC)
+        logger.info("Data collection complete.")
 
     def collect_repo(self, owner: str, repo: str) -> None:
         """Collect data from a single repository."""
-        logger.debug(f'Fetching metadata for {owner}/{repo}...')
+        logger.debug(f"Fetching metadata for {owner}/{repo}...")
         # Collect repo metadata
         repo_data = self.client.get_repo(owner, repo)
-        repo_key = repo_data['name']
+        repo_key = repo_data["name"]
         if repo_key != repo:
-            logger.info(f"Slug '{repo}' resolved to GitHub name '{repo_key}' — using canonical name as key.")
+            logger.info(
+                f"Slug '{repo}' resolved to GitHub name '{repo_key}' — using canonical name as key."
+            )
         open_issue_count = self.client.get_open_issue_count(
             owner,
             repo,
-            has_issues=bool(repo_data.get('has_issues', True)),
+            has_issues=bool(repo_data.get("has_issues", True)),
         )
         open_pr_count = self.client.get_open_pr_count(owner, repo)
         contributor_count = self.client.get_contributor_count(owner, repo)
         latest_release = self.client.get_latest_release(owner, repo)
 
-        self.repos.append({
-            'name': repo_key,
-            'full_name': repo_data['full_name'],
-            'html_url': repo_data['html_url'],
-            'description': repo_data['description'],
-            'stargazers_count': repo_data['stargazers_count'],
-            'forks_count': repo_data['forks_count'],
-            'open_issues_count': open_issue_count,
-            'open_pr_count': open_pr_count,
-            'contributors': contributor_count,
-            'latest_release': {
-                'tag_name': latest_release['tag_name'],
-                'published_at': latest_release['published_at'],
-            } if latest_release else None,
-            'default_branch': repo_data['default_branch'],
-        })
-        logger.debug(f'Fetching issues for {owner}/{repo}...')
+        self.repos.append(
+            {
+                "name": repo_key,
+                "full_name": repo_data["full_name"],
+                "html_url": repo_data["html_url"],
+                "description": repo_data["description"],
+                "stargazers_count": repo_data["stargazers_count"],
+                "forks_count": repo_data["forks_count"],
+                "open_issues_count": open_issue_count,
+                "open_pr_count": open_pr_count,
+                "contributors": contributor_count,
+                "latest_release": {
+                    "tag_name": latest_release["tag_name"],
+                    "published_at": latest_release["published_at"],
+                }
+                if latest_release
+                else None,
+                "default_branch": repo_data["default_branch"],
+            }
+        )
+        logger.debug(f"Fetching issues for {owner}/{repo}...")
 
         # Collect issues
         issues = self.client.get_all_issues(owner, repo)
         for issue in issues:
             # Skip pull requests returned by issues endpoint
-            if 'pull_request' in issue:
+            if "pull_request" in issue:
                 continue
 
-            self.issues.append({
-                'id': issue['id'],
-                'number': issue['number'],
-                'repo': repo_key,
-                'created_at': issue['created_at'],
-                'closed_at': issue['closed_at'],
-                'state': issue['state'],
-                'author_login': issue['user']['login'] if issue['user'] else None,
-                'labels': [label['name'] for label in issue['labels']],
-                'closed_by': issue['closed_by']['login'] if issue['closed_by'] else None,
-            })
+            self.issues.append(
+                {
+                    "id": issue["id"],
+                    "number": issue["number"],
+                    "repo": repo_key,
+                    "created_at": issue["created_at"],
+                    "closed_at": issue["closed_at"],
+                    "state": issue["state"],
+                    "author_login": issue["user"]["login"] if issue["user"] else None,
+                    "labels": [label["name"] for label in issue["labels"]],
+                    "closed_by": issue["closed_by"]["login"] if issue["closed_by"] else None,
+                }
+            )
 
-        logger.debug(f'Fetching PRs for {owner}/{repo}...')
+        logger.debug(f"Fetching PRs for {owner}/{repo}...")
         # Collect PRs
         prs = self.client.get_all_prs(owner, repo)
         for pr in prs:
-            self.prs.append({
-                'id': pr['id'],
-                'number': pr['number'],
-                'repo': repo_key,
-                'created_at': pr['created_at'],
-                'closed_at': pr['closed_at'],
-                'merged_at': pr['merged_at'],
-                'state': pr['state'],
-                'author_login': pr['user']['login'] if pr['user'] else None,
-                'draft': pr['draft'],
-            })
+            self.prs.append(
+                {
+                    "id": pr["id"],
+                    "number": pr["number"],
+                    "repo": repo_key,
+                    "created_at": pr["created_at"],
+                    "closed_at": pr["closed_at"],
+                    "merged_at": pr["merged_at"],
+                    "state": pr["state"],
+                    "author_login": pr["user"]["login"] if pr["user"] else None,
+                    "draft": pr["draft"],
+                }
+            )
 
-        logger.debug(f'Fetching commits for {owner}/{repo}...')
+        logger.debug(f"Fetching commits for {owner}/{repo}...")
         # Collect commits
         commits = self.client.get_all_commits(owner, repo)
         for commit in commits:
-            self.commits.append({
-                'author_login': commit.get('author', {}).get('login') if commit.get('author') else None,
-                'author_date': commit['commit']['author']['date'],
-                'repo': repo_key,
-            })
+            self.commits.append(
+                {
+                    "author_login": commit.get("author", {}).get("login")
+                    if commit.get("author")
+                    else None,
+                    "author_date": commit["commit"]["author"]["date"],
+                    "repo": repo_key,
+                }
+            )
 
-        logger.debug(f'Fetching PR reviews for {owner}/{repo}...')
+        logger.debug(f"Fetching PR reviews for {owner}/{repo}...")
         # Collect PR reviews
         for pr in prs:
-            reviews = self.client.get_pr_reviews(owner, repo, pr['number'])
+            reviews = self.client.get_pr_reviews(owner, repo, pr["number"])
             for review in reviews:
                 # Only count submitted reviews, skip pending
-                if review['state'] != 'PENDING':
-                    self.reviews.append({
-                        'reviewer_login': review['user']['login'] if review['user'] else None,
-                        'submitted_at': review['submitted_at'],
-                        'repo': repo_key,
-                    })
+                if review["state"] != "PENDING":
+                    self.reviews.append(
+                        {
+                            "reviewer_login": review["user"]["login"] if review["user"] else None,
+                            "submitted_at": review["submitted_at"],
+                            "repo": repo_key,
+                        }
+                    )
 
     def write(self) -> dict[str, Any]:
         """Write collected data to JSON files."""
@@ -330,47 +368,47 @@ class DataCollector:
 
         # Write meta.json
         meta = {
-            'collected_at': datetime.now(timezone.utc).isoformat(),
-            'schema_version': '1.0',
-            'repos': sorted(self.repo_list),
-            'run_trigger': self.get_trigger(),
-            'collection_duration_ms': collection_duration_ms,
+            "collected_at": datetime.now(UTC).isoformat(),
+            "schema_version": "1.0",
+            "repos": sorted(self.repo_list),
+            "run_trigger": self.get_trigger(),
+            "collection_duration_ms": collection_duration_ms,
         }
-        self.write_json('meta.json', meta)
+        self.write_json("meta.json", meta)
 
         # Write repos.json - sorted by name
-        sorted_repos = sorted(self.repos, key=lambda r: r['name'])
-        self.write_json('repos.json', sorted_repos)
+        sorted_repos = sorted(self.repos, key=lambda r: r["name"])
+        self.write_json("repos.json", sorted_repos)
 
         # Write issues.json - sorted by repo then id
-        sorted_issues = sorted(self.issues, key=lambda i: (i['repo'], i['id']))
-        self.write_json('issues.json', sorted_issues)
+        sorted_issues = sorted(self.issues, key=lambda i: (i["repo"], i["id"]))
+        self.write_json("issues.json", sorted_issues)
 
         # Write prs.json - sorted by repo then id
-        sorted_prs = sorted(self.prs, key=lambda p: (p['repo'], p['id']))
-        self.write_json('prs.json', sorted_prs)
+        sorted_prs = sorted(self.prs, key=lambda p: (p["repo"], p["id"]))
+        self.write_json("prs.json", sorted_prs)
 
         # Write commits.json - sorted by repo then date
-        sorted_commits = sorted(self.commits, key=lambda c: (c['repo'], c['author_date']))
-        self.write_json('commits.json', sorted_commits)
+        sorted_commits = sorted(self.commits, key=lambda c: (c["repo"], c["author_date"]))
+        self.write_json("commits.json", sorted_commits)
 
         # Write reviews.json - sorted by repo then date
-        sorted_reviews = sorted(self.reviews, key=lambda r: (r['repo'], r['submitted_at']))
-        self.write_json('reviews.json', sorted_reviews)
+        sorted_reviews = sorted(self.reviews, key=lambda r: (r["repo"], r["submitted_at"]))
+        self.write_json("reviews.json", sorted_reviews)
 
         # Write contributors.json
         contributors = self.aggregate_contributors()
-        self.write_json('contributors.json', contributors)
+        self.write_json("contributors.json", contributors)
 
         return {
-            'data_dir': str(DATA_DIR),
-            'collection_duration_ms': collection_duration_ms,
-            'repos': len(self.repos),
-            'issues': len(self.issues),
-            'prs': len(self.prs),
-            'commits': len(self.commits),
-            'reviews': len(self.reviews),
-            'contributors': len(contributors),
+            "data_dir": str(DATA_DIR),
+            "collection_duration_ms": collection_duration_ms,
+            "repos": len(self.repos),
+            "issues": len(self.issues),
+            "prs": len(self.prs),
+            "commits": len(self.commits),
+            "reviews": len(self.reviews),
+            "contributors": len(contributors),
         }
 
     def aggregate_contributors(self) -> list:
@@ -386,81 +424,86 @@ class DataCollector:
                 first_seen[login] = date
 
         for issue in self.issues:
-            observe(issue['author_login'], issue['created_at'])
+            observe(issue["author_login"], issue["created_at"])
         for pr in self.prs:
-            observe(pr['author_login'], pr['created_at'])
+            observe(pr["author_login"], pr["created_at"])
         for commit in self.commits:
-            observe(commit['author_login'], commit['author_date'])
+            observe(commit["author_login"], commit["author_date"])
         for review in self.reviews:
-            observe(review['reviewer_login'], review['submitted_at'])
+            observe(review["reviewer_login"], review["submitted_at"])
 
         return sorted(
             [
                 {
-                    'login': login,
-                    'avatar_url': f'https://avatars.githubusercontent.com/{login}',
-                    'first_contribution_at': date,
+                    "login": login,
+                    "avatar_url": f"https://avatars.githubusercontent.com/{login}",
+                    "first_contribution_at": date,
                 }
                 for login, date in first_seen.items()
             ],
-            key=lambda c: c['login'],
+            key=lambda c: c["login"],
         )
 
     def get_trigger(self) -> str:
         """Determine the trigger type for this run."""
-        event_name = os.getenv('GITHUB_EVENT_NAME', 'manual')
-        if event_name == 'schedule':
-            return 'schedule'
-        elif event_name == 'repository_dispatch':
-            return 'repository_dispatch'
+        event_name = os.getenv("GITHUB_EVENT_NAME", "manual")
+        if event_name == "schedule":
+            return "schedule"
+        elif event_name == "repository_dispatch":
+            return "repository_dispatch"
         else:
             return event_name
 
     def write_json(self, filename: str, data: Any) -> None:
         """Write data to JSON file."""
         filepath = DATA_DIR / filename
-        with open(filepath, 'w') as f:
+        with open(filepath, "w") as f:
             json.dump(data, f, indent=2)
-            f.write('\n')
-        logger.debug(f'Wrote {filename}')
+            f.write("\n")
+        logger.debug(f"Wrote {filename}")
 
 
 @click.command()
 @click.option(
-    '-v',
-    'verbosity',
+    "-v",
+    "verbosity",
     count=True,
-    help='Increase verbosity (-v=INFO, -vv=DEBUG).',
+    help="Increase verbosity (-v=INFO, -vv=DEBUG).",
 )
 @click.option(
-    '--cache-ttl',
+    "--cache-ttl",
     default=900,
     show_default=True,
-    help='Cache API responses in /tmp for N seconds. Set to 0 to disable.',
+    help="Cache API responses in /tmp for N seconds. Set to 0 to disable.",
 )
 @click.option(
-    '--max-workers',
+    "--max-workers",
     default=5,
     show_default=True,
-    help='Number of parallel threads for repo collection.',
+    help="Number of parallel threads for repo collection.",
 )
 @click.option(
-    '--repos',
+    "--repos",
     multiple=True,
-    help='Repos to collect (default: all). Repeat or comma-separate: --repos hgvs,seqrepo --repos uta',
+    help=(
+        "Repos to collect (default: all). Repeat or comma-separate:"
+        " --repos hgvs,seqrepo --repos uta"
+    ),
 )
 def main(verbosity: int, cache_ttl: int, max_workers: int, repos: tuple[str, ...]) -> None:
     """Main entry point."""
     configure_logging(verbosity)
-    github_token = os.getenv('GITHUB_TOKEN')
+    github_token = os.getenv("GITHUB_TOKEN")
 
     if not github_token:
-        logger.error('GITHUB_TOKEN environment variable is required')
+        logger.error("GITHUB_TOKEN environment variable is required")
         sys.exit(1)
 
     try:
-        repo_list = [r for entry in repos for r in entry.split(',') if r]
-        collector = DataCollector(github_token, cache_ttl=cache_ttl, max_workers=max_workers, repos=repo_list or None)
+        repo_list = [r for entry in repos for r in entry.split(",") if r]
+        collector = DataCollector(
+            github_token, cache_ttl=cache_ttl, max_workers=max_workers, repos=repo_list or None
+        )
         collector.collect()
         summary = collector.write()
 
@@ -474,9 +517,9 @@ def main(verbosity: int, cache_ttl: int, max_workers: int, repos: tuple[str, ...
         click.echo(f"Reviews: {summary['reviews']}")
         click.echo(f"Contributors: {summary['contributors']}")
     except Exception as e:
-        logger.exception(f'Fatal error: {e}')
+        logger.exception(f"Fatal error: {e}")
         sys.exit(1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
