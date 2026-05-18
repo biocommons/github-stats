@@ -36,11 +36,11 @@ const sparklinePeak = computed(() => Math.max(...props.repo.sparkline))
     </p>
 
     <div class="flex flex-wrap gap-4 text-sm text-slate-400">
-      <span title="Stars">★ {{ repo.stargazers_count.toLocaleString() }}</span>
-      <span title="Forks">⑂ {{ repo.forks_count.toLocaleString() }}</span>
-      <span title="Open issues">Issues: {{ repo.open_issues_count.toLocaleString() }}</span>
-      <span title="Open PRs">PRs: {{ repo.open_pr_count.toLocaleString() }}</span>
-      <span title="Contributors">Contributors: {{ repo.contributors.toLocaleString() }}</span>
+      <a :href="`${repo.html_url}/stargazers`" target="_blank" rel="noopener" title="Stars" class="hover:text-slate-200 transition-colors">★ {{ repo.stargazers_count.toLocaleString() }}</a>
+      <a :href="`${repo.html_url}/forks`" target="_blank" rel="noopener" title="Forks" class="hover:text-slate-200 transition-colors">⑂ {{ repo.forks_count.toLocaleString() }}</a>
+      <a :href="`${repo.html_url}/issues`" target="_blank" rel="noopener" title="Open issues" class="hover:text-slate-200 transition-colors">Issues: {{ repo.open_issues_count.toLocaleString() }}</a>
+      <a :href="`${repo.html_url}/pulls`" target="_blank" rel="noopener" title="Open PRs" class="hover:text-slate-200 transition-colors">PRs: {{ repo.open_pr_count.toLocaleString() }}</a>
+      <a :href="`${repo.html_url}/graphs/contributors`" target="_blank" rel="noopener" title="Contributors" class="hover:text-slate-200 transition-colors">Contributors: {{ repo.contributors.toLocaleString() }}</a>
     </div>
 
     <div class="group relative text-emerald-400/70">
