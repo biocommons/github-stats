@@ -1,4 +1,5 @@
 import { toBucket, type TimeBucket } from './useTimeBuckets'
+import { repoDisplayName } from '~/config'
 
 export type FlowKind = 'issues' | 'prs'
 
@@ -75,7 +76,7 @@ function fillContiguousBuckets(first: string, last: string, granularity: TimeBuc
 }
 
 export function computeFlowStats(records: FlowRecord[], granularity: TimeBucket): FlowStats {
-  const repos = [...new Set(records.map(r => r.repo))].sort()
+  const repos = [...new Set(records.map(r => r.repo))].sort((a, b) => repoDisplayName(a).localeCompare(repoDisplayName(b)))
 
   const sparseBuckets = new Set<string>()
   for (const r of records) {
@@ -175,7 +176,7 @@ export function useFlowStats(kind: FlowKind) {
   // Full repo list from unfiltered data — used for chip display and stable color mapping
   const allRepos = computed<string[]>(() => {
     if (!rawData.value) return []
-    return [...new Set(rawData.value.map(r => r.repo))].sort()
+    return [...new Set(rawData.value.map(r => r.repo))].sort((a, b) => repoDisplayName(a).localeCompare(repoDisplayName(b)))
   })
 
   const selectedRepos = ref<Set<string>>(new Set())

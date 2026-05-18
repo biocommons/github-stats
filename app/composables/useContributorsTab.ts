@@ -1,5 +1,6 @@
 import { toYearMonth } from './useTimeBuckets'
 import { useContributorStats, type ContributorCounts } from './useContributorStats'
+import { repoDisplayName } from '~/config'
 
 export type ContribTimespan = 'all' | '90d' | '30d'
 
@@ -110,7 +111,7 @@ export function useContributorsTab() {
       ...prs.map(r => r.repo),
       ...commits.map(r => r.repo),
       ...reviews.map(r => r.repo),
-    ])].sort()
+    ])].sort((a, b) => repoDisplayName(a).localeCompare(repoDisplayName(b)))
 
     // All-time stats for badge eligibility (3+ contributions ever)
     const allTimeStats = useContributorStats(contributors, issues, prs, commits, reviews)
