@@ -21,6 +21,17 @@ export interface RepoCardData {
   sparkline: number[]
 }
 
+interface RawCommit { author_date: string; repo: string }
+interface RawPR { merged_at: string | null; repo: string }
+interface RawContributor { login: string }
+
+interface RawData {
+  repos: RepoCardData[]
+  commits: RawCommit[]
+  prs: RawPR[]
+  contributors: RawContributor[]
+}
+
 function last12Months(): string[] {
   const months: string[] = []
   const now = new Date()
@@ -32,32 +43,43 @@ function last12Months(): string[] {
 }
 
 export function useOverviewData() {
-  const { public: { dataBase } } = useRuntimeConfig()
+  const { dataBase } = useDataSource()
 
-  const { data: repos } = useFetch<RepoCardData[]>(`${dataBase}/repos.json`)
-  const { data: commits } = useFetch<Array<{ author_date: string; repo: string }>>(`${dataBase}/commits.json`)
-  const { data: prs } = useFetch<Array<{ merged_at: string | null; repo: string }>>(`${dataBase}/prs.json`)
-  const { data: contributors } = useFetch<Array<{ login: string }>>(`${dataBase}/contributors.json`)
+  const { data, pending } = useAsyncData<RawData>(
+    () => `overview:${dataBase.value}`,
+    async () => {
+      const base = dataBase.value
+      const opts = { responseType: 'json' as const }
+      const [repos, commits, prs, contributors] = await Promise.all([
+        $fetch<RepoCardData[]>(`${base}/repos.json`, opts),
+        $fetch<RawCommit[]>(`${base}/commits.json`, opts),
+        $fetch<RawPR[]>(`${base}/prs.json`, opts),
+        $fetch<RawContributor[]>(`${base}/contributors.json`, opts),
+      ])
+      return { repos, commits, prs, contributors }
+    },
+  )
 
   const months = last12Months()
   const monthSet = new Set(months)
 
   const orgSummary = computed<OrgSummary | null>(() => {
-    if (!repos.value || !contributors.value) return null
+    if (!data.value) return null
+    const { repos, contributors } = data.value
     return {
-      totalStars: repos.value.reduce((s, r) => s + r.stargazers_count, 0),
-      uniqueContributors: contributors.value.length,
-      openIssues: repos.value.reduce((s, r) => s + r.open_issues_count, 0),
-      openPRs: repos.value.reduce((s, r) => s + r.open_pr_count, 0),
+      totalStars: repos.reduce((s, r) => s + r.stargazers_count, 0),
+      uniqueContributors: contributors.length,
+      openIssues: repos.reduce((s, r) => s + r.open_issues_count, 0),
+      openPRs: repos.reduce((s, r) => s + r.open_pr_count, 0),
     }
   })
 
   const repoCards = computed<RepoCardData[]>(() => {
-    if (!repos.value || !commits.value || !prs.value) return []
-
+    if (!data.value) return []
+    const { repos, commits, prs } = data.value
     const activity: Record<string, Record<string, number>> = {}
 
-    for (const c of commits.value) {
+    for (const c of commits) {
       const m = toYearMonth(c.author_date)
       if (!monthSet.has(m)) continue
       if (!activity[c.repo]) activity[c.repo] = {}
@@ -65,7 +87,7 @@ export function useOverviewData() {
       rm[m] = (rm[m] ?? 0) + 1
     }
 
-    for (const p of prs.value) {
+    for (const p of prs) {
       if (!p.merged_at) continue
       const m = toYearMonth(p.merged_at)
       if (!monthSet.has(m)) continue
@@ -74,7 +96,7 @@ export function useOverviewData() {
       rm[m] = (rm[m] ?? 0) + 1
     }
 
-    return [...repos.value]
+    return [...repos]
       .sort((a, b) => b.stargazers_count - a.stargazers_count)
       .map(r => ({
         ...r,
@@ -82,9 +104,5 @@ export function useOverviewData() {
       }))
   })
 
-  const isLoading = computed(
-    () => !repos.value || !commits.value || !prs.value || !contributors.value,
-  )
-
-  return { orgSummary, repoCards, isLoading }
+  return { orgSummary, repoCards, isLoading: pending }
 }

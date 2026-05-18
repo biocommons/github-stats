@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useOverviewData } from '~/composables/useOverviewData'
+import { useDataSource } from '~/composables/useDataSource'
 
 const tabs = ['Overview', 'Issues', 'PRs', 'Resolution Time', 'Contributors'] as const
 type Tab = (typeof tabs)[number]
@@ -7,6 +8,8 @@ type Tab = (typeof tabs)[number]
 const activeTab = ref<Tab>('Overview')
 
 const { orgSummary, repoCards, isLoading } = useOverviewData()
+const { isLocal, toggle } = useDataSource()
+const isDev = import.meta.dev
 </script>
 
 <template>
@@ -18,7 +21,7 @@ const { orgSummary, repoCards, isLoading } = useOverviewData()
     </header>
 
     <nav class="border-b border-slate-800 px-6">
-      <div class="flex gap-1">
+      <div class="flex items-center gap-1">
         <button
           v-for="tab in tabs"
           :key="tab"
@@ -32,6 +35,23 @@ const { orgSummary, repoCards, isLoading } = useOverviewData()
         >
           {{ tab }}
         </button>
+
+        <div
+          v-if="isDev"
+          class="ml-auto flex items-center rounded-full border border-slate-700 bg-slate-900 p-0.5 text-xs font-mono"
+          title="Toggle data source between local /data and GitHub raw"
+        >
+          <button
+            class="rounded-full px-3 py-1 transition-colors"
+            :class="isLocal ? 'bg-amber-500/20 text-amber-400' : 'text-slate-500 hover:text-slate-300'"
+            @click="isLocal || toggle()"
+          >local</button>
+          <button
+            class="rounded-full px-3 py-1 transition-colors"
+            :class="!isLocal ? 'bg-sky-500/20 text-sky-400' : 'text-slate-500 hover:text-slate-300'"
+            @click="isLocal && toggle()"
+          >github raw</button>
+        </div>
       </div>
     </nav>
 
