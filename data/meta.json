@@ -1,15 +1,18 @@
 {
-  "collected_at": "2026-05-18T19:47:27.582225",
+  "collected_at": "2026-05-18T21:14:59.692145+00:00",
   "schema_version": "1.0",
   "repos": [
     "anyvar",
+    "biocommons.seqrepo",
     "bioutils",
     "eutils",
     "hgvs",
-    "seqrepo",
+    "hgvs-eval",
     "seqrepo-rest-service",
-    "uta"
+    "uta",
+    "uta-align",
+    "uta-rest-service"
   ],
   "run_trigger": "schedule",
-  "collection_duration_ms": 88970
+  "collection_duration_ms": 89849
 }

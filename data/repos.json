@@ -16,6 +16,22 @@
     "default_branch": "main"
   },
   {
+    "name": "biocommons.seqrepo",
+    "full_name": "biocommons/biocommons.seqrepo",
+    "html_url": "https://github.com/biocommons/biocommons.seqrepo",
+    "description": "non-redundant, compressed, journalled, file-based storage for biological sequences",
+    "stargazers_count": 50,
+    "forks_count": 36,
+    "open_issues_count": 11,
+    "open_pr_count": 0,
+    "contributors": 19,
+    "latest_release": {
+      "tag_name": "0.6.11",
+      "published_at": "2025-03-19T13:40:21Z"
+    },
+    "default_branch": "main"
+  },
+  {
     "name": "bioutils",
     "full_name": "biocommons/bioutils",
     "html_url": "https://github.com/biocommons/bioutils",
@@ -64,19 +80,16 @@
     "default_branch": "main"
   },
   {
-    "name": "seqrepo",
-    "full_name": "biocommons/biocommons.seqrepo",
-    "html_url": "https://github.com/biocommons/biocommons.seqrepo",
-    "description": "non-redundant, compressed, journalled, file-based storage for biological sequences",
-    "stargazers_count": 50,
-    "forks_count": 36,
-    "open_issues_count": 0,
+    "name": "hgvs-eval",
+    "full_name": "biocommons/hgvs-eval",
+    "html_url": "https://github.com/biocommons/hgvs-eval",
+    "description": "automated evaluation suite to assess tools that manipulate HGVS formatted variants",
+    "stargazers_count": 4,
+    "forks_count": 4,
+    "open_issues_count": 1,
     "open_pr_count": 0,
-    "contributors": 19,
-    "latest_release": {
-      "tag_name": "0.6.11",
-      "published_at": "2025-03-19T13:40:21Z"
-    },
+    "contributors": 6,
+    "latest_release": null,
     "default_branch": "main"
   },
   {
@@ -105,6 +118,32 @@
     "open_issues_count": 26,
     "open_pr_count": 0,
     "contributors": 14,
+    "latest_release": null,
+    "default_branch": "main"
+  },
+  {
+    "name": "uta-align",
+    "full_name": "biocommons/uta-align",
+    "html_url": "https://github.com/biocommons/uta-align",
+    "description": "C-based Needleman-Wunsch and Smith-Waterman alignment algorithms with a Python interface.",
+    "stargazers_count": 6,
+    "forks_count": 6,
+    "open_issues_count": 0,
+    "open_pr_count": 0,
+    "contributors": 5,
+    "latest_release": null,
+    "default_branch": "main"
+  },
+  {
+    "name": "uta-rest-service",
+    "full_name": "biocommons/uta-rest-service",
+    "html_url": "https://github.com/biocommons/uta-rest-service",
+    "description": "REST service over https://github.com/biocommons/uta/",
+    "stargazers_count": 0,
+    "forks_count": 1,
+    "open_issues_count": 3,
+    "open_pr_count": 1,
+    "contributors": 1,
     "latest_release": null,
     "default_branch": "main"
   }
