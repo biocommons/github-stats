@@ -65,9 +65,11 @@ watch(scrollMode, (on) => {
   panOffset.value = on ? maxPan.value : 0
 })
 
-// Keep pan in bounds when data changes (e.g. granularity switch)
-watch(maxPan, () => {
-  if (scrollMode.value) panOffset.value = clampPan(panOffset.value)
+// On initial data load (maxPan 0→N), snap to end. On subsequent changes
+// (granularity switch), just clamp to the new valid range.
+watch(maxPan, (newMax, oldMax) => {
+  if (!scrollMode.value) return
+  panOffset.value = oldMax === 0 && newMax > 0 ? newMax : clampPan(panOffset.value)
 })
 
 const barWidth = computed(() => {
