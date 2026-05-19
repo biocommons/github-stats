@@ -2,6 +2,8 @@
 import { useContributorsTab, type ContribTimespan } from '~/composables/useContributorsTab'
 import type { ContributorCounts } from '~/composables/useContributorStats'
 import { repoDisplayName } from '~/config'
+import QuadCell from '~/components/QuadCell.vue'
+import RadarCell from '~/components/RadarCell.vue'
 
 const { tabData, timespan, isLoading } = useContributorsTab()
 
@@ -13,6 +15,10 @@ const TIMESPANS: { label: string; value: ContribTimespan }[] = [
 
 const EMPTY_COUNTS: ContributorCounts = { commits: 0, issues_opened: 0, prs_opened: 0, reviews_submitted: 0 }
 
+type CellMode = 'quad' | 'radar'
+const cellMode = ref<CellMode>('radar')
+const CellComponent = computed(() => cellMode.value === 'quad' ? QuadCell : RadarCell)
+
 function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): ContributorCounts {
   return byRepo[repo] ?? EMPTY_COUNTS
 }
@@ -21,20 +27,53 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
 
 <template>
   <div>
-    <!-- Timespan selector -->
-    <div class="mb-6 flex items-center gap-2">
-      <span class="text-xs font-medium uppercase tracking-wider text-slate-500">Timespan</span>
-      <div class="flex items-center rounded-full border border-slate-700 bg-slate-900 p-0.5 text-xs font-medium">
+    <!-- Toolbar: timespan left, cell-mode toggle right -->
+    <div class="mb-6 flex items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="text-xs font-medium uppercase tracking-wider text-slate-500">Timespan</span>
+        <div class="flex items-center rounded-full border border-slate-700 bg-slate-900 p-0.5 text-xs font-medium">
+          <button
+            v-for="ts in TIMESPANS"
+            :key="ts.value"
+            class="rounded-full px-3 py-1 transition-colors"
+            :class="timespan === ts.value
+              ? 'bg-emerald-500/20 text-emerald-300'
+              : 'text-slate-400 hover:text-slate-200'"
+            @click="timespan = ts.value"
+          >
+            {{ ts.label }}
+          </button>
+        </div>
+      </div>
+
+      <!-- Cell mode toggle -->
+      <div class="flex items-center rounded-md border border-slate-700 bg-slate-900 p-0.5">
+        <!-- Quad icon -->
         <button
-          v-for="ts in TIMESPANS"
-          :key="ts.value"
-          class="rounded-full px-3 py-1 transition-colors"
-          :class="timespan === ts.value
-            ? 'bg-emerald-500/20 text-emerald-300'
-            : 'text-slate-400 hover:text-slate-200'"
-          @click="timespan = ts.value"
+          class="rounded p-1.5 transition-colors"
+          :class="cellMode === 'quad' ? 'bg-slate-700' : 'hover:bg-slate-800'"
+          title="Quadrant view"
+          @click="cellMode = 'quad'"
         >
-          {{ ts.label }}
+          <svg viewBox="0 0 16 16" width="16" height="16">
+            <rect x="1" y="1" width="6" height="6" rx="1" fill="rgba(64,81,181,0.8)" />
+            <rect x="9" y="1" width="6" height="6" rx="1" fill="rgba(230,159,0,0.8)" />
+            <rect x="1" y="9" width="6" height="6" rx="1" fill="rgba(86,180,233,0.8)" />
+            <rect x="9" y="9" width="6" height="6" rx="1" fill="rgba(0,158,115,0.8)" />
+          </svg>
+        </button>
+        <!-- Radar icon -->
+        <button
+          class="rounded p-1.5 transition-colors"
+          :class="cellMode === 'radar' ? 'bg-slate-700' : 'hover:bg-slate-800'"
+          title="Radar view"
+          @click="cellMode = 'radar'"
+        >
+          <svg viewBox="0 0 16 16" width="16" height="16">
+            <line x1="8" y1="1" x2="8" y2="15" stroke="rgb(100,116,139)" stroke-width="0.5" opacity="0.5" />
+            <line x1="1" y1="8" x2="15" y2="8" stroke="rgb(100,116,139)" stroke-width="0.5" opacity="0.5" />
+            <polygon points="8,2 13,8 8,14 3,8" fill="rgba(52,211,153,0.25)" stroke="rgba(52,211,153,0.9)" stroke-width="1" stroke-linejoin="round" />
+          </svg>
         </button>
       </div>
     </div>
@@ -114,21 +153,22 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
                 <SparkLine :values="row.sparkline" />
               </td>
 
-              <!-- Total quad cell -->
+              <!-- Total cell -->
               <td class="px-4 py-2">
                 <div class="flex justify-center">
-                  <QuadCell :counts="row.total" :maxes="tabData.colMaxes['total']!" />
+                  <component :is="CellComponent" :counts="row.total" :maxes="tabData.colMaxes['total']!" />
                 </div>
               </td>
 
-              <!-- Per-repo quad cells -->
+              <!-- Per-repo cells -->
               <td
                 v-for="repo in tabData.repos"
                 :key="repo"
                 class="px-4 py-2"
               >
                 <div class="flex justify-center">
-                  <QuadCell
+                  <component
+                    :is="CellComponent"
                     :counts="repoCounts(row.byRepo, repo)"
                     :maxes="tabData.colMaxes[repo]!"
                   />
@@ -141,8 +181,8 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
 
       <!-- Legend -->
       <div class="mt-8 flex flex-col gap-6 sm:flex-row sm:gap-12">
-        <!-- Quadrant key -->
-        <div>
+        <!-- Quad key -->
+        <div v-if="cellMode === 'quad'">
           <p class="mb-3 text-xs font-medium uppercase tracking-wider text-slate-500">Quadrant key</p>
           <div class="flex items-start gap-6">
             <div class="grid grid-cols-2 gap-1 text-[10px] text-slate-400">
@@ -165,6 +205,30 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
             </div>
             <div class="text-[10px] text-slate-500">
               <p>Shade = relative activity</p>
+              <p>within each column</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Radar key -->
+        <div v-else>
+          <p class="mb-3 text-xs font-medium uppercase tracking-wider text-slate-500">Radar axes</p>
+          <div class="flex items-start gap-6">
+            <div class="shrink-0">
+              <svg viewBox="0 0 40 40" width="40" height="40">
+                <line x1="20" y1="4" x2="20" y2="36" stroke="rgb(100,116,139)" stroke-width="0.5" opacity="0.4" />
+                <line x1="4" y1="20" x2="36" y2="20" stroke="rgb(100,116,139)" stroke-width="0.5" opacity="0.4" />
+                <polygon points="20,6 32,20 20,34 8,20" fill="rgba(52,211,153,0.25)" stroke="rgba(52,211,153,0.85)" stroke-width="1.2" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div class="grid grid-cols-2 gap-x-4 gap-y-0.5 text-[10px] text-slate-400">
+              <div>↑ commits</div>
+              <div>→ PRs</div>
+              <div>↓ reviews</div>
+              <div>← issues</div>
+            </div>
+            <div class="text-[10px] text-slate-500">
+              <p>Reach = relative activity</p>
               <p>within each column</p>
             </div>
           </div>
