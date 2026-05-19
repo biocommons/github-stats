@@ -28,3 +28,4 @@ logs
 __pycache__
 
 settings.local.json
+.envrc.local

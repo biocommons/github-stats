@@ -216,8 +216,51 @@ class DataCollector:
         self.commits = []
         self.reviews = []
         self.repos = []
+        self.skipped_repos: list[str] = []
         self.start_time: datetime | None = None
         self.end_time: datetime | None = None
+        self.prev_collected_at, self.prev_data = self._load_prev_data()
+
+    def _load_prev_data(self) -> tuple[str | None, dict[str, list]]:
+        """Load previous run's collected_at and output files for skip logic."""
+        meta_path = DATA_DIR / "meta.json"
+        if not meta_path.exists():
+            return None, {}
+        try:
+            meta = json.loads(meta_path.read_text())
+            prev_collected_at = meta.get("collected_at")
+            prev_data: dict[str, list] = {}
+            for filename in [
+                "repos.json",
+                "issues.json",
+                "prs.json",
+                "commits.json",
+                "reviews.json",
+            ]:
+                path = DATA_DIR / filename
+                prev_data[filename] = json.loads(path.read_text()) if path.exists() else []
+            logger.info(f"Previous run: collected_at={prev_collected_at}")
+            return prev_collected_at, prev_data
+        except Exception as e:
+            logger.warning(f"Could not load previous data for skip logic: {e}")
+            return None, {}
+
+    def _restore_prev_repo(self, repo_key: str) -> None:
+        """Copy previous run's data for a skipped repo into the collector's lists."""
+        for item in self.prev_data.get("repos.json", []):
+            if item["name"] == repo_key:
+                self.repos.append(item)
+                break
+        self.issues.extend(
+            i for i in self.prev_data.get("issues.json", []) if i["repo"] == repo_key
+        )
+        self.prs.extend(p for p in self.prev_data.get("prs.json", []) if p["repo"] == repo_key)
+        self.commits.extend(
+            c for c in self.prev_data.get("commits.json", []) if c["repo"] == repo_key
+        )
+        self.reviews.extend(
+            r for r in self.prev_data.get("reviews.json", []) if r["repo"] == repo_key
+        )
 
     def collect(self) -> None:
         """Collect data from all repositories in parallel."""
@@ -251,6 +294,16 @@ class DataCollector:
             logger.info(
                 f"Slug '{repo}' resolved to GitHub name '{repo_key}' — using canonical name as key."
             )
+
+        if self.prev_collected_at and repo_data["updated_at"] <= self.prev_collected_at:
+            logger.info(
+                f"Skipping {owner}/{repo_key}: updated_at={repo_data['updated_at']}"
+                f" <= collected_at={self.prev_collected_at}"
+            )
+            self.skipped_repos.append(repo_key)
+            self._restore_prev_repo(repo_key)
+            return
+
         open_issue_count = self.client.get_open_issue_count(
             owner,
             repo,
@@ -362,10 +415,13 @@ class DataCollector:
             collection_duration_ms = 0
 
         # Write meta.json
+        collected_repos = sorted(r for r in self.repo_list if r not in self.skipped_repos)
         meta = {
             "collected_at": datetime.now(UTC).isoformat(),
             "schema_version": "1.0",
             "repos": sorted(self.repo_list),
+            "collected_repos": collected_repos,
+            "skipped_repos": sorted(self.skipped_repos),
             "run_trigger": self.get_trigger(),
             "collection_duration_ms": collection_duration_ms,
         }
@@ -399,6 +455,7 @@ class DataCollector:
             "data_dir": str(DATA_DIR),
             "collection_duration_ms": collection_duration_ms,
             "repos": len(self.repos),
+            "skipped": len(self.skipped_repos),
             "issues": len(self.issues),
             "prs": len(self.prs),
             "commits": len(self.commits),
@@ -505,7 +562,7 @@ def main(verbosity: int, cache_ttl: int, max_workers: int, repos: tuple[str, ...
         # Summary should always go to stdout, independent of log verbosity.
         click.echo(f"Data written to {summary['data_dir']}")
         click.echo(f"Collection took {summary['collection_duration_ms']}ms")
-        click.echo(f"Repos: {summary['repos']}")
+        click.echo(f"Repos: {summary['repos']} ({summary['skipped']} skipped, unchanged)")
         click.echo(f"Issues: {summary['issues']}")
         click.echo(f"PRs: {summary['prs']}")
         click.echo(f"Commits: {summary['commits']}")
