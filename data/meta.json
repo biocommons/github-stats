@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-05-19T01:17:20.870793+00:00",
+  "collected_at": "2026-05-19T03:40:32.519995+00:00",
   "schema_version": "1.0",
   "repos": [
     "anyvar",
@@ -8,6 +8,14 @@
     "hgvs",
     "uta"
   ],
-  "run_trigger": "workflow_dispatch",
-  "collection_duration_ms": 89188
+  "collected_repos": [
+    "anyvar",
+    "biocommons.seqrepo",
+    "bioutils",
+    "hgvs",
+    "uta"
+  ],
+  "skipped_repos": [],
+  "run_trigger": "schedule",
+  "collection_duration_ms": 73117
 }
