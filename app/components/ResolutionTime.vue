@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { FlowStats } from '~/composables/useFlowStats'
 import { RESOLUTION_BUCKETS } from '~/composables/useFlowStats'
+import { repoDisplayName } from '~/config'
 
 const props = defineProps<{
   stats: FlowStats
@@ -63,12 +64,12 @@ const closedLabel = computed(() => props.itemLabel === 'PRs' ? 'merged PRs' : `c
               v-for="seg in stackSegments(bucket)"
               :key="seg.repo"
               :style="{ width: `${seg.pct}%`, background: repoColor(seg.repo) }"
-              :title="`${seg.repo}: ${seg.count} (${seg.pct.toFixed(1)}%)`"
+              :title="`${repoDisplayName(seg.repo)}: ${seg.count} (${seg.pct.toFixed(1)}%)`"
             />
           </div>
           <span class="w-24 shrink-0 text-right text-slate-400">
             {{ stats.resolutionRows.find(r => r.bucket === bucket)?.total ?? 0 }}
-            <span class="text-slate-600">({{ totalClosed > 0 ? ((stats.resolutionRows.find(r => r.bucket === bucket)?.total ?? 0) / totalClosed * 100).toFixed(0) : 0 }}%)</span>
+            <span class="text-slate-500">({{ totalClosed > 0 ? ((stats.resolutionRows.find(r => r.bucket === bucket)?.total ?? 0) / totalClosed * 100).toFixed(0) : 0 }}%)</span>
           </span>
         </div>
       </div>
@@ -85,7 +86,7 @@ const closedLabel = computed(() => props.itemLabel === 'PRs' ? 'merged PRs' : `c
         <p class="text-2xl font-semibold text-slate-200">{{ formatDays(stats.medianDays) }}</p>
       </div>
       <div :title="`90% of ${closedLabel} resolved within this many days — the remaining 10% took longer`">
-        <p class="mb-0.5 text-xs uppercase tracking-wide text-slate-500">p90 <span class="normal-case text-slate-600">ⓘ</span></p>
+        <p class="mb-0.5 text-xs uppercase tracking-wide text-slate-500">p90 <span class="normal-case text-slate-400">ⓘ</span></p>
         <p class="text-2xl font-semibold text-slate-200">{{ formatDays(stats.p90Days) }}</p>
       </div>
     </div>

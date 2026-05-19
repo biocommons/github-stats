@@ -178,6 +178,11 @@ const isDev = import.meta.dev
         </template>
       </template>
 
+      <!-- Contributors tab -->
+      <template v-else-if="activeTab === 'Contributors'">
+        <ContributorTable />
+      </template>
+
       <!-- Placeholder tabs -->
       <template v-else>
         <div class="flex items-center justify-center py-24 text-slate-500">

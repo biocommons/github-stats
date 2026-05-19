@@ -1,4 +1,5 @@
 import { toBucket, type TimeBucket } from './useTimeBuckets'
+import { repoDisplayName } from '~/config'
 
 export type FlowKind = 'issues' | 'prs'
 
@@ -44,6 +45,7 @@ export interface FlowStats {
   repos: string[]
   flowPoints: FlowPoint[]
   stockSeries: StockPoint[]
+  repoStockSeries: Record<string, StockPoint[]>
   resolutionRows: ResolutionRow[]
   medianDays: number | null
   p90Days: number | null
@@ -75,7 +77,7 @@ function fillContiguousBuckets(first: string, last: string, granularity: TimeBuc
 }
 
 export function computeFlowStats(records: FlowRecord[], granularity: TimeBucket): FlowStats {
-  const repos = [...new Set(records.map(r => r.repo))].sort()
+  const repos = [...new Set(records.map(r => r.repo))].sort((a, b) => repoDisplayName(a).localeCompare(repoDisplayName(b)))
 
   const sparseBuckets = new Set<string>()
   for (const r of records) {
@@ -123,6 +125,15 @@ export function computeFlowStats(records: FlowRecord[], granularity: TimeBucket)
     return { bucket, openCount: Math.max(0, runningOpen) }
   })
 
+  const repoStockSeries: Record<string, StockPoint[]> = {}
+  for (const repo of repos) {
+    let repoOpen = 0
+    repoStockSeries[repo] = buckets.map(bucket => {
+      repoOpen += (openedMap[bucket]![repo] ?? 0) - (closedMap[bucket]![repo] ?? 0)
+      return { bucket, openCount: Math.max(0, repoOpen) }
+    })
+  }
+
   const resolutionMap: Record<ResolutionBucket, Record<string, number>> = {
     '0–1d': {}, '2–7d': {}, '8–30d': {}, '31–90d': {}, '91–365d': {}, '>365d': {},
   }
@@ -146,7 +157,7 @@ export function computeFlowStats(records: FlowRecord[], granularity: TimeBucket)
   const medianDays = totalClosed > 0 ? (closedDays[Math.floor(totalClosed / 2)] ?? null) : null
   const p90Days = totalClosed > 0 ? (closedDays[Math.floor(totalClosed * 0.9)] ?? null) : null
 
-  return { repos, flowPoints, stockSeries, resolutionRows, medianDays, p90Days, totalClosed }
+  return { repos, flowPoints, stockSeries, repoStockSeries, resolutionRows, medianDays, p90Days, totalClosed }
 }
 
 // Raw API shapes — only the fields we need
@@ -175,7 +186,7 @@ export function useFlowStats(kind: FlowKind) {
   // Full repo list from unfiltered data — used for chip display and stable color mapping
   const allRepos = computed<string[]>(() => {
     if (!rawData.value) return []
-    return [...new Set(rawData.value.map(r => r.repo))].sort()
+    return [...new Set(rawData.value.map(r => r.repo))].sort((a, b) => repoDisplayName(a).localeCompare(repoDisplayName(b)))
   })
 
   const selectedRepos = ref<Set<string>>(new Set())

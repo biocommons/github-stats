@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { RepoCardData } from '~/composables/useOverviewData'
+import { repoDisplayName } from '~/config'
 
 const props = defineProps<{ repo: RepoCardData }>()
 
@@ -19,7 +20,7 @@ const sparklinePeak = computed(() => Math.max(...props.repo.sparkline))
         target="_blank"
         rel="noopener"
         class="text-base font-semibold text-emerald-300 hover:underline"
-      >{{ repo.name }}</a>
+      >{{ repoDisplayName(repo.name) }}</a>
       <a
         v-if="repo.latest_release"
         :href="`https://github.com/${repo.full_name}/releases/tag/${repo.latest_release.tag_name}`"
