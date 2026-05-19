@@ -24,13 +24,8 @@ REPOS_TO_COLLECT = [
     "anyvar",
     "biocommons.seqrepo",
     "bioutils",
-    "eutils",
     "hgvs",
-    "hgvs-eval",
-    "seqrepo-rest-service",
     "uta",
-    "uta-align",
-    "uta-rest-service",
 ]
 ORG = "biocommons"
 DATA_DIR = Path(__file__).parent.parent / "data"
