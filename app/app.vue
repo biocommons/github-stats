@@ -38,8 +38,8 @@ watch(() => route.query.tab, () => {
 })
 
 const { orgSummary, repoCards, isLoading, collectedAt, relativeTime, formatLocalTime } = useOverviewData()
-const { stats: issueStats, allRepos: issueAllRepos, granularity, selectedRepos, toggleRepo } = useFlowStats('issues')
-const { stats: prStats, allRepos: prAllRepos, granularity: prGranularity, selectedRepos: prSelectedRepos, toggleRepo: prToggleRepo } = useFlowStats('prs')
+const { stats: issueStats, allStats: issueAllStats, allRepos: issueAllRepos, granularity, selectedRepos, toggleRepo } = useFlowStats('issues')
+const { stats: prStats, allStats: prAllStats, allRepos: prAllRepos, granularity: prGranularity, selectedRepos: prSelectedRepos, toggleRepo: prToggleRepo } = useFlowStats('prs')
 
 // Keep PR granularity in sync with the shared URL-driven granularity ref
 watch(granularity, (g) => { prGranularity.value = g }, { immediate: true })
@@ -176,6 +176,19 @@ const isDev = import.meta.dev
             <ResolutionTime :stats="prStats" :all-repos="prAllRepos" item-label="PRs" />
           </div>
         </template>
+      </template>
+
+      <!-- Resolution Time tab -->
+      <template v-else-if="activeTab === 'Resolution Time'">
+        <div v-if="!issueAllStats || !prAllStats" class="flex items-center justify-center py-24 text-slate-500">
+          Loading…
+        </div>
+        <ResolutionSummary
+          v-else
+          :issue-stats="issueAllStats"
+          :pr-stats="prAllStats"
+          :all-repos="issueAllRepos"
+        />
       </template>
 
       <!-- Contributors tab -->

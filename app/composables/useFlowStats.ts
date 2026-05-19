@@ -41,6 +41,12 @@ export interface ResolutionRow {
   total: number
 }
 
+export interface RepoResolution {
+  medianDays: number | null
+  p90Days: number | null
+  totalClosed: number
+}
+
 export interface FlowStats {
   repos: string[]
   flowPoints: FlowPoint[]
@@ -50,6 +56,7 @@ export interface FlowStats {
   medianDays: number | null
   p90Days: number | null
   totalClosed: number
+  perRepo: Record<string, RepoResolution>
 }
 
 function fillContiguousBuckets(first: string, last: string, granularity: TimeBucket): string[] {
@@ -138,11 +145,13 @@ export function computeFlowStats(records: FlowRecord[], granularity: TimeBucket)
     '0–1d': {}, '2–7d': {}, '8–30d': {}, '31–90d': {}, '91–365d': {}, '>365d': {},
   }
   const closedDays: number[] = []
+  const closedDaysByRepo: Record<string, number[]> = {}
 
   for (const r of records) {
     if (!r.closed_at) continue
     const days = (new Date(r.closed_at).getTime() - new Date(r.created_at).getTime()) / 86_400_000
     closedDays.push(days)
+    ;(closedDaysByRepo[r.repo] ??= []).push(days)
     const rb = classifyResolution(r.created_at, r.closed_at)
     resolutionMap[rb]![r.repo] = (resolutionMap[rb]![r.repo] ?? 0) + 1
   }
@@ -157,7 +166,18 @@ export function computeFlowStats(records: FlowRecord[], granularity: TimeBucket)
   const medianDays = totalClosed > 0 ? (closedDays[Math.floor(totalClosed / 2)] ?? null) : null
   const p90Days = totalClosed > 0 ? (closedDays[Math.floor(totalClosed * 0.9)] ?? null) : null
 
-  return { repos, flowPoints, stockSeries, repoStockSeries, resolutionRows, medianDays, p90Days, totalClosed }
+  const perRepo: Record<string, RepoResolution> = {}
+  for (const repo of repos) {
+    const days = (closedDaysByRepo[repo] ?? []).sort((a, b) => a - b)
+    const n = days.length
+    perRepo[repo] = {
+      totalClosed: n,
+      medianDays: n > 0 ? (days[Math.floor(n / 2)] ?? null) : null,
+      p90Days: n > 0 ? (days[Math.floor(n * 0.9)] ?? null) : null,
+    }
+  }
+
+  return { repos, flowPoints, stockSeries, repoStockSeries, resolutionRows, medianDays, p90Days, totalClosed, perRepo }
 }
 
 // Raw API shapes — only the fields we need
@@ -205,6 +225,11 @@ export function useFlowStats(kind: FlowKind) {
     return computeFlowStats(filtered, granularity.value)
   })
 
+  const allStats = computed<FlowStats | null>(() => {
+    if (!rawData.value || rawData.value.length === 0) return null
+    return computeFlowStats(rawData.value, granularity.value)
+  })
+
   function toggleRepo(repo: string) {
     const next = new Set(selectedRepos.value)
     if (next.has(repo)) next.delete(repo)
@@ -212,5 +237,5 @@ export function useFlowStats(kind: FlowKind) {
     selectedRepos.value = next
   }
 
-  return { stats, allRepos, granularity, selectedRepos, toggleRepo, isLoading: pending }
+  return { stats, allStats, allRepos, granularity, selectedRepos, toggleRepo, isLoading: pending }
 }
