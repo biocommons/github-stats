@@ -9,12 +9,12 @@ const props = defineProps<{
 }>()
 
 const BUCKET_COLORS: Record<ResolutionBucket, string> = {
-  '0–1d':    '#00bda4',
-  '2–7d':    '#60a5fa',
-  '8–30d':   '#f472b6',
-  '31–90d':  '#fb923c',
-  '91–365d': '#a78bfa',
-  '>365d':   '#facc15',
+  '0–1d':    '#6ea059', // green  — fast      (#6aa84f desaturated ~20%)
+  '2–7d':    '#5586d3', // blue   — quick     (#4a87e8 desaturated ~20%)
+  '8–30d':   '#d28e46', // orange — medium    (#e69138 desaturated ~20%)
+  '31–90d':  '#d3b440', // amber  — slow      (#e8c130 desaturated ~20%)
+  '91–365d': '#7e6ab3', // purple — long      (#7d65c0 desaturated ~20%)
+  '>365d':   '#c7594a', // red    — very long (#d94f3d desaturated ~20%)
 }
 
 const maxClosed = computed(() =>

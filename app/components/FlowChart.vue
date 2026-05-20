@@ -18,13 +18,13 @@ const emit = defineEmits<{
 
 // Colors indexed against allRepos so they never shift during filtering
 const REPO_COLORS = [
-  '#00bda4', // bc-teal-400 (brand accent)
-  '#60a5fa', // blue-400
-  '#f472b6', // pink-400
-  '#fb923c', // orange-400
-  '#a78bfa', // violet-400
-  '#facc15', // yellow-400
-  '#22d3ee', // cyan-400
+  '#4a87e8', // blue    (#3c78d8 brightened)
+  '#e69138', // orange  (logo original)
+  '#6aa84f', // green   (logo original)
+  '#c05a8d', // pink    (#a64d79 lightened)
+  '#7d65c0', // purple  (#674ea7 lightened)
+  '#d94f3d', // red     (#cc0000 brightened)
+  '#e8c130', // amber   (#f1c232 slight desaturate)
 ]
 
 function repoColor(repo: string): string {
