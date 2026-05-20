@@ -4,14 +4,13 @@ import { useDataSource } from '~/composables/useDataSource'
 import { useFlowStats } from '~/composables/useFlowStats'
 import { useEmbedMode } from '~/composables/useEmbedMode'
 
-const tabs = ['Overview', 'Issues', 'PRs', 'Resolution Time', 'Contributors'] as const
+const tabs = ['Overview', 'Issues', 'PRs', 'Contributors'] as const
 type Tab = (typeof tabs)[number]
 
 const TAB_SLUG: Record<Tab, string> = {
   'Overview': 'overview',
   'Issues': 'issues',
   'PRs': 'prs',
-  'Resolution Time': 'resolution-time',
   'Contributors': 'contributors',
 }
 const SLUG_TAB: Record<string, Tab> = Object.fromEntries(
@@ -38,8 +37,8 @@ watch(() => route.query.tab, () => {
 })
 
 const { orgSummary, repoCards, isLoading, collectedAt, relativeTime, formatLocalTime } = useOverviewData()
-const { stats: issueStats, allStats: issueAllStats, allRepos: issueAllRepos, granularity, selectedRepos, toggleRepo } = useFlowStats('issues')
-const { stats: prStats, allStats: prAllStats, allRepos: prAllRepos, granularity: prGranularity, selectedRepos: prSelectedRepos, toggleRepo: prToggleRepo } = useFlowStats('prs')
+const { stats: issueStats, allRepos: issueAllRepos, granularity, selectedRepos, toggleRepo } = useFlowStats('issues')
+const { stats: prStats, allRepos: prAllRepos, granularity: prGranularity, selectedRepos: prSelectedRepos, toggleRepo: prToggleRepo } = useFlowStats('prs')
 
 // Keep PR granularity in sync with the shared URL-driven granularity ref
 watch(granularity, (g) => { prGranularity.value = g }, { immediate: true })
@@ -152,7 +151,7 @@ const isDev = import.meta.dev
             @toggle-repo="toggleRepo"
           />
           <div class="mt-10 border-t border-slate-800 pt-8">
-            <ResolutionTime :stats="issueStats" :all-repos="issueAllRepos" item-label="issues" />
+            <ResolutionByRepo :stats="issueStats" item-label="issues" />
           </div>
         </template>
       </template>
@@ -173,22 +172,9 @@ const isDev = import.meta.dev
             @toggle-repo="prToggleRepo"
           />
           <div class="mt-10 border-t border-slate-800 pt-8">
-            <ResolutionTime :stats="prStats" :all-repos="prAllRepos" item-label="PRs" />
+            <ResolutionByRepo :stats="prStats" item-label="PRs" />
           </div>
         </template>
-      </template>
-
-      <!-- Resolution Time tab -->
-      <template v-else-if="activeTab === 'Resolution Time'">
-        <div v-if="!issueAllStats || !prAllStats" class="flex items-center justify-center py-24 text-slate-500">
-          Loading…
-        </div>
-        <ResolutionSummary
-          v-else
-          :issue-stats="issueAllStats"
-          :pr-stats="prAllStats"
-          :all-repos="issueAllRepos"
-        />
       </template>
 
       <!-- Contributors tab -->
