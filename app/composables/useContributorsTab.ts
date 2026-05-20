@@ -1,4 +1,3 @@
-import { toYearMonth } from './useTimeBuckets'
 import { useContributorStats, type ContributorCounts } from './useContributorStats'
 import { repoDisplayName } from '~/config'
 
@@ -8,7 +7,7 @@ export interface ContributorRow {
   login: string
   avatar_url: string
   first_contribution_at: string
-  sparkline: number[]
+  last_activity_at: string
   isNew: boolean
   isTop: boolean
   isAnonymous: boolean
@@ -45,15 +44,6 @@ function countTotal(c: ContributorCounts): number {
   return c.commits + c.issues_opened + c.prs_opened + c.reviews_submitted
 }
 
-function last12Months(): string[] {
-  const months: string[] = []
-  const now = new Date()
-  for (let i = 11; i >= 0; i--) {
-    const d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() - i, 1))
-    months.push(toYearMonth(d.toISOString()))
-  }
-  return months
-}
 
 function computeColMaxes(
   rows: ReturnType<typeof useContributorStats>,
@@ -101,9 +91,6 @@ export function useContributorsTab() {
   const tabData = computed<ContributorTabData | null>(() => {
     if (!rawData.value) return null
     const { contributors, issues, prs, commits, reviews } = rawData.value
-
-    const months = last12Months()
-    const monthSet = new Set(months)
 
     // Stable repo list from all events
     const repos = [...new Set([
@@ -165,22 +152,16 @@ export function useContributorsTab() {
       for (const k of countKeys) colMaxes[repo]![k] = Math.max(colMaxes[repo]![k], ac[k])
     }
 
-    // Sparklines always show last 12 months regardless of timespan filter
-    const sparkMap: Record<string, Record<string, number>> = {}
-    const anonSparkMap: Record<string, number> = {}
-    function addSpark(login: string | null, month: string) {
-      if (!monthSet.has(month)) return
-      if (login === null) {
-        anonSparkMap[month] = (anonSparkMap[month] ?? 0) + 1
-        return
-      }
-      if (!sparkMap[login]) sparkMap[login] = {}
-      sparkMap[login]![month] = (sparkMap[login]![month] ?? 0) + 1
+    // Last activity date per login (max across all event types)
+    const lastActivityMap: Record<string, string> = {}
+    function trackLast(login: string | null, date: string) {
+      if (!login) return
+      if (!lastActivityMap[login] || date > lastActivityMap[login]!) lastActivityMap[login] = date
     }
-    for (const r of issues) addSpark(r.author_login, toYearMonth(r.created_at))
-    for (const r of prs) addSpark(r.author_login, toYearMonth(r.created_at))
-    for (const r of commits) addSpark(r.author_login, toYearMonth(r.author_date))
-    for (const r of reviews) addSpark(r.reviewer_login, toYearMonth(r.submitted_at))
+    for (const r of issues) trackLast(r.author_login, r.created_at)
+    for (const r of prs) trackLast(r.author_login, r.created_at)
+    for (const r of commits) trackLast(r.author_login, r.author_date)
+    for (const r of reviews) trackLast(r.reviewer_login, r.submitted_at)
 
     const now = Date.now()
 
@@ -193,7 +174,7 @@ export function useContributorsTab() {
           login: s.login,
           avatar_url: s.avatar_url,
           first_contribution_at: s.first_contribution_at,
-          sparkline: months.map(m => sparkMap[s.login]?.[m] ?? 0),
+          last_activity_at: lastActivityMap[s.login] ?? s.first_contribution_at,
           isNew: daysOld < 90 && allTimeCount >= 3,
           isTop: topLogins.has(s.login),
           isAnonymous: false,
@@ -209,7 +190,7 @@ export function useContributorsTab() {
         login: '(anonymous)',
         avatar_url: '',
         first_contribution_at: '',
-        sparkline: months.map(m => anonSparkMap[m] ?? 0),
+        last_activity_at: '',
         isNew: false,
         isTop: false,
         isAnonymous: true,

@@ -5,7 +5,25 @@ import { repoDisplayName } from '~/config'
 import QuadCell from '~/components/QuadCell.vue'
 import RadarCell from '~/components/RadarCell.vue'
 
+
 const { tabData, timespan, isLoading } = useContributorsTab()
+
+function formatActiveSpan(first: string, last: string): string {
+  if (!first || !last) return ''
+  const a = new Date(first)
+  const b = new Date(last)
+  const totalMonths = (b.getFullYear() - a.getFullYear()) * 12 + (b.getMonth() - a.getMonth())
+  if (totalMonths < 1) return '<1m'
+  const years = Math.floor(totalMonths / 12)
+  const months = totalMonths % 12
+  if (years === 0) return `${months}m`
+  if (months === 0) return `${years}y`
+  return `${years}y ${months}m`
+}
+
+function formatDate(iso: string): string {
+  return iso ? iso.slice(0, 10) : ''
+}
 
 const TIMESPANS: { label: string; value: ContribTimespan }[] = [
   { label: 'All time', value: 'all' },
@@ -98,7 +116,6 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
           <thead>
             <tr class="border-b border-slate-200 text-left text-xs font-medium uppercase tracking-wider text-slate-500 dark:border-slate-800">
               <th class="sticky left-0 z-10 bg-white px-4 py-3 min-w-[200px] dark:bg-slate-950">Contributor</th>
-              <th class="px-4 py-3 min-w-[136px]">Trend</th>
               <th class="px-4 py-3 text-center">Total</th>
               <th
                 v-for="repo in tabData.repos"
@@ -136,21 +153,23 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
                       class="h-7 w-7 rounded-full"
                       loading="lazy"
                     />
-                    <a
-                      :href="`https://github.com/${row.login}`"
-                      target="_blank"
-                      rel="noopener"
-                      class="font-mono text-slate-700 transition-colors hover:text-bc-teal-600 dark:text-slate-300 dark:hover:text-bc-teal-300"
-                    >{{ row.login }}</a>
-                    <span v-if="row.isTop" title="Top contributor — top 3 by activity" class="text-base leading-none">🚀</span>
-                    <span v-if="row.isNew" title="New contributor — first contribution &lt;90 days ago" class="text-base leading-none">🌱</span>
+                    <div>
+                      <div class="flex items-center gap-1.5">
+                        <a
+                          :href="`https://github.com/${row.login}`"
+                          target="_blank"
+                          rel="noopener"
+                          class="font-mono text-slate-700 transition-colors hover:text-bc-teal-600 dark:text-slate-300 dark:hover:text-bc-teal-300"
+                        >{{ row.login }}</a>
+                        <span v-if="row.isTop" title="Top contributor — top 3 by activity" class="text-base leading-none">🚀</span>
+                        <span v-if="row.isNew" title="New contributor — first contribution &lt;90 days ago" class="text-base leading-none">🌱</span>
+                      </div>
+                      <div v-if="row.first_contribution_at" class="mt-0.5 text-[10px] text-slate-400 dark:text-slate-500">
+                        active: {{ formatActiveSpan(row.first_contribution_at, row.last_activity_at) }}; last: {{ formatDate(row.last_activity_at) }}
+                      </div>
+                    </div>
                   </template>
                 </div>
-              </td>
-
-              <!-- 12-month sparkline -->
-              <td class="px-4 py-2 text-bc-teal-500 dark:text-bc-teal-400">
-                <SparkLine :values="row.sparkline" />
               </td>
 
               <!-- Total cell -->
