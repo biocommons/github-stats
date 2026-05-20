@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { useContributorsTab, type ContribTimespan } from '~/composables/useContributorsTab'
+import { useContributorsTab } from '~/composables/useContributorsTab'
+import type { FlowTimespan as ContribTimespan } from '~/composables/useFlowStats'
 import type { ContributorCounts } from '~/composables/useContributorStats'
 import { repoDisplayName } from '~/config'
 import QuadCell from '~/components/QuadCell.vue'
@@ -27,8 +28,10 @@ function formatDate(iso: string): string {
 
 const TIMESPANS: { label: string; value: ContribTimespan }[] = [
   { label: 'All time', value: 'all' },
-  { label: 'Last 90d', value: '90d' },
-  { label: 'Last 30d', value: '30d' },
+  { label: '12 mo',   value: '12mo' },
+  { label: '6 mo',    value: '6mo' },
+  { label: '3 mo',    value: '3mo' },
+  { label: '1 mo',    value: '1mo' },
 ]
 
 const EMPTY_COUNTS: ContributorCounts = { commits: 0, issues_opened: 0, prs_opened: 0, reviews_submitted: 0 }

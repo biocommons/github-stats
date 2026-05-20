@@ -1,7 +1,8 @@
 import { useContributorStats, type ContributorCounts } from './useContributorStats'
+import { type FlowTimespan } from './useFlowStats'
 import { repoDisplayName, CONTRIBUTOR_EXCLUDE } from '~/config'
 
-export type ContribTimespan = 'all' | '90d' | '30d'
+export type ContribTimespan = FlowTimespan
 
 export interface ContributorRow {
   login: string
@@ -114,9 +115,13 @@ export function useContributorsTab() {
     const allTimeCountMap = new Map(allTimeStats.map(s => [s.login, countTotal(s.all_time)]))
 
     // Timespan-filtered stats for table display and sort
-    const cutoff = timespan.value === 'all'
-      ? null
-      : new Date(Date.now() - (timespan.value === '90d' ? 90 : 30) * 86_400_000)
+    const cutoff = (() => {
+      if (timespan.value === 'all') return null
+      const months = timespan.value === '12mo' ? 12 : timespan.value === '6mo' ? 6 : timespan.value === '3mo' ? 3 : 1
+      const d = new Date()
+      d.setMonth(d.getMonth() - months)
+      return d
+    })()
 
     function afterCutoff(date: string): boolean {
       return cutoff === null || new Date(date) >= cutoff
