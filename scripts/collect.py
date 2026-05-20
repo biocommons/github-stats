@@ -26,6 +26,12 @@ REPOS_TO_COLLECT = [
     "bioutils",
     "hgvs",
     "uta",
+    # administrative / infrastructure
+    "infra",
+    "biocommons.github.org",
+    "github-stats",
+    ".github",
+    "eutils",
 ]
 ORG = "biocommons"
 DATA_DIR = Path(__file__).parent.parent / "data"
@@ -331,6 +337,8 @@ class DataCollector:
                 if latest_release
                 else None,
                 "default_branch": repo_data["default_branch"],
+                "private": repo_data["private"],
+                "archived": repo_data.get("archived", False),
             }
         )
         logger.debug(f"Fetching issues for {owner}/{repo}...")
