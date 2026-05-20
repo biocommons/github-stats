@@ -2,6 +2,7 @@ import { toBucket, type TimeBucket } from './useTimeBuckets'
 import { repoDisplayName } from '~/config'
 
 export type FlowKind = 'issues' | 'prs'
+export type FlowTimespan = 'all' | '12mo' | '6mo' | '3mo' | '1mo'
 
 // Normalized shape shared by issues and PRs
 interface FlowRecord {
@@ -191,9 +192,18 @@ function toFlowRecords(kind: FlowKind, data: unknown[]): FlowRecord[] {
   return (data as RawIssue[]).map(r => ({ repo: r.repo, created_at: r.created_at, closed_at: r.closed_at }))
 }
 
+function timespanCutoff(timespan: FlowTimespan): Date | null {
+  if (timespan === 'all') return null
+  const months = timespan === '12mo' ? 12 : timespan === '6mo' ? 6 : timespan === '3mo' ? 3 : 1
+  const d = new Date()
+  d.setMonth(d.getMonth() - months)
+  return d
+}
+
 export function useFlowStats(kind: FlowKind) {
   const { dataBase } = useDataSource()
   const granularity = ref<TimeBucket>('month')
+  const timespan = ref<FlowTimespan>('all')
 
   const { data: rawData, pending } = useAsyncData<FlowRecord[]>(
     () => `flow:${kind}:${dataBase.value}`,
@@ -219,15 +229,22 @@ export function useFlowStats(kind: FlowKind) {
     }
   }, { immediate: true })
 
+  const timespanFiltered = computed<FlowRecord[]>(() => {
+    if (!rawData.value) return []
+    const cutoff = timespanCutoff(timespan.value)
+    if (!cutoff) return rawData.value
+    return rawData.value.filter(r => new Date(r.created_at) >= cutoff)
+  })
+
   const stats = computed<FlowStats | null>(() => {
-    if (!rawData.value || rawData.value.length === 0) return null
-    const filtered = rawData.value.filter(r => selectedRepos.value.has(r.repo))
+    if (timespanFiltered.value.length === 0) return null
+    const filtered = timespanFiltered.value.filter(r => selectedRepos.value.has(r.repo))
     return computeFlowStats(filtered, granularity.value)
   })
 
   const allStats = computed<FlowStats | null>(() => {
-    if (!rawData.value || rawData.value.length === 0) return null
-    return computeFlowStats(rawData.value, granularity.value)
+    if (timespanFiltered.value.length === 0) return null
+    return computeFlowStats(timespanFiltered.value, granularity.value)
   })
 
   function toggleRepo(repo: string) {
@@ -237,5 +254,5 @@ export function useFlowStats(kind: FlowKind) {
     selectedRepos.value = next
   }
 
-  return { stats, allStats, allRepos, granularity, selectedRepos, toggleRepo, isLoading: pending }
+  return { stats, allStats, allRepos, granularity, timespan, selectedRepos, toggleRepo, isLoading: pending }
 }

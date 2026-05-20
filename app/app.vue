@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useOverviewData } from '~/composables/useOverviewData'
 import { useDataSource } from '~/composables/useDataSource'
-import { useFlowStats } from '~/composables/useFlowStats'
+import { useFlowStats, type FlowTimespan } from '~/composables/useFlowStats'
 import { useEmbedMode } from '~/composables/useEmbedMode'
 import { useDarkMode } from '~/composables/useDarkMode'
 
@@ -38,18 +38,25 @@ watch(() => route.query.tab, () => {
 })
 
 const { orgSummary, repoCards, isLoading, collectedAt, relativeTime, formatLocalTime } = useOverviewData()
-const { stats: issueStats, allRepos: issueAllRepos, granularity, selectedRepos, toggleRepo } = useFlowStats('issues')
-const { stats: prStats, allRepos: prAllRepos, granularity: prGranularity, selectedRepos: prSelectedRepos, toggleRepo: prToggleRepo } = useFlowStats('prs')
+const { stats: issueStats, allRepos: issueAllRepos, granularity, timespan, selectedRepos, toggleRepo } = useFlowStats('issues')
+const { stats: prStats, allRepos: prAllRepos, granularity: prGranularity, timespan: prTimespan, selectedRepos: prSelectedRepos, toggleRepo: prToggleRepo } = useFlowStats('prs')
 
-// Keep PR granularity in sync with the shared URL-driven granularity ref
+// Keep PR granularity and timespan in sync with the shared URL-driven refs
 watch(granularity, (g) => { prGranularity.value = g }, { immediate: true })
+watch(timespan, (t) => { prTimespan.value = t }, { immediate: true })
 
 function granularityFromQuery(): 'month' | 'quarter' {
   const g = typeof route.query.granularity === 'string' ? route.query.granularity : ''
   return g === 'quarter' ? 'quarter' : 'month'
 }
 
+function timespanFromQuery(): FlowTimespan {
+  const t = typeof route.query.timespan === 'string' ? route.query.timespan : ''
+  return (['12mo', '6mo', '3mo', '1mo'] as FlowTimespan[]).includes(t as FlowTimespan) ? t as FlowTimespan : 'all'
+}
+
 granularity.value = granularityFromQuery()
+timespan.value = timespanFromQuery()
 
 watch(granularity, (g) => {
   router.replace({ query: { ...route.query, granularity: g } })
@@ -58,6 +65,15 @@ watch(granularity, (g) => {
 watch(() => route.query.granularity, () => {
   const g = granularityFromQuery()
   if (g !== granularity.value) granularity.value = g
+})
+
+watch(timespan, (t) => {
+  router.replace({ query: { ...route.query, timespan: t } })
+})
+
+watch(() => route.query.timespan, () => {
+  const t = timespanFromQuery()
+  if (t !== timespan.value) timespan.value = t
 })
 const { isLocal, toggle } = useDataSource()
 const { isEmbedded } = useEmbedMode()
@@ -162,9 +178,11 @@ const { isDark, toggle: toggleDark } = useDarkMode()
             :stats="issueStats"
             :all-repos="issueAllRepos"
             :granularity="granularity"
+            :timespan="timespan"
             :selected-repos="selectedRepos"
             item-label="issues"
             @update:granularity="granularity = $event"
+            @update:timespan="timespan = $event"
             @toggle-repo="toggleRepo"
           />
           <div class="mt-10 border-t border-slate-200 pt-8 dark:border-slate-800">
@@ -183,9 +201,11 @@ const { isDark, toggle: toggleDark } = useDarkMode()
             :stats="prStats"
             :all-repos="prAllRepos"
             :granularity="granularity"
+            :timespan="timespan"
             :selected-repos="prSelectedRepos"
             item-label="PRs"
             @update:granularity="granularity = $event"
+            @update:timespan="timespan = $event"
             @toggle-repo="prToggleRepo"
           />
           <div class="mt-10 border-t border-slate-200 pt-8 dark:border-slate-800">

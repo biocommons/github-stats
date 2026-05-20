@@ -1,18 +1,28 @@
 <script setup lang="ts">
-import type { FlowStats } from '~/composables/useFlowStats'
+import type { FlowStats, FlowTimespan } from '~/composables/useFlowStats'
 import type { TimeBucket } from '~/composables/useTimeBuckets'
 import { repoDisplayName } from '~/config'
+
+const TIMESPANS: { label: string; value: FlowTimespan }[] = [
+  { label: 'All time', value: 'all' },
+  { label: '12 mo', value: '12mo' },
+  { label: '6 mo', value: '6mo' },
+  { label: '3 mo', value: '3mo' },
+  { label: '1 mo', value: '1mo' },
+]
 
 const props = defineProps<{
   stats: FlowStats
   allRepos: string[]
   granularity: TimeBucket
+  timespan: FlowTimespan
   selectedRepos: Set<string>
-  itemLabel: string  // e.g. "issues" or "PRs"
+  itemLabel: string
 }>()
 
 const emit = defineEmits<{
   'update:granularity': [value: TimeBucket]
+  'update:timespan': [value: FlowTimespan]
   'toggle-repo': [repo: string]
 }>()
 
@@ -313,6 +323,17 @@ function onRectMouseLeave() {
   <div class="space-y-4">
     <!-- Controls row -->
     <div class="flex flex-wrap items-center gap-3">
+      <!-- Timespan selector -->
+      <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs font-medium dark:border-slate-700 dark:bg-slate-900">
+        <button
+          v-for="ts in TIMESPANS"
+          :key="ts.value"
+          class="rounded-full px-3 py-1 transition-colors"
+          :class="timespan === ts.value ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
+          @click="emit('update:timespan', ts.value)"
+        >{{ ts.label }}</button>
+      </div>
+
       <!-- Granularity selector -->
       <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-sm dark:border-slate-700 dark:bg-slate-900">
         <button
