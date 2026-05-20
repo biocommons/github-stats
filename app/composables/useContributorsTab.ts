@@ -12,6 +12,7 @@ export interface ContributorRow {
   isNew: boolean
   isTop: boolean
   isAnonymous: boolean
+  expertRepos: Set<string>
   total: ContributorCounts
   byRepo: Record<string, ContributorCounts>
   totalCount: number
@@ -177,6 +178,24 @@ export function useContributorsTab() {
     for (const r of commits) trackLast(r.author_login, r.author_date)
     for (const r of reviews) trackLast(r.reviewer_login, r.submitted_at)
 
+    // Pareto 80% expertise: for each repo, smallest set of contributors covering 80% of activity
+    const expertMap = new Map<string, Set<string>>()
+    for (const repo of repos) {
+      const ranked = allTimeStats
+        .map(s => ({ login: s.login, count: countTotal(s.by_repo[repo] ?? emptyCounts()) }))
+        .filter(c => c.count > 0)
+        .sort((a, b) => b.count - a.count)
+      const repoTotal = ranked.reduce((sum, c) => sum + c.count, 0)
+      if (repoTotal === 0) continue
+      let cumulative = 0
+      for (const c of ranked) {
+        if (!expertMap.has(c.login)) expertMap.set(c.login, new Set())
+        expertMap.get(c.login)!.add(repo)
+        cumulative += c.count
+        if (cumulative / repoTotal >= 0.8) break
+      }
+    }
+
     const now = Date.now()
 
     const rows: ContributorRow[] = withCounts
@@ -192,6 +211,7 @@ export function useContributorsTab() {
           isNew: daysOld < 90 && allTimeCount >= 3,
           isTop: topLogins.has(s.login),
           isAnonymous: false,
+          expertRepos: expertMap.get(s.login) ?? new Set<string>(),
           total: s.all_time,
           byRepo: s.by_repo,
           totalCount: s.totalCount,
@@ -208,6 +228,7 @@ export function useContributorsTab() {
         isNew: false,
         isTop: false,
         isAnonymous: true,
+        expertRepos: new Set<string>(),
         total: anonTotal,
         byRepo: anonByRepo,
         totalCount: anonCount,

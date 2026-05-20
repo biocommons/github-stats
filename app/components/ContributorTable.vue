@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useContributorsTab } from '~/composables/useContributorsTab'
 import type { FlowTimespan as ContribTimespan } from '~/composables/useFlowStats'
+import { repoColor } from '~/config'
 import type { ContributorCounts } from '~/composables/useContributorStats'
 import { repoDisplayName } from '~/config'
 import QuadCell from '~/components/QuadCell.vue'
@@ -193,6 +194,7 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
                     :is="CellComponent"
                     :counts="repoCounts(row.byRepo, repo)"
                     :maxes="tabData.colMaxes[repo]!"
+                    :ring-color="row.expertRepos.has(repo) ? repoColor(repo, tabData.repos) : undefined"
                   />
                 </div>
               </td>

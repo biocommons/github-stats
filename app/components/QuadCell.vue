@@ -4,6 +4,7 @@ import type { ContributorCounts } from '~/composables/useContributorStats'
 const props = defineProps<{
   counts: ContributorCounts
   maxes: ContributorCounts
+  ringColor?: string
 }>()
 
 const isEmpty = computed(
@@ -58,7 +59,7 @@ const { triggerRef, isHovered, pos, onMouseEnter } = useAnchoredTooltip()
 </script>
 
 <template>
-  <div ref="triggerRef" class="h-10 w-10" @mouseenter="onMouseEnter" @mouseleave="isHovered = false">
+  <div ref="triggerRef" class="h-10 w-10 rounded" @mouseenter="onMouseEnter" @mouseleave="isHovered = false" :style="ringColor ? { outline: `2px solid ${ringColor}`, outlineOffset: '2px' } : {}">
     <div v-if="!isEmpty" class="grid grid-cols-2 gap-px h-10 w-10">
       <div :style="styles.commits" class="rounded-sm" />
       <div :style="styles.issues"  class="rounded-sm" />
