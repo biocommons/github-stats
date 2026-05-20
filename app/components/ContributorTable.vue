@@ -116,7 +116,7 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
           <thead>
             <tr class="border-b border-slate-200 text-left text-xs font-medium uppercase tracking-wider text-slate-500 dark:border-slate-800">
               <th class="sticky left-0 z-10 bg-white px-4 py-3 min-w-[200px] dark:bg-slate-950">Contributor</th>
-              <th class="px-4 py-3 text-center">Total</th>
+              <th class="border-x-2 border-slate-300 bg-slate-100 px-4 py-3 text-center dark:border-slate-600 dark:bg-slate-800/60">Total</th>
               <th
                 v-for="repo in tabData.repos"
                 :key="repo"
@@ -173,7 +173,7 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
               </td>
 
               <!-- Total cell -->
-              <td class="px-4 py-2">
+              <td class="border-x-2 border-slate-300 bg-slate-100 px-4 py-2 dark:border-slate-600 dark:bg-slate-800/60">
                 <div class="flex justify-center">
                   <component :is="CellComponent" :counts="row.total" :maxes="tabData.colMaxes['total']!" />
                 </div>
