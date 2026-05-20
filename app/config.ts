@@ -1,3 +1,8 @@
+export const CONTRIBUTOR_EXCLUDE: RegExp[] = [
+  /\[bot\]$/,
+  /^pyup-bot$/,
+]
+
 export const REPO_DISPLAY_NAMES: Record<string, string> = {
   'biocommons.seqrepo': 'seqrepo',
 }

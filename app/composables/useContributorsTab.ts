@@ -1,5 +1,5 @@
 import { useContributorStats, type ContributorCounts } from './useContributorStats'
-import { repoDisplayName } from '~/config'
+import { repoDisplayName, CONTRIBUTOR_EXCLUDE } from '~/config'
 
 export type ContribTimespan = 'all' | '90d' | '30d'
 
@@ -88,9 +88,18 @@ export function useContributorsTab() {
     },
   )
 
+  function isExcluded(login: string | null): boolean {
+    return login !== null && CONTRIBUTOR_EXCLUDE.some(re => re.test(login))
+  }
+
   const tabData = computed<ContributorTabData | null>(() => {
     if (!rawData.value) return null
-    const { contributors, issues, prs, commits, reviews } = rawData.value
+    const { contributors: rawContributors, issues: rawIssues, prs: rawPRs, commits: rawCommits, reviews: rawReviews } = rawData.value
+    const contributors = rawContributors.filter(c => !isExcluded(c.login))
+    const issues = rawIssues.filter(r => !isExcluded(r.author_login))
+    const prs = rawPRs.filter(r => !isExcluded(r.author_login))
+    const commits = rawCommits.filter(r => !isExcluded(r.author_login))
+    const reviews = rawReviews.filter(r => !isExcluded(r.reviewer_login))
 
     // Stable repo list from all events
     const repos = [...new Set([
