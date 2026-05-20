@@ -104,7 +104,7 @@ function fillContiguousBuckets(first: string, last: string, granularity: TimeBuc
   return result
 }
 
-export function computeFlowStats(records: FlowRecord[], granularity: TimeBucket): FlowStats {
+export function computeFlowStats(records: FlowRecord[], granularity: TimeBucket, allRecords?: FlowRecord[]): FlowStats {
   const repos = [...new Set(records.map(r => r.repo))].sort((a, b) => repoDisplayName(a).localeCompare(repoDisplayName(b)))
 
   const sparseBuckets = new Set<string>()
@@ -145,19 +145,49 @@ export function computeFlowStats(records: FlowRecord[], granularity: TimeBucket)
     }
   }
 
-  let runningOpen = 0
+  // Build separate opened/closed maps from allRecords for stock computation.
+  // This captures closes of pre-period-opened items that are absent from openedMap/closedMap
+  // (which only cover records filtered by created_at for the flow bars).
+  const allOpenedMap: Record<string, Record<string, number>> = {}
+  const allClosedMap: Record<string, Record<string, number>> = {}
+  for (const b of buckets) {
+    allOpenedMap[b] = {}
+    allClosedMap[b] = {}
+  }
+  for (const r of (allRecords ?? records)) {
+    const ob = toBucket(r.created_at, granularity)
+    if (allOpenedMap[ob]) allOpenedMap[ob]![r.repo] = (allOpenedMap[ob]![r.repo] ?? 0) + 1
+    if (r.closed_at) {
+      const cb = toBucket(r.closed_at, granularity)
+      if (allClosedMap[cb]) allClosedMap[cb]![r.repo] = (allClosedMap[cb]![r.repo] ?? 0) + 1
+    }
+  }
+
+  // Pre-period stock: items opened before the first visible bucket and not yet closed
+  const repoPreStock: Record<string, number> = {}
+  const firstBucket = buckets[0] ?? ''
+  for (const r of (allRecords ?? records)) {
+    const ob = toBucket(r.created_at, granularity)
+    if (ob >= firstBucket) continue
+    repoPreStock[r.repo] = (repoPreStock[r.repo] ?? 0) + 1
+    if (r.closed_at && toBucket(r.closed_at, granularity) < firstBucket) {
+      repoPreStock[r.repo]!--
+    }
+  }
+
+  let runningOpen = Object.values(repoPreStock).reduce((s, v) => s + v, 0)
   const stockSeries: StockPoint[] = buckets.map(bucket => {
-    const totalOpened = repos.reduce((s, r) => s + (openedMap[bucket]![r] ?? 0), 0)
-    const totalClosed = repos.reduce((s, r) => s + (closedMap[bucket]![r] ?? 0), 0)
+    const totalOpened = repos.reduce((s, r) => s + (allOpenedMap[bucket]![r] ?? 0), 0)
+    const totalClosed = repos.reduce((s, r) => s + (allClosedMap[bucket]![r] ?? 0), 0)
     runningOpen += totalOpened - totalClosed
     return { bucket, openCount: Math.max(0, runningOpen) }
   })
 
   const repoStockSeries: Record<string, StockPoint[]> = {}
   for (const repo of repos) {
-    let repoOpen = 0
+    let repoOpen = repoPreStock[repo] ?? 0
     repoStockSeries[repo] = buckets.map(bucket => {
-      repoOpen += (openedMap[bucket]![repo] ?? 0) - (closedMap[bucket]![repo] ?? 0)
+      repoOpen += (allOpenedMap[bucket]![repo] ?? 0) - (allClosedMap[bucket]![repo] ?? 0)
       return { bucket, openCount: Math.max(0, repoOpen) }
     })
   }
@@ -259,7 +289,8 @@ export function useFlowStats(kind: FlowKind) {
   const stats = computed<FlowStats | null>(() => {
     if (timespanFiltered.value.length === 0) return null
     const filtered = timespanFiltered.value.filter(r => selectedRepos.value.has(r.repo))
-    return computeFlowStats(filtered, granularity.value)
+    const allSelected = (rawData.value ?? []).filter(r => selectedRepos.value.has(r.repo))
+    return computeFlowStats(filtered, granularity.value, allSelected)
   })
 
   const allStats = computed<FlowStats | null>(() => {
