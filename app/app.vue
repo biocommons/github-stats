@@ -70,7 +70,7 @@ const { isDark, toggle: toggleDark } = useDarkMode()
     <header v-if="!isEmbedded" class="flex items-center justify-between border-b border-slate-200 bg-white px-6 py-4 dark:border-slate-800 dark:bg-transparent">
       <div class="flex items-center gap-3">
         <img src="/logo.svg" alt="biocommons logo" class="h-8 w-8" />
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-bc-teal-600 dark:text-bc-teal-300">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-bc-indigo-500 dark:text-bc-indigo-400">
           biocommons · GitHub Stats
         </p>
       </div>
@@ -96,7 +96,7 @@ const { isDark, toggle: toggleDark } = useDarkMode()
           class="px-4 py-3 text-sm font-medium transition-colors"
           :class="
             activeTab === tab
-              ? 'border-b-2 border-bc-teal-500 text-bc-teal-600 dark:border-bc-teal-400 dark:text-bc-teal-300'
+              ? 'border-b-2 border-bc-indigo-500 text-bc-indigo-600 dark:border-bc-indigo-400 dark:text-bc-indigo-300'
               : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'
           "
           @click="activeTab = tab"

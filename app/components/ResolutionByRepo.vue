@@ -85,7 +85,7 @@ function updatePos(event: MouseEvent) {
 <template>
   <div class="space-y-4">
     <div class="flex flex-wrap items-center justify-between gap-3">
-      <h3 class="text-sm font-semibold text-slate-700 dark:text-slate-300">Resolution time by repo</h3>
+      <h3 class="text-sm font-semibold text-bc-indigo-600 dark:text-bc-indigo-400">Resolution time by repo</h3>
       <div class="flex flex-wrap gap-x-4 gap-y-1">
         <span
           v-for="bucket in RESOLUTION_BUCKETS"
