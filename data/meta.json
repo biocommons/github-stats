@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-05-20T09:38:27.309639+00:00",
+  "collected_at": "2026-05-20T12:27:29.675712+00:00",
   "schema_version": "1.0",
   "repos": [
     "anyvar",
@@ -17,5 +17,5 @@
   ],
   "skipped_repos": [],
   "run_trigger": "schedule",
-  "collection_duration_ms": 92937
+  "collection_duration_ms": 87709
 }
