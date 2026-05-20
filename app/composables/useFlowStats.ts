@@ -62,7 +62,27 @@ export interface FlowStats {
 
 function fillContiguousBuckets(first: string, last: string, granularity: TimeBucket): string[] {
   const result: string[] = []
-  if (granularity === 'month') {
+  if (granularity === 'week') {
+    // Advance by 7-day steps from the Monday of the first ISO week to the last
+    const isoWeekToDate = (key: string): Date => {
+      const year = parseInt(key)
+      const week = parseInt(key.slice(5))
+      // Jan 4 is always in week 1; find Monday of that week then advance
+      const jan4 = new Date(Date.UTC(year, 0, 4))
+      const jan4Day = jan4.getUTCDay() || 7
+      return new Date(jan4.getTime() + (week - 1) * 7 * 86_400_000 - (jan4Day - 1) * 86_400_000)
+    }
+    let cur = isoWeekToDate(first)
+    const end = isoWeekToDate(last)
+    while (cur <= end) {
+      const day = cur.getUTCDay() || 7
+      const thu = new Date(cur.getTime() + (4 - day) * 86_400_000)
+      const yearStart = new Date(Date.UTC(thu.getUTCFullYear(), 0, 1))
+      const week = Math.ceil(((thu.getTime() - yearStart.getTime()) / 86_400_000 + 1) / 7)
+      result.push(`${thu.getUTCFullYear()}W${String(week).padStart(2, '0')}`)
+      cur = new Date(cur.getTime() + 7 * 86_400_000)
+    }
+  } else if (granularity === 'month') {
     let year = parseInt(first)
     let month = parseInt(first.slice(5))
     const endYear = parseInt(last)
@@ -202,8 +222,8 @@ function timespanCutoff(timespan: FlowTimespan): Date | null {
 
 export function useFlowStats(kind: FlowKind) {
   const { dataBase } = useDataSource()
-  const granularity = ref<TimeBucket>('month')
-  const timespan = ref<FlowTimespan>('all')
+  const granularity = ref<TimeBucket>('week')
+  const timespan = ref<FlowTimespan>('12mo')
 
   const { data: rawData, pending } = useAsyncData<FlowRecord[]>(
     () => `flow:${kind}:${dataBase.value}`,

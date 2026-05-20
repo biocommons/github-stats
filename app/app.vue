@@ -45,14 +45,16 @@ const { stats: prStats, allRepos: prAllRepos, granularity: prGranularity, timesp
 watch(granularity, (g) => { prGranularity.value = g }, { immediate: true })
 watch(timespan, (t) => { prTimespan.value = t }, { immediate: true })
 
-function granularityFromQuery(): 'month' | 'quarter' {
+function granularityFromQuery(): 'week' | 'month' | 'quarter' {
   const g = typeof route.query.granularity === 'string' ? route.query.granularity : ''
-  return g === 'quarter' ? 'quarter' : 'month'
+  if (g === 'quarter') return 'quarter'
+  if (g === 'week') return 'week'
+  return 'month'
 }
 
 function timespanFromQuery(): FlowTimespan {
   const t = typeof route.query.timespan === 'string' ? route.query.timespan : ''
-  return (['12mo', '6mo', '3mo', '1mo'] as FlowTimespan[]).includes(t as FlowTimespan) ? t as FlowTimespan : 'all'
+  return (['all', '12mo', '6mo', '3mo', '1mo'] as FlowTimespan[]).includes(t as FlowTimespan) ? t as FlowTimespan : '12mo'
 }
 
 granularity.value = granularityFromQuery()

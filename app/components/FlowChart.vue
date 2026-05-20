@@ -54,7 +54,16 @@ const CHART_H = H - PAD_T - PAD_B
 const SCROLL_PITCH = 18
 
 const tooltip = ref<{ x: number; y: number; lines: string[] } | null>(null)
-const scrollMode = ref(true)
+const scrollMode = ref(props.timespan === 'all')
+
+watch(() => props.timespan, (ts) => {
+  if (ts === 'all') {
+    scrollMode.value = true
+  } else {
+    scrollMode.value = false
+    emit('update:granularity', 'week')
+  }
+})
 const panOffset = ref(0)
 const svgEl = ref<SVGSVGElement | null>(null)
 const dragState = ref<{ startClientX: number; startPan: number } | null>(null)
@@ -261,6 +270,7 @@ function formatBucketLabel(b: string, gran: TimeBucket): string {
   const year = bucketYear(b)
   const yy = String(year).slice(2)
   const sub = bucketSub(b)
+  if (gran === 'week') return `W${sub} '${yy}`
   if (gran === 'month') return `${MONTH_ABB[sub - 1]} '${yy}`
   return sub === 1 ? `'${yy}` : `Q${sub} '${yy}`
 }
@@ -272,14 +282,17 @@ const xLabels = computed(() => {
   if (buks.length === 0) return []
 
   const gran = props.granularity
+  const perYear = gran === 'week' ? 52 : gran === 'month' ? 12 : 4
   const visibleBuckets = scrollMode.value ? Math.floor(CHART_W / SCROLL_PITCH) : buks.length
-  const visibleYearSpan = Math.max(1, Math.ceil(visibleBuckets / (gran === 'month' ? 12 : 4)))
+  const visibleYearSpan = Math.max(1, Math.ceil(visibleBuckets / perYear))
 
   const indices = new Set<number>()
 
-  const targets = gran === 'month'
-    ? (visibleYearSpan <= 1 ? [1, 4, 7, 10] : visibleYearSpan <= 3 ? [1, 7] : [1])
-    : (visibleYearSpan <= 2 ? [1, 2, 3, 4] : visibleYearSpan <= 5 ? [1, 3] : [1])
+  const targets = gran === 'week'
+    ? (visibleYearSpan <= 1 ? [1, 14, 27, 40] : visibleYearSpan <= 3 ? [1, 27] : [1])
+    : gran === 'month'
+      ? (visibleYearSpan <= 1 ? [1, 4, 7, 10] : visibleYearSpan <= 3 ? [1, 7] : [1])
+      : (visibleYearSpan <= 2 ? [1, 2, 3, 4] : visibleYearSpan <= 5 ? [1, 3] : [1])
   const years = [...new Set(buks.map(bucketYear))]
   for (const year of years) {
     for (const sub of targets) {
@@ -321,31 +334,9 @@ function onRectMouseLeave() {
 
 <template>
   <div class="space-y-4">
-    <!-- Controls row -->
+    <!-- Controls row: repos left, selectors right -->
     <div class="flex flex-wrap items-center gap-3">
-      <!-- Timespan selector -->
-      <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs font-medium dark:border-slate-700 dark:bg-slate-900">
-        <button
-          v-for="ts in TIMESPANS"
-          :key="ts.value"
-          class="rounded-full px-3 py-1 transition-colors"
-          :class="timespan === ts.value ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
-          @click="emit('update:timespan', ts.value)"
-        >{{ ts.label }}</button>
-      </div>
-
-      <!-- Granularity selector -->
-      <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-sm dark:border-slate-700 dark:bg-slate-900">
-        <button
-          v-for="g in (['month', 'quarter'] as const)"
-          :key="g"
-          class="rounded-full px-3 py-1 transition-colors capitalize"
-          :class="granularity === g ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
-          @click="emit('update:granularity', g)"
-        >{{ g }}</button>
-      </div>
-
-      <!-- Repo chips — always rendered from allRepos, never disappear -->
+      <!-- Repo chips -->
       <div class="flex flex-wrap gap-1.5">
         <button
           v-for="repo in allRepos"
@@ -358,15 +349,40 @@ function onRectMouseLeave() {
         >{{ repoDisplayName(repo) }}</button>
       </div>
 
-      <!-- Fit/Pan segmented control -->
-      <div class="ml-auto flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-sm dark:border-slate-700 dark:bg-slate-900">
-        <button
-          v-for="[mode, label] in [['fit', 'Fit'], ['pan', 'Pan']] as const"
-          :key="mode"
-          class="rounded-full px-3 py-1 transition-colors"
-          :class="(mode === 'pan') === scrollMode ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
-          @click="scrollMode = mode === 'pan'"
-        >{{ label }}</button>
+      <!-- Selectors group flush right -->
+      <div class="ml-auto flex items-center gap-2">
+        <!-- Timespan selector -->
+        <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs font-medium dark:border-slate-700 dark:bg-slate-900">
+          <button
+            v-for="ts in TIMESPANS"
+            :key="ts.value"
+            class="rounded-full px-3 py-1 transition-colors"
+            :class="timespan === ts.value ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
+            @click="emit('update:timespan', ts.value)"
+          >{{ ts.label }}</button>
+        </div>
+
+        <!-- Granularity selector -->
+        <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-sm dark:border-slate-700 dark:bg-slate-900">
+          <button
+            v-for="g in (['week', 'month', 'quarter'] as const)"
+            :key="g"
+            class="rounded-full px-3 py-1 transition-colors capitalize"
+            :class="granularity === g ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
+            @click="emit('update:granularity', g)"
+          >{{ g }}</button>
+        </div>
+
+        <!-- Fit/Pan segmented control -->
+        <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-sm dark:border-slate-700 dark:bg-slate-900">
+          <button
+            v-for="[mode, label] in [['fit', 'Fit'], ['pan', 'Pan']] as const"
+            :key="mode"
+            class="rounded-full px-3 py-1 transition-colors"
+            :class="(mode === 'pan') === scrollMode ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
+            @click="scrollMode = mode === 'pan'"
+          >{{ label }}</button>
+        </div>
       </div>
     </div>
 
