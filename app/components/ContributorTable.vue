@@ -31,14 +31,14 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
     <div class="mb-6 flex items-center justify-between gap-2">
       <div class="flex items-center gap-2">
         <span class="text-xs font-medium uppercase tracking-wider text-slate-500">Timespan</span>
-        <div class="flex items-center rounded-full border border-slate-700 bg-slate-900 p-0.5 text-xs font-medium">
+        <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs font-medium dark:border-slate-700 dark:bg-slate-900">
           <button
             v-for="ts in TIMESPANS"
             :key="ts.value"
             class="rounded-full px-3 py-1 transition-colors"
             :class="timespan === ts.value
-              ? 'bg-emerald-500/20 text-emerald-300'
-              : 'text-slate-400 hover:text-slate-200'"
+              ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300'
+              : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
             @click="timespan = ts.value"
           >
             {{ ts.label }}
@@ -47,11 +47,11 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
       </div>
 
       <!-- Cell mode toggle -->
-      <div class="flex items-center rounded-md border border-slate-700 bg-slate-900 p-0.5">
+      <div class="flex items-center rounded-md border border-slate-200 bg-slate-50 p-0.5 dark:border-slate-700 dark:bg-slate-900">
         <!-- Quad icon -->
         <button
           class="rounded p-1.5 transition-colors"
-          :class="cellMode === 'quad' ? 'bg-slate-700' : 'hover:bg-slate-800'"
+          :class="cellMode === 'quad' ? 'bg-slate-200 dark:bg-slate-700' : 'hover:bg-slate-100 dark:hover:bg-slate-800'"
           title="Quadrant view"
           @click="cellMode = 'quad'"
         >
@@ -65,14 +65,14 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
         <!-- Radar icon -->
         <button
           class="rounded p-1.5 transition-colors"
-          :class="cellMode === 'radar' ? 'bg-slate-700' : 'hover:bg-slate-800'"
+          :class="cellMode === 'radar' ? 'bg-slate-200 dark:bg-slate-700' : 'hover:bg-slate-100 dark:hover:bg-slate-800'"
           title="Radar view"
           @click="cellMode = 'radar'"
         >
           <svg viewBox="0 0 16 16" width="16" height="16">
-            <line x1="8" y1="1" x2="8" y2="15" stroke="rgb(100,116,139)" stroke-width="0.5" opacity="0.5" />
-            <line x1="1" y1="8" x2="15" y2="8" stroke="rgb(100,116,139)" stroke-width="0.5" opacity="0.5" />
-            <polygon points="8,2 13,8 8,14 3,8" fill="rgba(52,211,153,0.25)" stroke="rgba(52,211,153,0.9)" stroke-width="1" stroke-linejoin="round" />
+            <line x1="8" y1="1" x2="8" y2="15" stroke="var(--chart-axis-guide)" stroke-width="0.5" opacity="0.5" />
+            <line x1="1" y1="8" x2="15" y2="8" stroke="var(--chart-axis-guide)" stroke-width="0.5" opacity="0.5" />
+            <polygon points="8,2 13,8 8,14 3,8" fill="rgba(0,189,164,0.25)" stroke="rgba(0,189,164,0.9)" stroke-width="1" stroke-linejoin="round" />
           </svg>
         </button>
       </div>
@@ -93,11 +93,11 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
 
     <template v-else>
       <!-- Scrollable table -->
-      <div class="overflow-x-auto rounded-lg border border-slate-800">
+      <div class="overflow-x-auto rounded-lg border border-slate-200 dark:border-slate-800">
         <table class="w-full text-sm">
           <thead>
-            <tr class="border-b border-slate-800 text-left text-xs font-medium uppercase tracking-wider text-slate-500">
-              <th class="sticky left-0 z-10 bg-slate-950 px-4 py-3 min-w-[200px]">Contributor</th>
+            <tr class="border-b border-slate-200 text-left text-xs font-medium uppercase tracking-wider text-slate-500 dark:border-slate-800">
+              <th class="sticky left-0 z-10 bg-white px-4 py-3 min-w-[200px] dark:bg-slate-950">Contributor</th>
               <th class="px-4 py-3 min-w-[136px]">Trend</th>
               <th class="px-4 py-3 text-center">Total</th>
               <th
@@ -114,14 +114,14 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
             <tr
               v-for="row in tabData.rows"
               :key="row.login"
-              class="border-b border-slate-800/60 transition-colors hover:bg-slate-800/30"
+              class="border-b border-slate-100 transition-colors hover:bg-slate-50 dark:border-slate-800/60 dark:hover:bg-slate-800/30"
             >
               <!-- Contributor identity -->
-              <td class="sticky left-0 z-10 bg-slate-950 px-4 py-2">
+              <td class="sticky left-0 z-10 bg-white px-4 py-2 dark:bg-slate-950">
                 <div class="flex items-center gap-2">
                   <template v-if="row.isAnonymous">
                     <span
-                      class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-700 text-xs text-slate-400"
+                      class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200 text-xs text-slate-500 dark:bg-slate-700 dark:text-slate-400"
                       title="Commits with no linked GitHub account"
                     >?</span>
                     <span
@@ -140,7 +140,7 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
                       :href="`https://github.com/${row.login}`"
                       target="_blank"
                       rel="noopener"
-                      class="font-mono text-slate-300 hover:text-emerald-300 transition-colors"
+                      class="font-mono text-slate-700 transition-colors hover:text-bc-teal-600 dark:text-slate-300 dark:hover:text-bc-teal-300"
                     >{{ row.login }}</a>
                     <span v-if="row.isTop" title="Top contributor — top 3 by activity" class="text-base leading-none">🚀</span>
                     <span v-if="row.isNew" title="New contributor — first contribution &lt;90 days ago" class="text-base leading-none">🌱</span>
@@ -149,7 +149,7 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
               </td>
 
               <!-- 12-month sparkline -->
-              <td class="px-4 py-2 text-emerald-400">
+              <td class="px-4 py-2 text-bc-teal-500 dark:text-bc-teal-400">
                 <SparkLine :values="row.sparkline" />
               </td>
 
@@ -185,7 +185,7 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
         <div v-if="cellMode === 'quad'">
           <p class="mb-3 text-xs font-medium uppercase tracking-wider text-slate-500">Quadrant key</p>
           <div class="flex items-start gap-6">
-            <div class="grid grid-cols-2 gap-1 text-[10px] text-slate-400">
+            <div class="grid grid-cols-2 gap-1 text-[10px] text-slate-500 dark:text-slate-400">
               <div class="flex items-center gap-1.5">
                 <span class="inline-block h-3 w-3 rounded-sm" style="background: rgba(64,81,181,0.75)" />
                 commits
@@ -203,7 +203,7 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
                 reviews
               </div>
             </div>
-            <div class="text-[10px] text-slate-500">
+            <div class="text-[10px] text-slate-400 dark:text-slate-500">
               <p>Shade = relative activity</p>
               <p>within each column</p>
             </div>
@@ -216,18 +216,18 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
           <div class="flex items-start gap-6">
             <div class="shrink-0">
               <svg viewBox="0 0 40 40" width="40" height="40">
-                <line x1="20" y1="4" x2="20" y2="36" stroke="rgb(100,116,139)" stroke-width="0.5" opacity="0.4" />
-                <line x1="4" y1="20" x2="36" y2="20" stroke="rgb(100,116,139)" stroke-width="0.5" opacity="0.4" />
-                <polygon points="20,6 32,20 20,34 8,20" fill="rgba(52,211,153,0.25)" stroke="rgba(52,211,153,0.85)" stroke-width="1.2" stroke-linejoin="round" />
+                <line x1="20" y1="4" x2="20" y2="36" stroke="var(--chart-axis-guide)" stroke-width="0.5" opacity="0.4" />
+                <line x1="4" y1="20" x2="36" y2="20" stroke="var(--chart-axis-guide)" stroke-width="0.5" opacity="0.4" />
+                <polygon points="20,6 32,20 20,34 8,20" fill="rgba(0,189,164,0.25)" stroke="rgba(0,189,164,0.85)" stroke-width="1.2" stroke-linejoin="round" />
               </svg>
             </div>
-            <div class="grid grid-cols-2 gap-x-4 gap-y-0.5 text-[10px] text-slate-400">
+            <div class="grid grid-cols-2 gap-x-4 gap-y-0.5 text-[10px] text-slate-500 dark:text-slate-400">
               <div>↑ commits</div>
               <div>→ PRs</div>
               <div>↓ reviews</div>
               <div>← issues</div>
             </div>
-            <div class="text-[10px] text-slate-500">
+            <div class="text-[10px] text-slate-400 dark:text-slate-500">
               <p>Reach = relative activity</p>
               <p>within each column</p>
             </div>
@@ -237,7 +237,7 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
         <!-- Badge key -->
         <div>
           <p class="mb-3 text-xs font-medium uppercase tracking-wider text-slate-500">Badges</p>
-          <div class="flex flex-col gap-1.5 text-[10px] text-slate-400">
+          <div class="flex flex-col gap-1.5 text-[10px] text-slate-500 dark:text-slate-400">
             <div
               class="flex items-center gap-2"
               title="First contribution less than 90 days ago, with 3 or more all-time contributions"

@@ -8,9 +8,8 @@ const props = defineProps<{
   itemLabel: string
 }>()
 
-// Reusing repo color array for now — swap to a semantically distinct palette as needed
 const BUCKET_COLORS: Record<ResolutionBucket, string> = {
-  '0–1d':    '#34d399',
+  '0–1d':    '#00bda4',
   '2–7d':    '#60a5fa',
   '8–30d':   '#f472b6',
   '31–90d':  '#fb923c',
@@ -45,8 +44,6 @@ function formatDays(days: number | null): string {
 }
 
 const closedLabel = computed(() => props.itemLabel === 'PRs' ? 'merged PRs' : `closed ${props.itemLabel}`)
-
-// ── Tooltip ──────────────────────────────────────────────────────────────────
 
 const hoveredRepo = ref<string | null>(null)
 const tooltipX = ref(0)
@@ -88,12 +85,12 @@ function updatePos(event: MouseEvent) {
 <template>
   <div class="space-y-4">
     <div class="flex flex-wrap items-center justify-between gap-3">
-      <h3 class="text-sm font-semibold text-slate-300">Resolution time by repo</h3>
+      <h3 class="text-sm font-semibold text-slate-700 dark:text-slate-300">Resolution time by repo</h3>
       <div class="flex flex-wrap gap-x-4 gap-y-1">
         <span
           v-for="bucket in RESOLUTION_BUCKETS"
           :key="bucket"
-          class="flex items-center gap-1.5 text-xs text-slate-400"
+          class="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400"
         >
           <span class="inline-block h-2 w-3 rounded-sm" :style="{ background: BUCKET_COLORS[bucket] }" />
           {{ bucket }}
@@ -101,46 +98,46 @@ function updatePos(event: MouseEvent) {
       </div>
     </div>
 
-    <div class="overflow-x-auto rounded-lg border border-slate-800">
+    <div class="overflow-x-auto rounded-lg border border-slate-200 dark:border-slate-800">
       <table class="w-full text-sm">
         <thead>
-          <tr class="border-b border-slate-800 bg-slate-900/60">
-            <th class="px-4 py-3 text-left font-medium text-slate-400">Repo</th>
-            <th class="px-4 py-3 text-right font-medium text-slate-400">
+          <tr class="border-b border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900/60">
+            <th class="px-4 py-3 text-left font-medium text-slate-500 dark:text-slate-400">Repo</th>
+            <th class="px-4 py-3 text-right font-medium text-slate-500 dark:text-slate-400">
               {{ closedLabel.split(' ')[0] === 'merged' ? 'Merged' : 'Closed' }}
             </th>
-            <th class="px-4 py-3 text-right font-medium text-slate-400">Median</th>
+            <th class="px-4 py-3 text-right font-medium text-slate-500 dark:text-slate-400">Median</th>
             <th
-              class="px-4 py-3 text-right font-medium text-slate-400"
+              class="px-4 py-3 text-right font-medium text-slate-500 dark:text-slate-400"
               title="90th percentile — 10% of items took longer than this"
             >
-              p90 <span class="font-normal text-slate-500">ⓘ</span>
+              p90 <span class="font-normal text-slate-400 dark:text-slate-500">ⓘ</span>
             </th>
-            <th class="min-w-40 px-4 py-3 font-medium text-slate-400">% by bucket</th>
-            <th class="min-w-40 px-4 py-3 font-medium text-slate-400">Count by bucket</th>
+            <th class="min-w-40 px-4 py-3 font-medium text-slate-500 dark:text-slate-400">% by bucket</th>
+            <th class="min-w-40 px-4 py-3 font-medium text-slate-500 dark:text-slate-400">Count by bucket</th>
           </tr>
         </thead>
         <tbody>
           <tr
             v-for="repo in stats.repos"
             :key="repo"
-            class="border-b border-slate-800/50 last:border-0 hover:bg-slate-800/30"
+            class="border-b border-slate-100 last:border-0 hover:bg-slate-50 dark:border-slate-800/50 dark:hover:bg-slate-800/30"
           >
-            <td class="px-4 py-3 text-slate-200">{{ repoDisplayName(repo) }}</td>
-            <td class="px-4 py-3 text-right tabular-nums text-slate-300">
+            <td class="px-4 py-3 text-slate-700 dark:text-slate-200">{{ repoDisplayName(repo) }}</td>
+            <td class="px-4 py-3 text-right tabular-nums text-slate-600 dark:text-slate-300">
               {{ (stats.perRepo[repo]?.totalClosed ?? 0).toLocaleString() }}
             </td>
-            <td class="px-4 py-3 text-right tabular-nums text-slate-300">
+            <td class="px-4 py-3 text-right tabular-nums text-slate-600 dark:text-slate-300">
               {{ formatDays(stats.perRepo[repo]?.medianDays ?? null) }}
             </td>
-            <td class="px-4 py-3 text-right tabular-nums text-slate-300">
+            <td class="px-4 py-3 text-right tabular-nums text-slate-600 dark:text-slate-300">
               {{ formatDays(stats.perRepo[repo]?.p90Days ?? null) }}
             </td>
 
             <!-- Fractional bar -->
             <td class="px-4 py-2">
               <div
-                class="flex h-5 cursor-default overflow-hidden rounded bg-slate-800"
+                class="flex h-5 cursor-default overflow-hidden rounded bg-slate-200 dark:bg-slate-800"
                 @mouseenter="onBarEnter(repo, $event)"
                 @mousemove="onBarMove"
                 @mouseleave="onBarLeave"
@@ -156,7 +153,7 @@ function updatePos(event: MouseEvent) {
             <!-- Absolute bar -->
             <td class="px-4 py-2">
               <div
-                class="flex h-5 cursor-default overflow-hidden rounded bg-slate-800"
+                class="flex h-5 cursor-default overflow-hidden rounded bg-slate-200 dark:bg-slate-800"
                 @mouseenter="onBarEnter(repo, $event)"
                 @mousemove="onBarMove"
                 @mouseleave="onBarLeave"
@@ -174,18 +171,18 @@ function updatePos(event: MouseEvent) {
     </div>
 
     <!-- Aggregate summary -->
-    <div class="flex flex-wrap gap-8 rounded-lg border border-slate-800 bg-slate-900/60 px-6 py-4">
+    <div class="flex flex-wrap gap-8 rounded-lg border border-slate-200 bg-slate-50 px-6 py-4 dark:border-slate-800 dark:bg-slate-900/60">
       <div>
         <p class="mb-0.5 text-xs uppercase tracking-wide text-slate-500">Total {{ closedLabel }}</p>
-        <p class="text-2xl font-semibold text-slate-200">{{ stats.totalClosed.toLocaleString() }}</p>
+        <p class="text-2xl font-semibold text-slate-700 dark:text-slate-200">{{ stats.totalClosed.toLocaleString() }}</p>
       </div>
       <div>
         <p class="mb-0.5 text-xs uppercase tracking-wide text-slate-500">Median</p>
-        <p class="text-2xl font-semibold text-slate-200">{{ formatDays(stats.medianDays) }}</p>
+        <p class="text-2xl font-semibold text-slate-700 dark:text-slate-200">{{ formatDays(stats.medianDays) }}</p>
       </div>
       <div :title="`90% of ${closedLabel} resolved within this many days`">
-        <p class="mb-0.5 text-xs uppercase tracking-wide text-slate-500">p90 <span class="normal-case text-slate-400">ⓘ</span></p>
-        <p class="text-2xl font-semibold text-slate-200">{{ formatDays(stats.p90Days) }}</p>
+        <p class="mb-0.5 text-xs uppercase tracking-wide text-slate-500">p90 <span class="normal-case text-slate-400 dark:text-slate-500">ⓘ</span></p>
+        <p class="text-2xl font-semibold text-slate-700 dark:text-slate-200">{{ formatDays(stats.p90Days) }}</p>
       </div>
     </div>
   </div>
@@ -194,10 +191,10 @@ function updatePos(event: MouseEvent) {
   <Teleport to="body">
     <div
       v-if="hoveredRepo"
-      class="pointer-events-none fixed z-50 min-w-44 rounded-lg border border-slate-700 bg-slate-900 px-3 py-2.5 shadow-xl"
+      class="pointer-events-none fixed z-50 min-w-44 rounded-lg border border-slate-200 bg-white px-3 py-2.5 shadow-xl dark:border-slate-700 dark:bg-slate-900"
       :style="{ left: `${tooltipX}px`, top: `${tooltipY}px` }"
     >
-      <p class="mb-2 text-xs font-semibold text-slate-300">{{ repoDisplayName(hoveredRepo) }}</p>
+      <p class="mb-2 text-xs font-semibold text-slate-700 dark:text-slate-300">{{ repoDisplayName(hoveredRepo) }}</p>
       <table class="w-full text-xs">
         <tbody>
           <tr v-for="row in tooltipRows(hoveredRepo)" :key="row.bucket">
@@ -207,9 +204,9 @@ function updatePos(event: MouseEvent) {
                 :style="{ background: row.color }"
               />
             </td>
-            <td class="py-0.5 pr-3 text-slate-400">{{ row.bucket }}</td>
-            <td class="py-0.5 pr-3 text-right tabular-nums text-slate-200">{{ row.count.toLocaleString() }}</td>
-            <td class="py-0.5 text-right tabular-nums text-slate-500">{{ row.pct.toFixed(0) }}%</td>
+            <td class="py-0.5 pr-3 text-slate-500 dark:text-slate-400">{{ row.bucket }}</td>
+            <td class="py-0.5 pr-3 text-right tabular-nums text-slate-800 dark:text-slate-200">{{ row.count.toLocaleString() }}</td>
+            <td class="py-0.5 text-right tabular-nums text-slate-400 dark:text-slate-500">{{ row.pct.toFixed(0) }}%</td>
           </tr>
         </tbody>
       </table>

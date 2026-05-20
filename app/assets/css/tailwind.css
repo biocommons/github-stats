@@ -1,3 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* SVG chart theme tokens */
+:root {
+  --chart-axis: #94a3b8;
+  --chart-bg-line: #e2e8f0;
+  --chart-label: #64748b;
+  --chart-label-strong: #475569;
+  --chart-baseline: #94a3b8;
+  --chart-tooltip-bg: #f8fafc;
+  --chart-tooltip-border: #e2e8f0;
+  --chart-tooltip-text: #1e293b;
+  --chart-axis-guide: rgb(203, 213, 225);
+  --chip-inactive-color: #475569;
+  --chip-inactive-border: #94a3b8;
+}
+
+.dark {
+  --chart-axis: #334155;
+  --chart-bg-line: #1e293b;
+  --chart-label: #94a3b8;
+  --chart-label-strong: #cbd5e1;
+  --chart-baseline: #475569;
+  --chart-tooltip-bg: #0f172a;
+  --chart-tooltip-border: #334155;
+  --chart-tooltip-text: #e2e8f0;
+  --chart-axis-guide: rgb(100, 116, 139);
+  --chip-inactive-color: #94a3b8;
+  --chip-inactive-border: #64748b;
+}

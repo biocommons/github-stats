@@ -30,6 +30,13 @@ export default defineNuxtConfig({
           name: 'description',
           content: 'Interactive dashboard for GitHub activity across biocommons repositories.'
         }
+      ],
+      script: [
+        {
+          // Set dark class before first paint to prevent FOUC
+          innerHTML: `(function(){var s=localStorage.getItem('color-mode');var d=window.matchMedia('(prefers-color-scheme: dark)').matches;if(s==='dark'||(s===null&&d))document.documentElement.classList.add('dark');})()`,
+          type: 'text/javascript',
+        }
       ]
     }
   },

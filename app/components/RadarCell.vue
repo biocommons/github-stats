@@ -47,13 +47,13 @@ const tooltip = computed(() => {
   <div class="w-10 h-10" :title="tooltip">
     <svg v-if="!isEmpty" viewBox="0 0 40 40" width="40" height="40">
       <!-- Axis guides -->
-      <line x1="20" y1="4" x2="20" y2="36" stroke="rgb(100,116,139)" stroke-width="0.5" opacity="0.4" />
-      <line x1="4" y1="20" x2="36" y2="20" stroke="rgb(100,116,139)" stroke-width="0.5" opacity="0.4" />
+      <line x1="20" y1="4" x2="20" y2="36" stroke="var(--chart-axis-guide)" stroke-width="0.5" opacity="0.4" />
+      <line x1="4" y1="20" x2="36" y2="20" stroke="var(--chart-axis-guide)" stroke-width="0.5" opacity="0.4" />
       <!-- Radar polygon -->
       <polygon
         :points="points"
-        fill="rgba(52,211,153,0.25)"
-        stroke="rgba(52,211,153,0.85)"
+        fill="rgba(0,189,164,0.25)"
+        stroke="rgba(0,189,164,0.85)"
         stroke-width="1.2"
         stroke-linejoin="round"
       />

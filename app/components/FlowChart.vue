@@ -18,7 +18,7 @@ const emit = defineEmits<{
 
 // Colors indexed against allRepos so they never shift during filtering
 const REPO_COLORS = [
-  '#34d399', // emerald-400
+  '#00bda4', // bc-teal-400 (brand accent)
   '#60a5fa', // blue-400
   '#f472b6', // pink-400
   '#fb923c', // orange-400
@@ -314,12 +314,12 @@ function onRectMouseLeave() {
     <!-- Controls row -->
     <div class="flex flex-wrap items-center gap-3">
       <!-- Granularity selector -->
-      <div class="flex items-center rounded-full border border-slate-700 bg-slate-900 p-0.5 text-sm">
+      <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-sm dark:border-slate-700 dark:bg-slate-900">
         <button
           v-for="g in (['month', 'quarter'] as const)"
           :key="g"
           class="rounded-full px-3 py-1 transition-colors capitalize"
-          :class="granularity === g ? 'bg-emerald-500/20 text-emerald-300' : 'text-slate-400 hover:text-slate-200'"
+          :class="granularity === g ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
           @click="emit('update:granularity', g)"
         >{{ g }}</button>
       </div>
@@ -332,18 +332,18 @@ function onRectMouseLeave() {
           class="rounded-full border px-2.5 py-0.5 text-sm font-medium transition-colors"
           :style="selectedRepos.has(repo)
             ? { borderColor: repoColor(repo), color: repoColor(repo), background: repoColor(repo) + '22' }
-            : { borderColor: '#64748b', color: '#94a3b8' }"
+            : { borderColor: 'var(--chip-inactive-border)', color: 'var(--chip-inactive-color)' }"
           @click="emit('toggle-repo', repo)"
         >{{ repoDisplayName(repo) }}</button>
       </div>
 
       <!-- Fit/Pan segmented control -->
-      <div class="ml-auto flex items-center rounded-full border border-slate-700 bg-slate-900 p-0.5 text-sm">
+      <div class="ml-auto flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-sm dark:border-slate-700 dark:bg-slate-900">
         <button
           v-for="[mode, label] in [['fit', 'Fit'], ['pan', 'Pan']] as const"
           :key="mode"
           class="rounded-full px-3 py-1 transition-colors"
-          :class="(mode === 'pan') === scrollMode ? 'bg-emerald-500/20 text-emerald-300' : 'text-slate-400 hover:text-slate-200'"
+          :class="(mode === 'pan') === scrollMode ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
           @click="scrollMode = mode === 'pan'"
         >{{ label }}</button>
       </div>
@@ -381,37 +381,37 @@ function onRectMouseLeave() {
         <!-- Zero baseline -->
         <line
           :x1="PAD_L" :y1="baseline" :x2="W - PAD_R" :y2="baseline"
-          stroke="#475569" stroke-width="1"
+          stroke="var(--chart-baseline)" stroke-width="1"
         />
 
         <!-- Chart area boundary lines -->
-        <line :x1="PAD_L" :y1="PAD_T" :x2="W - PAD_R" :y2="PAD_T" stroke="#1e293b" stroke-width="1" />
-        <line :x1="PAD_L" :y1="PAD_T + CHART_H" :x2="W - PAD_R" :y2="PAD_T + CHART_H" stroke="#1e293b" stroke-width="1" />
+        <line :x1="PAD_L" :y1="PAD_T" :x2="W - PAD_R" :y2="PAD_T" stroke="var(--chart-bg-line)" stroke-width="1" />
+        <line :x1="PAD_L" :y1="PAD_T + CHART_H" :x2="W - PAD_R" :y2="PAD_T + CHART_H" stroke="var(--chart-bg-line)" stroke-width="1" />
 
         <!-- Left Y-axis title (rotated) -->
         <text
           :x="13" :y="baseline"
-          fill="#64748b" font-size="11" text-anchor="middle"
+          fill="var(--chart-label)" font-size="11" text-anchor="middle"
           :transform="`rotate(-90, 13, ${baseline})`"
         >newly closed (−) / opened (+)</text>
 
         <!-- Left Y-axis ticks -->
         <g v-for="t in flowYLabels" :key="t.label">
-          <line :x1="PAD_L - 4" :y1="t.y" :x2="PAD_L" :y2="t.y" stroke="#334155" stroke-width="1" />
-          <text :x="PAD_L - 7" :y="t.y + 4.5" fill="#cbd5e1" font-size="13" text-anchor="end">{{ t.label }}</text>
+          <line :x1="PAD_L - 4" :y1="t.y" :x2="PAD_L" :y2="t.y" stroke="var(--chart-axis)" stroke-width="1" />
+          <text :x="PAD_L - 7" :y="t.y + 4.5" fill="var(--chart-label-strong)" font-size="13" text-anchor="end">{{ t.label }}</text>
         </g>
 
         <!-- Right Y-axis title (rotated) -->
         <text
           :x="W - 14" :y="PAD_T + CHART_H / 2"
-          fill="#94a3b8" font-size="11" text-anchor="middle"
+          fill="var(--chart-label)" font-size="11" text-anchor="middle"
           :transform="`rotate(90, ${W - 14}, ${PAD_T + CHART_H / 2})`"
         >open {{ itemLabel }} per repo</text>
 
         <!-- Right Y-axis ticks -->
         <g v-for="t in stockYLabels" :key="'r' + t.label">
-          <line :x1="W - PAD_R" :y1="t.y" :x2="W - PAD_R + 4" :y2="t.y" stroke="#334155" stroke-width="1" />
-          <text :x="W - PAD_R + 7" :y="t.y + 4.5" fill="#94a3b8" font-size="13">{{ t.label }}</text>
+          <line :x1="W - PAD_R" :y1="t.y" :x2="W - PAD_R + 4" :y2="t.y" stroke="var(--chart-axis)" stroke-width="1" />
+          <text :x="W - PAD_R + 7" :y="t.y + 4.5" fill="var(--chart-label)" font-size="13">{{ t.label }}</text>
         </g>
 
         <!-- Scrollable data layer (bars + stock lines), clipped to chart rectangle -->
@@ -463,12 +463,12 @@ function onRectMouseLeave() {
             <line
               :x1="tick.x" :y1="PAD_T + CHART_H"
               :x2="tick.x" :y2="PAD_T + CHART_H + 5"
-              stroke="#475569" stroke-width="1"
+              stroke="var(--chart-baseline)" stroke-width="1"
             />
             <text
               :x="tick.x"
               :y="PAD_T + CHART_H + 20"
-              fill="#94a3b8"
+              fill="var(--chart-label)"
               font-size="13"
               text-anchor="middle"
             >{{ tick.label }}</text>
@@ -482,8 +482,8 @@ function onRectMouseLeave() {
             :y="tooltip.y - 40"
             width="112" :height="tooltip.lines.length * 17 + 10"
             rx="4"
-            fill="#0f172a"
-            stroke="#334155"
+            fill="var(--chart-tooltip-bg)"
+            stroke="var(--chart-tooltip-border)"
             stroke-width="1"
           />
           <text
@@ -491,7 +491,7 @@ function onRectMouseLeave() {
             :key="li"
             :x="Math.min(tooltip.x + 14, W - 114)"
             :y="tooltip.y - 40 + 16 + li * 17"
-            fill="#e2e8f0"
+            fill="var(--chart-tooltip-text)"
             font-size="13"
           >{{ line }}</text>
         </g>
