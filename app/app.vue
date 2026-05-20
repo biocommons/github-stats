@@ -68,9 +68,12 @@ const { isDark, toggle: toggleDark } = useDarkMode()
 <template>
   <div :class="['text-slate-900 dark:text-slate-100', isEmbedded ? 'bg-transparent' : 'min-h-screen bg-slate-50 dark:bg-slate-950']">
     <header v-if="!isEmbedded" class="flex items-center justify-between border-b border-slate-200 bg-white px-6 py-4 dark:border-slate-800 dark:bg-transparent">
-      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-bc-teal-600 dark:text-bc-teal-300">
-        biocommons · GitHub Stats
-      </p>
+      <div class="flex items-center gap-3">
+        <img src="/logo.svg" alt="biocommons logo" class="h-8 w-8" />
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-bc-teal-600 dark:text-bc-teal-300">
+          biocommons · GitHub Stats
+        </p>
+      </div>
       <button
         class="rounded-full p-1.5 text-slate-400 transition-colors hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300"
         :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
