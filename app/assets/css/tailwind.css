@@ -14,7 +14,7 @@
   --chart-tooltip-bg: #f8fafc;
   --chart-tooltip-border: #e2e8f0;
   --chart-tooltip-text: #1e293b;
-  --chart-axis-guide: rgb(203, 213, 225);
+  --chart-axis-guide: #94a3b8;
   --chip-inactive-color: #475569;
   --chip-inactive-border: #94a3b8;
 }
@@ -28,7 +28,7 @@
   --chart-tooltip-bg: #0f172a;
   --chart-tooltip-border: #334155;
   --chart-tooltip-text: #e2e8f0;
-  --chart-axis-guide: rgb(100, 116, 139);
+  --chart-axis-guide: #64748b;
   --chip-inactive-color: #94a3b8;
   --chip-inactive-border: #64748b;
 }

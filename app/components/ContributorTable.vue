@@ -88,8 +88,8 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
           @click="cellMode = 'radar'"
         >
           <svg viewBox="0 0 16 16" width="16" height="16">
-            <line x1="8" y1="1" x2="8" y2="15" stroke="var(--chart-axis-guide)" stroke-width="0.5" opacity="0.5" />
-            <line x1="1" y1="8" x2="15" y2="8" stroke="var(--chart-axis-guide)" stroke-width="0.5" opacity="0.5" />
+            <line x1="8" y1="1" x2="8" y2="15" stroke="var(--chart-axis-guide)" stroke-width="0.5" />
+            <line x1="1" y1="8" x2="15" y2="8" stroke="var(--chart-axis-guide)" stroke-width="0.5" />
             <polygon points="8,2 13,8 8,14 3,8" fill="rgba(0,189,164,0.25)" stroke="rgba(0,189,164,0.9)" stroke-width="1" stroke-linejoin="round" />
           </svg>
         </button>
@@ -235,8 +235,8 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
           <div class="flex items-start gap-6">
             <div class="shrink-0">
               <svg viewBox="0 0 40 40" width="40" height="40">
-                <line x1="20" y1="4" x2="20" y2="36" stroke="var(--chart-axis-guide)" stroke-width="0.5" opacity="0.4" />
-                <line x1="4" y1="20" x2="36" y2="20" stroke="var(--chart-axis-guide)" stroke-width="0.5" opacity="0.4" />
+                <line x1="20" y1="4" x2="20" y2="36" stroke="var(--chart-axis-guide)" stroke-width="0.5" />
+                <line x1="4" y1="20" x2="36" y2="20" stroke="var(--chart-axis-guide)" stroke-width="0.5" />
                 <polygon points="20,6 32,20 20,34 8,20" fill="rgba(0,189,164,0.25)" stroke="rgba(0,189,164,0.85)" stroke-width="1.2" stroke-linejoin="round" />
               </svg>
             </div>
