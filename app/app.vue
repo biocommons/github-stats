@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { useOverviewData } from '~/composables/useOverviewData'
 import { useDataSource } from '~/composables/useDataSource'
-import { useFlowStats } from '~/composables/useFlowStats'
+import { useFlowStats, type FlowTimespan } from '~/composables/useFlowStats'
 import { useEmbedMode } from '~/composables/useEmbedMode'
+import { useDarkMode } from '~/composables/useDarkMode'
 
-const tabs = ['Overview', 'Issues', 'PRs', 'Resolution Time', 'Contributors'] as const
+const tabs = ['Overview', 'Issues', 'PRs', 'Contributors'] as const
 type Tab = (typeof tabs)[number]
 
 const TAB_SLUG: Record<Tab, string> = {
   'Overview': 'overview',
   'Issues': 'issues',
   'PRs': 'prs',
-  'Resolution Time': 'resolution-time',
   'Contributors': 'contributors',
 }
 const SLUG_TAB: Record<string, Tab> = Object.fromEntries(
@@ -38,41 +38,77 @@ watch(() => route.query.tab, () => {
 })
 
 const { orgSummary, repoCards, isLoading, collectedAt, relativeTime, formatLocalTime } = useOverviewData()
-const { stats: issueStats, allStats: issueAllStats, allRepos: issueAllRepos, granularity, selectedRepos, toggleRepo } = useFlowStats('issues')
-const { stats: prStats, allStats: prAllStats, allRepos: prAllRepos, granularity: prGranularity, selectedRepos: prSelectedRepos, toggleRepo: prToggleRepo } = useFlowStats('prs')
+const { stats: issueStats, allRepos: issueAllRepos, granularity, timespan, selectedRepos, toggleRepo } = useFlowStats('issues')
+const { stats: prStats, allRepos: prAllRepos, granularity: prGranularity, timespan: prTimespan, selectedRepos: prSelectedRepos, toggleRepo: prToggleRepo } = useFlowStats('prs')
 
-// Keep PR granularity in sync with the shared URL-driven granularity ref
+// Keep PR granularity and timespan in sync with the shared URL-driven refs
 watch(granularity, (g) => { prGranularity.value = g }, { immediate: true })
+watch(timespan, (t, old) => {
+  prTimespan.value = t
+  if (old !== undefined) granularity.value = t === 'all' ? 'month' : 'week'
+}, { immediate: true })
 
-function granularityFromQuery(): 'month' | 'quarter' {
+function granularityFromQuery(): 'week' | 'month' | 'quarter' {
   const g = typeof route.query.granularity === 'string' ? route.query.granularity : ''
-  return g === 'quarter' ? 'quarter' : 'month'
+  if (g === 'quarter') return 'quarter'
+  if (g === 'week') return 'week'
+  return 'month'
+}
+
+function timespanFromQuery(): FlowTimespan {
+  const t = typeof route.query.timespan === 'string' ? route.query.timespan : ''
+  return (['all', '12mo', '6mo', '3mo', '1mo'] as FlowTimespan[]).includes(t as FlowTimespan) ? t as FlowTimespan : '12mo'
 }
 
 granularity.value = granularityFromQuery()
+timespan.value = timespanFromQuery()
+if (!route.query.granularity) {
+  granularity.value = timespan.value === 'all' ? 'month' : 'week'
+}
 
-watch(granularity, (g) => {
-  router.replace({ query: { ...route.query, granularity: g } })
+watch([granularity, timespan], ([g, t]) => {
+  router.replace({ query: { ...route.query, granularity: g, timespan: t } })
 })
 
 watch(() => route.query.granularity, () => {
   const g = granularityFromQuery()
   if (g !== granularity.value) granularity.value = g
 })
+
+watch(() => route.query.timespan, () => {
+  const t = timespanFromQuery()
+  if (t !== timespan.value) timespan.value = t
+})
 const { isLocal, toggle } = useDataSource()
 const { isEmbedded } = useEmbedMode()
 const isDev = import.meta.dev
+const { isDark, toggle: toggleDark } = useDarkMode()
 </script>
 
 <template>
-  <div :class="['text-slate-100', isEmbedded ? 'bg-transparent' : 'min-h-screen bg-slate-950']">
-    <header v-if="!isEmbedded" class="flex items-center justify-between border-b border-slate-800 px-6 py-4">
-      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300">
-        biocommons · GitHub Stats
-      </p>
+  <div :class="['text-slate-900 dark:text-slate-100', isEmbedded ? 'bg-transparent' : 'min-h-screen bg-slate-50 dark:bg-slate-950']">
+    <header v-if="!isEmbedded" class="flex items-center justify-between border-b border-slate-200 bg-white px-6 py-4 dark:border-slate-800 dark:bg-transparent">
+      <a href="/" class="flex items-center gap-3">
+        <img src="/logo.svg" alt="biocommons logo" class="h-8 w-8" />
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-bc-indigo-500 dark:text-bc-indigo-400">
+          biocommons · GitHub Stats
+        </p>
+      </a>
+      <button
+        class="rounded-full p-1.5 text-slate-400 transition-colors hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300"
+        :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+        @click="toggleDark()"
+      >
+        <svg v-if="isDark" viewBox="0 0 20 20" width="18" height="18" fill="currentColor">
+          <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4.22 1.78a1 1 0 011.42 1.42l-.71.7a1 1 0 11-1.42-1.41l.71-.71zm-9.86 0l.71.71a1 1 0 01-1.42 1.41l-.7-.7a1 1 0 011.41-1.42zM10 6a4 4 0 100 8 4 4 0 000-8zm-7 4a1 1 0 100 2H2a1 1 0 100-2h1zm15 0a1 1 0 100 2h-1a1 1 0 100-2h1zM5.64 14.36l-.71.71a1 1 0 01-1.41-1.42l.7-.7a1 1 0 011.42 1.41zm10.14-.71l.7.7a1 1 0 01-1.41 1.42l-.71-.71a1 1 0 011.42-1.41zM10 16a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1z" />
+        </svg>
+        <svg v-else viewBox="0 0 20 20" width="18" height="18" fill="currentColor">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+        </svg>
+      </button>
     </header>
 
-    <nav class="border-b border-slate-800 px-6">
+    <nav class="border-b border-slate-200 bg-white px-6 dark:border-slate-800 dark:bg-transparent">
       <div class="flex items-center gap-1">
         <button
           v-for="tab in tabs"
@@ -80,8 +116,8 @@ const isDev = import.meta.dev
           class="px-4 py-3 text-sm font-medium transition-colors"
           :class="
             activeTab === tab
-              ? 'border-b-2 border-emerald-400 text-emerald-300'
-              : 'text-slate-400 hover:text-slate-200'
+              ? 'border-b-2 border-bc-indigo-500 text-bc-indigo-600 dark:border-bc-indigo-400 dark:text-bc-indigo-300'
+              : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'
           "
           @click="activeTab = tab"
         >
@@ -97,17 +133,17 @@ const isDev = import.meta.dev
 
           <div
             v-if="isDev"
-            class="flex items-center rounded-full border border-slate-700 bg-slate-900 p-0.5 text-xs font-mono"
+            class="flex items-center rounded-full border border-slate-200 bg-slate-100 p-0.5 text-xs font-mono dark:border-slate-700 dark:bg-slate-900"
             title="Toggle data source between local /data and GitHub raw"
           >
             <button
               class="rounded-full px-3 py-1 transition-colors"
-              :class="isLocal ? 'bg-amber-500/20 text-amber-400' : 'text-slate-500 hover:text-slate-300'"
+              :class="isLocal ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300' : 'text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300'"
               @click="isLocal || toggle()"
             >local</button>
             <button
               class="rounded-full px-3 py-1 transition-colors"
-              :class="!isLocal ? 'bg-sky-500/20 text-sky-400' : 'text-slate-500 hover:text-slate-300'"
+              :class="!isLocal ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300' : 'text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300'"
               @click="isLocal && toggle()"
             >github raw</button>
           </div>
@@ -146,13 +182,15 @@ const isDev = import.meta.dev
             :stats="issueStats"
             :all-repos="issueAllRepos"
             :granularity="granularity"
+            :timespan="timespan"
             :selected-repos="selectedRepos"
             item-label="issues"
             @update:granularity="granularity = $event"
+            @update:timespan="timespan = $event"
             @toggle-repo="toggleRepo"
           />
-          <div class="mt-10 border-t border-slate-800 pt-8">
-            <ResolutionTime :stats="issueStats" :all-repos="issueAllRepos" item-label="issues" />
+          <div class="mt-10 border-t border-slate-200 pt-8 dark:border-slate-800">
+            <ResolutionByRepo :stats="issueStats" :all-repos="issueAllRepos" item-label="issues" />
           </div>
         </template>
       </template>
@@ -167,28 +205,17 @@ const isDev = import.meta.dev
             :stats="prStats"
             :all-repos="prAllRepos"
             :granularity="granularity"
+            :timespan="timespan"
             :selected-repos="prSelectedRepos"
             item-label="PRs"
             @update:granularity="granularity = $event"
+            @update:timespan="timespan = $event"
             @toggle-repo="prToggleRepo"
           />
-          <div class="mt-10 border-t border-slate-800 pt-8">
-            <ResolutionTime :stats="prStats" :all-repos="prAllRepos" item-label="PRs" />
+          <div class="mt-10 border-t border-slate-200 pt-8 dark:border-slate-800">
+            <ResolutionByRepo :stats="prStats" :all-repos="prAllRepos" item-label="PRs" />
           </div>
         </template>
-      </template>
-
-      <!-- Resolution Time tab -->
-      <template v-else-if="activeTab === 'Resolution Time'">
-        <div v-if="!issueAllStats || !prAllStats" class="flex items-center justify-center py-24 text-slate-500">
-          Loading…
-        </div>
-        <ResolutionSummary
-          v-else
-          :issue-stats="issueAllStats"
-          :pr-stats="prAllStats"
-          :all-repos="issueAllRepos"
-        />
       </template>
 
       <!-- Contributors tab -->

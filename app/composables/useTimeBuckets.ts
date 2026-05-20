@@ -16,7 +16,7 @@ export function toYearQuarter(isoDate: string): string {
   return `${d.getUTCFullYear()}Q${quarter}`
 }
 
-export type TimeBucket = 'month' | 'quarter'
+export type TimeBucket = 'week' | 'month' | 'quarter'
 
 export function formatLocalTime(iso: string): string {
   return new Date(iso).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' })
@@ -31,7 +31,18 @@ export function relativeTime(iso: string): string {
   return `${Math.floor(hours / 24)}d ago`
 }
 
+export function toYearWeek(isoDate: string): string {
+  const d = new Date(isoDate)
+  // ISO 8601 week: Monday-anchored, week 1 contains the first Thursday of the year
+  const day = d.getUTCDay() || 7
+  d.setUTCDate(d.getUTCDate() + 4 - day)
+  const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1))
+  const week = Math.ceil(((d.getTime() - yearStart.getTime()) / 86_400_000 + 1) / 7)
+  return `${d.getUTCFullYear()}W${String(week).padStart(2, '0')}`
+}
+
 export function toBucket(isoDate: string, bucket: TimeBucket): string {
   if (bucket === 'quarter') return toYearQuarter(isoDate)
+  if (bucket === 'week') return toYearWeek(isoDate)
   return toYearMonth(isoDate)
 }

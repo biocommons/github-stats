@@ -2,6 +2,7 @@ import { toBucket, type TimeBucket } from './useTimeBuckets'
 import { repoDisplayName } from '~/config'
 
 export type FlowKind = 'issues' | 'prs'
+export type FlowTimespan = 'all' | '12mo' | '6mo' | '3mo' | '1mo'
 
 // Normalized shape shared by issues and PRs
 interface FlowRecord {
@@ -61,7 +62,27 @@ export interface FlowStats {
 
 function fillContiguousBuckets(first: string, last: string, granularity: TimeBucket): string[] {
   const result: string[] = []
-  if (granularity === 'month') {
+  if (granularity === 'week') {
+    // Advance by 7-day steps from the Monday of the first ISO week to the last
+    const isoWeekToDate = (key: string): Date => {
+      const year = parseInt(key)
+      const week = parseInt(key.slice(5))
+      // Jan 4 is always in week 1; find Monday of that week then advance
+      const jan4 = new Date(Date.UTC(year, 0, 4))
+      const jan4Day = jan4.getUTCDay() || 7
+      return new Date(jan4.getTime() + (week - 1) * 7 * 86_400_000 - (jan4Day - 1) * 86_400_000)
+    }
+    let cur = isoWeekToDate(first)
+    const end = isoWeekToDate(last)
+    while (cur <= end) {
+      const day = cur.getUTCDay() || 7
+      const thu = new Date(cur.getTime() + (4 - day) * 86_400_000)
+      const yearStart = new Date(Date.UTC(thu.getUTCFullYear(), 0, 1))
+      const week = Math.ceil(((thu.getTime() - yearStart.getTime()) / 86_400_000 + 1) / 7)
+      result.push(`${thu.getUTCFullYear()}W${String(week).padStart(2, '0')}`)
+      cur = new Date(cur.getTime() + 7 * 86_400_000)
+    }
+  } else if (granularity === 'month') {
     let year = parseInt(first)
     let month = parseInt(first.slice(5))
     const endYear = parseInt(last)
@@ -83,7 +104,7 @@ function fillContiguousBuckets(first: string, last: string, granularity: TimeBuc
   return result
 }
 
-export function computeFlowStats(records: FlowRecord[], granularity: TimeBucket): FlowStats {
+export function computeFlowStats(records: FlowRecord[], granularity: TimeBucket, allRecords?: FlowRecord[]): FlowStats {
   const repos = [...new Set(records.map(r => r.repo))].sort((a, b) => repoDisplayName(a).localeCompare(repoDisplayName(b)))
 
   const sparseBuckets = new Set<string>()
@@ -124,19 +145,49 @@ export function computeFlowStats(records: FlowRecord[], granularity: TimeBucket)
     }
   }
 
-  let runningOpen = 0
+  // Build separate opened/closed maps from allRecords for stock computation.
+  // This captures closes of pre-period-opened items that are absent from openedMap/closedMap
+  // (which only cover records filtered by created_at for the flow bars).
+  const allOpenedMap: Record<string, Record<string, number>> = {}
+  const allClosedMap: Record<string, Record<string, number>> = {}
+  for (const b of buckets) {
+    allOpenedMap[b] = {}
+    allClosedMap[b] = {}
+  }
+  for (const r of (allRecords ?? records)) {
+    const ob = toBucket(r.created_at, granularity)
+    if (allOpenedMap[ob]) allOpenedMap[ob]![r.repo] = (allOpenedMap[ob]![r.repo] ?? 0) + 1
+    if (r.closed_at) {
+      const cb = toBucket(r.closed_at, granularity)
+      if (allClosedMap[cb]) allClosedMap[cb]![r.repo] = (allClosedMap[cb]![r.repo] ?? 0) + 1
+    }
+  }
+
+  // Pre-period stock: items opened before the first visible bucket and not yet closed
+  const repoPreStock: Record<string, number> = {}
+  const firstBucket = buckets[0] ?? ''
+  for (const r of (allRecords ?? records)) {
+    const ob = toBucket(r.created_at, granularity)
+    if (ob >= firstBucket) continue
+    repoPreStock[r.repo] = (repoPreStock[r.repo] ?? 0) + 1
+    if (r.closed_at && toBucket(r.closed_at, granularity) < firstBucket) {
+      repoPreStock[r.repo]!--
+    }
+  }
+
+  let runningOpen = Object.values(repoPreStock).reduce((s, v) => s + v, 0)
   const stockSeries: StockPoint[] = buckets.map(bucket => {
-    const totalOpened = repos.reduce((s, r) => s + (openedMap[bucket]![r] ?? 0), 0)
-    const totalClosed = repos.reduce((s, r) => s + (closedMap[bucket]![r] ?? 0), 0)
+    const totalOpened = repos.reduce((s, r) => s + (allOpenedMap[bucket]![r] ?? 0), 0)
+    const totalClosed = repos.reduce((s, r) => s + (allClosedMap[bucket]![r] ?? 0), 0)
     runningOpen += totalOpened - totalClosed
     return { bucket, openCount: Math.max(0, runningOpen) }
   })
 
   const repoStockSeries: Record<string, StockPoint[]> = {}
   for (const repo of repos) {
-    let repoOpen = 0
+    let repoOpen = repoPreStock[repo] ?? 0
     repoStockSeries[repo] = buckets.map(bucket => {
-      repoOpen += (openedMap[bucket]![repo] ?? 0) - (closedMap[bucket]![repo] ?? 0)
+      repoOpen += (allOpenedMap[bucket]![repo] ?? 0) - (allClosedMap[bucket]![repo] ?? 0)
       return { bucket, openCount: Math.max(0, repoOpen) }
     })
   }
@@ -191,9 +242,18 @@ function toFlowRecords(kind: FlowKind, data: unknown[]): FlowRecord[] {
   return (data as RawIssue[]).map(r => ({ repo: r.repo, created_at: r.created_at, closed_at: r.closed_at }))
 }
 
+function timespanCutoff(timespan: FlowTimespan): Date | null {
+  if (timespan === 'all') return null
+  const months = timespan === '12mo' ? 12 : timespan === '6mo' ? 6 : timespan === '3mo' ? 3 : 1
+  const d = new Date()
+  d.setMonth(d.getMonth() - months)
+  return d
+}
+
 export function useFlowStats(kind: FlowKind) {
   const { dataBase } = useDataSource()
-  const granularity = ref<TimeBucket>('month')
+  const granularity = ref<TimeBucket>('week')
+  const timespan = ref<FlowTimespan>('12mo')
 
   const { data: rawData, pending } = useAsyncData<FlowRecord[]>(
     () => `flow:${kind}:${dataBase.value}`,
@@ -219,15 +279,23 @@ export function useFlowStats(kind: FlowKind) {
     }
   }, { immediate: true })
 
+  const timespanFiltered = computed<FlowRecord[]>(() => {
+    if (!rawData.value) return []
+    const cutoff = timespanCutoff(timespan.value)
+    if (!cutoff) return rawData.value
+    return rawData.value.filter(r => new Date(r.created_at) >= cutoff)
+  })
+
   const stats = computed<FlowStats | null>(() => {
-    if (!rawData.value || rawData.value.length === 0) return null
-    const filtered = rawData.value.filter(r => selectedRepos.value.has(r.repo))
-    return computeFlowStats(filtered, granularity.value)
+    if (timespanFiltered.value.length === 0) return null
+    const filtered = timespanFiltered.value.filter(r => selectedRepos.value.has(r.repo))
+    const allSelected = (rawData.value ?? []).filter(r => selectedRepos.value.has(r.repo))
+    return computeFlowStats(filtered, granularity.value, allSelected)
   })
 
   const allStats = computed<FlowStats | null>(() => {
-    if (!rawData.value || rawData.value.length === 0) return null
-    return computeFlowStats(rawData.value, granularity.value)
+    if (timespanFiltered.value.length === 0) return null
+    return computeFlowStats(timespanFiltered.value, granularity.value)
   })
 
   function toggleRepo(repo: string) {
@@ -237,5 +305,5 @@ export function useFlowStats(kind: FlowKind) {
     selectedRepos.value = next
   }
 
-  return { stats, allStats, allRepos, granularity, selectedRepos, toggleRepo, isLoading: pending }
+  return { stats, allStats, allRepos, granularity, timespan, selectedRepos, toggleRepo, isLoading: pending }
 }

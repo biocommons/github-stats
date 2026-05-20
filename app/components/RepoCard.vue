@@ -13,45 +13,45 @@ const sparklinePeak = computed(() => Math.max(...props.repo.sparkline))
 </script>
 
 <template>
-  <article class="flex flex-col gap-3 rounded-xl border border-slate-800 bg-slate-900/80 p-5">
+  <article class="flex flex-col gap-3 rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900/80">
     <div class="flex items-start justify-between gap-2">
       <a
         :href="repo.html_url"
         target="_blank"
         rel="noopener"
-        class="text-base font-semibold text-emerald-300 hover:underline"
+        class="text-base font-semibold text-bc-indigo-500 hover:underline dark:text-bc-indigo-300"
       >{{ repoDisplayName(repo.name) }}</a>
       <a
         v-if="repo.latest_release"
         :href="`https://github.com/${repo.full_name}/releases/tag/${repo.latest_release.tag_name}`"
         target="_blank"
         rel="noopener"
-        class="shrink-0 rounded-full border border-slate-700 px-2 py-0.5 text-xs text-slate-400 hover:border-slate-500 hover:text-slate-200 transition-colors"
+        class="shrink-0 rounded-full border border-bc-teal-400 px-2 py-0.5 text-xs text-bc-teal-600 transition-colors hover:bg-bc-teal-400 hover:text-white dark:border-bc-teal-400 dark:text-bc-teal-300 dark:hover:bg-bc-teal-500 dark:hover:text-white"
       >
         {{ repo.latest_release.tag_name }} · {{ formatRelease(repo.latest_release.published_at) }}
       </a>
     </div>
 
-    <p v-if="repo.description" class="text-sm leading-relaxed text-slate-300">
+    <p v-if="repo.description" class="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
       {{ repo.description }}
     </p>
 
-    <div class="flex flex-wrap gap-4 text-sm text-slate-400">
-      <a :href="`${repo.html_url}/stargazers`" target="_blank" rel="noopener" title="Stars" class="hover:text-slate-200 transition-colors">★ {{ repo.stargazers_count.toLocaleString() }}</a>
-      <a :href="`${repo.html_url}/forks`" target="_blank" rel="noopener" title="Forks" class="hover:text-slate-200 transition-colors">⑂ {{ repo.forks_count.toLocaleString() }}</a>
-      <a :href="`${repo.html_url}/issues`" target="_blank" rel="noopener" title="Open issues" class="hover:text-slate-200 transition-colors">Issues: {{ repo.open_issues_count.toLocaleString() }}</a>
-      <a :href="`${repo.html_url}/pulls`" target="_blank" rel="noopener" title="Open PRs" class="hover:text-slate-200 transition-colors">PRs: {{ repo.open_pr_count.toLocaleString() }}</a>
-      <a :href="`${repo.html_url}/graphs/contributors`" target="_blank" rel="noopener" title="Contributors" class="hover:text-slate-200 transition-colors">Contributors: {{ repo.contributors.toLocaleString() }}</a>
+    <div class="flex flex-wrap gap-4 text-sm text-slate-500 dark:text-slate-400">
+      <a :href="`${repo.html_url}/stargazers`" target="_blank" rel="noopener" title="Stars" class="flex items-center gap-1.5 transition-colors hover:text-slate-700 dark:hover:text-slate-200"><i class="fa-regular fa-star w-3.5 text-center" aria-hidden="true" />{{ repo.stargazers_count.toLocaleString() }}</a>
+      <a :href="`${repo.html_url}/forks`" target="_blank" rel="noopener" title="Forks" class="flex items-center gap-1.5 transition-colors hover:text-slate-700 dark:hover:text-slate-200"><i class="fa-solid fa-code-fork w-3.5 text-center" aria-hidden="true" />{{ repo.forks_count.toLocaleString() }}</a>
+      <a :href="`${repo.html_url}/issues`" target="_blank" rel="noopener" title="Open issues" class="flex items-center gap-1.5 transition-colors hover:text-slate-700 dark:hover:text-slate-200"><i class="fa-regular fa-circle-dot w-3.5 text-center" aria-hidden="true" />{{ repo.open_issues_count.toLocaleString() }}</a>
+      <a :href="`${repo.html_url}/pulls`" target="_blank" rel="noopener" title="Open PRs" class="flex items-center gap-1.5 transition-colors hover:text-slate-700 dark:hover:text-slate-200"><i class="fa-solid fa-code-pull-request w-3.5 text-center" aria-hidden="true" />{{ repo.open_pr_count.toLocaleString() }}</a>
+      <a :href="`${repo.html_url}/graphs/contributors`" target="_blank" rel="noopener" title="Contributors" class="flex items-center gap-1.5 transition-colors hover:text-slate-700 dark:hover:text-slate-200"><i class="fa-solid fa-users w-3.5 text-center" aria-hidden="true" />{{ repo.contributors.toLocaleString() }}</a>
     </div>
 
-    <div class="group relative text-emerald-400/70">
+    <div class="group relative text-bc-teal-500/70 dark:text-bc-teal-400/70">
       <SparkLine :values="repo.sparkline" />
-      <div class="pointer-events-none absolute bottom-full left-0 mb-2 hidden w-max max-w-[220px] rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-xs text-slate-300 shadow-lg group-hover:block">
-        <p class="font-medium text-slate-100">Activity · last 12 months</p>
-        <p class="mt-1 text-slate-400">Commits + merged PRs per month</p>
+      <div class="pointer-events-none absolute bottom-full left-0 mb-2 hidden w-max max-w-[220px] rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs text-slate-600 shadow-lg group-hover:block dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300">
+        <p class="font-medium text-slate-900 dark:text-slate-100">Activity · last 12 months</p>
+        <p class="mt-1 text-slate-500 dark:text-slate-400">Commits + merged PRs per month</p>
         <div class="mt-2 flex gap-4">
-          <span>Total <span class="text-slate-200">{{ sparklineTotal }}</span></span>
-          <span>Peak <span class="text-slate-200">{{ sparklinePeak }}</span></span>
+          <span>Total <span class="text-slate-700 dark:text-slate-200">{{ sparklineTotal }}</span></span>
+          <span>Peak <span class="text-slate-700 dark:text-slate-200">{{ sparklinePeak }}</span></span>
         </div>
       </div>
     </div>

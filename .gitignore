@@ -29,3 +29,5 @@ __pycache__
 
 settings.local.json
 .envrc.local
+.claude
+.playwright-mcp
