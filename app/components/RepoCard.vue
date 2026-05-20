@@ -19,14 +19,14 @@ const sparklinePeak = computed(() => Math.max(...props.repo.sparkline))
         :href="repo.html_url"
         target="_blank"
         rel="noopener"
-        class="text-base font-semibold text-bc-teal-600 hover:underline dark:text-bc-teal-300"
+        class="text-base font-semibold text-bc-indigo-500 hover:underline dark:text-bc-indigo-300"
       >{{ repoDisplayName(repo.name) }}</a>
       <a
         v-if="repo.latest_release"
         :href="`https://github.com/${repo.full_name}/releases/tag/${repo.latest_release.tag_name}`"
         target="_blank"
         rel="noopener"
-        class="shrink-0 rounded-full border border-slate-200 px-2 py-0.5 text-xs text-slate-500 transition-colors hover:border-slate-400 hover:text-slate-700 dark:border-slate-700 dark:text-slate-400 dark:hover:border-slate-500 dark:hover:text-slate-200"
+        class="shrink-0 rounded-full border border-bc-teal-400 px-2 py-0.5 text-xs text-bc-teal-600 transition-colors hover:bg-bc-teal-400 hover:text-white dark:border-bc-teal-400 dark:text-bc-teal-300 dark:hover:bg-bc-teal-500 dark:hover:text-white"
       >
         {{ repo.latest_release.tag_name }} · {{ formatRelease(repo.latest_release.published_at) }}
       </a>
@@ -37,11 +37,11 @@ const sparklinePeak = computed(() => Math.max(...props.repo.sparkline))
     </p>
 
     <div class="flex flex-wrap gap-4 text-sm text-slate-500 dark:text-slate-400">
-      <a :href="`${repo.html_url}/stargazers`" target="_blank" rel="noopener" title="Stars" class="transition-colors hover:text-slate-700 dark:hover:text-slate-200">★ {{ repo.stargazers_count.toLocaleString() }}</a>
-      <a :href="`${repo.html_url}/forks`" target="_blank" rel="noopener" title="Forks" class="transition-colors hover:text-slate-700 dark:hover:text-slate-200">⑂ {{ repo.forks_count.toLocaleString() }}</a>
-      <a :href="`${repo.html_url}/issues`" target="_blank" rel="noopener" title="Open issues" class="transition-colors hover:text-slate-700 dark:hover:text-slate-200">Issues: {{ repo.open_issues_count.toLocaleString() }}</a>
-      <a :href="`${repo.html_url}/pulls`" target="_blank" rel="noopener" title="Open PRs" class="transition-colors hover:text-slate-700 dark:hover:text-slate-200">PRs: {{ repo.open_pr_count.toLocaleString() }}</a>
-      <a :href="`${repo.html_url}/graphs/contributors`" target="_blank" rel="noopener" title="Contributors" class="transition-colors hover:text-slate-700 dark:hover:text-slate-200">Contributors: {{ repo.contributors.toLocaleString() }}</a>
+      <a :href="`${repo.html_url}/stargazers`" target="_blank" rel="noopener" title="Stars" class="flex items-center gap-1.5 transition-colors hover:text-slate-700 dark:hover:text-slate-200"><i class="fa-regular fa-star w-3.5 text-center" aria-hidden="true" />{{ repo.stargazers_count.toLocaleString() }}</a>
+      <a :href="`${repo.html_url}/forks`" target="_blank" rel="noopener" title="Forks" class="flex items-center gap-1.5 transition-colors hover:text-slate-700 dark:hover:text-slate-200"><i class="fa-solid fa-code-fork w-3.5 text-center" aria-hidden="true" />{{ repo.forks_count.toLocaleString() }}</a>
+      <a :href="`${repo.html_url}/issues`" target="_blank" rel="noopener" title="Open issues" class="flex items-center gap-1.5 transition-colors hover:text-slate-700 dark:hover:text-slate-200"><i class="fa-regular fa-circle-dot w-3.5 text-center" aria-hidden="true" />{{ repo.open_issues_count.toLocaleString() }}</a>
+      <a :href="`${repo.html_url}/pulls`" target="_blank" rel="noopener" title="Open PRs" class="flex items-center gap-1.5 transition-colors hover:text-slate-700 dark:hover:text-slate-200"><i class="fa-solid fa-code-pull-request w-3.5 text-center" aria-hidden="true" />{{ repo.open_pr_count.toLocaleString() }}</a>
+      <a :href="`${repo.html_url}/graphs/contributors`" target="_blank" rel="noopener" title="Contributors" class="flex items-center gap-1.5 transition-colors hover:text-slate-700 dark:hover:text-slate-200"><i class="fa-solid fa-users w-3.5 text-center" aria-hidden="true" />{{ repo.contributors.toLocaleString() }}</a>
     </div>
 
     <div class="group relative text-bc-teal-500/70 dark:text-bc-teal-400/70">
