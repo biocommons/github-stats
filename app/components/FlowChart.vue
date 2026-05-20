@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { FlowStats, FlowTimespan } from '~/composables/useFlowStats'
 import type { TimeBucket } from '~/composables/useTimeBuckets'
-import { repoDisplayName } from '~/config'
+import { repoDisplayName, repoColor as getRepoColor, contrastColor } from '~/config'
 
 const TIMESPANS: { label: string; value: FlowTimespan }[] = [
   { label: 'All time', value: 'all' },
@@ -26,19 +26,8 @@ const emit = defineEmits<{
   'toggle-repo': [repo: string]
 }>()
 
-// Colors indexed against allRepos so they never shift during filtering
-const REPO_COLORS = [
-  '#4a87e8', // blue    (#3c78d8 brightened)
-  '#e69138', // orange  (logo original)
-  '#6aa84f', // green   (logo original)
-  '#c05a8d', // pink    (#a64d79 lightened)
-  '#7d65c0', // purple  (#674ea7 lightened)
-  '#d94f3d', // red     (#cc0000 brightened)
-  '#e8c130', // amber   (#f1c232 slight desaturate)
-]
-
 function repoColor(repo: string): string {
-  return REPO_COLORS[props.allRepos.indexOf(repo) % REPO_COLORS.length] ?? '#94a3b8'
+  return getRepoColor(repo, props.allRepos)
 }
 
 const W = 800
@@ -57,12 +46,7 @@ const tooltip = ref<{ x: number; y: number; lines: string[] } | null>(null)
 const scrollMode = ref(props.timespan === 'all')
 
 watch(() => props.timespan, (ts) => {
-  if (ts === 'all') {
-    scrollMode.value = true
-  } else {
-    scrollMode.value = false
-    emit('update:granularity', 'week')
-  }
+  scrollMode.value = ts === 'all'
 })
 const panOffset = ref(0)
 const svgEl = ref<SVGSVGElement | null>(null)
@@ -343,7 +327,7 @@ function onRectMouseLeave() {
           :key="repo"
           class="rounded-full border px-2.5 py-0.5 text-sm font-medium transition-colors"
           :style="selectedRepos.has(repo)
-            ? { borderColor: repoColor(repo), color: repoColor(repo), background: repoColor(repo) + '22' }
+            ? { borderColor: repoColor(repo), background: repoColor(repo) + 'bf', color: contrastColor(repoColor(repo), 0.75) }
             : { borderColor: 'var(--chip-inactive-border)', color: 'var(--chip-inactive-color)' }"
           @click="emit('toggle-repo', repo)"
         >{{ repoDisplayName(repo) }}</button>

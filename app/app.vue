@@ -43,7 +43,10 @@ const { stats: prStats, allRepos: prAllRepos, granularity: prGranularity, timesp
 
 // Keep PR granularity and timespan in sync with the shared URL-driven refs
 watch(granularity, (g) => { prGranularity.value = g }, { immediate: true })
-watch(timespan, (t) => { prTimespan.value = t }, { immediate: true })
+watch(timespan, (t, old) => {
+  prTimespan.value = t
+  if (old !== undefined) granularity.value = t === 'all' ? 'month' : 'week'
+}, { immediate: true })
 
 function granularityFromQuery(): 'week' | 'month' | 'quarter' {
   const g = typeof route.query.granularity === 'string' ? route.query.granularity : ''
@@ -59,18 +62,17 @@ function timespanFromQuery(): FlowTimespan {
 
 granularity.value = granularityFromQuery()
 timespan.value = timespanFromQuery()
+if (!route.query.granularity) {
+  granularity.value = timespan.value === 'all' ? 'month' : 'week'
+}
 
-watch(granularity, (g) => {
-  router.replace({ query: { ...route.query, granularity: g } })
+watch([granularity, timespan], ([g, t]) => {
+  router.replace({ query: { ...route.query, granularity: g, timespan: t } })
 })
 
 watch(() => route.query.granularity, () => {
   const g = granularityFromQuery()
   if (g !== granularity.value) granularity.value = g
-})
-
-watch(timespan, (t) => {
-  router.replace({ query: { ...route.query, timespan: t } })
 })
 
 watch(() => route.query.timespan, () => {
@@ -86,12 +88,12 @@ const { isDark, toggle: toggleDark } = useDarkMode()
 <template>
   <div :class="['text-slate-900 dark:text-slate-100', isEmbedded ? 'bg-transparent' : 'min-h-screen bg-slate-50 dark:bg-slate-950']">
     <header v-if="!isEmbedded" class="flex items-center justify-between border-b border-slate-200 bg-white px-6 py-4 dark:border-slate-800 dark:bg-transparent">
-      <div class="flex items-center gap-3">
+      <a href="/" class="flex items-center gap-3">
         <img src="/logo.svg" alt="biocommons logo" class="h-8 w-8" />
         <p class="text-xs font-semibold uppercase tracking-[0.2em] text-bc-indigo-500 dark:text-bc-indigo-400">
           biocommons · GitHub Stats
         </p>
-      </div>
+      </a>
       <button
         class="rounded-full p-1.5 text-slate-400 transition-colors hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300"
         :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
@@ -188,7 +190,7 @@ const { isDark, toggle: toggleDark } = useDarkMode()
             @toggle-repo="toggleRepo"
           />
           <div class="mt-10 border-t border-slate-200 pt-8 dark:border-slate-800">
-            <ResolutionByRepo :stats="issueStats" item-label="issues" />
+            <ResolutionByRepo :stats="issueStats" :all-repos="issueAllRepos" item-label="issues" />
           </div>
         </template>
       </template>
@@ -211,7 +213,7 @@ const { isDark, toggle: toggleDark } = useDarkMode()
             @toggle-repo="prToggleRepo"
           />
           <div class="mt-10 border-t border-slate-200 pt-8 dark:border-slate-800">
-            <ResolutionByRepo :stats="prStats" item-label="PRs" />
+            <ResolutionByRepo :stats="prStats" :all-repos="prAllRepos" item-label="PRs" />
           </div>
         </template>
       </template>

@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import type { FlowStats, ResolutionBucket } from '~/composables/useFlowStats'
 import { RESOLUTION_BUCKETS } from '~/composables/useFlowStats'
-import { repoDisplayName } from '~/config'
+import { repoDisplayName, repoColor, contrastColor } from '~/config'
 
 const props = defineProps<{
   stats: FlowStats
+  allRepos: string[]
   itemLabel: string
 }>()
 
@@ -123,7 +124,12 @@ function updatePos(event: MouseEvent) {
             :key="repo"
             class="border-b border-slate-100 last:border-0 hover:bg-slate-50 dark:border-slate-800/50 dark:hover:bg-slate-800/30"
           >
-            <td class="px-4 py-3 text-slate-700 dark:text-slate-200">{{ repoDisplayName(repo) }}</td>
+            <td class="px-4 py-3">
+              <span
+                class="inline-block rounded-full border px-2.5 py-0.5 text-sm font-medium"
+                :style="{ borderColor: repoColor(repo, allRepos), background: repoColor(repo, allRepos) + 'bf', color: contrastColor(repoColor(repo, allRepos), 0.75) }"
+              >{{ repoDisplayName(repo) }}</span>
+            </td>
             <td class="px-4 py-3 text-right tabular-nums text-slate-600 dark:text-slate-300">
               {{ (stats.perRepo[repo]?.totalClosed ?? 0).toLocaleString() }}
             </td>
