@@ -118,12 +118,12 @@ const { isDark, toggle: toggleDark } = useDarkMode()
           >
             <button
               class="rounded-full px-3 py-1 transition-colors"
-              :class="isLocal ? 'bg-amber-500/20 text-amber-600 dark:text-amber-400' : 'text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300'"
+              :class="isLocal ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300' : 'text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300'"
               @click="isLocal || toggle()"
             >local</button>
             <button
               class="rounded-full px-3 py-1 transition-colors"
-              :class="!isLocal ? 'bg-sky-500/20 text-sky-600 dark:text-sky-400' : 'text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300'"
+              :class="!isLocal ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300' : 'text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300'"
               @click="isLocal && toggle()"
             >github raw</button>
           </div>
