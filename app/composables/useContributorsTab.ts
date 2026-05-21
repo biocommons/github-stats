@@ -199,7 +199,6 @@ export function useContributorsTab() {
     for (const k of countKeys) colMaxes['total']![k] = Math.max(colMaxes['total']![k], anonTotal[k])
     for (const repo of displayRepos) {
       const ac = anonByRepo[repo] ?? emptyCounts()
-      if (!colMaxes[repo]) colMaxes[repo] = emptyCounts()
       for (const k of countKeys) colMaxes[repo]![k] = Math.max(colMaxes[repo]![k], ac[k])
     }
 
@@ -234,13 +233,18 @@ export function useContributorsTab() {
 
     const now = Date.now()
 
-    // Filter rows: only contributors with activity in activeRepos (all-time)
-    const hasActiveSetActivity = (s: ReturnType<typeof useContributorStats>[0]) =>
-      activeRepos.some(repo => countTotal(s.by_repo[repo] ?? emptyCounts()) > 0) ||
-      countTotal(s.by_repo[metaKey] ?? emptyCounts()) > 0
+    // Determine eligible logins using all-time data (not timespan-filtered)
+    const activeSetLogins = new Set(
+      allTimeStats
+        .filter(s =>
+          activeRepos.some(repo => countTotal(s.by_repo[repo] ?? emptyCounts()) > 0) ||
+          countTotal(s.by_repo[metaKey] ?? emptyCounts()) > 0
+        )
+        .map(s => s.login)
+    )
 
     const rows: ContributorRow[] = withCounts
-      .filter(s => hasActiveSetActivity(s))
+      .filter(s => activeSetLogins.has(s.login))
       .map(s => {
         const daysOld = (now - new Date(s.first_contribution_at).getTime()) / 86_400_000
         const allTimeCount = allTimeCountMap.get(s.login) ?? 0
