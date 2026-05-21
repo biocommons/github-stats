@@ -34,6 +34,7 @@ REPOS_TO_COLLECT = [
     "eutils",
 ]
 ORG = "biocommons"
+DATA_SCHEMA_VERSION = "2.0"
 DATA_DIR = Path(__file__).parent.parent / "data"
 
 
@@ -426,7 +427,7 @@ class DataCollector:
         collected_repos = sorted(r for r in self.repo_list if r not in self.skipped_repos)
         meta = {
             "collected_at": datetime.now(UTC).isoformat(),
-            "schema_version": "1.0",
+            "schema_version": DATA_SCHEMA_VERSION,
             "repos": sorted(self.repo_list),
             "collected_repos": collected_repos,
             "skipped_repos": sorted(self.skipped_repos),

@@ -11,7 +11,7 @@ const { isLocal, toggle } = useDataSource()
 const { isEmbedded } = useEmbedMode()
 const isDev = import.meta.dev
 const { isDark, toggle: toggleDark } = useDarkMode()
-const { collectedAt, relativeTime, formatLocalTime } = useDataMeta()
+const { collectedAt, schemaVersionMismatch, relativeTime, formatLocalTime } = useDataMeta()
 </script>
 
 <template>
@@ -75,6 +75,13 @@ const { collectedAt, relativeTime, formatLocalTime } = useDataMeta()
         </div>
       </div>
     </nav>
+
+    <div
+      v-if="schemaVersionMismatch"
+      class="bg-amber-50 border-b border-amber-200 px-4 py-2 text-xs text-amber-700 dark:bg-amber-900/20 dark:border-amber-800 dark:text-amber-400"
+    >
+      ⚠ Data was collected with an older schema version. Re-run the collector to update.
+    </div>
 
     <main :class="['mx-auto max-w-6xl px-6', isEmbedded ? 'py-4' : 'py-8']">
       <slot />
