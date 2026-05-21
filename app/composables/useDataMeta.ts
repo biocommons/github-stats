@@ -1,6 +1,6 @@
 import { relativeTime, formatLocalTime } from './useTimeBuckets'
 
-const EXPECTED_SCHEMA_VERSION = '2.0'
+const EXPECTED_SCHEMA_VERSION = '1.1'
 
 interface MetaResponse {
   collected_at: string

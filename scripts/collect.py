@@ -34,7 +34,7 @@ REPOS_TO_COLLECT = [
     "eutils",
 ]
 ORG = "biocommons"
-DATA_SCHEMA_VERSION = "2.0"
+DATA_SCHEMA_VERSION = "1.1"
 DATA_DIR = Path(__file__).parent.parent / "data"
 
 
