@@ -5,7 +5,7 @@ export const CONTRIBUTOR_EXCLUDE: RegExp[] = [
 
 export const ADMIN_REPOS = new Set([
   'infra',
-  'biocommons.github.org',
+  'biocommons.github.io',
   'github-stats',
   '.github',
   'eutils',
