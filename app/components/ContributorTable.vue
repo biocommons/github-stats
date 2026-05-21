@@ -40,16 +40,22 @@ function formatActiveSpan(first: string, last: string): string {
   const a = new Date(first)
   const b = new Date(last)
   const totalMonths = (b.getFullYear() - a.getFullYear()) * 12 + (b.getMonth() - a.getMonth())
-  if (totalMonths < 1) return '<1m'
+  if (totalMonths < 1) return '< 1 mo'
   const years = Math.floor(totalMonths / 12)
   const months = totalMonths % 12
-  if (years === 0) return `${months}m`
-  if (months === 0) return `${years}y`
-  return `${years}y ${months}m`
+  if (years === 0) return `${months} mo`
+  if (months === 0) return `${years} y`
+  return `${years} y ${months} mo`
 }
 
-function formatDate(iso: string): string {
-  return iso ? iso.slice(0, 10) : ''
+function formatRelative(iso: string): string {
+  if (!iso) return ''
+  const days = Math.floor((Date.now() - new Date(iso).getTime()) / 86_400_000)
+  if (days < 1) return 'today'
+  if (days < 45) return `${days} d`
+  const months = Math.round(days / 30.44)
+  if (months < 18) return `${months} mo`
+  return `${Math.round(months / 12)} y`
 }
 
 const TIMESPANS: { label: string; value: ContribTimespan }[] = [
@@ -220,7 +226,7 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
                         <span v-if="row.isNew" title="New contributor — first contribution &lt;90 days ago" class="text-base leading-none">🌱</span>
                       </div>
                       <div v-if="row.first_contribution_at" class="mt-0.5 text-[10px] text-slate-400 dark:text-slate-500">
-                        active: {{ formatActiveSpan(row.first_contribution_at, row.last_activity_at) }}; last: {{ formatDate(row.last_activity_at) }}
+                        active: {{ formatActiveSpan(row.first_contribution_at, row.last_activity_at) }}; last: {{ formatRelative(row.last_activity_at) }}
                       </div>
                     </div>
                   </template>
