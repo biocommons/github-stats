@@ -1,8 +1,9 @@
 import { toBucket, type TimeBucket } from './useTimeBuckets'
-import { repoDisplayName } from '~/config'
+import { repoDisplayName, ADMIN_REPOS } from '~/config'
 
 export type FlowKind = 'issues' | 'prs'
 export type FlowTimespan = 'all' | '12mo' | '6mo' | '3mo' | '1mo'
+export type RepoSet = 'core' | 'admin'
 
 // Normalized shape shared by issues and PRs
 interface FlowRecord {
@@ -254,6 +255,7 @@ export function useFlowStats(kind: FlowKind) {
   const { dataBase } = useDataSource()
   const granularity = ref<TimeBucket>('week')
   const timespan = ref<FlowTimespan>('12mo')
+  const repoSet = ref<RepoSet>('core')
 
   const { data: rawData, pending } = useAsyncData<FlowRecord[]>(
     () => `flow:${kind}:${dataBase.value}`,
@@ -266,7 +268,12 @@ export function useFlowStats(kind: FlowKind) {
   // Full repo list from unfiltered data — used for chip display and stable color mapping
   const allRepos = computed<string[]>(() => {
     if (!rawData.value) return []
-    return [...new Set(rawData.value.map(r => r.repo))].sort((a, b) => repoDisplayName(a).localeCompare(repoDisplayName(b)))
+    const all = [...new Set(rawData.value.map(r => r.repo))].sort(
+      (a, b) => repoDisplayName(a).localeCompare(repoDisplayName(b))
+    )
+    return repoSet.value === 'core'
+      ? all.filter(r => !ADMIN_REPOS.has(r))
+      : all.filter(r => ADMIN_REPOS.has(r))
   })
 
   const selectedRepos = ref<Set<string>>(new Set())
@@ -278,6 +285,11 @@ export function useFlowStats(kind: FlowKind) {
       initialized.value = true
     }
   }, { immediate: true })
+
+  watch(repoSet, () => {
+    selectedRepos.value = new Set(allRepos.value)
+    initialized.value = false  // allow re-init if allRepos updates after a fetch
+  })
 
   const timespanFiltered = computed<FlowRecord[]>(() => {
     if (!rawData.value) return []
@@ -305,5 +317,5 @@ export function useFlowStats(kind: FlowKind) {
     selectedRepos.value = next
   }
 
-  return { stats, allStats, allRepos, granularity, timespan, selectedRepos, toggleRepo, isLoading: pending }
+  return { stats, allStats, allRepos, granularity, timespan, repoSet, selectedRepos, toggleRepo, isLoading: pending }
 }
