@@ -40,8 +40,8 @@ function formatDays(days: number | null): string {
   if (days < 1) return '<1d'
   if (days === 1) return '1d'
   if (days < 30) return `${Math.round(days)}d`
-  if (days < 365) return `${(days / 30).toFixed(1)}mo`
-  return `${(days / 365).toFixed(1)}yr`
+  if (days < 365) return `${Math.round(days / 30)}mo`
+  return `${Math.round(days / 365)}y`
 }
 
 const closedLabel = computed(() => props.itemLabel === 'PRs' ? 'merged PRs' : `closed ${props.itemLabel}`)
