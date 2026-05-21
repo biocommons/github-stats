@@ -22,7 +22,7 @@ const sparklinePeak = computed(() => Math.max(...props.repo.sparkline))
         class="text-base font-semibold text-bc-indigo-500 hover:underline dark:text-bc-indigo-300 flex items-center gap-1.5"
       >
         {{ repoDisplayName(repo.name) }}
-        <i v-if="repo.private" class="fa-solid fa-lock text-xs text-slate-400 dark:text-slate-500" title="Private repository" aria-label="Private" />
+        <i v-if="repo.private" role="img" aria-label="Private repository" class="fa-solid fa-lock text-xs text-slate-400 dark:text-slate-500" />
       </a>
       <a
         v-if="repo.latest_release && !repo.archived"
