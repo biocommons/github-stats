@@ -12,15 +12,12 @@ const { tabData, timespan, repoSet, isLoading } = useContributorsTab()
 const route = useRoute()
 const router = useRouter()
 
-repoSet.value = route.query.set === 'admin' ? 'admin' : 'core'
+watch(() => route.query.set, (val) => {
+  repoSet.value = val === 'admin' ? 'admin' : 'core'
+}, { immediate: true })
 
 watch(repoSet, (s) => {
   router.replace({ query: { ...route.query, set: s === 'core' ? undefined : s } })
-})
-
-watch(() => route.query.set, () => {
-  const s = route.query.set === 'admin' ? 'admin' : 'core'
-  if (s !== repoSet.value) repoSet.value = s
 })
 
 function isMetaColumn(repo: string): boolean {
@@ -178,7 +175,7 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
                 class="px-4 py-3 text-center min-w-[72px]"
                 :class="isMetaColumn(repo) ? 'border-l-2 border-slate-300 dark:border-slate-600' : ''"
                 :title="isMetaColumn(repo)
-                  ? (repo === '__admin__' ? 'Pooled admin repos' : 'Pooled core repos')
+                  ? (repo === META_REPO_ADMIN ? 'Pooled admin repos' : 'Pooled core repos')
                   : repo"
               >
                 {{ columnLabel(repo) }}
