@@ -17,7 +17,7 @@ export function useDataMeta() {
 
   const collectedAt = computed(() => data.value?.collected_at ?? null)
   const schemaVersionMismatch = computed(() =>
-    data.value?.schema_version !== undefined && data.value.schema_version !== EXPECTED_SCHEMA_VERSION
+    data.value != null && data.value.schema_version !== EXPECTED_SCHEMA_VERSION
   )
 
   return { collectedAt, schemaVersionMismatch, relativeTime, formatLocalTime }
