@@ -19,6 +19,14 @@ export const REPO_DISPLAY_NAMES: Record<string, string> = {
   'biocommons.github.io': 'website',
 }
 
+export const REPO_PYPI: Record<string, string> = {
+  anyvar: 'anyvar',
+  'biocommons.seqrepo': 'biocommons.seqrepo',
+  bioutils: 'bioutils',
+  eutils: 'eutils',
+  hgvs: 'hgvs',
+}
+
 export function repoDisplayName(repo: string): string {
   return REPO_DISPLAY_NAMES[repo] ?? repo
 }

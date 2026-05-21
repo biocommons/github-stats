@@ -2,11 +2,39 @@
 import type { RepoCardData } from '~/composables/useOverviewData'
 import { formatRelative, formatLocalTime } from '~/composables/useTimeBuckets'
 import { useAnchoredTooltip } from '~/composables/useAnchoredTooltip'
-import { repoDisplayName } from '~/config'
+import { repoDisplayName, REPO_PYPI } from '~/config'
 
 const spanEl = ref<HTMLElement | null>(null)
 const { triggerRef, isHovered, pos, onMouseEnter } = useAnchoredTooltip()
 watchEffect(() => { triggerRef.value = spanEl.value })
+
+const pypiAnchorEl = ref<HTMLElement | null>(null)
+const { triggerRef: pypiTriggerRef, isHovered: pypiHovered, pos: pypiPos, onMouseEnter: pypiMouseEnter } = useAnchoredTooltip()
+watchEffect(() => { pypiTriggerRef.value = pypiAnchorEl.value })
+
+const pypiInfo = ref<{ version: string; uploadTime: string } | null>(null)
+const pypiLoading = ref(false)
+const pypiError = ref(false)
+
+async function onPypiMouseEnter(pkgName: string) {
+  pypiMouseEnter()
+  if (pypiInfo.value || pypiLoading.value || pypiError.value) return
+  pypiLoading.value = true
+  try {
+    const res = await $fetch<{ info: { version: string }; releases: Record<string, { upload_time_iso_8601: string }[]> }>(
+      `https://pypi.org/pypi/${pkgName}/json`,
+    )
+    const version = res.info.version
+    const uploadTime = res.releases[version]?.[0]?.upload_time_iso_8601 ?? ''
+    pypiInfo.value = { version, uploadTime }
+  }
+  catch {
+    pypiError.value = true
+  }
+  finally {
+    pypiLoading.value = false
+  }
+}
 
 const props = defineProps<{ repo: RepoCardData }>()
 
@@ -30,21 +58,54 @@ const sparklinePeak = computed(() => Math.max(...props.repo.sparkline))
         {{ repoDisplayName(repo.name) }}
         <i v-if="repo.private" role="img" aria-label="Private repository" class="fa-solid fa-lock text-xs text-slate-400 dark:text-slate-500" />
       </a>
-      <a
-        v-if="repo.latest_release && !repo.archived"
-        :href="`https://github.com/${repo.full_name}/releases/tag/${repo.latest_release.tag_name}`"
-        target="_blank"
-        rel="noopener"
-        class="shrink-0 rounded-full border border-bc-teal-400 px-2 py-0.5 text-xs text-bc-teal-600 transition-colors hover:bg-bc-teal-400 hover:text-white dark:border-bc-teal-400 dark:text-bc-teal-300 dark:hover:bg-bc-teal-500 dark:hover:text-white"
-      >
-        {{ repo.latest_release.tag_name }} · {{ formatRelease(repo.latest_release.published_at) }}
-      </a>
-      <span
-        v-else-if="repo.archived"
-        class="shrink-0 rounded-full border border-slate-300 px-2 py-0.5 text-xs text-slate-400 dark:border-slate-600 dark:text-slate-500"
-      >
-        archived
-      </span>
+      <div class="flex shrink-0 items-center gap-3">
+        <a
+          v-if="REPO_PYPI[repo.name]"
+          ref="pypiAnchorEl"
+          :href="`https://pypi.org/project/${REPO_PYPI[repo.name]}/`"
+          target="_blank"
+          rel="noopener"
+          class="opacity-80 transition-opacity hover:opacity-100"
+          @mouseenter="onPypiMouseEnter(REPO_PYPI[repo.name]!)"
+          @mouseleave="pypiHovered = false"
+        ><img src="/pypi.svg" alt="PyPI" class="h-5 w-auto" /></a>
+        <Teleport to="body">
+          <div
+            v-if="pypiHovered"
+            class="pointer-events-none fixed z-50"
+            :style="{ left: `${pypiPos.x}px`, top: `${pypiPos.y}px`, transform: `translateX(${pypiPos.tx}) translateY(${pypiPos.ty})` }"
+          >
+            <div class="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs text-slate-600 shadow-lg dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300">
+              <template v-if="pypiLoading">
+                <p class="text-slate-400 dark:text-slate-500">Loading…</p>
+              </template>
+              <template v-else-if="pypiError">
+                <p class="text-slate-400 dark:text-slate-500">Unavailable</p>
+              </template>
+              <template v-else-if="pypiInfo">
+                <p class="font-medium text-slate-900 dark:text-slate-100">{{ pypiInfo.version }}</p>
+                <p class="mt-0.5 text-slate-500 dark:text-slate-400">Released {{ formatRelative(pypiInfo.uploadTime) }} ago</p>
+                <p class="mt-0.5 text-slate-400 dark:text-slate-500">{{ formatLocalTime(pypiInfo.uploadTime) }}</p>
+              </template>
+            </div>
+          </div>
+        </Teleport>
+        <a
+          v-if="repo.latest_release && !repo.archived"
+          :href="`https://github.com/${repo.full_name}/releases/tag/${repo.latest_release.tag_name}`"
+          target="_blank"
+          rel="noopener"
+          class="rounded-full border border-bc-teal-400 px-2 py-0.5 text-xs text-bc-teal-600 transition-colors hover:bg-bc-teal-400 hover:text-white dark:border-bc-teal-400 dark:text-bc-teal-300 dark:hover:bg-bc-teal-500 dark:hover:text-white"
+        >
+          {{ repo.latest_release.tag_name }} · {{ formatRelease(repo.latest_release.published_at) }}
+        </a>
+        <span
+          v-else-if="repo.archived"
+          class="rounded-full border border-slate-300 px-2 py-0.5 text-xs text-slate-400 dark:border-slate-600 dark:text-slate-500"
+        >
+          archived
+        </span>
+      </div>
     </div>
 
     <p v-if="repo.description" class="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
