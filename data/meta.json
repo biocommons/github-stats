@@ -1,21 +1,31 @@
 {
-  "collected_at": "2026-05-21T15:31:57.594456+00:00",
-  "schema_version": "1.0",
+  "collected_at": "2026-05-21T18:01:27.754323+00:00",
+  "schema_version": "1.1",
   "repos": [
+    ".github",
     "anyvar",
+    "biocommons.github.io",
     "biocommons.seqrepo",
     "bioutils",
+    "eutils",
+    "github-stats",
     "hgvs",
+    "infra",
     "uta"
   ],
   "collected_repos": [
+    ".github",
     "anyvar",
+    "biocommons.github.io",
     "biocommons.seqrepo",
     "bioutils",
+    "eutils",
+    "github-stats",
     "hgvs",
+    "infra",
     "uta"
   ],
   "skipped_repos": [],
   "run_trigger": "schedule",
-  "collection_duration_ms": 96530
+  "collection_duration_ms": 88688
 }

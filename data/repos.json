@@ -1,5 +1,20 @@
 [
   {
+    "name": ".github",
+    "full_name": "biocommons/.github",
+    "html_url": "https://github.com/biocommons/.github",
+    "description": "Organization-wide GitHub configuration",
+    "stargazers_count": 2,
+    "forks_count": 0,
+    "open_issues_count": 0,
+    "open_pr_count": 0,
+    "contributors": 2,
+    "latest_release": null,
+    "default_branch": "main",
+    "private": false,
+    "archived": false
+  },
+  {
     "name": "anyvar",
     "full_name": "biocommons/anyvar",
     "html_url": "https://github.com/biocommons/anyvar",
@@ -7,13 +22,30 @@
     "stargazers_count": 16,
     "forks_count": 6,
     "open_issues_count": 37,
-    "open_pr_count": 4,
+    "open_pr_count": 5,
     "contributors": 14,
     "latest_release": {
       "tag_name": "1.0.0",
       "published_at": "2026-02-06T19:03:02Z"
     },
-    "default_branch": "main"
+    "default_branch": "main",
+    "private": false,
+    "archived": false
+  },
+  {
+    "name": "biocommons.github.io",
+    "full_name": "biocommons/biocommons.github.io",
+    "html_url": "https://github.com/biocommons/biocommons.github.io",
+    "description": "biocommons website, deployed to Read the Docs",
+    "stargazers_count": 1,
+    "forks_count": 2,
+    "open_issues_count": 5,
+    "open_pr_count": 2,
+    "contributors": 6,
+    "latest_release": null,
+    "default_branch": "main",
+    "private": false,
+    "archived": false
   },
   {
     "name": "biocommons.seqrepo",
@@ -29,7 +61,9 @@
       "tag_name": "0.6.11",
       "published_at": "2025-03-19T13:40:21Z"
     },
-    "default_branch": "main"
+    "default_branch": "main",
+    "private": false,
+    "archived": false
   },
   {
     "name": "bioutils",
@@ -45,7 +79,42 @@
       "tag_name": "0.6.1",
       "published_at": "2024-11-04T01:40:38Z"
     },
-    "default_branch": "main"
+    "default_branch": "main",
+    "private": false,
+    "archived": false
+  },
+  {
+    "name": "eutils",
+    "full_name": "biocommons/eutils",
+    "html_url": "https://github.com/biocommons/eutils",
+    "description": "simplified searching, fetching, and parsing records from NCBI using their E-utilities interface",
+    "stargazers_count": 64,
+    "forks_count": 29,
+    "open_issues_count": 1,
+    "open_pr_count": 1,
+    "contributors": 14,
+    "latest_release": {
+      "tag_name": "0.6.1",
+      "published_at": "2025-12-07T23:32:55Z"
+    },
+    "default_branch": "main",
+    "private": false,
+    "archived": true
+  },
+  {
+    "name": "github-stats",
+    "full_name": "biocommons/github-stats",
+    "html_url": "https://github.com/biocommons/github-stats",
+    "description": "GitHub repository statistics collection for biocommons repositories",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "open_issues_count": 7,
+    "open_pr_count": 0,
+    "contributors": 3,
+    "latest_release": null,
+    "default_branch": "main",
+    "private": false,
+    "archived": false
   },
   {
     "name": "hgvs",
@@ -61,7 +130,9 @@
       "tag_name": "1.5.7",
       "published_at": "2026-03-17T05:35:35Z"
     },
-    "default_branch": "main"
+    "default_branch": "main",
+    "private": false,
+    "archived": false
   },
   {
     "name": "uta",
@@ -74,6 +145,8 @@
     "open_pr_count": 0,
     "contributors": 14,
     "latest_release": null,
-    "default_branch": "main"
+    "default_branch": "main",
+    "private": false,
+    "archived": false
   }
 ]

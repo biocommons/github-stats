@@ -15,6 +15,11 @@
     "first_contribution_at": "2018-06-09T15:00:42Z"
   },
   {
+    "login": "Copilot",
+    "avatar_url": "https://avatars.githubusercontent.com/Copilot",
+    "first_contribution_at": "2026-05-20T18:52:41Z"
+  },
+  {
     "login": "DGMichael",
     "avatar_url": "https://avatars.githubusercontent.com/DGMichael",
     "first_contribution_at": "2024-10-12T15:22:21Z"
@@ -60,6 +65,11 @@
     "first_contribution_at": "2025-05-09T17:32:54Z"
   },
   {
+    "login": "LLCampos",
+    "avatar_url": "https://avatars.githubusercontent.com/LLCampos",
+    "first_contribution_at": "2016-12-09T11:36:45Z"
+  },
+  {
     "login": "LeoWelter",
     "avatar_url": "https://avatars.githubusercontent.com/LeoWelter",
     "first_contribution_at": "2021-11-25T11:37:46Z"
@@ -88,6 +98,16 @@
     "login": "ScottCruzen0",
     "avatar_url": "https://avatars.githubusercontent.com/ScottCruzen0",
     "first_contribution_at": "2023-09-18T22:19:07Z"
+  },
+  {
+    "login": "ShriramK",
+    "avatar_url": "https://avatars.githubusercontent.com/ShriramK",
+    "first_contribution_at": "2018-05-22T04:08:52Z"
+  },
+  {
+    "login": "VincentMatthys",
+    "avatar_url": "https://avatars.githubusercontent.com/VincentMatthys",
+    "first_contribution_at": "2018-11-13T17:10:22Z"
   },
   {
     "login": "WTFnewlife",
@@ -180,6 +200,11 @@
     "first_contribution_at": "2023-10-26T14:33:39Z"
   },
   {
+    "login": "baoilleach",
+    "avatar_url": "https://avatars.githubusercontent.com/baoilleach",
+    "first_contribution_at": "2016-11-09T09:44:26Z"
+  },
+  {
     "login": "behrj",
     "avatar_url": "https://avatars.githubusercontent.com/behrj",
     "first_contribution_at": "2025-10-06T11:05:04Z"
@@ -215,6 +240,11 @@
     "first_contribution_at": "2024-12-17T15:44:47Z"
   },
   {
+    "login": "bryan-brancotte",
+    "avatar_url": "https://avatars.githubusercontent.com/bryan-brancotte",
+    "first_contribution_at": "2018-02-20T14:51:42Z"
+  },
+  {
     "login": "bsgiles73",
     "avatar_url": "https://avatars.githubusercontent.com/bsgiles73",
     "first_contribution_at": "2024-02-29T23:14:43Z"
@@ -223,6 +253,11 @@
     "login": "budsonjelmont",
     "avatar_url": "https://avatars.githubusercontent.com/budsonjelmont",
     "first_contribution_at": "2024-10-21T11:52:20Z"
+  },
+  {
+    "login": "cariaso",
+    "avatar_url": "https://avatars.githubusercontent.com/cariaso",
+    "first_contribution_at": "2016-08-02T10:58:21Z"
   },
   {
     "login": "cassiemk",
@@ -253,6 +288,11 @@
     "login": "copilot-pull-request-reviewer[bot]",
     "avatar_url": "https://avatars.githubusercontent.com/copilot-pull-request-reviewer[bot]",
     "first_contribution_at": "2025-09-05T14:23:29Z"
+  },
+  {
+    "login": "copilot-swe-agent[bot]",
+    "avatar_url": "https://avatars.githubusercontent.com/copilot-swe-agent[bot]",
+    "first_contribution_at": "2026-05-20T18:52:48Z"
   },
   {
     "login": "cpeel",
@@ -305,9 +345,19 @@
     "first_contribution_at": "2021-01-18T09:10:22Z"
   },
   {
+    "login": "dependabot[bot]",
+    "avatar_url": "https://avatars.githubusercontent.com/dependabot[bot]",
+    "first_contribution_at": "2026-01-20T22:53:37Z"
+  },
+  {
     "login": "dhauge",
     "avatar_url": "https://avatars.githubusercontent.com/dhauge",
     "first_contribution_at": "2018-11-01T00:02:12Z"
+  },
+  {
+    "login": "diekhans",
+    "avatar_url": "https://avatars.githubusercontent.com/diekhans",
+    "first_contribution_at": "2017-01-31T21:49:01Z"
   },
   {
     "login": "diliopoulos",
@@ -400,6 +450,11 @@
     "first_contribution_at": "2025-08-04T15:03:48Z"
   },
   {
+    "login": "henrykironde",
+    "avatar_url": "https://avatars.githubusercontent.com/henrykironde",
+    "first_contribution_at": "2024-02-06T14:30:28Z"
+  },
+  {
     "login": "holtgrewe",
     "avatar_url": "https://avatars.githubusercontent.com/holtgrewe",
     "first_contribution_at": "2023-02-16T14:18:34Z"
@@ -480,6 +535,11 @@
     "first_contribution_at": "2018-08-03T20:17:33Z"
   },
   {
+    "login": "jinseonyou",
+    "avatar_url": "https://avatars.githubusercontent.com/jinseonyou",
+    "first_contribution_at": "2017-08-11T08:19:25Z"
+  },
+  {
     "login": "joesolly",
     "avatar_url": "https://avatars.githubusercontent.com/joesolly",
     "first_contribution_at": "2021-06-08T20:25:27Z"
@@ -505,6 +565,11 @@
     "first_contribution_at": "2020-07-21T07:22:05Z"
   },
   {
+    "login": "jvansan",
+    "avatar_url": "https://avatars.githubusercontent.com/jvansan",
+    "first_contribution_at": "2019-10-24T22:47:54Z"
+  },
+  {
     "login": "katie-perry",
     "avatar_url": "https://avatars.githubusercontent.com/katie-perry",
     "first_contribution_at": "2022-05-09T19:18:44Z"
@@ -528,6 +593,11 @@
     "login": "khmccurdy",
     "avatar_url": "https://avatars.githubusercontent.com/khmccurdy",
     "first_contribution_at": "2018-09-20T17:16:08Z"
+  },
+  {
+    "login": "khyox",
+    "avatar_url": "https://avatars.githubusercontent.com/khyox",
+    "first_contribution_at": "2015-08-12T21:22:59Z"
   },
   {
     "login": "kislyuk",
@@ -635,6 +705,11 @@
     "first_contribution_at": "2023-10-07T11:50:25Z"
   },
   {
+    "login": "mohi7solanki",
+    "avatar_url": "https://avatars.githubusercontent.com/mohi7solanki",
+    "first_contribution_at": "2019-05-29T14:23:48Z"
+  },
+  {
     "login": "msierk",
     "avatar_url": "https://avatars.githubusercontent.com/msierk",
     "first_contribution_at": "2025-11-19T17:35:16Z"
@@ -642,7 +717,7 @@
   {
     "login": "naomifox",
     "avatar_url": "https://avatars.githubusercontent.com/naomifox",
-    "first_contribution_at": "2017-08-31T19:41:30Z"
+    "first_contribution_at": "2016-07-22T19:09:48Z"
   },
   {
     "login": "naomifox-invitae",
@@ -668,6 +743,11 @@
     "login": "nordhuang",
     "avatar_url": "https://avatars.githubusercontent.com/nordhuang",
     "first_contribution_at": "2020-05-28T07:59:54Z"
+  },
+  {
+    "login": "nthmost",
+    "avatar_url": "https://avatars.githubusercontent.com/nthmost",
+    "first_contribution_at": "2014-11-26T23:39:51Z"
   },
   {
     "login": "nvta1209",
@@ -700,6 +780,11 @@
     "first_contribution_at": "2014-12-23T00:26:20Z"
   },
   {
+    "login": "pmartin23",
+    "avatar_url": "https://avatars.githubusercontent.com/pmartin23",
+    "first_contribution_at": "2018-02-08T03:40:47Z"
+  },
+  {
     "login": "pyup-bot",
     "avatar_url": "https://avatars.githubusercontent.com/pyup-bot",
     "first_contribution_at": "2018-11-04T15:54:25Z"
@@ -718,6 +803,11 @@
     "login": "rickymagner",
     "avatar_url": "https://avatars.githubusercontent.com/rickymagner",
     "first_contribution_at": "2026-02-03T15:55:09Z"
+  },
+  {
+    "login": "rly",
+    "avatar_url": "https://avatars.githubusercontent.com/rly",
+    "first_contribution_at": "2025-01-17T17:57:50Z"
   },
   {
     "login": "roysomak4",
@@ -758,6 +848,11 @@
     "login": "shmumer",
     "avatar_url": "https://avatars.githubusercontent.com/shmumer",
     "first_contribution_at": "2014-11-13T19:17:34Z"
+  },
+  {
+    "login": "shouldsee",
+    "avatar_url": "https://avatars.githubusercontent.com/shouldsee",
+    "first_contribution_at": "2020-04-02T08:43:26Z"
   },
   {
     "login": "sodiumnitrate",
@@ -807,7 +902,7 @@
   {
     "login": "timothyjlaurent",
     "avatar_url": "https://avatars.githubusercontent.com/timothyjlaurent",
-    "first_contribution_at": "2018-04-27T21:37:22Z"
+    "first_contribution_at": "2016-10-19T21:52:19Z"
   },
   {
     "login": "toneillbroad",
