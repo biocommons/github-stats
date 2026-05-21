@@ -28,7 +28,7 @@ REPOS_TO_COLLECT = [
     "uta",
     # administrative / infrastructure
     "infra",
-    "biocommons.github.org",
+    "biocommons.github.io",
     "github-stats",
     ".github",
     "eutils",
