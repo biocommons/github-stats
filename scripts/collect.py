@@ -236,6 +236,13 @@ class DataCollector:
         try:
             meta = json.loads(meta_path.read_text())
             prev_collected_at = meta.get("collected_at")
+            prev_schema = meta.get("schema_version")
+            if prev_schema != DATA_SCHEMA_VERSION:
+                logger.info(
+                    f"Previous schema {prev_schema!r} != current {DATA_SCHEMA_VERSION!r};"
+                    " skipping cache — all repos will be re-collected."
+                )
+                return None, {}
             prev_data: dict[str, list] = {}
             for filename in [
                 "repos.json",
