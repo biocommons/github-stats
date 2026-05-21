@@ -34,7 +34,7 @@ REPOS_TO_COLLECT = [
     "eutils",
 ]
 ORG = "biocommons"
-DATA_SCHEMA_VERSION = "1.1"
+DATA_SCHEMA_VERSION = "1.2"
 DATA_DIR = Path(__file__).parent.parent / "data"
 
 
@@ -344,6 +344,7 @@ class DataCollector:
                 }
                 if latest_release
                 else None,
+                "updated_at": repo_data["updated_at"],
                 "default_branch": repo_data["default_branch"],
                 "private": repo_data["private"],
                 "archived": repo_data.get("archived", False),

@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import type { RepoCardData } from '~/composables/useOverviewData'
+import { formatRelative, formatLocalTime } from '~/composables/useTimeBuckets'
+import { useAnchoredTooltip } from '~/composables/useAnchoredTooltip'
 import { repoDisplayName } from '~/config'
+
+const spanEl = ref<HTMLElement | null>(null)
+const { triggerRef, isHovered, pos, onMouseEnter } = useAnchoredTooltip()
+watchEffect(() => { triggerRef.value = spanEl.value })
 
 const props = defineProps<{ repo: RepoCardData }>()
 
@@ -51,18 +57,34 @@ const sparklinePeak = computed(() => Math.max(...props.repo.sparkline))
       <a :href="`${repo.html_url}/issues`" target="_blank" rel="noopener" title="Open issues" class="flex items-center gap-1.5 transition-colors hover:text-slate-700 dark:hover:text-slate-200"><i class="fa-regular fa-circle-dot w-3.5 text-center text-bc-teal-500 dark:text-bc-teal-400" aria-hidden="true" />{{ repo.open_issues_count.toLocaleString() }}</a>
       <a :href="`${repo.html_url}/pulls`" target="_blank" rel="noopener" title="Open PRs" class="flex items-center gap-1.5 transition-colors hover:text-slate-700 dark:hover:text-slate-200"><i class="fa-solid fa-code-pull-request w-3.5 text-center text-bc-teal-500 dark:text-bc-teal-400" aria-hidden="true" />{{ repo.open_pr_count.toLocaleString() }}</a>
       <a :href="`${repo.html_url}/graphs/contributors`" target="_blank" rel="noopener" title="Contributors" class="flex items-center gap-1.5 transition-colors hover:text-slate-700 dark:hover:text-slate-200"><i class="fa-solid fa-users w-3.5 text-center text-bc-teal-500 dark:text-bc-teal-400" aria-hidden="true" />{{ repo.contributors.toLocaleString() }}</a>
-    </div>
-
-    <div class="group relative text-bc-teal-500/70 dark:text-bc-teal-400/70">
-      <SparkLine :values="repo.sparkline" />
-      <div class="pointer-events-none absolute bottom-full left-0 mb-2 hidden w-max max-w-[220px] rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs text-slate-600 shadow-lg group-hover:block dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300">
-        <p class="font-medium text-slate-900 dark:text-slate-100">Activity · last 12 months</p>
-        <p class="mt-1 text-slate-500 dark:text-slate-400">Commits + merged PRs per month</p>
-        <div class="mt-2 flex gap-4">
-          <span>Total <span class="text-slate-700 dark:text-slate-200">{{ sparklineTotal }}</span></span>
-          <span>Peak <span class="text-slate-700 dark:text-slate-200">{{ sparklinePeak }}</span></span>
+      <span
+        v-if="repo.updated_at"
+        ref="spanEl"
+        class="flex items-center gap-1.5 cursor-default"
+        @mouseenter="onMouseEnter"
+        @mouseleave="isHovered = false"
+      >
+        <i class="fa-regular fa-clock w-3.5 text-center text-bc-teal-500 dark:text-bc-teal-400" aria-hidden="true" />{{ formatRelative(repo.updated_at) }}
+      </span>
+      <Teleport to="body">
+        <div
+          v-if="isHovered"
+          class="pointer-events-none fixed z-50"
+          :style="{ left: `${pos.x}px`, top: `${pos.y}px`, transform: `translateX(${pos.tx}) translateY(${pos.ty})` }"
+        >
+          <div class="w-64 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs text-slate-600 shadow-lg dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300">
+            <p class="font-medium text-slate-900 dark:text-slate-100">Updated {{ formatLocalTime(repo.updated_at) }}</p>
+            <p class="mt-1 text-slate-500 dark:text-slate-400">Activity · last 12 months · commits + merged PRs</p>
+            <div class="mt-2 text-bc-teal-500/70 dark:text-bc-teal-400/70">
+              <SparkLine :values="repo.sparkline" />
+            </div>
+            <div class="mt-2 flex gap-4">
+              <span>Total <span class="text-slate-700 dark:text-slate-200">{{ sparklineTotal }}</span></span>
+              <span>Peak <span class="text-slate-700 dark:text-slate-200">{{ sparklinePeak }}</span></span>
+            </div>
+          </div>
         </div>
-      </div>
+      </Teleport>
     </div>
   </article>
 </template>

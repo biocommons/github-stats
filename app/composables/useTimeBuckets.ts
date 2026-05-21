@@ -22,6 +22,16 @@ export function formatLocalTime(iso: string): string {
   return new Date(iso).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' })
 }
 
+export function formatRelative(iso: string): string {
+  if (!iso) return ''
+  const days = Math.floor((Date.now() - new Date(iso).getTime()) / 86_400_000)
+  if (days < 1) return 'today'
+  if (days < 45) return `${days} d`
+  const months = Math.round(days / 30.44)
+  if (months < 18) return `${months} mo`
+  return `${Math.round(months / 12)} y`
+}
+
 export function relativeTime(iso: string): string {
   const mins = Math.floor((Date.now() - new Date(iso).getTime()) / 60_000)
   if (mins < 1) return 'just now'

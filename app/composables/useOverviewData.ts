@@ -19,6 +19,7 @@ export interface RepoCardData {
   open_pr_count: number
   contributors: number
   latest_release: { tag_name: string; published_at: string } | null
+  updated_at: string
   sparkline: number[]
   private: boolean
   archived: boolean
