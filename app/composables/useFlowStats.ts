@@ -290,7 +290,7 @@ export function useFlowStats(kind: FlowKind) {
     if (allRepos.value.length > 0) {
       selectedRepos.value = new Set(allRepos.value)
     }
-    // If data isn't loaded yet, the allRepos watcher (initialized guard) will handle it
+    initialized.value = false  // allow re-init if data is re-fetched after a set change
   })
 
   const timespanFiltered = computed<FlowRecord[]>(() => {
