@@ -11,7 +11,8 @@ const { isLocal, toggle } = useDataSource()
 const { isEmbedded } = useEmbedMode()
 const isDev = import.meta.dev
 const { isDark, toggle: toggleDark } = useDarkMode()
-const { collectedAt, relativeTime, formatLocalTime } = useDataMeta()
+const { collectedAt, schemaVersionMismatch, relativeTime, formatLocalTime } = useDataMeta()
+const dismissed = ref(false)
 </script>
 
 <template>
@@ -75,6 +76,18 @@ const { collectedAt, relativeTime, formatLocalTime } = useDataMeta()
         </div>
       </div>
     </nav>
+
+    <div
+      v-if="schemaVersionMismatch && !isEmbedded && !dismissed"
+      class="flex items-center justify-between bg-amber-50 border-b border-amber-200 px-4 py-2 text-xs text-amber-700 dark:bg-amber-900/20 dark:border-amber-800 dark:text-amber-400"
+    >
+      <span>⚠ Data schema version mismatch — some features may not display correctly. Re-run the collector to refresh.</span>
+      <button
+        class="ml-4 text-amber-500 hover:text-amber-700 dark:text-amber-400 dark:hover:text-amber-200"
+        aria-label="Dismiss"
+        @click="dismissed = true"
+      >✕</button>
+    </div>
 
     <main :class="['mx-auto max-w-6xl px-6', isEmbedded ? 'py-4' : 'py-8']">
       <slot />

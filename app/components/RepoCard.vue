@@ -19,10 +19,13 @@ const sparklinePeak = computed(() => Math.max(...props.repo.sparkline))
         :href="repo.html_url"
         target="_blank"
         rel="noopener"
-        class="text-base font-semibold text-bc-indigo-500 hover:underline dark:text-bc-indigo-300"
-      >{{ repoDisplayName(repo.name) }}</a>
+        class="text-base font-semibold text-bc-indigo-500 hover:underline dark:text-bc-indigo-300 flex items-center gap-1.5"
+      >
+        {{ repoDisplayName(repo.name) }}
+        <i v-if="repo.private" role="img" aria-label="Private repository" class="fa-solid fa-lock text-xs text-slate-400 dark:text-slate-500" />
+      </a>
       <a
-        v-if="repo.latest_release"
+        v-if="repo.latest_release && !repo.archived"
         :href="`https://github.com/${repo.full_name}/releases/tag/${repo.latest_release.tag_name}`"
         target="_blank"
         rel="noopener"
@@ -30,6 +33,12 @@ const sparklinePeak = computed(() => Math.max(...props.repo.sparkline))
       >
         {{ repo.latest_release.tag_name }} · {{ formatRelease(repo.latest_release.published_at) }}
       </a>
+      <span
+        v-else-if="repo.archived"
+        class="shrink-0 rounded-full border border-slate-300 px-2 py-0.5 text-xs text-slate-400 dark:border-slate-600 dark:text-slate-500"
+      >
+        archived
+      </span>
     </div>
 
     <p v-if="repo.description" class="text-sm leading-relaxed text-slate-600 dark:text-slate-300">

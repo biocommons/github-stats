@@ -92,6 +92,25 @@ Seven JSON files written to `data/`:
 | `reviews.json` | All PR reviews with reviewer and date |
 | `contributors.json` | Contributor identity registry with first contribution date |
 
+### Schema versioning
+
+`meta.json` carries a `schema_version` field (e.g. `"1.1"`). The frontend checks this on every page load and shows a warning banner when the data and frontend are incompatible.
+
+Compatibility rules:
+
+| Condition | Result |
+| - | - |
+| Different major version | Incompatible — breaking change assumed |
+| Same major, data version < frontend minimum | Data too old — required fields may be missing |
+| Same major, data version ≥ frontend minimum | Compatible — newer data is a superset the frontend safely ignores |
+
+When bumping the schema:
+
+- **Additive change** (new optional field): increment the minor version (`1.1` → `1.2`). Old frontends ignore the new field; new frontends tolerating older data may show degraded UI.
+- **Breaking change** (removed/renamed field, changed shape): increment the major version (`1.x` → `2.0`). The frontend will show an incompatibility warning against any 1.x data.
+
+The expected version is declared as `EXPECTED_SCHEMA_VERSION` in `app/composables/useDataMeta.ts`. The data version is set by `DATA_SCHEMA_VERSION` in `scripts/collect.py`. Both must be updated together when the schema changes.
+
 ### CI
 
 The GitHub Action (`.github/workflows/collect-stats.yml`) runs on:

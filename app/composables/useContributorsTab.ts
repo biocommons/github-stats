@@ -1,6 +1,6 @@
 import { useContributorStats, type ContributorCounts } from './useContributorStats'
-import { type FlowTimespan } from './useFlowStats'
-import { repoDisplayName, CONTRIBUTOR_EXCLUDE } from '~/config'
+import { type FlowTimespan, type RepoSet } from './useFlowStats'
+import { repoDisplayName, CONTRIBUTOR_EXCLUDE, ADMIN_REPOS, META_REPO_ADMIN, META_REPO_CORE } from '~/config'
 
 export type ContribTimespan = FlowTimespan
 
@@ -47,6 +47,20 @@ function countTotal(c: ContributorCounts): number {
 }
 
 
+function aggregateCounts(
+  byRepo: Record<string, ContributorCounts>,
+  repos: string[],
+): ContributorCounts {
+  const total = emptyCounts()
+  const keys: (keyof ContributorCounts)[] = ['commits', 'issues_opened', 'prs_opened', 'reviews_submitted']
+  for (const repo of repos) {
+    const rc = byRepo[repo]
+    if (!rc) continue
+    for (const k of keys) total[k] += rc[k]
+  }
+  return total
+}
+
 function computeColMaxes(
   rows: ReturnType<typeof useContributorStats>,
   repos: string[],
@@ -73,6 +87,7 @@ function computeColMaxes(
 export function useContributorsTab() {
   const { dataBase } = useDataSource()
   const timespan = ref<ContribTimespan>('all')
+  const repoSet = ref<RepoSet>('core')
 
   const { data: rawData, pending } = useAsyncData<RawData>(
     () => `contributors-tab:${dataBase.value}`,
@@ -103,19 +118,26 @@ export function useContributorsTab() {
     const commits = rawCommits.filter(r => !isExcluded(r.author_login))
     const reviews = rawReviews.filter(r => !isExcluded(r.reviewer_login))
 
-    // Stable repo list from all events
-    const repos = [...new Set([
+    // All repos present in any event
+    const allEventRepos = [...new Set([
       ...issues.map(r => r.repo),
       ...prs.map(r => r.repo),
       ...commits.map(r => r.repo),
       ...reviews.map(r => r.repo),
     ])].sort((a, b) => repoDisplayName(a).localeCompare(repoDisplayName(b)))
 
-    // All-time stats for badge eligibility (3+ contributions ever)
+    const coreRepos = allEventRepos.filter(r => !ADMIN_REPOS.has(r))
+    const adminRepos = allEventRepos.filter(r => ADMIN_REPOS.has(r))
+
+    const activeRepos = repoSet.value === 'core' ? coreRepos : adminRepos
+    const metaRepos   = repoSet.value === 'core' ? adminRepos : coreRepos
+    const metaKey     = repoSet.value === 'core' ? META_REPO_ADMIN : META_REPO_CORE
+
+    // All-time stats (all repos, all time) — for Total column + badge eligibility
     const allTimeStats = useContributorStats(contributors, issues, prs, commits, reviews)
     const allTimeCountMap = new Map(allTimeStats.map(s => [s.login, countTotal(s.all_time)]))
 
-    // Timespan-filtered stats for table display and sort
+    // Timespan-filtered stats — for per-repo column display and sort
     const cutoff = (() => {
       if (timespan.value === 'all') return null
       const months = timespan.value === '12mo' ? 12 : timespan.value === '6mo' ? 6 : timespan.value === '3mo' ? 3 : 1
@@ -138,12 +160,26 @@ export function useContributorsTab() {
           reviews.filter(r => afterCutoff(r.submitted_at)),
         )
 
-    // Sort by filtered totalCount desc to find top contributors
+    // Inject meta column into each contributor's byRepo (both filtered and all-time)
+    for (const s of filteredStats) {
+      s.by_repo[metaKey] = aggregateCounts(s.by_repo, metaRepos)
+    }
+    // Only inject into allTimeStats if it's a separate object from filteredStats
+    if (timespan.value !== 'all') {
+      for (const s of allTimeStats) {
+        s.by_repo[metaKey] = aggregateCounts(s.by_repo, metaRepos)
+      }
+    }
+
+    // Display repos: active set + meta column at the end
+    const displayRepos = [...activeRepos, metaKey]
+
+    // Sort by all-time totalCount desc
     const withCounts = filteredStats.map(s => ({ ...s, totalCount: countTotal(s.all_time) }))
     withCounts.sort((a, b) => b.totalCount - a.totalCount)
     const topLogins = new Set(withCounts.filter(s => s.totalCount > 0).slice(0, 3).map(s => s.login))
 
-    // Anonymous counts: null-login events in filtered data, aggregated by repo
+    // Anonymous counts: null-login events, aggregated by repo + meta
     const anonTotal = emptyCounts()
     const anonByRepo: Record<string, ContributorCounts> = {}
     function tallyAnon(login: string | null, repo: string, key: keyof ContributorCounts) {
@@ -156,18 +192,17 @@ export function useContributorsTab() {
     for (const r of issues.filter(r => afterCutoff(r.created_at))) tallyAnon(r.author_login, r.repo, 'issues_opened')
     for (const r of prs.filter(r => afterCutoff(r.created_at))) tallyAnon(r.author_login, r.repo, 'prs_opened')
     for (const r of reviews.filter(r => afterCutoff(r.submitted_at))) tallyAnon(r.reviewer_login, r.repo, 'reviews_submitted')
+    anonByRepo[metaKey] = aggregateCounts(anonByRepo, metaRepos)
 
-    const colMaxes = computeColMaxes(filteredStats, repos)
-
-    // Include anonymous counts in normalization so shading is comparable across all rows
+    const colMaxes = computeColMaxes(filteredStats, displayRepos)
     const countKeys: (keyof ContributorCounts)[] = ['commits', 'issues_opened', 'prs_opened', 'reviews_submitted']
     for (const k of countKeys) colMaxes['total']![k] = Math.max(colMaxes['total']![k], anonTotal[k])
-    for (const repo of repos) {
+    for (const repo of displayRepos) {
       const ac = anonByRepo[repo] ?? emptyCounts()
       for (const k of countKeys) colMaxes[repo]![k] = Math.max(colMaxes[repo]![k], ac[k])
     }
 
-    // Last activity date per login (max across all event types)
+    // Last activity date per login
     const lastActivityMap: Record<string, string> = {}
     function trackLast(login: string | null, date: string) {
       if (!login) return
@@ -178,9 +213,9 @@ export function useContributorsTab() {
     for (const r of commits) trackLast(r.author_login, r.author_date)
     for (const r of reviews) trackLast(r.reviewer_login, r.submitted_at)
 
-    // Pareto 80% expertise: for each repo, smallest set of contributors covering 80% of activity
+    // Pareto 80% expertise — covers activeRepos and metaKey as a unit
     const expertMap = new Map<string, Set<string>>()
-    for (const repo of repos) {
+    for (const repo of displayRepos) {
       const ranked = allTimeStats
         .map(s => ({ login: s.login, count: countTotal(s.by_repo[repo] ?? emptyCounts()) }))
         .filter(c => c.count > 0)
@@ -198,8 +233,18 @@ export function useContributorsTab() {
 
     const now = Date.now()
 
+    // Determine eligible logins using all-time data (not timespan-filtered)
+    const activeSetLogins = new Set(
+      allTimeStats
+        .filter(s =>
+          activeRepos.some(repo => countTotal(s.by_repo[repo] ?? emptyCounts()) > 0) ||
+          countTotal(s.by_repo[metaKey] ?? emptyCounts()) > 0
+        )
+        .map(s => s.login)
+    )
+
     const rows: ContributorRow[] = withCounts
-      .filter(s => s.totalCount > 0 || timespan.value === 'all')
+      .filter(s => activeSetLogins.has(s.login))
       .map(s => {
         const daysOld = (now - new Date(s.first_contribution_at).getTime()) / 86_400_000
         const allTimeCount = allTimeCountMap.get(s.login) ?? 0
@@ -235,8 +280,8 @@ export function useContributorsTab() {
       })
     }
 
-    return { rows, repos, colMaxes }
+    return { rows, repos: displayRepos, colMaxes }
   })
 
-  return { tabData, timespan, isLoading: pending }
+  return { tabData, timespan, repoSet, isLoading: pending }
 }

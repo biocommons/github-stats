@@ -1,4 +1,5 @@
 import { toYearMonth, relativeTime, formatLocalTime } from './useTimeBuckets'
+import { ADMIN_REPOS } from '~/config'
 
 export interface OrgSummary {
   totalStars: number
@@ -19,6 +20,8 @@ export interface RepoCardData {
   contributors: number
   latest_release: { tag_name: string; published_at: string } | null
   sparkline: number[]
+  private: boolean
+  archived: boolean
 }
 
 interface RawCommit { author_date: string; repo: string }
@@ -42,6 +45,32 @@ function last12Months(): string[] {
     months.push(toYearMonth(d.toISOString()))
   }
   return months
+}
+
+function buildSparklines(
+  repos: RepoCardData[],
+  commits: RawCommit[],
+  prs: RawPR[],
+  months: string[],
+  monthSet: Set<string>,
+): RepoCardData[] {
+  const activity: Record<string, Record<string, number>> = {}
+  for (const c of commits) {
+    const m = toYearMonth(c.author_date)
+    if (!monthSet.has(m)) continue
+    if (!activity[c.repo]) activity[c.repo] = {}
+    activity[c.repo]![m] = (activity[c.repo]![m] ?? 0) + 1
+  }
+  for (const p of prs) {
+    if (!p.merged_at) continue
+    const m = toYearMonth(p.merged_at)
+    if (!monthSet.has(m)) continue
+    if (!activity[p.repo]) activity[p.repo] = {}
+    activity[p.repo]![m] = (activity[p.repo]![m] ?? 0) + 1
+  }
+  return [...repos]
+    .sort((a, b) => b.stargazers_count - a.stargazers_count)
+    .map(r => ({ ...r, sparkline: months.map(m => activity[r.name]?.[m] ?? 0) }))
 }
 
 export function useOverviewData() {
@@ -69,45 +98,30 @@ export function useOverviewData() {
   const orgSummary = computed<OrgSummary | null>(() => {
     if (!data.value) return null
     const { repos, contributors } = data.value
+    const coreRepos = repos.filter(r => !ADMIN_REPOS.has(r.name))
     return {
-      totalStars: repos.reduce((s, r) => s + r.stargazers_count, 0),
+      totalStars: coreRepos.reduce((s, r) => s + r.stargazers_count, 0),
       uniqueContributors: contributors.length,
-      openIssues: repos.reduce((s, r) => s + r.open_issues_count, 0),
-      openPRs: repos.reduce((s, r) => s + r.open_pr_count, 0),
+      openIssues: coreRepos.reduce((s, r) => s + r.open_issues_count, 0),
+      openPRs: coreRepos.reduce((s, r) => s + r.open_pr_count, 0),
     }
   })
 
-  const repoCards = computed<RepoCardData[]>(() => {
+  const coreRepoCards = computed<RepoCardData[]>(() => {
     if (!data.value) return []
     const { repos, commits, prs } = data.value
-    const activity: Record<string, Record<string, number>> = {}
+    const core = repos.filter(r => !ADMIN_REPOS.has(r.name))
+    return buildSparklines(core, commits, prs, months, monthSet)
+  })
 
-    for (const c of commits) {
-      const m = toYearMonth(c.author_date)
-      if (!monthSet.has(m)) continue
-      if (!activity[c.repo]) activity[c.repo] = {}
-      const rm = activity[c.repo]!
-      rm[m] = (rm[m] ?? 0) + 1
-    }
-
-    for (const p of prs) {
-      if (!p.merged_at) continue
-      const m = toYearMonth(p.merged_at)
-      if (!monthSet.has(m)) continue
-      if (!activity[p.repo]) activity[p.repo] = {}
-      const rm = activity[p.repo]!
-      rm[m] = (rm[m] ?? 0) + 1
-    }
-
-    return [...repos]
-      .sort((a, b) => b.stargazers_count - a.stargazers_count)
-      .map(r => ({
-        ...r,
-        sparkline: months.map(m => activity[r.name]?.[m] ?? 0),
-      }))
+  const adminRepoCards = computed<RepoCardData[]>(() => {
+    if (!data.value) return []
+    const { repos, commits, prs } = data.value
+    const admin = repos.filter(r => ADMIN_REPOS.has(r.name))
+    return buildSparklines(admin, commits, prs, months, monthSet)
   })
 
   const collectedAt = computed(() => data.value?.meta.collected_at ?? null)
 
-  return { orgSummary, repoCards, isLoading: pending, collectedAt, relativeTime, formatLocalTime }
+  return { orgSummary, coreRepoCards, adminRepoCards, isLoading: pending, collectedAt, relativeTime, formatLocalTime }
 }

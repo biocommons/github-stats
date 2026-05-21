@@ -26,8 +26,15 @@ REPOS_TO_COLLECT = [
     "bioutils",
     "hgvs",
     "uta",
+    # administrative / infrastructure
+    "infra",
+    "biocommons.github.io",
+    "github-stats",
+    ".github",
+    "eutils",
 ]
 ORG = "biocommons"
+DATA_SCHEMA_VERSION = "1.1"
 DATA_DIR = Path(__file__).parent.parent / "data"
 
 
@@ -331,6 +338,8 @@ class DataCollector:
                 if latest_release
                 else None,
                 "default_branch": repo_data["default_branch"],
+                "private": repo_data["private"],
+                "archived": repo_data.get("archived", False),
             }
         )
         logger.debug(f"Fetching issues for {owner}/{repo}...")
@@ -418,7 +427,7 @@ class DataCollector:
         collected_repos = sorted(r for r in self.repo_list if r not in self.skipped_repos)
         meta = {
             "collected_at": datetime.now(UTC).isoformat(),
-            "schema_version": "1.0",
+            "schema_version": DATA_SCHEMA_VERSION,
             "repos": sorted(self.repo_list),
             "collected_repos": collected_repos,
             "skipped_repos": sorted(self.skipped_repos),
