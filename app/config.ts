@@ -16,6 +16,7 @@ export const META_REPO_CORE = '__core__'
 
 export const REPO_DISPLAY_NAMES: Record<string, string> = {
   'biocommons.seqrepo': 'seqrepo',
+  'biocommons.github.io': 'website',
 }
 
 export function repoDisplayName(repo: string): string {
