@@ -3,6 +3,17 @@ export const CONTRIBUTOR_EXCLUDE: RegExp[] = [
   /^pyup-bot$/,
 ]
 
+export const ADMIN_REPOS = new Set([
+  'infra',
+  'biocommons.github.org',
+  'github-stats',
+  '.github',
+  'eutils',
+])
+
+export const META_REPO_ADMIN = '__admin__'
+export const META_REPO_CORE = '__core__'
+
 export const REPO_DISPLAY_NAMES: Record<string, string> = {
   'biocommons.seqrepo': 'seqrepo',
 }
