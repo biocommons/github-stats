@@ -6,6 +6,8 @@ const H = 28
 const CHART_W = 148
 const PAD_Y = 4
 
+const WINDOW_LABELS = ['All', '12mo', '6mo', '3mo', '1mo']
+
 function formatDays(days: number | null): string {
   if (days === null) return '—'
   if (days < 1) return '<1d'
@@ -51,7 +53,6 @@ const dots = computed(() =>
     .filter((d): d is { x: number; y: number } => d !== null)
 )
 
-// Lower = faster resolution = better. Green if improving, red if degrading.
 const color = computed(() => {
   if (nonNull.value.length < 2) return '#94a3b8'
   const first = nonNull.value[0]!
@@ -67,10 +68,38 @@ const lastValue = computed(() => {
   }
   return null
 })
+
+const tooltipVisible = ref(false)
+const tooltipX = ref(0)
+const tooltipY = ref(0)
+
+function onEnter(event: MouseEvent) {
+  tooltipVisible.value = true
+  updatePos(event)
+}
+
+function onMove(event: MouseEvent) {
+  updatePos(event)
+}
+
+function onLeave() {
+  tooltipVisible.value = false
+}
+
+function updatePos(event: MouseEvent) {
+  tooltipX.value = event.clientX + 12
+  tooltipY.value = event.clientY - 8
+}
 </script>
 
 <template>
-  <svg :viewBox="`0 0 ${W} ${H}`" :width="W" :height="H" class="block overflow-visible">
+  <svg
+    :viewBox="`0 0 ${W} ${H}`" :width="W" :height="H"
+    class="block overflow-visible cursor-default"
+    @mouseenter="onEnter"
+    @mousemove="onMove"
+    @mouseleave="onLeave"
+  >
     <g v-for="(seg, si) in segments" :key="si">
       <polyline
         v-if="seg.length > 1"
@@ -98,4 +127,29 @@ const lastValue = computed(() => {
       class="tabular-nums"
     >{{ formatDays(lastValue) }}</text>
   </svg>
+
+  <Teleport to="body">
+    <div
+      v-if="tooltipVisible"
+      class="pointer-events-none fixed z-50 rounded-lg border border-slate-200 bg-white shadow-lg dark:border-slate-700 dark:bg-slate-900"
+      :style="{ left: `${tooltipX}px`, top: `${tooltipY}px` }"
+    >
+      <table class="text-xs">
+        <tr>
+          <th
+            v-for="label in WINDOW_LABELS"
+            :key="label"
+            class="px-2.5 pt-2 pb-0.5 font-medium text-slate-400 dark:text-slate-500"
+          >{{ label }}</th>
+        </tr>
+        <tr>
+          <td
+            v-for="(v, i) in values"
+            :key="i"
+            class="px-2.5 pb-2 pt-0.5 tabular-nums font-semibold text-slate-800 dark:text-slate-200"
+          >{{ formatDays(v) }}</td>
+        </tr>
+      </table>
+    </div>
+  </Teleport>
 </template>
