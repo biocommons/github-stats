@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useContributorsTab } from '~/composables/useContributorsTab'
-import type { FlowTimespan as ContribTimespan } from '~/composables/useFlowStats'
+import type { ContribTimespan } from '~/composables/useContributorsTab'
 import { repoColor, repoDisplayName } from '~/config'
 import type { ContributorCounts } from '~/composables/useContributorStats'
 import QuadCell from '~/components/QuadCell.vue'
