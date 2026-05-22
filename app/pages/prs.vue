@@ -6,6 +6,9 @@ const route = useRoute()
 const router = useRouter()
 const { stats, allRepos, granularity, timespan, repoSet, selectedRepos, toggleRepo } = useFlowStats('prs')
 
+const scrollMode = ref(timespan.value === 'all')
+watch(timespan, ts => { scrollMode.value = ts === 'all' })
+
 function granularityFromQuery(): 'week' | 'month' | 'quarter' {
   const g = typeof route.query.granularity === 'string' ? route.query.granularity : ''
   if (g === 'quarter') return 'quarter'
@@ -58,21 +61,25 @@ watch(() => route.query.set, () => {
   <template v-else>
     <FlowToolbar
       :repo-set="repoSet"
-      :repos-in-set="allRepos"
+      :all-repos="allRepos"
+      :selected-repos="selectedRepos"
       :granularity="granularity"
       :timespan="timespan"
+      :scroll-mode="scrollMode"
       @update:repo-set="repoSet = $event"
       @update:granularity="granularity = $event"
       @update:timespan="timespan = $event"
+      @update:scroll-mode="scrollMode = $event"
+      @toggle-repo="toggleRepo"
     />
     <FlowChart
       :stats="stats"
       :all-repos="allRepos"
       :granularity="granularity"
       :timespan="timespan"
-      :selected-repos="selectedRepos"
+      :scroll-mode="scrollMode"
       item-label="PRs"
-      @toggle-repo="toggleRepo"
+      @update:scroll-mode="scrollMode = $event"
     />
     <div class="mt-10 border-t border-slate-200 pt-8 dark:border-slate-800">
       <ResolutionByRepo :stats="stats" :all-repos="allRepos" item-label="PRs" />

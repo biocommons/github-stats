@@ -1,19 +1,19 @@
 <script setup lang="ts">
 import type { FlowStats, FlowTimespan } from '~/composables/useFlowStats'
 import type { TimeBucket } from '~/composables/useTimeBuckets'
-import { repoDisplayName, repoColor as getRepoColor, contrastColor } from '~/config'
+import { repoDisplayName, repoColor as getRepoColor } from '~/config'
 
 const props = defineProps<{
   stats: FlowStats
   allRepos: string[]
   granularity: TimeBucket
   timespan: FlowTimespan
-  selectedRepos: Set<string>
+  scrollMode: boolean
   itemLabel: string
 }>()
 
 const emit = defineEmits<{
-  'toggle-repo': [repo: string]
+  'update:scrollMode': [value: boolean]
 }>()
 
 function repoColor(repo: string): string {
@@ -33,11 +33,6 @@ const CHART_H = H - PAD_T - PAD_B
 const SCROLL_PITCH = 18
 
 const tooltip = ref<{ x: number; y: number; lines: string[] } | null>(null)
-const scrollMode = ref(props.timespan === 'all')
-
-watch(() => props.timespan, (ts) => {
-  scrollMode.value = ts === 'all'
-})
 const panOffset = ref(0)
 const svgEl = ref<SVGSVGElement | null>(null)
 const dragState = ref<{ startClientX: number; startPan: number } | null>(null)
@@ -54,7 +49,7 @@ function clampPan(v: number): number {
 }
 
 // On entering scroll mode, snap to right (most recent data); on exit, reset
-watch(scrollMode, (on) => {
+watch(() => props.scrollMode, (on) => {
   panOffset.value = on ? maxPan.value : 0
 })
 
@@ -62,20 +57,20 @@ watch(scrollMode, (on) => {
 // where data is already cached; oldMax===undefined on the first immediate call).
 // On subsequent changes (granularity switch) just clamp the existing offset.
 watch(maxPan, (newMax, oldMax) => {
-  if (!scrollMode.value) return
+  if (!props.scrollMode) return
   panOffset.value = (oldMax === undefined || oldMax === 0) && newMax > 0
     ? newMax
     : clampPan(panOffset.value)
 }, { immediate: true })
 
 const barWidth = computed(() => {
-  if (scrollMode.value) return Math.floor(SCROLL_PITCH * 0.65)
+  if (props.scrollMode) return Math.floor(SCROLL_PITCH * 0.65)
   const n = buckets.value.length
   return n > 0 ? Math.max(2, Math.floor((CHART_W / n) * 0.65)) : 8
 })
 
 function bucketX(i: number): number {
-  if (scrollMode.value) return PAD_L + (i + 0.5) * SCROLL_PITCH
+  if (props.scrollMode) return PAD_L + (i + 0.5) * SCROLL_PITCH
   const n = buckets.value.length
   return PAD_L + (i + 0.5) * (CHART_W / Math.max(n, 1))
 }
@@ -89,7 +84,7 @@ function svgScale(): number {
 }
 
 function onPointerDown(e: PointerEvent) {
-  if (!scrollMode.value) return
+  if (!props.scrollMode) return
   ;(e.currentTarget as SVGSVGElement).setPointerCapture(e.pointerId)
   dragState.value = { startClientX: e.clientX, startPan: panOffset.value }
 }
@@ -257,7 +252,7 @@ const xLabels = computed(() => {
 
   const gran = props.granularity
   const perYear = gran === 'week' ? 52 : gran === 'month' ? 12 : 4
-  const visibleBuckets = scrollMode.value ? Math.floor(CHART_W / SCROLL_PITCH) : buks.length
+  const visibleBuckets = props.scrollMode ? Math.floor(CHART_W / SCROLL_PITCH) : buks.length
   const visibleYearSpan = Math.max(1, Math.ceil(visibleBuckets / perYear))
 
   const indices = new Set<number>()
@@ -293,7 +288,7 @@ function onRectMouseEnter(_event: MouseEvent, rect: BarRect) {
   const dir = rect.opened > 0 ? 'opened' : 'closed'
   const count = rect.opened > 0 ? rect.opened : rect.closed
   // rect.x is pre-translate; subtract panOffset to get the bar's display position
-  const displayX = rect.x + rect.w / 2 - (scrollMode.value ? panOffset.value : 0)
+  const displayX = rect.x + rect.w / 2 - (props.scrollMode ? panOffset.value : 0)
   tooltip.value = {
     x: displayX,
     y: rect.y,
@@ -308,36 +303,6 @@ function onRectMouseLeave() {
 
 <template>
   <div class="space-y-4">
-    <!-- Controls row: repos left, selectors right -->
-    <div class="flex flex-wrap items-center gap-3">
-      <!-- Repo chips -->
-      <div class="flex flex-wrap gap-1.5">
-        <button
-          v-for="repo in allRepos"
-          :key="repo"
-          class="rounded-full border px-2.5 py-0.5 text-sm font-medium transition-colors"
-          :style="selectedRepos.has(repo)
-            ? { borderColor: repoColor(repo), background: repoColor(repo) + 'bf', color: contrastColor(repoColor(repo), 0.75) }
-            : { borderColor: 'var(--chip-inactive-border)', color: 'var(--chip-inactive-color)' }"
-          @click="emit('toggle-repo', repo)"
-        >{{ repoDisplayName(repo) }}</button>
-      </div>
-
-      <!-- Selectors group flush right -->
-      <div class="ml-auto flex items-center gap-2">
-        <!-- Fit/Pan segmented control -->
-        <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-sm dark:border-slate-700 dark:bg-slate-900">
-          <button
-            v-for="[mode, label] in [['fit', 'Fit'], ['pan', 'Pan']] as const"
-            :key="mode"
-            class="rounded-full px-3 py-1 transition-colors"
-            :class="(mode === 'pan') === scrollMode ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
-            @click="scrollMode = mode === 'pan'"
-          >{{ label }}</button>
-        </div>
-      </div>
-    </div>
-
     <!-- Chart -->
     <div class="relative">
       <svg
