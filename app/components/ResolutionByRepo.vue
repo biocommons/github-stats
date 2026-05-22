@@ -85,18 +85,9 @@ function updatePos(event: MouseEvent) {
 
 <template>
   <div class="space-y-4">
-    <div class="flex flex-wrap items-center justify-between gap-3">
-      <h3 class="text-sm font-semibold text-bc-indigo-600 dark:text-bc-indigo-400">Resolution time by repo</h3>
-      <div class="flex flex-wrap gap-x-4 gap-y-1">
-        <span
-          v-for="bucket in RESOLUTION_BUCKETS"
-          :key="bucket"
-          class="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400"
-        >
-          <span class="inline-block h-2 w-3 rounded-sm" :style="{ background: BUCKET_COLORS[bucket] }" />
-          {{ bucket }}
-        </span>
-      </div>
+    <div>
+      <h3 class="text-base font-semibold text-slate-800 dark:text-slate-100">Resolution time by repo</h3>
+      <p class="mt-0.5 text-sm text-slate-500 dark:text-slate-400">How long {{ closedLabel }} stayed open before being resolved, broken down by repo and time bucket.</p>
     </div>
 
     <div class="overflow-x-auto rounded-lg border border-slate-200 dark:border-slate-800">
@@ -176,6 +167,18 @@ function updatePos(event: MouseEvent) {
       </table>
     </div>
 
+    <!-- Legend -->
+    <div class="flex flex-wrap items-center gap-x-4 gap-y-1">
+      <span class="text-xs font-medium text-slate-500 dark:text-slate-400">Resolution time buckets:</span>
+      <span
+        v-for="bucket in RESOLUTION_BUCKETS"
+        :key="bucket"
+        class="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400"
+      >
+        <span class="inline-block h-2 w-3 rounded-sm" :style="{ background: BUCKET_COLORS[bucket] }" />
+        {{ bucket }}
+      </span>
+    </div>
   </div>
 
   <!-- Tooltip -->

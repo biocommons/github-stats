@@ -313,6 +313,11 @@ function onRectMouseLeave() {
 
 <template>
   <div class="space-y-4">
+    <div>
+      <h3 class="text-base font-semibold text-slate-800 dark:text-slate-100">{{ itemLabel === 'PRs' ? 'PR' : 'Issue' }} flow over time</h3>
+      <p class="mt-0.5 text-sm text-slate-500 dark:text-slate-400">Bars show {{ itemLabel === 'PRs' ? 'PRs opened (↑) and merged (↓)' : 'issues opened (↑) and closed (↓)' }} per period; lines show total open {{ itemLabel.toLowerCase() }} per repo.</p>
+    </div>
+
     <!-- Chart-scoped controls: timespan, granularity, fit/pan -->
     <div class="flex flex-wrap items-center gap-2">
       <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs font-medium dark:border-slate-700 dark:bg-slate-900">
