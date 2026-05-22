@@ -25,6 +25,11 @@ function isMetaColumn(repo: string): boolean {
   return allMetaKeys.value.includes(repo)
 }
 
+function isBoundaryColumn(repo: string): boolean {
+  if (isMetaColumn(repo)) return true
+  return tabData.value?.repoSets.some(s => expandedSet.value === s.key && s.repos[0] === repo) ?? false
+}
+
 function columnLabel(repo: string): string {
   const set = tabData.value?.repoSets.find(s => s.metaKey === repo)
   if (set) return set.label
@@ -204,7 +209,7 @@ const sortedRows = computed(() => {
         <table class="w-full text-sm">
           <thead>
             <!-- Row 1: set group headers -->
-            <tr class="border-b border-slate-100 text-left text-xs font-medium uppercase tracking-wider text-slate-500 dark:border-slate-800">
+            <tr class="border-b text-left text-xs font-medium uppercase tracking-wider text-slate-500" :class="expandedSet !== '' ? 'border-slate-100 dark:border-slate-800' : 'border-bc-teal-300 dark:border-bc-teal-500'">
               <th class="sticky left-0 z-10 bg-white px-4 py-3 min-w-[200px] dark:bg-slate-950" :rowspan="expandedSet !== '' ? 2 : 1">
                 <button class="cursor-pointer hover:text-slate-700 dark:hover:text-slate-200" @click="setSort('name')">Contributor{{ sortIndicator('name') }}</button>
                 <div class="mt-0.5 text-[10px] font-normal text-slate-400 dark:text-slate-500">
@@ -213,12 +218,12 @@ const sortedRows = computed(() => {
                   <button class="hover:text-slate-600 dark:hover:text-slate-300" @click.stop="setSort('last_seen')">last seen{{ sortIndicator('last_seen') }}</button>
                 </div>
               </th>
-              <th class="cursor-pointer select-none border-x-2 border-slate-300 bg-slate-100 px-4 py-3 text-center transition-colors hover:text-slate-700 dark:border-slate-600 dark:bg-slate-800/60 dark:hover:text-slate-200" :rowspan="expandedSet !== '' ? 2 : 1" @click="setSort('total')">Total{{ sortIndicator('total') }}</th>
+              <th class="cursor-pointer select-none border-x border-bc-teal-300 bg-slate-100 px-4 py-3 text-center transition-colors hover:text-slate-700 dark:border-bc-teal-500 dark:bg-slate-800/60 dark:hover:text-slate-200" :rowspan="expandedSet !== '' ? 2 : 1" @click="setSort('total')">Total{{ sortIndicator('total') }}</th>
               <th
                 v-for="s in tabData?.repoSets ?? []"
                 :key="s.key"
                 :colspan="expandedSet === s.key ? Math.max(1, s.repos.length) : 1"
-                class="select-none border-l-2 border-slate-300 px-4 py-2 text-center dark:border-slate-600"
+                class="select-none border-l border-bc-teal-300 px-4 py-2 text-center dark:border-bc-teal-500"
                 :class="expandedSet === s.key ? 'bg-bc-teal-500/10 text-bc-teal-600 dark:text-bc-teal-300' : ''"
               >
                 <button
@@ -231,13 +236,13 @@ const sortedRows = computed(() => {
             <!-- Row 2: individual repo headers (hidden when all sets collapsed) -->
             <tr
               v-if="expandedSet !== ''"
-              class="border-b border-slate-200 text-left text-xs font-medium uppercase tracking-wider text-slate-400 dark:border-slate-800"
+              class="border-b border-bc-teal-300 text-left text-xs font-medium uppercase tracking-wider text-slate-400 dark:border-bc-teal-500"
             >
               <th
                 v-for="repo in displayRepos"
                 :key="repo"
                 class="cursor-pointer select-none px-4 py-2 text-center min-w-[72px] transition-colors hover:text-slate-700 dark:hover:text-slate-200"
-                :class="isMetaColumn(repo) ? 'border-l-2 border-slate-300 bg-slate-50 dark:border-slate-600 dark:bg-slate-800/40' : ''"
+                :class="[isBoundaryColumn(repo) ? 'border-l border-bc-teal-300 dark:border-bc-teal-500' : '', isMetaColumn(repo) ? 'bg-slate-50 dark:bg-slate-800/40' : '']"
                 :title="isMetaColumn(repo) ? `Pooled ${columnLabel(repo).toLowerCase()} repos` : repo"
                 @click="setSort(repo)"
               >
@@ -291,7 +296,7 @@ const sortedRows = computed(() => {
               </td>
 
               <!-- Total cell -->
-              <td class="border-x-2 border-slate-300 bg-slate-100 px-4 py-2 dark:border-slate-600 dark:bg-slate-800/60">
+              <td class="border-x border-bc-teal-300 bg-slate-100 px-4 py-2 dark:border-bc-teal-500 dark:bg-slate-800/60">
                 <div class="flex justify-center">
                   <component :is="CellComponent" :counts="row.total" :maxes="tabData.colMaxes['total']!" />
                 </div>
@@ -302,7 +307,7 @@ const sortedRows = computed(() => {
                 v-for="repo in displayRepos"
                 :key="repo"
                 class="px-4 py-2"
-                :class="isMetaColumn(repo) ? 'border-l-2 border-slate-300 bg-slate-50/50 dark:border-slate-600 dark:bg-slate-800/20' : ''"
+                :class="[isBoundaryColumn(repo) ? 'border-l border-bc-teal-300 dark:border-bc-teal-500' : '', isMetaColumn(repo) ? 'bg-slate-50/50 dark:bg-slate-800/20' : '']"
               >
                 <div class="flex justify-center">
                   <component
