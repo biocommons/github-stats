@@ -3,6 +3,7 @@ export const GITHUB_ORG = 'biocommons'
 export const CONTRIBUTOR_EXCLUDE: RegExp[] = [
   /\[bot\]$/,
   /^pyup-bot$/,
+  /^copilot$/i,
 ]
 
 export const ADMIN_REPOS = new Set([
