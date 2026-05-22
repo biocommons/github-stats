@@ -72,26 +72,62 @@ const overallP90WithOpenValues = computed(() =>
   RESOLUTION_WINDOWS.map(w => props.resolutionWindows[w]?.p90DaysWithOpen ?? null)
 )
 
+const HATCH_STYLE = {
+  backgroundImage: 'repeating-linear-gradient(45deg, rgba(255,255,255,0.35) 0, rgba(255,255,255,0.35) 2px, transparent 0, transparent 50%)',
+  backgroundSize: '5px 5px',
+}
+
+function closedBucketCount(repo: string, bucket: ResolutionBucket): number {
+  return allWindow.value?.resolutionRows.find(r => r.bucket === bucket)?.byRepo[repo] ?? 0
+}
+
+function openBucketCount(repo: string, bucket: ResolutionBucket): number {
+  if (!showOpen.value) return 0
+  const withOpen = allWindow.value?.resolutionRowsWithOpen.find(r => r.bucket === bucket)?.byRepo[repo] ?? 0
+  return withOpen - closedBucketCount(repo, bucket)
+}
+
+// Used by tooltip (total = closed + open)
 function bucketCount(repo: string, bucket: ResolutionBucket): number {
   return activeRows.value?.find(r => r.bucket === bucket)?.byRepo[repo] ?? 0
 }
 
-function fracPct(repo: string, bucket: ResolutionBucket): number {
+function closedFracPct(repo: string, bucket: ResolutionBucket): number {
   const total = repoTotal(repo)
-  return total > 0 ? (bucketCount(repo, bucket) / total) * 100 : 0
+  return total > 0 ? (closedBucketCount(repo, bucket) / total) * 100 : 0
 }
 
-function absPct(repo: string, bucket: ResolutionBucket): number {
-  return maxRepoTotal.value > 0 ? (bucketCount(repo, bucket) / maxRepoTotal.value) * 100 : 0
+function openFracPct(repo: string, bucket: ResolutionBucket): number {
+  const total = repoTotal(repo)
+  return total > 0 ? (openBucketCount(repo, bucket) / total) * 100 : 0
 }
 
-function overallFracPct(bucket: ResolutionBucket): number {
+function closedAbsPct(repo: string, bucket: ResolutionBucket): number {
+  return maxRepoTotal.value > 0 ? (closedBucketCount(repo, bucket) / maxRepoTotal.value) * 100 : 0
+}
+
+function openAbsPct(repo: string, bucket: ResolutionBucket): number {
+  return maxRepoTotal.value > 0 ? (openBucketCount(repo, bucket) / maxRepoTotal.value) * 100 : 0
+}
+
+function closedOverallFracPct(bucket: ResolutionBucket): number {
   const totalClosed = allWindow.value?.totalClosed ?? 0
   const totalOpen = showOpen.value ? (allWindow.value?.totalOpen ?? 0) : 0
   const total = totalClosed + totalOpen
-  const count = activeRows.value?.find(r => r.bucket === bucket)?.total ?? 0
+  const count = allWindow.value?.resolutionRows.find(r => r.bucket === bucket)?.total ?? 0
   return total > 0 ? (count / total) * 100 : 0
 }
+
+function openOverallFracPct(bucket: ResolutionBucket): number {
+  if (!showOpen.value) return 0
+  const totalClosed = allWindow.value?.totalClosed ?? 0
+  const totalOpen = allWindow.value?.totalOpen ?? 0
+  const total = totalClosed + totalOpen
+  const withOpen = allWindow.value?.resolutionRowsWithOpen.find(r => r.bucket === bucket)?.total ?? 0
+  const closed = allWindow.value?.resolutionRows.find(r => r.bucket === bucket)?.total ?? 0
+  return total > 0 ? ((withOpen - closed) / total) * 100 : 0
+}
+
 
 const ALL_REPOS_KEY = '__all__'
 
@@ -223,11 +259,11 @@ function updatePos(event: MouseEvent) {
                 @mousemove="onBarMove"
                 @mouseleave="onBarLeave"
               >
-                <div
-                  v-for="bucket in RESOLUTION_BUCKETS"
-                  :key="bucket"
-                  :style="{ width: `${fracPct(repo, bucket)}%`, background: BUCKET_COLORS[bucket] }"
-                />
+                <template v-for="bucket in RESOLUTION_BUCKETS" :key="bucket">
+                  <div :style="{ width: `${closedFracPct(repo, bucket)}%`, background: BUCKET_COLORS[bucket] }" />
+                  <div v-if="showOpen && openFracPct(repo, bucket) > 0"
+                       :style="{ width: `${openFracPct(repo, bucket)}%`, background: BUCKET_COLORS[bucket], ...HATCH_STYLE }" />
+                </template>
               </div>
             </td>
             <td class="px-4 py-2">
@@ -237,11 +273,11 @@ function updatePos(event: MouseEvent) {
                 @mousemove="onBarMove"
                 @mouseleave="onBarLeave"
               >
-                <div
-                  v-for="bucket in RESOLUTION_BUCKETS"
-                  :key="bucket"
-                  :style="{ width: `${absPct(repo, bucket)}%`, background: BUCKET_COLORS[bucket] }"
-                />
+                <template v-for="bucket in RESOLUTION_BUCKETS" :key="bucket">
+                  <div :style="{ width: `${closedAbsPct(repo, bucket)}%`, background: BUCKET_COLORS[bucket] }" />
+                  <div v-if="showOpen && openAbsPct(repo, bucket) > 0"
+                       :style="{ width: `${openAbsPct(repo, bucket)}%`, background: BUCKET_COLORS[bucket], ...HATCH_STYLE }" />
+                </template>
               </div>
             </td>
           </tr>
@@ -271,11 +307,11 @@ function updatePos(event: MouseEvent) {
                 @mousemove="onBarMove"
                 @mouseleave="onBarLeave"
               >
-                <div
-                  v-for="bucket in RESOLUTION_BUCKETS"
-                  :key="bucket"
-                  :style="{ width: `${overallFracPct(bucket)}%`, background: BUCKET_COLORS[bucket] }"
-                />
+                <template v-for="bucket in RESOLUTION_BUCKETS" :key="bucket">
+                  <div :style="{ width: `${closedOverallFracPct(bucket)}%`, background: BUCKET_COLORS[bucket] }" />
+                  <div v-if="showOpen && openOverallFracPct(bucket) > 0"
+                       :style="{ width: `${openOverallFracPct(bucket)}%`, background: BUCKET_COLORS[bucket], ...HATCH_STYLE }" />
+                </template>
               </div>
             </td>
             <td class="px-4 py-2 text-xs text-slate-400 dark:text-slate-500">
@@ -287,16 +323,33 @@ function updatePos(event: MouseEvent) {
     </div>
 
     <!-- Legend -->
-    <div class="flex flex-wrap items-center justify-end gap-x-4 gap-y-1">
-      <span class="text-xs font-medium text-slate-500 dark:text-slate-400">Resolution time buckets:</span>
-      <span
-        v-for="bucket in RESOLUTION_BUCKETS"
-        :key="bucket"
-        class="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400"
-      >
-        <span class="inline-block h-2 w-3 rounded-sm" :style="{ background: BUCKET_COLORS[bucket] }" />
-        {{ bucket }}
-      </span>
+    <div class="flex justify-end">
+      <table class="text-xs text-slate-500 dark:text-slate-400">
+        <thead>
+          <tr>
+            <th class="pr-3 text-right font-semibold">Resolution time buckets</th>
+            <th
+              v-for="bucket in RESOLUTION_BUCKETS"
+              :key="bucket"
+              class="px-2 pb-1 text-center font-normal"
+            >{{ bucket }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="pr-3 text-right font-medium">Closed Issues</td>
+            <td v-for="bucket in RESOLUTION_BUCKETS" :key="bucket" class="px-2 text-center">
+              <span class="inline-block h-2 w-4 rounded-sm" :style="{ background: BUCKET_COLORS[bucket] }" />
+            </td>
+          </tr>
+          <tr v-if="showOpen">
+            <td class="pr-3 text-right font-medium">Open Issues</td>
+            <td v-for="bucket in RESOLUTION_BUCKETS" :key="bucket" class="px-2 text-center">
+              <span class="inline-block h-2 w-4 rounded-sm" :style="{ background: BUCKET_COLORS[bucket], ...HATCH_STYLE }" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 

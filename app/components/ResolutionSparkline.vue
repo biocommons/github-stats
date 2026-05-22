@@ -4,9 +4,9 @@ const props = defineProps<{
   secondaryValues?: (number | null)[]
 }>()
 
-const W = 180
+const W = 90
 const H = 28
-const CHART_W = 148
+const CHART_W = 74
 const PAD_Y = 4
 
 const WINDOW_LABELS = ['All', '12mo', '6mo', '3mo', '1mo']
