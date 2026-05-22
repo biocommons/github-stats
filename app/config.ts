@@ -8,11 +8,29 @@ export const ADMIN_REPOS = new Set([
   'biocommons.github.io',
   'github-stats',
   '.github',
+])
+
+export const ARCHIVED_REPOS = new Set([
   'eutils',
 ])
 
 export const META_REPO_ADMIN = '__admin__'
 export const META_REPO_CORE = '__core__'
+export const META_REPO_ARCHIVED = '__archived__'
+
+export type RepoSet = 'core' | 'admin' | 'archived'
+
+export interface RepoSetDef {
+  key: RepoSet
+  label: string
+  metaKey: string
+}
+
+export const REPO_SETS: RepoSetDef[] = [
+  { key: 'core',     label: 'Core',     metaKey: META_REPO_CORE },
+  { key: 'admin',    label: 'Admin',    metaKey: META_REPO_ADMIN },
+  { key: 'archived', label: 'Archived', metaKey: META_REPO_ARCHIVED },
+]
 
 export const REPO_DISPLAY_NAMES: Record<string, string> = {
   'biocommons.seqrepo': 'seqrepo',
