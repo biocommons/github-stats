@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { useFlowStats, type FlowTimespan, type RepoSet } from '~/composables/useFlowStats'
+import { useFlowStats, type FlowTimespan } from '~/composables/useFlowStats'
+import type { RepoSet } from '~/config'
 
 const route = useRoute()
 const router = useRouter()
@@ -18,7 +19,9 @@ function timespanFromQuery(): FlowTimespan {
 }
 
 function repoSetFromQuery(): RepoSet {
-  return route.query.set === 'admin' ? 'admin' : 'core'
+  const s = route.query.set
+  if (s === 'admin' || s === 'archived') return s
+  return 'core'
 }
 
 granularity.value = granularityFromQuery()
@@ -53,25 +56,15 @@ watch(() => route.query.set, () => {
     Loading…
   </div>
   <template v-else>
-    <div class="mb-4 flex items-center gap-2">
-      <span class="text-xs font-medium uppercase tracking-wider text-slate-500">Repos</span>
-      <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs font-medium dark:border-slate-700 dark:bg-slate-900">
-        <button
-          class="rounded-full px-3 py-1 transition-colors"
-          :class="repoSet === 'core'
-            ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300'
-            : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
-          @click="repoSet = 'core'"
-        >Core</button>
-        <button
-          class="rounded-full px-3 py-1 transition-colors"
-          :class="repoSet === 'admin'
-            ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300'
-            : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
-          @click="repoSet = 'admin'"
-        >Admin</button>
-      </div>
-    </div>
+    <FlowToolbar
+      :repo-set="repoSet"
+      :repos-in-set="allRepos"
+      :granularity="granularity"
+      :timespan="timespan"
+      @update:repo-set="repoSet = $event"
+      @update:granularity="granularity = $event"
+      @update:timespan="timespan = $event"
+    />
     <FlowChart
       :stats="stats"
       :all-repos="allRepos"
@@ -79,8 +72,6 @@ watch(() => route.query.set, () => {
       :timespan="timespan"
       :selected-repos="selectedRepos"
       item-label="issues"
-      @update:granularity="granularity = $event"
-      @update:timespan="timespan = $event"
       @toggle-repo="toggleRepo"
     />
     <div class="mt-10 border-t border-slate-200 pt-8 dark:border-slate-800">
