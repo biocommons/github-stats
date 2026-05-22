@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { REPO_SETS } from '~/config'
+import { REPO_SETS, repoDisplayName } from '~/config'
 import type { RepoSet } from '~/config'
 import type { FlowTimespan } from '~/composables/useFlowStats'
 import type { TimeBucket } from '~/composables/useTimeBuckets'
-import { repoDisplayName } from '~/config'
 
 const props = defineProps<{
   repoSet: RepoSet
@@ -60,7 +59,7 @@ const TIMESPANS: { label: string; value: FlowTimespan }[] = [
           @click="emit('update:timespan', ts.value)"
         >{{ ts.label }}</button>
       </div>
-      <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs dark:border-slate-700 dark:bg-slate-900">
+      <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs font-medium dark:border-slate-700 dark:bg-slate-900">
         <button
           v-for="g in (['week', 'month', 'quarter'] as const)"
           :key="g"
