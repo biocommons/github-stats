@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-05-22T21:12:57.234698+00:00",
+  "collected_at": "2026-05-22T23:01:32.544515+00:00",
   "schema_version": "1.2",
   "repos": [
     ".github",
@@ -10,7 +10,10 @@
     "eutils",
     "github-stats",
     "hgvs",
+    "hgvs-eval",
     "infra",
+    "python-package",
+    "seqrepo-rest-service",
     "uta"
   ],
   "collected_repos": [
@@ -22,10 +25,13 @@
     "eutils",
     "github-stats",
     "hgvs",
+    "hgvs-eval",
     "infra",
+    "python-package",
+    "seqrepo-rest-service",
     "uta"
   ],
   "skipped_repos": [],
   "run_trigger": "schedule",
-  "collection_duration_ms": 90034
+  "collection_duration_ms": 68304
 }

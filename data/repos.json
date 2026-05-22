@@ -114,11 +114,11 @@
     "description": "GitHub repository statistics collection for biocommons repositories",
     "stargazers_count": 0,
     "forks_count": 0,
-    "open_issues_count": 3,
+    "open_issues_count": 1,
     "open_pr_count": 0,
     "contributors": 3,
     "latest_release": null,
-    "updated_at": "2026-05-22T17:21:35Z",
+    "updated_at": "2026-05-22T22:47:08Z",
     "default_branch": "main",
     "private": false,
     "archived": false
@@ -138,6 +138,60 @@
       "published_at": "2026-03-17T05:35:35Z"
     },
     "updated_at": "2026-05-17T08:57:15Z",
+    "default_branch": "main",
+    "private": false,
+    "archived": false
+  },
+  {
+    "name": "hgvs-eval",
+    "full_name": "biocommons/hgvs-eval",
+    "html_url": "https://github.com/biocommons/hgvs-eval",
+    "description": "automated evaluation suite to assess tools that manipulate HGVS formatted variants",
+    "stargazers_count": 4,
+    "forks_count": 4,
+    "open_issues_count": 1,
+    "open_pr_count": 0,
+    "contributors": 6,
+    "latest_release": null,
+    "updated_at": "2024-02-01T05:59:05Z",
+    "default_branch": "main",
+    "private": false,
+    "archived": false
+  },
+  {
+    "name": "python-package",
+    "full_name": "biocommons/python-package",
+    "html_url": "https://github.com/biocommons/python-package",
+    "description": "Template for new biocommons packages, and source of configuration for periodic updates to derived packages",
+    "stargazers_count": 1,
+    "forks_count": 2,
+    "open_issues_count": 1,
+    "open_pr_count": 3,
+    "contributors": 7,
+    "latest_release": {
+      "tag_name": "0.0.6",
+      "published_at": "2025-08-31T20:43:00Z"
+    },
+    "updated_at": "2026-05-13T15:53:19Z",
+    "default_branch": "main",
+    "private": false,
+    "archived": false
+  },
+  {
+    "name": "seqrepo-rest-service",
+    "full_name": "biocommons/seqrepo-rest-service",
+    "html_url": "https://github.com/biocommons/seqrepo-rest-service",
+    "description": "OpenAPI-based REST interface to biological sequences and sequence metadata",
+    "stargazers_count": 6,
+    "forks_count": 6,
+    "open_issues_count": 2,
+    "open_pr_count": 0,
+    "contributors": 9,
+    "latest_release": {
+      "tag_name": "0.2.2",
+      "published_at": "2023-11-14T19:59:54Z"
+    },
+    "updated_at": "2025-10-13T16:07:54Z",
     "default_branch": "main",
     "private": false,
     "archived": false
