@@ -97,7 +97,7 @@ function computeColMaxes(
 
 export function useContributorsTab() {
   const { dataBase } = useDataSource()
-  const timespan = ref<ContribTimespan>('3mo')
+  const timespan = ref<ContribTimespan>('12mo')
 
   const { data: rawData, pending } = useAsyncData<RawData>(
     () => `contributors-tab:${dataBase.value}`,
