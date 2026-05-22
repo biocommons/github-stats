@@ -20,16 +20,25 @@ const BUCKET_COLORS: Record<ResolutionBucket, string> = {
 
 const closedLabel = computed(() => props.itemLabel === 'PRs' ? 'merged PRs' : `closed ${props.itemLabel}`)
 
-// Repos that have at least one close in the all-time window
+const showOpen = ref(true)
+
+// Repos that have at least one closed item in the all-time window
 const repos = computed(() =>
   props.allRepos.filter(r => (props.resolutionWindows.all?.perRepo[r]?.totalClosed ?? 0) > 0)
 )
 
 const allWindow = computed(() => props.resolutionWindows.all)
 
-const maxRepoClosed = computed(() =>
-  Math.max(0, ...repos.value.map(r => allWindow.value?.perRepo[r]?.totalClosed ?? 0))
+const activeRows = computed(() =>
+  showOpen.value ? allWindow.value?.resolutionRowsWithOpen : allWindow.value?.resolutionRows
 )
+
+function repoTotal(repo: string): number {
+  const closed = allWindow.value?.perRepo[repo]?.totalClosed ?? 0
+  return showOpen.value ? closed + (allWindow.value?.openByRepo[repo] ?? 0) : closed
+}
+
+const maxRepoTotal = computed(() => Math.max(0, ...repos.value.map(r => repoTotal(r))))
 
 function repoMedianValues(repo: string): (number | null)[] {
   return RESOLUTION_WINDOWS.map(w => props.resolutionWindows[w]?.perRepo[repo]?.medianDays ?? null)
@@ -48,22 +57,23 @@ const overallP90Values = computed(() =>
 )
 
 function bucketCount(repo: string, bucket: ResolutionBucket): number {
-  return allWindow.value?.resolutionRows.find(r => r.bucket === bucket)?.byRepo[repo] ?? 0
+  return activeRows.value?.find(r => r.bucket === bucket)?.byRepo[repo] ?? 0
 }
 
 function fracPct(repo: string, bucket: ResolutionBucket): number {
-  const total = allWindow.value?.perRepo[repo]?.totalClosed ?? 0
+  const total = repoTotal(repo)
   return total > 0 ? (bucketCount(repo, bucket) / total) * 100 : 0
 }
 
 function absPct(repo: string, bucket: ResolutionBucket): number {
-  return maxRepoClosed.value > 0 ? (bucketCount(repo, bucket) / maxRepoClosed.value) * 100 : 0
+  return maxRepoTotal.value > 0 ? (bucketCount(repo, bucket) / maxRepoTotal.value) * 100 : 0
 }
 
-// Aggregate bucket fraction for totals row
 function overallFracPct(bucket: ResolutionBucket): number {
-  const total = allWindow.value?.totalClosed ?? 0
-  const count = allWindow.value?.resolutionRows.find(r => r.bucket === bucket)?.total ?? 0
+  const totalClosed = allWindow.value?.totalClosed ?? 0
+  const totalOpen = showOpen.value ? (allWindow.value?.totalOpen ?? 0) : 0
+  const total = totalClosed + totalOpen
+  const count = activeRows.value?.find(r => r.bucket === bucket)?.total ?? 0
   return total > 0 ? (count / total) * 100 : 0
 }
 
@@ -75,14 +85,16 @@ const tooltipY = ref(0)
 
 function tooltipRows(repo: string) {
   if (repo === ALL_REPOS_KEY) {
-    const total = allWindow.value?.totalClosed ?? 0
+    const totalClosed = allWindow.value?.totalClosed ?? 0
+    const totalOpen = showOpen.value ? (allWindow.value?.totalOpen ?? 0) : 0
+    const total = totalClosed + totalOpen
     return RESOLUTION_BUCKETS.map(bucket => {
-      const count = allWindow.value?.resolutionRows.find(r => r.bucket === bucket)?.total ?? 0
+      const count = activeRows.value?.find(r => r.bucket === bucket)?.total ?? 0
       const pct = total > 0 ? (count / total) * 100 : 0
       return { bucket, count, pct, color: BUCKET_COLORS[bucket] }
     })
   }
-  const total = allWindow.value?.perRepo[repo]?.totalClosed ?? 0
+  const total = repoTotal(repo)
   return RESOLUTION_BUCKETS.map(bucket => {
     const count = bucketCount(repo, bucket)
     const pct = total > 0 ? (count / total) * 100 : 0
@@ -116,11 +128,29 @@ function updatePos(event: MouseEvent) {
       <p class="mt-0.5 text-sm text-slate-500 dark:text-slate-400">How long {{ closedLabel }} stayed open before being resolved. Trend lines show all-time → 12mo → 6mo → 3mo → 1mo; green = improving, red = degrading.</p>
     </div>
 
+    <!-- Toggle -->
+    <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs font-medium dark:border-slate-700 dark:bg-slate-900">
+      <button
+        class="rounded-full px-3 py-1 transition-colors"
+        :class="showOpen ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
+        @click="showOpen = true"
+      >open + closed</button>
+      <button
+        class="rounded-full px-3 py-1 transition-colors"
+        :class="!showOpen ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
+        @click="showOpen = false"
+      >closed only</button>
+    </div>
+
     <div class="overflow-x-auto rounded-lg border border-slate-200 dark:border-slate-800">
       <table class="w-full text-sm">
         <thead>
           <tr class="border-b border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900/60">
             <th class="px-4 py-3 text-left font-medium text-slate-500 dark:text-slate-400">Repo</th>
+            <th
+              class="w-px px-4 py-3 text-right font-medium text-slate-500 dark:text-slate-400"
+              title="Currently open items — not yet closed or merged."
+            >Open</th>
             <th
               class="w-px px-4 py-3 text-left font-medium text-slate-500 dark:text-slate-400"
               title="Median resolution time. Trend from all-time → 12mo → 6mo → 3mo → 1mo. Label shows most recent value."
@@ -144,6 +174,9 @@ function updatePos(event: MouseEvent) {
                 class="inline-block rounded-full border px-2.5 py-0.5 text-sm font-medium"
                 :style="{ borderColor: repoColor(repo, allRepos), background: repoColor(repo, allRepos) + 'bf', color: contrastColor(repoColor(repo, allRepos), 0.75) }"
               >{{ repoDisplayName(repo) }}</span>
+            </td>
+            <td class="w-px px-4 py-2 text-right tabular-nums text-slate-600 dark:text-slate-300">
+              {{ (allWindow?.openByRepo[repo] ?? 0).toLocaleString() }}
             </td>
             <td class="w-px px-4 py-1">
               <ResolutionSparkline :values="repoMedianValues(repo)" />
@@ -184,6 +217,9 @@ function updatePos(event: MouseEvent) {
         <tfoot>
           <tr class="border-t-2 border-slate-200 bg-slate-50 dark:border-slate-700 dark:bg-slate-900/40">
             <td class="px-4 py-2 text-sm font-semibold text-slate-600 dark:text-slate-300">All repos</td>
+            <td class="w-px px-4 py-2 text-right tabular-nums font-semibold text-slate-600 dark:text-slate-300">
+              {{ (allWindow?.totalOpen ?? 0).toLocaleString() }}
+            </td>
             <td class="w-px px-4 py-1">
               <ResolutionSparkline :values="overallMedianValues" />
             </td>
@@ -205,7 +241,7 @@ function updatePos(event: MouseEvent) {
               </div>
             </td>
             <td class="px-4 py-2 text-xs text-slate-400 dark:text-slate-500">
-              {{ (allWindow?.totalClosed ?? 0).toLocaleString() }} total
+              {{ (allWindow?.totalClosed ?? 0).toLocaleString() }} closed
             </td>
           </tr>
         </tfoot>

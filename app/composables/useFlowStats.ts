@@ -15,14 +15,17 @@ interface FlowRecord {
 export const RESOLUTION_BUCKETS = ['0–1d', '2–7d', '8–30d', '31–90d', '91–365d', '>365d'] as const
 export type ResolutionBucket = (typeof RESOLUTION_BUCKETS)[number]
 
-function classifyResolution(createdAt: string, closedAt: string): ResolutionBucket {
-  const days = (new Date(closedAt).getTime() - new Date(createdAt).getTime()) / 86_400_000
+function classifyDays(days: number): ResolutionBucket {
   if (days <= 1) return '0–1d'
   if (days <= 7) return '2–7d'
   if (days <= 30) return '8–30d'
   if (days <= 90) return '31–90d'
   if (days <= 365) return '91–365d'
   return '>365d'
+}
+
+function classifyResolution(createdAt: string, closedAt: string): ResolutionBucket {
+  return classifyDays((new Date(closedAt).getTime() - new Date(createdAt).getTime()) / 86_400_000)
 }
 
 export interface FlowPoint {
@@ -56,7 +59,10 @@ export interface WindowResolution {
   medianDays: number | null
   p90Days: number | null
   totalClosed: number
+  totalOpen: number
+  openByRepo: Record<string, number>
   resolutionRows: ResolutionRow[]
+  resolutionRowsWithOpen: ResolutionRow[]
   perRepo: Record<string, { medianDays: number | null; p90Days: number | null; totalClosed: number }>
 }
 
@@ -117,19 +123,31 @@ function fillContiguousBuckets(first: string, last: string, granularity: TimeBuc
 }
 
 function computeWindowResolution(records: FlowRecord[]): WindowResolution {
+  const now = Date.now()
   const closedDays: number[] = []
   const closedDaysByRepo: Record<string, number[]> = {}
+  const openByRepo: Record<string, number> = {}
   const resolutionMap: Record<ResolutionBucket, Record<string, number>> = {
+    '0–1d': {}, '2–7d': {}, '8–30d': {}, '31–90d': {}, '91–365d': {}, '>365d': {},
+  }
+  const resolutionMapWithOpen: Record<ResolutionBucket, Record<string, number>> = {
     '0–1d': {}, '2–7d': {}, '8–30d': {}, '31–90d': {}, '91–365d': {}, '>365d': {},
   }
 
   for (const r of records) {
-    if (!r.closed_at) continue
-    const days = (new Date(r.closed_at).getTime() - new Date(r.created_at).getTime()) / 86_400_000
-    closedDays.push(days)
-    ;(closedDaysByRepo[r.repo] ??= []).push(days)
-    const rb = classifyResolution(r.created_at, r.closed_at)
-    resolutionMap[rb]![r.repo] = (resolutionMap[rb]![r.repo] ?? 0) + 1
+    if (r.closed_at) {
+      const days = (new Date(r.closed_at).getTime() - new Date(r.created_at).getTime()) / 86_400_000
+      closedDays.push(days)
+      ;(closedDaysByRepo[r.repo] ??= []).push(days)
+      const rb = classifyResolution(r.created_at, r.closed_at)
+      resolutionMap[rb]![r.repo] = (resolutionMap[rb]![r.repo] ?? 0) + 1
+      resolutionMapWithOpen[rb]![r.repo] = (resolutionMapWithOpen[rb]![r.repo] ?? 0) + 1
+    } else {
+      openByRepo[r.repo] = (openByRepo[r.repo] ?? 0) + 1
+      const ageDays = (now - new Date(r.created_at).getTime()) / 86_400_000
+      const rb = classifyDays(ageDays)
+      resolutionMapWithOpen[rb]![r.repo] = (resolutionMapWithOpen[rb]![r.repo] ?? 0) + 1
+    }
   }
 
   closedDays.sort((a, b) => a - b)
@@ -137,6 +155,11 @@ function computeWindowResolution(records: FlowRecord[]): WindowResolution {
 
   const resolutionRows: ResolutionRow[] = RESOLUTION_BUCKETS.map(bucket => {
     const byRepo = resolutionMap[bucket]!
+    return { bucket, byRepo, total: Object.values(byRepo).reduce((s, v) => s + v, 0) }
+  })
+
+  const resolutionRowsWithOpen: ResolutionRow[] = RESOLUTION_BUCKETS.map(bucket => {
+    const byRepo = resolutionMapWithOpen[bucket]!
     return { bucket, byRepo, total: Object.values(byRepo).reduce((s, v) => s + v, 0) }
   })
 
@@ -155,7 +178,10 @@ function computeWindowResolution(records: FlowRecord[]): WindowResolution {
     medianDays: n > 0 ? (closedDays[Math.floor(n / 2)] ?? null) : null,
     p90Days: n > 0 ? (closedDays[Math.floor(n * 0.9)] ?? null) : null,
     totalClosed: n,
+    totalOpen: Object.values(openByRepo).reduce((s, v) => s + v, 0),
+    openByRepo,
     resolutionRows,
+    resolutionRowsWithOpen,
     perRepo,
   }
 }
