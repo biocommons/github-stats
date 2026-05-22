@@ -24,13 +24,17 @@ REPOS_TO_COLLECT = [
     "anyvar",
     "biocommons.seqrepo",
     "bioutils",
+    "hgvs-eval",
     "hgvs",
+    "seqrepo-rest-service",
     "uta",
     # administrative / infrastructure
     "infra",
     "biocommons.github.io",
     "github-stats",
     ".github",
+    "python-package",
+    # archived
     "eutils",
 ]
 ORG = "biocommons"
