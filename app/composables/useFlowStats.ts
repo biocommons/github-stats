@@ -1,9 +1,9 @@
 import { toBucket, type TimeBucket } from './useTimeBuckets'
-import { repoDisplayName, ADMIN_REPOS } from '~/config'
+import { repoDisplayName, ADMIN_REPOS, ARCHIVED_REPOS } from '~/config'
+import type { RepoSet } from '~/config'
 
 export type FlowKind = 'issues' | 'prs'
 export type FlowTimespan = 'all' | '12mo' | '6mo' | '3mo' | '1mo'
-export type RepoSet = 'core' | 'admin'
 
 // Normalized shape shared by issues and PRs
 interface FlowRecord {
@@ -269,11 +269,10 @@ export function useFlowStats(kind: FlowKind) {
   const allRepos = computed<string[]>(() => {
     if (!rawData.value) return []
     const all = [...new Set(rawData.value.map(r => r.repo))].sort(
-      (a, b) => repoDisplayName(a).localeCompare(repoDisplayName(b))
-    )
-    return repoSet.value === 'core'
-      ? all.filter(r => !ADMIN_REPOS.has(r))
-      : all.filter(r => ADMIN_REPOS.has(r))
+      (a, b) => repoDisplayName(a).localeCompare(repoDisplayName(b)))
+    if (repoSet.value === 'admin') return all.filter(r => ADMIN_REPOS.has(r) && !ARCHIVED_REPOS.has(r))
+    if (repoSet.value === 'archived') return all.filter(r => ARCHIVED_REPOS.has(r))
+    return all.filter(r => !ADMIN_REPOS.has(r) && !ARCHIVED_REPOS.has(r))
   })
 
   const selectedRepos = ref<Set<string>>(new Set())
