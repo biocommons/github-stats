@@ -7205,26 +7205,26 @@
     "number": 15,
     "repo": "github-stats",
     "created_at": "2026-05-21T17:32:31Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-05-21T23:07:09Z",
+    "state": "closed",
     "author_login": "reece",
     "labels": [
       "enhancement"
     ],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 4496666115,
     "number": 16,
     "repo": "github-stats",
     "created_at": "2026-05-21T17:32:38Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-05-21T23:11:50Z",
+    "state": "closed",
     "author_login": "reece",
     "labels": [
       "enhancement"
     ],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 4496667775,
@@ -7245,13 +7245,13 @@
     "number": 18,
     "repo": "github-stats",
     "created_at": "2026-05-21T17:33:04Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-05-21T23:44:20Z",
+    "state": "closed",
     "author_login": "reece",
     "labels": [
       "enhancement"
     ],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 4496669827,

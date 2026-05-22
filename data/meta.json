@@ -1,6 +1,6 @@
 {
-  "collected_at": "2026-05-21T22:21:09.205961+00:00",
-  "schema_version": "1.1",
+  "collected_at": "2026-05-22T00:04:53.058047+00:00",
+  "schema_version": "1.2",
   "repos": [
     ".github",
     "anyvar",
@@ -27,5 +27,5 @@
   ],
   "skipped_repos": [],
   "run_trigger": "schedule",
-  "collection_duration_ms": 78280
+  "collection_duration_ms": 86930
 }
