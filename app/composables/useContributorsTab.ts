@@ -1,6 +1,10 @@
 import { useContributorStats, type ContributorCounts } from './useContributorStats'
-import { type FlowTimespan, type RepoSet } from './useFlowStats'
-import { repoDisplayName, CONTRIBUTOR_EXCLUDE, ADMIN_REPOS, META_REPO_ADMIN, META_REPO_CORE } from '~/config'
+import { type FlowTimespan } from './useFlowStats'
+import {
+  repoDisplayName, CONTRIBUTOR_EXCLUDE,
+  ADMIN_REPOS, ARCHIVED_REPOS,
+  META_REPO_ADMIN, META_REPO_CORE, META_REPO_ARCHIVED,
+} from '~/config'
 
 export type ContribTimespan = FlowTimespan
 
@@ -18,9 +22,16 @@ export interface ContributorRow {
   totalCount: number
 }
 
+export interface RepoSetInfo {
+  key: string
+  label: string
+  metaKey: string
+  repos: string[]
+}
+
 export interface ContributorTabData {
   rows: ContributorRow[]
-  repos: string[]
+  repoSets: RepoSetInfo[]
   colMaxes: Record<string, ContributorCounts>
 }
 
@@ -87,7 +98,6 @@ function computeColMaxes(
 export function useContributorsTab() {
   const { dataBase } = useDataSource()
   const timespan = ref<ContribTimespan>('all')
-  const repoSet = ref<RepoSet>('core')
 
   const { data: rawData, pending } = useAsyncData<RawData>(
     () => `contributors-tab:${dataBase.value}`,
@@ -126,12 +136,15 @@ export function useContributorsTab() {
       ...reviews.map(r => r.repo),
     ])].sort((a, b) => repoDisplayName(a).localeCompare(repoDisplayName(b)))
 
-    const coreRepos = allEventRepos.filter(r => !ADMIN_REPOS.has(r))
-    const adminRepos = allEventRepos.filter(r => ADMIN_REPOS.has(r))
+    const coreRepos     = allEventRepos.filter(r => !ADMIN_REPOS.has(r) && !ARCHIVED_REPOS.has(r))
+    const adminRepos    = allEventRepos.filter(r => ADMIN_REPOS.has(r) && !ARCHIVED_REPOS.has(r))
+    const archivedRepos = allEventRepos.filter(r => ARCHIVED_REPOS.has(r))
 
-    const activeRepos = repoSet.value === 'core' ? coreRepos : adminRepos
-    const metaRepos   = repoSet.value === 'core' ? adminRepos : coreRepos
-    const metaKey     = repoSet.value === 'core' ? META_REPO_ADMIN : META_REPO_CORE
+    const repoSetInfos: RepoSetInfo[] = [
+      { key: 'core',     label: 'Core',     metaKey: META_REPO_CORE,     repos: coreRepos },
+      { key: 'admin',    label: 'Admin',    metaKey: META_REPO_ADMIN,    repos: adminRepos },
+      { key: 'archived', label: 'Archived', metaKey: META_REPO_ARCHIVED, repos: archivedRepos },
+    ]
 
     // All-time stats (all repos, all time) — for Total column + badge eligibility
     const allTimeStats = useContributorStats(contributors, issues, prs, commits, reviews)
@@ -160,19 +173,30 @@ export function useContributorsTab() {
           reviews.filter(r => afterCutoff(r.submitted_at)),
         )
 
-    // Inject meta column into each contributor's byRepo (both filtered and all-time)
+    const setDefs = [
+      { metaKey: META_REPO_CORE,     repos: coreRepos },
+      { metaKey: META_REPO_ADMIN,    repos: adminRepos },
+      { metaKey: META_REPO_ARCHIVED, repos: archivedRepos },
+    ]
+
+    // Inject meta columns into each contributor's byRepo (both filtered and all-time)
     for (const s of filteredStats) {
-      s.by_repo[metaKey] = aggregateCounts(s.by_repo, metaRepos)
+      for (const { metaKey, repos } of setDefs) {
+        s.by_repo[metaKey] = aggregateCounts(s.by_repo, repos)
+      }
     }
     // Only inject into allTimeStats if it's a separate object from filteredStats
     if (timespan.value !== 'all') {
       for (const s of allTimeStats) {
-        s.by_repo[metaKey] = aggregateCounts(s.by_repo, metaRepos)
+        for (const { metaKey, repos } of setDefs) {
+          s.by_repo[metaKey] = aggregateCounts(s.by_repo, repos)
+        }
       }
     }
 
-    // Display repos: active set + meta column at the end
-    const displayRepos = [...activeRepos, metaKey]
+    const allIndividualRepos = [...coreRepos, ...adminRepos, ...archivedRepos]
+    const allMetaKeys = [META_REPO_CORE, META_REPO_ADMIN, META_REPO_ARCHIVED]
+    const displayRepos = [...allIndividualRepos, ...allMetaKeys]
 
     // Sort by all-time totalCount desc
     const withCounts = filteredStats.map(s => ({ ...s, totalCount: countTotal(s.all_time) }))
@@ -192,7 +216,9 @@ export function useContributorsTab() {
     for (const r of issues.filter(r => afterCutoff(r.created_at))) tallyAnon(r.author_login, r.repo, 'issues_opened')
     for (const r of prs.filter(r => afterCutoff(r.created_at))) tallyAnon(r.author_login, r.repo, 'prs_opened')
     for (const r of reviews.filter(r => afterCutoff(r.submitted_at))) tallyAnon(r.reviewer_login, r.repo, 'reviews_submitted')
-    anonByRepo[metaKey] = aggregateCounts(anonByRepo, metaRepos)
+    for (const { metaKey, repos } of setDefs) {
+      anonByRepo[metaKey] = aggregateCounts(anonByRepo, repos)
+    }
 
     const colMaxes = computeColMaxes(filteredStats, displayRepos)
     const countKeys: (keyof ContributorCounts)[] = ['commits', 'issues_opened', 'prs_opened', 'reviews_submitted']
@@ -213,7 +239,7 @@ export function useContributorsTab() {
     for (const r of commits) trackLast(r.author_login, r.author_date)
     for (const r of reviews) trackLast(r.reviewer_login, r.submitted_at)
 
-    // Pareto 80% expertise — covers activeRepos and metaKey as a unit
+    // Pareto 80% expertise — covers all repos and meta keys
     const expertMap = new Map<string, Set<string>>()
     for (const repo of displayRepos) {
       const ranked = allTimeStats
@@ -237,8 +263,8 @@ export function useContributorsTab() {
     const activeSetLogins = new Set(
       allTimeStats
         .filter(s =>
-          activeRepos.some(repo => countTotal(s.by_repo[repo] ?? emptyCounts()) > 0) ||
-          countTotal(s.by_repo[metaKey] ?? emptyCounts()) > 0
+          allIndividualRepos.some(repo => countTotal(s.by_repo[repo] ?? emptyCounts()) > 0) ||
+          allMetaKeys.some(mk => countTotal(s.by_repo[mk] ?? emptyCounts()) > 0)
         )
         .map(s => s.login)
     )
@@ -280,8 +306,8 @@ export function useContributorsTab() {
       })
     }
 
-    return { rows, repos: displayRepos, colMaxes }
+    return { rows, repoSets: repoSetInfos, colMaxes }
   })
 
-  return { tabData, timespan, repoSet, isLoading: pending }
+  return { tabData, timespan, isLoading: pending }
 }
