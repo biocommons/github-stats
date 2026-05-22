@@ -1879,13 +1879,13 @@
     "number": 259,
     "repo": "anyvar",
     "created_at": "2025-10-02T14:45:45Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-05-22T17:05:52Z",
+    "state": "closed",
     "author_login": "theferrit32",
     "labels": [
       "priority:medium"
     ],
-    "closed_by": null
+    "closed_by": "jennifer-bowser"
   },
   {
     "id": 3478896057,
@@ -2948,14 +2948,14 @@
     "number": 458,
     "repo": "anyvar",
     "created_at": "2026-05-11T13:26:28Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-05-22T17:37:35Z",
+    "state": "closed",
     "author_login": "jennifer-bowser",
     "labels": [
       "enhancement",
       "priority:high"
     ],
-    "closed_by": null
+    "closed_by": "jennifer-bowser"
   },
   {
     "id": 4471511129,
@@ -2967,6 +2967,30 @@
     "author_login": "jsstevenson",
     "labels": [
       "bug"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 4504360023,
+    "number": 465,
+    "repo": "anyvar",
+    "created_at": "2026-05-22T17:07:45Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "jsstevenson",
+    "labels": [],
+    "closed_by": null
+  },
+  {
+    "id": 4504598310,
+    "number": 466,
+    "repo": "anyvar",
+    "created_at": "2026-05-22T17:52:14Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "korikuzma",
+    "labels": [
+      "enhancement"
     ],
     "closed_by": null
   },
@@ -4577,6 +4601,19 @@
       "bug"
     ],
     "closed_by": "jsstevenson"
+  },
+  {
+    "id": 4504183392,
+    "number": 202,
+    "repo": "biocommons.seqrepo",
+    "created_at": "2026-05-22T16:37:18Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "jsstevenson",
+    "labels": [
+      "enhancement"
+    ],
+    "closed_by": null
   },
   {
     "id": 163496195,
@@ -7284,13 +7321,13 @@
     "number": 21,
     "repo": "github-stats",
     "created_at": "2026-05-22T15:06:44Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-05-22T17:12:08Z",
+    "state": "closed",
     "author_login": "reece",
     "labels": [
       "enhancement"
     ],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 213192343,
