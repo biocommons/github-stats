@@ -7,10 +7,11 @@ export const CONTRIBUTOR_EXCLUDE: RegExp[] = [
 ]
 
 export const ADMIN_REPOS = new Set([
-  'infra',
+  '.github',
   'biocommons.github.io',
   'github-stats',
-  '.github',
+  'infra',
+  'python-package'
 ])
 
 export const META_REPO_ADMIN = '__admin__'
