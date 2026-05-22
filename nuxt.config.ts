@@ -49,5 +49,6 @@ export default defineNuxtConfig({
       ]
     }
   },
+  watch: ['./app/config.ts', './app/composables/**/*.ts'],
   devtools: { enabled: true },
 })
