@@ -313,6 +313,43 @@ function onRectMouseLeave() {
 
 <template>
   <div class="space-y-4">
+    <!-- Chart-scoped controls: timespan, granularity, fit/pan -->
+    <div class="flex flex-wrap items-center gap-2">
+      <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs font-medium dark:border-slate-700 dark:bg-slate-900">
+        <button
+          v-for="ts in TIMESPANS"
+          :key="ts.value"
+          class="rounded-full px-3 py-1 transition-colors"
+          :class="timespan === ts.value
+            ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300'
+            : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
+          @click="emit('update:timespan', ts.value)"
+        >{{ ts.label }}</button>
+      </div>
+      <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs font-medium dark:border-slate-700 dark:bg-slate-900">
+        <button
+          v-for="g in (['week', 'month', 'quarter'] as const)"
+          :key="g"
+          class="rounded-full px-3 py-1 capitalize transition-colors"
+          :class="granularity === g
+            ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300'
+            : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
+          @click="emit('update:granularity', g)"
+        >{{ g }}</button>
+      </div>
+      <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs font-medium dark:border-slate-700 dark:bg-slate-900">
+        <button
+          v-for="[mode, label] in [['fit', 'Fit'], ['pan', 'Pan']] as const"
+          :key="mode"
+          class="rounded-full px-3 py-1 transition-colors"
+          :class="(mode === 'pan') === scrollMode
+            ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300'
+            : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
+          @click="emit('update:scrollMode', mode === 'pan')"
+        >{{ label }}</button>
+      </div>
+    </div>
+
     <!-- Chart -->
     <div class="relative">
       <svg
@@ -460,43 +497,6 @@ function onRectMouseLeave() {
           >{{ line }}</text>
         </g>
       </svg>
-    </div>
-
-    <!-- Chart-scoped controls: timespan, granularity, fit/pan -->
-    <div class="flex flex-wrap items-center gap-2">
-      <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs font-medium dark:border-slate-700 dark:bg-slate-900">
-        <button
-          v-for="ts in TIMESPANS"
-          :key="ts.value"
-          class="rounded-full px-3 py-1 transition-colors"
-          :class="timespan === ts.value
-            ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300'
-            : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
-          @click="emit('update:timespan', ts.value)"
-        >{{ ts.label }}</button>
-      </div>
-      <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs font-medium dark:border-slate-700 dark:bg-slate-900">
-        <button
-          v-for="g in (['week', 'month', 'quarter'] as const)"
-          :key="g"
-          class="rounded-full px-3 py-1 capitalize transition-colors"
-          :class="granularity === g
-            ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300'
-            : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
-          @click="emit('update:granularity', g)"
-        >{{ g }}</button>
-      </div>
-      <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs font-medium dark:border-slate-700 dark:bg-slate-900">
-        <button
-          v-for="[mode, label] in [['fit', 'Fit'], ['pan', 'Pan']] as const"
-          :key="mode"
-          class="rounded-full px-3 py-1 transition-colors"
-          :class="(mode === 'pan') === scrollMode
-            ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300'
-            : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
-          @click="emit('update:scrollMode', mode === 'pan')"
-        >{{ label }}</button>
-      </div>
     </div>
   </div>
 </template>
