@@ -10,6 +10,8 @@ const { tabData, timespan, isLoading } = useContributorsTab()
 
 const expandedSet = ref<string>('core')
 
+
+
 const displayRepos = computed(() => {
   if (!tabData.value) return []
   return tabData.value.repoSets.flatMap(s =>
@@ -205,11 +207,11 @@ const sortedRows = computed(() => {
 
     <template v-else>
       <!-- Scrollable table -->
-      <div class="overflow-x-auto rounded-lg border border-slate-200 dark:border-slate-800">
-        <table class="w-full text-sm">
-          <thead>
+      <div class="overflow-auto max-h-[42rem] rounded-lg border border-slate-200 dark:border-slate-800">
+        <table class="w-full border-spacing-0 text-sm">
+          <thead class="sticky top-0 z-20 bg-white border-b border-bc-teal-300 dark:bg-slate-950 dark:border-bc-teal-500">
             <!-- Row 1: set group headers -->
-            <tr class="border-b text-left text-xs font-medium uppercase tracking-wider text-slate-500" :class="expandedSet !== '' ? 'border-slate-100 dark:border-slate-800' : 'border-bc-teal-300 dark:border-bc-teal-500'">
+            <tr class="text-left text-xs font-medium uppercase tracking-wider text-slate-500" :class="expandedSet !== '' ? 'border-b border-slate-100 dark:border-slate-800' : ''">
               <th class="sticky left-0 z-10 bg-white px-4 py-3 min-w-[200px] dark:bg-slate-950" :rowspan="expandedSet !== '' ? 2 : 1">
                 <button class="cursor-pointer hover:text-slate-700 dark:hover:text-slate-200" @click="setSort('name')">Contributor{{ sortIndicator('name') }}</button>
                 <div class="mt-0.5 text-[10px] font-normal text-slate-400 dark:text-slate-500">
@@ -224,7 +226,7 @@ const sortedRows = computed(() => {
                 :key="s.key"
                 :colspan="expandedSet === s.key ? Math.max(1, s.repos.length) : 1"
                 class="select-none border-l border-bc-teal-300 px-4 py-2 text-center dark:border-bc-teal-500"
-                :class="expandedSet === s.key ? 'bg-bc-teal-500/10 text-bc-teal-600 dark:text-bc-teal-300' : ''"
+                :class="expandedSet === s.key ? 'bg-bc-teal-500/10 text-bc-teal-600 dark:bg-bc-teal-500/5 dark:text-bc-teal-300' : 'bg-white dark:bg-slate-950'"
               >
                 <button
                   class="cursor-pointer transition-colors hover:text-slate-700 dark:hover:text-slate-200"
@@ -236,13 +238,13 @@ const sortedRows = computed(() => {
             <!-- Row 2: individual repo headers (hidden when all sets collapsed) -->
             <tr
               v-if="expandedSet !== ''"
-              class="border-b border-bc-teal-300 text-left text-xs font-medium uppercase tracking-wider text-slate-400 dark:border-bc-teal-500"
+              class="text-left text-xs font-medium uppercase tracking-wider text-slate-400"
             >
               <th
                 v-for="repo in displayRepos"
                 :key="repo"
                 class="cursor-pointer select-none px-4 py-2 text-center min-w-[72px] transition-colors hover:text-slate-700 dark:hover:text-slate-200"
-                :class="[isBoundaryColumn(repo) ? 'border-l border-bc-teal-300 dark:border-bc-teal-500' : '', isMetaColumn(repo) ? 'bg-slate-50 dark:bg-slate-800/40' : '']"
+                :class="[isBoundaryColumn(repo) ? 'border-l border-bc-teal-300 dark:border-bc-teal-500' : '', isMetaColumn(repo) ? 'bg-slate-50 dark:bg-slate-800/40' : 'bg-bc-teal-500/10 text-bc-teal-600 dark:bg-bc-teal-500/5 dark:text-bc-teal-300']"
                 :title="isMetaColumn(repo) ? `Pooled ${columnLabel(repo).toLowerCase()} repos` : repo"
                 @click="setSort(repo)"
               >
