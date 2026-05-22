@@ -1,5 +1,8 @@
 <script setup lang="ts">
-const props = defineProps<{ values: (number | null)[] }>()
+const props = defineProps<{
+  values: (number | null)[]
+  secondaryValues?: (number | null)[]
+}>()
 
 const W = 180
 const H = 28
@@ -18,8 +21,11 @@ function formatDays(days: number | null): string {
 }
 
 const nonNull = computed(() => props.values.filter((v): v is number => v !== null))
-const yMin = computed(() => Math.min(...nonNull.value))
-const yMax = computed(() => Math.max(...nonNull.value))
+const secondaryNonNull = computed(() => (props.secondaryValues ?? []).filter((v): v is number => v !== null))
+
+// Shared y-scale across both series so relative positions are comparable
+const yMin = computed(() => Math.min(...nonNull.value, ...secondaryNonNull.value))
+const yMax = computed(() => Math.max(...nonNull.value, ...secondaryNonNull.value))
 
 function xOf(i: number): number {
   const n = props.values.length
@@ -27,16 +33,17 @@ function xOf(i: number): number {
 }
 
 function yOf(v: number): number {
+  const allNonNull = [...nonNull.value, ...secondaryNonNull.value]
   const range = yMax.value - yMin.value
-  if (nonNull.value.length <= 1 || range === 0) return H / 2
+  if (allNonNull.length <= 1 || range === 0) return H / 2
   return PAD_Y + (1 - (v - yMin.value) / range) * (H - 2 * PAD_Y)
 }
 
-const segments = computed(() => {
+function buildSegments(vals: (number | null)[]) {
   const segs: { x: number; y: number }[][] = []
   let cur: { x: number; y: number }[] = []
-  for (let i = 0; i < props.values.length; i++) {
-    const v = props.values[i]
+  for (let i = 0; i < vals.length; i++) {
+    const v = vals[i]
     if (v === null) {
       if (cur.length) { segs.push(cur); cur = [] }
     } else {
@@ -45,7 +52,10 @@ const segments = computed(() => {
   }
   if (cur.length) segs.push(cur)
   return segs
-})
+}
+
+const segments = computed(() => buildSegments(props.values))
+const secondarySegments = computed(() => props.secondaryValues ? buildSegments(props.secondaryValues) : [])
 
 const dots = computed(() =>
   props.values
@@ -65,6 +75,14 @@ const color = computed(() => {
 const lastValue = computed(() => {
   for (let i = props.values.length - 1; i >= 0; i--) {
     if (props.values[i] !== null) return props.values[i]
+  }
+  return null
+})
+
+const lastSecondaryValue = computed(() => {
+  if (!props.secondaryValues) return null
+  for (let i = props.secondaryValues.length - 1; i >= 0; i--) {
+    if (props.secondaryValues[i] !== null) return props.secondaryValues[i]
   }
   return null
 })
@@ -100,6 +118,21 @@ function updatePos(event: MouseEvent) {
     @mousemove="onMove"
     @mouseleave="onLeave"
   >
+    <!-- Secondary (what-if) line drawn first so primary renders on top -->
+    <g v-for="(seg, si) in secondarySegments" :key="`s${si}`">
+      <polyline
+        v-if="seg.length > 1"
+        :points="seg.map(p => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ')"
+        fill="none"
+        stroke="#94a3b8"
+        stroke-width="1.5"
+        stroke-dasharray="3 3"
+        stroke-linejoin="round"
+        stroke-linecap="round"
+        opacity="0.7"
+      />
+    </g>
+    <!-- Primary (closed-only) line -->
     <g v-for="(seg, si) in segments" :key="si">
       <polyline
         v-if="seg.length > 1"
@@ -136,6 +169,7 @@ function updatePos(event: MouseEvent) {
     >
       <table class="text-xs">
         <tr>
+          <th class="px-2.5 pt-2 pb-0.5 font-medium text-slate-400 dark:text-slate-500" />
           <th
             v-for="label in WINDOW_LABELS"
             :key="label"
@@ -143,10 +177,19 @@ function updatePos(event: MouseEvent) {
           >{{ label }}</th>
         </tr>
         <tr>
+          <td class="px-2 pb-1 pt-0.5 text-slate-500 dark:text-slate-400">Closed</td>
           <td
             v-for="(v, i) in values"
             :key="i"
-            class="px-2.5 pb-2 pt-0.5 tabular-nums font-semibold text-slate-800 dark:text-slate-200"
+            class="px-2.5 pb-1 pt-0.5 tabular-nums font-semibold text-slate-800 dark:text-slate-200"
+          >{{ formatDays(v) }}</td>
+        </tr>
+        <tr v-if="secondaryValues">
+          <td class="px-2 pb-2 pt-0 text-slate-400 dark:text-slate-500">+Open</td>
+          <td
+            v-for="(v, i) in secondaryValues"
+            :key="i"
+            class="px-2.5 pb-2 pt-0 tabular-nums text-slate-500 dark:text-slate-400"
           >{{ formatDays(v) }}</td>
         </tr>
       </table>

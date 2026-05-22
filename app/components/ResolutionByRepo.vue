@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { ResolutionBucket, ResolutionWindow, WindowResolution } from '~/composables/useFlowStats'
 import { RESOLUTION_BUCKETS, RESOLUTION_WINDOWS } from '~/composables/useFlowStats'
-import { repoDisplayName, repoColor, contrastColor } from '~/config'
+import { repoDisplayName, repoColor, contrastColor, GITHUB_ORG } from '~/config'
 
 const props = defineProps<{
   resolutionWindows: Record<ResolutionWindow, WindowResolution | null>
@@ -48,12 +48,28 @@ function repoP90Values(repo: string): (number | null)[] {
   return RESOLUTION_WINDOWS.map(w => props.resolutionWindows[w]?.perRepo[repo]?.p90Days ?? null)
 }
 
+function repoMedianWithOpenValues(repo: string): (number | null)[] {
+  return RESOLUTION_WINDOWS.map(w => props.resolutionWindows[w]?.perRepo[repo]?.medianDaysWithOpen ?? null)
+}
+
+function repoP90WithOpenValues(repo: string): (number | null)[] {
+  return RESOLUTION_WINDOWS.map(w => props.resolutionWindows[w]?.perRepo[repo]?.p90DaysWithOpen ?? null)
+}
+
 const overallMedianValues = computed(() =>
   RESOLUTION_WINDOWS.map(w => props.resolutionWindows[w]?.medianDays ?? null)
 )
 
 const overallP90Values = computed(() =>
   RESOLUTION_WINDOWS.map(w => props.resolutionWindows[w]?.p90Days ?? null)
+)
+
+const overallMedianWithOpenValues = computed(() =>
+  RESOLUTION_WINDOWS.map(w => props.resolutionWindows[w]?.medianDaysWithOpen ?? null)
+)
+
+const overallP90WithOpenValues = computed(() =>
+  RESOLUTION_WINDOWS.map(w => props.resolutionWindows[w]?.p90DaysWithOpen ?? null)
 )
 
 function bucketCount(repo: string, bucket: ResolutionBucket): number {
@@ -102,6 +118,11 @@ function tooltipRows(repo: string) {
   })
 }
 
+function openIssuesUrl(repo: string): string {
+  const kind = props.itemLabel === 'PRs' ? 'is:pr' : 'is:issue'
+  return `https://github.com/${GITHUB_ORG}/${repo}/issues?q=is:open+${kind}`
+}
+
 function onBarEnter(repo: string, event: MouseEvent) {
   hoveredRepo.value = repo
   updatePos(event)
@@ -125,10 +146,18 @@ function updatePos(event: MouseEvent) {
   <div class="space-y-4">
     <div>
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-100">Resolution time by repo</h3>
-      <p class="mt-0.5 text-sm text-slate-500 dark:text-slate-400">How long {{ closedLabel }} stayed open before being resolved. Trend lines show all-time → 12mo → 6mo → 3mo → 1mo; green = improving, red = degrading.</p>
+      <p class="mt-0.5 text-sm text-slate-500 dark:text-slate-400">
+        How long {{ closedLabel }} stayed open before being resolved.
+        Trend sparklines compare five cohorts of items grouped by when they were <em>opened</em>:
+        all-time, opened within the last 12 months, 6 months, 3 months, and 1 month —
+        each a nested subset of the previous.
+        A falling line (green) means recently-opened items are closing faster than the historical average; rising (red) means slower.
+        Note that the 1-month cohort is naturally bounded — items can't have been open longer than ~30 days — so its values will always look short.
+        When "Include open issues" is checked, open items are treated as if closed today (bucketed by current age),
+        and a dotted sparkline shows what median and P90 would be under that scenario.
+      </p>
     </div>
 
-    <!-- Toggle -->
     <label class="flex cursor-pointer items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
       <input type="checkbox" v-model="showOpen" class="accent-bc-teal-500" />
       Include open issues
@@ -167,14 +196,25 @@ function updatePos(event: MouseEvent) {
                 :style="{ borderColor: repoColor(repo, allRepos), background: repoColor(repo, allRepos) + 'bf', color: contrastColor(repoColor(repo, allRepos), 0.75) }"
               >{{ repoDisplayName(repo) }}</span>
             </td>
-            <td class="w-px px-4 py-2 text-right tabular-nums text-slate-600 dark:text-slate-300">
-              {{ (allWindow?.openByRepo[repo] ?? 0).toLocaleString() }}
+            <td class="w-px px-4 py-2 text-right tabular-nums">
+              <a
+                :href="openIssuesUrl(repo)"
+                target="_blank"
+                rel="noopener"
+                class="text-bc-teal-600 hover:underline dark:text-bc-teal-400"
+              >{{ (allWindow?.openByRepo[repo] ?? 0).toLocaleString() }}</a>
             </td>
             <td class="w-px px-4 py-1">
-              <ResolutionSparkline :values="repoMedianValues(repo)" />
+              <ResolutionSparkline
+                :values="repoMedianValues(repo)"
+                :secondary-values="showOpen ? repoMedianWithOpenValues(repo) : undefined"
+              />
             </td>
             <td class="w-px px-4 py-1">
-              <ResolutionSparkline :values="repoP90Values(repo)" />
+              <ResolutionSparkline
+                :values="repoP90Values(repo)"
+                :secondary-values="showOpen ? repoP90WithOpenValues(repo) : undefined"
+              />
             </td>
             <td class="px-4 py-2">
               <div
@@ -213,10 +253,16 @@ function updatePos(event: MouseEvent) {
               {{ (allWindow?.totalOpen ?? 0).toLocaleString() }}
             </td>
             <td class="w-px px-4 py-1">
-              <ResolutionSparkline :values="overallMedianValues" />
+              <ResolutionSparkline
+                :values="overallMedianValues"
+                :secondary-values="showOpen ? overallMedianWithOpenValues : undefined"
+              />
             </td>
             <td class="w-px px-4 py-1">
-              <ResolutionSparkline :values="overallP90Values" />
+              <ResolutionSparkline
+                :values="overallP90Values"
+                :secondary-values="showOpen ? overallP90WithOpenValues : undefined"
+              />
             </td>
             <td class="px-4 py-2">
               <div
@@ -241,7 +287,7 @@ function updatePos(event: MouseEvent) {
     </div>
 
     <!-- Legend -->
-    <div class="flex flex-wrap items-center gap-x-4 gap-y-1">
+    <div class="flex flex-wrap items-center justify-end gap-x-4 gap-y-1">
       <span class="text-xs font-medium text-slate-500 dark:text-slate-400">Resolution time buckets:</span>
       <span
         v-for="bucket in RESOLUTION_BUCKETS"

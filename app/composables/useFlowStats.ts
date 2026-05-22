@@ -52,18 +52,25 @@ export interface RepoResolution {
   totalClosed: number
 }
 
+export interface RepoResolutionWithOpen extends RepoResolution {
+  medianDaysWithOpen: number | null
+  p90DaysWithOpen: number | null
+}
+
 export const RESOLUTION_WINDOWS = ['all', '12mo', '6mo', '3mo', '1mo'] as const
 export type ResolutionWindow = (typeof RESOLUTION_WINDOWS)[number]
 
 export interface WindowResolution {
   medianDays: number | null
   p90Days: number | null
+  medianDaysWithOpen: number | null
+  p90DaysWithOpen: number | null
   totalClosed: number
   totalOpen: number
   openByRepo: Record<string, number>
   resolutionRows: ResolutionRow[]
   resolutionRowsWithOpen: ResolutionRow[]
-  perRepo: Record<string, { medianDays: number | null; p90Days: number | null; totalClosed: number }>
+  perRepo: Record<string, RepoResolutionWithOpen>
 }
 
 export interface FlowStats {
@@ -125,7 +132,9 @@ function fillContiguousBuckets(first: string, last: string, granularity: TimeBuc
 function computeWindowResolution(records: FlowRecord[]): WindowResolution {
   const now = Date.now()
   const closedDays: number[] = []
+  const openAgeDays: number[] = []
   const closedDaysByRepo: Record<string, number[]> = {}
+  const openAgeDaysByRepo: Record<string, number[]> = {}
   const openByRepo: Record<string, number> = {}
   const resolutionMap: Record<ResolutionBucket, Record<string, number>> = {
     '0–1d': {}, '2–7d': {}, '8–30d': {}, '31–90d': {}, '91–365d': {}, '>365d': {},
@@ -145,6 +154,8 @@ function computeWindowResolution(records: FlowRecord[]): WindowResolution {
     } else {
       openByRepo[r.repo] = (openByRepo[r.repo] ?? 0) + 1
       const ageDays = (now - new Date(r.created_at).getTime()) / 86_400_000
+      openAgeDays.push(ageDays)
+      ;(openAgeDaysByRepo[r.repo] ??= []).push(ageDays)
       const rb = classifyDays(ageDays)
       resolutionMapWithOpen[rb]![r.repo] = (resolutionMapWithOpen[rb]![r.repo] ?? 0) + 1
     }
@@ -152,6 +163,9 @@ function computeWindowResolution(records: FlowRecord[]): WindowResolution {
 
   closedDays.sort((a, b) => a - b)
   const n = closedDays.length
+
+  const allDaysCombined = [...closedDays, ...openAgeDays].sort((a, b) => a - b)
+  const nAll = allDaysCombined.length
 
   const resolutionRows: ResolutionRow[] = RESOLUTION_BUCKETS.map(bucket => {
     const byRepo = resolutionMap[bucket]!
@@ -163,20 +177,26 @@ function computeWindowResolution(records: FlowRecord[]): WindowResolution {
     return { bucket, byRepo, total: Object.values(byRepo).reduce((s, v) => s + v, 0) }
   })
 
-  const perRepo: Record<string, { medianDays: number | null; p90Days: number | null; totalClosed: number }> = {}
-  for (const [repo, days] of Object.entries(closedDaysByRepo)) {
-    days.sort((a, b) => a - b)
-    const m = days.length
+  const perRepo: Record<string, RepoResolutionWithOpen> = {}
+  for (const repo of new Set([...Object.keys(closedDaysByRepo), ...Object.keys(openAgeDaysByRepo)])) {
+    const closed = (closedDaysByRepo[repo] ?? []).sort((a, b) => a - b)
+    const combined = [...closed, ...(openAgeDaysByRepo[repo] ?? [])].sort((a, b) => a - b)
+    const m = closed.length
+    const mc = combined.length
     perRepo[repo] = {
       totalClosed: m,
-      medianDays: m > 0 ? (days[Math.floor(m / 2)] ?? null) : null,
-      p90Days: m > 0 ? (days[Math.floor(m * 0.9)] ?? null) : null,
+      medianDays: m > 0 ? (closed[Math.floor(m / 2)] ?? null) : null,
+      p90Days: m > 0 ? (closed[Math.floor(m * 0.9)] ?? null) : null,
+      medianDaysWithOpen: mc > 0 ? (combined[Math.floor(mc / 2)] ?? null) : null,
+      p90DaysWithOpen: mc > 0 ? (combined[Math.floor(mc * 0.9)] ?? null) : null,
     }
   }
 
   return {
     medianDays: n > 0 ? (closedDays[Math.floor(n / 2)] ?? null) : null,
     p90Days: n > 0 ? (closedDays[Math.floor(n * 0.9)] ?? null) : null,
+    medianDaysWithOpen: nAll > 0 ? (allDaysCombined[Math.floor(nAll / 2)] ?? null) : null,
+    p90DaysWithOpen: nAll > 0 ? (allDaysCombined[Math.floor(nAll * 0.9)] ?? null) : null,
     totalClosed: n,
     totalOpen: Object.values(openByRepo).reduce((s, v) => s + v, 0),
     openByRepo,
