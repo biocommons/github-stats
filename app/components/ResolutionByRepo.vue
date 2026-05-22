@@ -67,11 +67,21 @@ function overallFracPct(bucket: ResolutionBucket): number {
   return total > 0 ? (count / total) * 100 : 0
 }
 
+const ALL_REPOS_KEY = '__all__'
+
 const hoveredRepo = ref<string | null>(null)
 const tooltipX = ref(0)
 const tooltipY = ref(0)
 
 function tooltipRows(repo: string) {
+  if (repo === ALL_REPOS_KEY) {
+    const total = allWindow.value?.totalClosed ?? 0
+    return RESOLUTION_BUCKETS.map(bucket => {
+      const count = allWindow.value?.resolutionRows.find(r => r.bucket === bucket)?.total ?? 0
+      const pct = total > 0 ? (count / total) * 100 : 0
+      return { bucket, count, pct, color: BUCKET_COLORS[bucket] }
+    })
+  }
   const total = allWindow.value?.perRepo[repo]?.totalClosed ?? 0
   return RESOLUTION_BUCKETS.map(bucket => {
     const count = bucketCount(repo, bucket)
@@ -119,8 +129,8 @@ function updatePos(event: MouseEvent) {
               class="w-px px-4 py-3 text-left font-medium text-slate-500 dark:text-slate-400"
               title="90th-percentile resolution time — 10% of items took longer than this. Same time windows as Median."
             >P90 <span class="font-normal text-slate-400 dark:text-slate-500">ⓘ</span></th>
-            <th class="min-w-36 px-4 py-3 font-medium text-slate-500 dark:text-slate-400">% by bucket</th>
-            <th class="min-w-36 px-4 py-3 font-medium text-slate-500 dark:text-slate-400">Count by bucket</th>
+            <th class="min-w-36 px-4 py-3 font-medium text-slate-500 dark:text-slate-400">% by resolution time bucket</th>
+            <th class="min-w-36 px-4 py-3 font-medium text-slate-500 dark:text-slate-400">Count by resolution time bucket</th>
           </tr>
         </thead>
         <tbody>
@@ -181,7 +191,12 @@ function updatePos(event: MouseEvent) {
               <ResolutionSparkline :values="overallP90Values" />
             </td>
             <td class="px-4 py-2">
-              <div class="flex h-5 overflow-hidden rounded bg-slate-200 dark:bg-slate-800">
+              <div
+                class="flex h-5 cursor-default overflow-hidden rounded bg-slate-200 dark:bg-slate-800"
+                @mouseenter="onBarEnter(ALL_REPOS_KEY, $event)"
+                @mousemove="onBarMove"
+                @mouseleave="onBarLeave"
+              >
                 <div
                   v-for="bucket in RESOLUTION_BUCKETS"
                   :key="bucket"
@@ -218,7 +233,7 @@ function updatePos(event: MouseEvent) {
       class="pointer-events-none fixed z-50 min-w-44 rounded-lg border border-slate-200 bg-white px-3 py-2.5 shadow-xl dark:border-slate-700 dark:bg-slate-900"
       :style="{ left: `${tooltipX}px`, top: `${tooltipY}px` }"
     >
-      <p class="mb-2 text-xs font-semibold text-slate-700 dark:text-slate-300">{{ repoDisplayName(hoveredRepo) }}</p>
+      <p class="mb-2 text-xs font-semibold text-slate-700 dark:text-slate-300">{{ hoveredRepo === ALL_REPOS_KEY ? 'All repos' : repoDisplayName(hoveredRepo!) }}</p>
       <table class="w-full text-xs">
         <tbody>
           <tr v-for="row in tooltipRows(hoveredRepo)" :key="row.bucket">
