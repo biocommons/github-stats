@@ -5,7 +5,7 @@ import type { RepoSet } from '~/config'
 
 const route = useRoute()
 const router = useRouter()
-const { stats, allRepos, granularity, timespan, repoSet, selectedRepos, toggleRepo } = useFlowStats('issues')
+const { stats, resolutionWindows, allRepos, granularity, timespan, repoSet, selectedRepos, toggleRepo } = useFlowStats('issues')
 
 const scrollMode = ref(timespan.value === 'all')
 watch(timespan, ts => { scrollMode.value = ts === 'all' })
@@ -57,15 +57,6 @@ watch(() => route.query.set, () => {
 function repoColor(repo: string): string {
   return getRepoColor(repo, allRepos.value)
 }
-
-function formatDays(days: number | null): string {
-  if (days === null) return '—'
-  if (days < 1) return '<1d'
-  if (days === 1) return '1d'
-  if (days < 30) return `${Math.round(days)}d`
-  if (days < 365) return `${Math.round(days / 30)}mo`
-  return `${Math.round(days / 365)}y`
-}
 </script>
 
 <template>
@@ -73,22 +64,6 @@ function formatDays(days: number | null): string {
     Loading…
   </div>
   <template v-else>
-    <!-- Summary stat cards -->
-    <div class="mb-6 flex flex-wrap gap-8 rounded-lg border border-slate-200 bg-slate-50 px-6 py-4 dark:border-slate-800 dark:bg-slate-900/60">
-      <div>
-        <p class="mb-0.5 text-xs uppercase tracking-wide text-slate-500">Total closed issues</p>
-        <p class="text-2xl font-semibold text-slate-700 dark:text-slate-200">{{ stats.totalClosed.toLocaleString() }}</p>
-      </div>
-      <div>
-        <p class="mb-0.5 text-xs uppercase tracking-wide text-slate-500">Median</p>
-        <p class="text-2xl font-semibold text-slate-700 dark:text-slate-200">{{ formatDays(stats.medianDays) }}</p>
-      </div>
-      <div :title="`90% of closed issues resolved within this many days`">
-        <p class="mb-0.5 text-xs uppercase tracking-wide text-slate-500">p90 <span class="normal-case text-slate-400 dark:text-slate-500">ⓘ</span></p>
-        <p class="text-2xl font-semibold text-slate-700 dark:text-slate-200">{{ formatDays(stats.p90Days) }}</p>
-      </div>
-    </div>
-
     <!-- Repo set + repo chips -->
     <div class="mb-4 flex flex-wrap items-center gap-3">
       <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs font-medium dark:border-slate-700 dark:bg-slate-900">
@@ -116,7 +91,7 @@ function formatDays(days: number | null): string {
     </div>
 
     <!-- Resolution by repo -->
-    <ResolutionByRepo :stats="stats" :all-repos="allRepos" item-label="issues" />
+    <ResolutionByRepo :resolution-windows="resolutionWindows" :all-repos="allRepos" item-label="issues" />
 
     <!-- Flow chart with inlined controls -->
     <div class="mt-10 border-t border-slate-200 pt-8 dark:border-slate-800">

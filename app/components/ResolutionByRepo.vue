@@ -1,57 +1,78 @@
 <script setup lang="ts">
-import type { FlowStats, ResolutionBucket } from '~/composables/useFlowStats'
-import { RESOLUTION_BUCKETS } from '~/composables/useFlowStats'
+import type { ResolutionBucket, ResolutionWindow, WindowResolution } from '~/composables/useFlowStats'
+import { RESOLUTION_BUCKETS, RESOLUTION_WINDOWS } from '~/composables/useFlowStats'
 import { repoDisplayName, repoColor, contrastColor } from '~/config'
 
 const props = defineProps<{
-  stats: FlowStats
+  resolutionWindows: Record<ResolutionWindow, WindowResolution | null>
   allRepos: string[]
   itemLabel: string
 }>()
 
 const BUCKET_COLORS: Record<ResolutionBucket, string> = {
-  '0–1d':    '#6ea059', // green  — fast      (#6aa84f desaturated ~20%)
-  '2–7d':    '#5586d3', // blue   — quick     (#4a87e8 desaturated ~20%)
-  '8–30d':   '#d28e46', // orange — medium    (#e69138 desaturated ~20%)
-  '31–90d':  '#d3b440', // amber  — slow      (#e8c130 desaturated ~20%)
-  '91–365d': '#7e6ab3', // purple — long      (#7d65c0 desaturated ~20%)
-  '>365d':   '#c7594a', // red    — very long (#d94f3d desaturated ~20%)
+  '0–1d':    '#6ea059',
+  '2–7d':    '#5586d3',
+  '8–30d':   '#d28e46',
+  '31–90d':  '#d3b440',
+  '91–365d': '#7e6ab3',
+  '>365d':   '#c7594a',
 }
 
-const maxClosed = computed(() =>
-  Math.max(0, ...props.stats.repos.map(r => props.stats.perRepo[r]?.totalClosed ?? 0))
+const closedLabel = computed(() => props.itemLabel === 'PRs' ? 'merged PRs' : `closed ${props.itemLabel}`)
+
+// Repos that have at least one close in the all-time window
+const repos = computed(() =>
+  props.allRepos.filter(r => (props.resolutionWindows.all?.perRepo[r]?.totalClosed ?? 0) > 0)
+)
+
+const allWindow = computed(() => props.resolutionWindows.all)
+
+const maxRepoClosed = computed(() =>
+  Math.max(0, ...repos.value.map(r => allWindow.value?.perRepo[r]?.totalClosed ?? 0))
+)
+
+function repoMedianValues(repo: string): (number | null)[] {
+  return RESOLUTION_WINDOWS.map(w => props.resolutionWindows[w]?.perRepo[repo]?.medianDays ?? null)
+}
+
+function repoP90Values(repo: string): (number | null)[] {
+  return RESOLUTION_WINDOWS.map(w => props.resolutionWindows[w]?.perRepo[repo]?.p90Days ?? null)
+}
+
+const overallMedianValues = computed(() =>
+  RESOLUTION_WINDOWS.map(w => props.resolutionWindows[w]?.medianDays ?? null)
+)
+
+const overallP90Values = computed(() =>
+  RESOLUTION_WINDOWS.map(w => props.resolutionWindows[w]?.p90Days ?? null)
 )
 
 function bucketCount(repo: string, bucket: ResolutionBucket): number {
-  return props.stats.resolutionRows.find(r => r.bucket === bucket)?.byRepo[repo] ?? 0
+  return allWindow.value?.resolutionRows.find(r => r.bucket === bucket)?.byRepo[repo] ?? 0
 }
 
 function fracPct(repo: string, bucket: ResolutionBucket): number {
-  const total = props.stats.perRepo[repo]?.totalClosed ?? 0
+  const total = allWindow.value?.perRepo[repo]?.totalClosed ?? 0
   return total > 0 ? (bucketCount(repo, bucket) / total) * 100 : 0
 }
 
 function absPct(repo: string, bucket: ResolutionBucket): number {
-  return maxClosed.value > 0 ? (bucketCount(repo, bucket) / maxClosed.value) * 100 : 0
+  return maxRepoClosed.value > 0 ? (bucketCount(repo, bucket) / maxRepoClosed.value) * 100 : 0
 }
 
-function formatDays(days: number | null): string {
-  if (days === null) return '—'
-  if (days < 1) return '<1d'
-  if (days === 1) return '1d'
-  if (days < 30) return `${Math.round(days)}d`
-  if (days < 365) return `${Math.round(days / 30)}mo`
-  return `${Math.round(days / 365)}y`
+// Aggregate bucket fraction for totals row
+function overallFracPct(bucket: ResolutionBucket): number {
+  const total = allWindow.value?.totalClosed ?? 0
+  const count = allWindow.value?.resolutionRows.find(r => r.bucket === bucket)?.total ?? 0
+  return total > 0 ? (count / total) * 100 : 0
 }
-
-const closedLabel = computed(() => props.itemLabel === 'PRs' ? 'merged PRs' : `closed ${props.itemLabel}`)
 
 const hoveredRepo = ref<string | null>(null)
 const tooltipX = ref(0)
 const tooltipY = ref(0)
 
 function tooltipRows(repo: string) {
-  const total = props.stats.perRepo[repo]?.totalClosed ?? 0
+  const total = allWindow.value?.perRepo[repo]?.totalClosed ?? 0
   return RESOLUTION_BUCKETS.map(bucket => {
     const count = bucketCount(repo, bucket)
     const pct = total > 0 ? (count / total) * 100 : 0
@@ -64,13 +85,8 @@ function onBarEnter(repo: string, event: MouseEvent) {
   updatePos(event)
 }
 
-function onBarMove(event: MouseEvent) {
-  updatePos(event)
-}
-
-function onBarLeave() {
-  hoveredRepo.value = null
-}
+function onBarMove(event: MouseEvent) { updatePos(event) }
+function onBarLeave() { hoveredRepo.value = null }
 
 function updatePos(event: MouseEvent) {
   const offset = 14
@@ -87,7 +103,7 @@ function updatePos(event: MouseEvent) {
   <div class="space-y-4">
     <div>
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-100">Resolution time by repo</h3>
-      <p class="mt-0.5 text-sm text-slate-500 dark:text-slate-400">How long {{ closedLabel }} stayed open before being resolved, broken down by repo and time bucket.</p>
+      <p class="mt-0.5 text-sm text-slate-500 dark:text-slate-400">How long {{ closedLabel }} stayed open before being resolved. Trend lines show all-time → 12mo → 6mo → 3mo → 1mo; green = improving, red = degrading.</p>
     </div>
 
     <div class="overflow-x-auto rounded-lg border border-slate-200 dark:border-slate-800">
@@ -95,43 +111,36 @@ function updatePos(event: MouseEvent) {
         <thead>
           <tr class="border-b border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900/60">
             <th class="px-4 py-3 text-left font-medium text-slate-500 dark:text-slate-400">Repo</th>
-            <th class="px-4 py-3 text-right font-medium text-slate-500 dark:text-slate-400">
-              {{ closedLabel.split(' ')[0] === 'merged' ? 'Merged' : 'Closed' }}
-            </th>
-            <th class="px-4 py-3 text-right font-medium text-slate-500 dark:text-slate-400">Median</th>
             <th
-              class="px-4 py-3 text-right font-medium text-slate-500 dark:text-slate-400"
-              title="90th percentile — 10% of items took longer than this"
-            >
-              p90 <span class="font-normal text-slate-400 dark:text-slate-500">ⓘ</span>
-            </th>
-            <th class="min-w-40 px-4 py-3 font-medium text-slate-500 dark:text-slate-400">% by bucket</th>
-            <th class="min-w-40 px-4 py-3 font-medium text-slate-500 dark:text-slate-400">Count by bucket</th>
+              class="px-4 py-3 text-left font-medium text-slate-500 dark:text-slate-400"
+              title="Median resolution time. Trend from all-time → 12mo → 6mo → 3mo → 1mo. Label shows most recent value."
+            >Median</th>
+            <th
+              class="px-4 py-3 text-left font-medium text-slate-500 dark:text-slate-400"
+              title="90th-percentile resolution time — 10% of items took longer than this. Same time windows as Median."
+            >P90 <span class="font-normal text-slate-400 dark:text-slate-500">ⓘ</span></th>
+            <th class="min-w-36 px-4 py-3 font-medium text-slate-500 dark:text-slate-400">% by bucket</th>
+            <th class="min-w-36 px-4 py-3 font-medium text-slate-500 dark:text-slate-400">Count by bucket</th>
           </tr>
         </thead>
         <tbody>
           <tr
-            v-for="repo in stats.repos"
+            v-for="repo in repos"
             :key="repo"
             class="border-b border-slate-100 last:border-0 hover:bg-slate-50 dark:border-slate-800/50 dark:hover:bg-slate-800/30"
           >
-            <td class="px-4 py-3">
+            <td class="px-4 py-2">
               <span
                 class="inline-block rounded-full border px-2.5 py-0.5 text-sm font-medium"
                 :style="{ borderColor: repoColor(repo, allRepos), background: repoColor(repo, allRepos) + 'bf', color: contrastColor(repoColor(repo, allRepos), 0.75) }"
               >{{ repoDisplayName(repo) }}</span>
             </td>
-            <td class="px-4 py-3 text-right tabular-nums text-slate-600 dark:text-slate-300">
-              {{ (stats.perRepo[repo]?.totalClosed ?? 0).toLocaleString() }}
+            <td class="px-4 py-1">
+              <ResolutionSparkline :values="repoMedianValues(repo)" />
             </td>
-            <td class="px-4 py-3 text-right tabular-nums text-slate-600 dark:text-slate-300">
-              {{ formatDays(stats.perRepo[repo]?.medianDays ?? null) }}
+            <td class="px-4 py-1">
+              <ResolutionSparkline :values="repoP90Values(repo)" />
             </td>
-            <td class="px-4 py-3 text-right tabular-nums text-slate-600 dark:text-slate-300">
-              {{ formatDays(stats.perRepo[repo]?.p90Days ?? null) }}
-            </td>
-
-            <!-- Fractional bar -->
             <td class="px-4 py-2">
               <div
                 class="flex h-5 cursor-default overflow-hidden rounded bg-slate-200 dark:bg-slate-800"
@@ -146,8 +155,6 @@ function updatePos(event: MouseEvent) {
                 />
               </div>
             </td>
-
-            <!-- Absolute bar -->
             <td class="px-4 py-2">
               <div
                 class="flex h-5 cursor-default overflow-hidden rounded bg-slate-200 dark:bg-slate-800"
@@ -164,6 +171,29 @@ function updatePos(event: MouseEvent) {
             </td>
           </tr>
         </tbody>
+        <tfoot>
+          <tr class="border-t-2 border-slate-200 bg-slate-50 dark:border-slate-700 dark:bg-slate-900/40">
+            <td class="px-4 py-2 text-sm font-semibold text-slate-600 dark:text-slate-300">All repos</td>
+            <td class="px-4 py-1">
+              <ResolutionSparkline :values="overallMedianValues" />
+            </td>
+            <td class="px-4 py-1">
+              <ResolutionSparkline :values="overallP90Values" />
+            </td>
+            <td class="px-4 py-2">
+              <div class="flex h-5 overflow-hidden rounded bg-slate-200 dark:bg-slate-800">
+                <div
+                  v-for="bucket in RESOLUTION_BUCKETS"
+                  :key="bucket"
+                  :style="{ width: `${overallFracPct(bucket)}%`, background: BUCKET_COLORS[bucket] }"
+                />
+              </div>
+            </td>
+            <td class="px-4 py-2 text-xs text-slate-400 dark:text-slate-500">
+              {{ (allWindow?.totalClosed ?? 0).toLocaleString() }} total
+            </td>
+          </tr>
+        </tfoot>
       </table>
     </div>
 
@@ -193,10 +223,7 @@ function updatePos(event: MouseEvent) {
         <tbody>
           <tr v-for="row in tooltipRows(hoveredRepo)" :key="row.bucket">
             <td class="py-0.5 pr-2">
-              <span
-                class="inline-block h-2 w-3 rounded-sm"
-                :style="{ background: row.color }"
-              />
+              <span class="inline-block h-2 w-3 rounded-sm" :style="{ background: row.color }" />
             </td>
             <td class="py-0.5 pr-3 text-slate-500 dark:text-slate-400">{{ row.bucket }}</td>
             <td class="py-0.5 pr-3 text-right tabular-nums text-slate-800 dark:text-slate-200">{{ row.count.toLocaleString() }}</td>
