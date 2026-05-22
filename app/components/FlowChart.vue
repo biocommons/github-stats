@@ -6,15 +6,25 @@ import { repoDisplayName, repoColor as getRepoColor } from '~/config'
 const props = defineProps<{
   stats: FlowStats
   allRepos: string[]
+  itemLabel: string
   granularity: TimeBucket
   timespan: FlowTimespan
   scrollMode: boolean
-  itemLabel: string
 }>()
 
 const emit = defineEmits<{
+  'update:granularity': [value: TimeBucket]
+  'update:timespan': [value: FlowTimespan]
   'update:scrollMode': [value: boolean]
 }>()
+
+const TIMESPANS: { label: string; value: FlowTimespan }[] = [
+  { label: 'All time', value: 'all' },
+  { label: '12 mo',   value: '12mo' },
+  { label: '6 mo',    value: '6mo' },
+  { label: '3 mo',    value: '3mo' },
+  { label: '1 mo',    value: '1mo' },
+]
 
 function repoColor(repo: string): string {
   return getRepoColor(repo, props.allRepos)
@@ -303,6 +313,48 @@ function onRectMouseLeave() {
 
 <template>
   <div class="space-y-4">
+    <div>
+      <h3 class="text-base font-semibold text-slate-800 dark:text-slate-100">{{ itemLabel === 'PRs' ? 'PR' : 'Issue' }} flow over time</h3>
+      <p class="mt-0.5 text-sm text-slate-500 dark:text-slate-400">Bars show {{ itemLabel === 'PRs' ? 'PRs opened (↑) and merged (↓)' : 'issues opened (↑) and closed (↓)' }} per period; lines show total open {{ itemLabel.toLowerCase() }} per repo.</p>
+    </div>
+
+    <!-- Chart-scoped controls: timespan, granularity, fit/pan -->
+    <div class="flex flex-wrap items-center gap-2">
+      <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs font-medium dark:border-slate-700 dark:bg-slate-900">
+        <button
+          v-for="ts in TIMESPANS"
+          :key="ts.value"
+          class="rounded-full px-3 py-1 transition-colors"
+          :class="timespan === ts.value
+            ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300'
+            : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
+          @click="emit('update:timespan', ts.value)"
+        >{{ ts.label }}</button>
+      </div>
+      <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs font-medium dark:border-slate-700 dark:bg-slate-900">
+        <button
+          v-for="g in (['week', 'month', 'quarter'] as const)"
+          :key="g"
+          class="rounded-full px-3 py-1 capitalize transition-colors"
+          :class="granularity === g
+            ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300'
+            : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
+          @click="emit('update:granularity', g)"
+        >{{ g }}</button>
+      </div>
+      <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs font-medium dark:border-slate-700 dark:bg-slate-900">
+        <button
+          v-for="[mode, label] in [['fit', 'Fit'], ['pan', 'Pan']] as const"
+          :key="mode"
+          class="rounded-full px-3 py-1 transition-colors"
+          :class="(mode === 'pan') === scrollMode
+            ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300'
+            : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
+          @click="emit('update:scrollMode', mode === 'pan')"
+        >{{ label }}</button>
+      </div>
+    </div>
+
     <!-- Chart -->
     <div class="relative">
       <svg

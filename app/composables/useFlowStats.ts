@@ -49,6 +49,17 @@ export interface RepoResolution {
   totalClosed: number
 }
 
+export const RESOLUTION_WINDOWS = ['all', '12mo', '6mo', '3mo', '1mo'] as const
+export type ResolutionWindow = (typeof RESOLUTION_WINDOWS)[number]
+
+export interface WindowResolution {
+  medianDays: number | null
+  p90Days: number | null
+  totalClosed: number
+  resolutionRows: ResolutionRow[]
+  perRepo: Record<string, { medianDays: number | null; p90Days: number | null; totalClosed: number }>
+}
+
 export interface FlowStats {
   repos: string[]
   flowPoints: FlowPoint[]
@@ -103,6 +114,50 @@ function fillContiguousBuckets(first: string, last: string, granularity: TimeBuc
     }
   }
   return result
+}
+
+function computeWindowResolution(records: FlowRecord[]): WindowResolution {
+  const closedDays: number[] = []
+  const closedDaysByRepo: Record<string, number[]> = {}
+  const resolutionMap: Record<ResolutionBucket, Record<string, number>> = {
+    '0–1d': {}, '2–7d': {}, '8–30d': {}, '31–90d': {}, '91–365d': {}, '>365d': {},
+  }
+
+  for (const r of records) {
+    if (!r.closed_at) continue
+    const days = (new Date(r.closed_at).getTime() - new Date(r.created_at).getTime()) / 86_400_000
+    closedDays.push(days)
+    ;(closedDaysByRepo[r.repo] ??= []).push(days)
+    const rb = classifyResolution(r.created_at, r.closed_at)
+    resolutionMap[rb]![r.repo] = (resolutionMap[rb]![r.repo] ?? 0) + 1
+  }
+
+  closedDays.sort((a, b) => a - b)
+  const n = closedDays.length
+
+  const resolutionRows: ResolutionRow[] = RESOLUTION_BUCKETS.map(bucket => {
+    const byRepo = resolutionMap[bucket]!
+    return { bucket, byRepo, total: Object.values(byRepo).reduce((s, v) => s + v, 0) }
+  })
+
+  const perRepo: Record<string, { medianDays: number | null; p90Days: number | null; totalClosed: number }> = {}
+  for (const [repo, days] of Object.entries(closedDaysByRepo)) {
+    days.sort((a, b) => a - b)
+    const m = days.length
+    perRepo[repo] = {
+      totalClosed: m,
+      medianDays: m > 0 ? (days[Math.floor(m / 2)] ?? null) : null,
+      p90Days: m > 0 ? (days[Math.floor(m * 0.9)] ?? null) : null,
+    }
+  }
+
+  return {
+    medianDays: n > 0 ? (closedDays[Math.floor(n / 2)] ?? null) : null,
+    p90Days: n > 0 ? (closedDays[Math.floor(n * 0.9)] ?? null) : null,
+    totalClosed: n,
+    resolutionRows,
+    perRepo,
+  }
 }
 
 export function computeFlowStats(records: FlowRecord[], granularity: TimeBucket, allRecords?: FlowRecord[]): FlowStats {
@@ -311,6 +366,20 @@ export function useFlowStats(kind: FlowKind) {
     return computeFlowStats(timespanFiltered.value, granularity.value)
   })
 
+  const resolutionWindows = computed<Record<ResolutionWindow, WindowResolution | null>>(() => {
+    if (!rawData.value) return Object.fromEntries(RESOLUTION_WINDOWS.map(w => [w, null])) as Record<ResolutionWindow, WindowResolution | null>
+    const result = {} as Record<ResolutionWindow, WindowResolution | null>
+    for (const w of RESOLUTION_WINDOWS) {
+      const cutoff = w === 'all' ? null : timespanCutoff(w as FlowTimespan)
+      const filtered = (cutoff
+        ? rawData.value.filter(r => new Date(r.created_at) >= cutoff)
+        : rawData.value
+      ).filter(r => selectedRepos.value.has(r.repo))
+      result[w] = filtered.length > 0 ? computeWindowResolution(filtered) : null
+    }
+    return result
+  })
+
   function toggleRepo(repo: string) {
     const next = new Set(selectedRepos.value)
     if (next.has(repo)) next.delete(repo)
@@ -318,5 +387,5 @@ export function useFlowStats(kind: FlowKind) {
     selectedRepos.value = next
   }
 
-  return { stats, allStats, allRepos, granularity, timespan, repoSet, selectedRepos, toggleRepo, isLoading: pending }
+  return { stats, allStats, allRepos, granularity, timespan, repoSet, selectedRepos, toggleRepo, isLoading: pending, resolutionWindows }
 }
