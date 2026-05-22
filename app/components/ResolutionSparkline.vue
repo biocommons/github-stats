@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{ values: (number | null)[] }>()
 
-const W = 200
+const W = 180
 const H = 28
 const CHART_W = 148
 const PAD_Y = 4

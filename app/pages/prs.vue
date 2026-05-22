@@ -66,6 +66,7 @@ function repoColor(repo: string): string {
   <template v-else>
     <!-- Repo set + repo chips -->
     <div class="mb-4 flex flex-wrap items-center gap-3">
+      <span class="text-xs font-medium uppercase tracking-wider text-slate-500">Repos</span>
       <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs font-medium dark:border-slate-700 dark:bg-slate-900">
         <button
           v-for="s in REPO_SETS"
