@@ -13,10 +13,6 @@ export const ADMIN_REPOS = new Set([
   '.github',
 ])
 
-export const ARCHIVED_REPOS = new Set([
-  'eutils',
-])
-
 export const META_REPO_ADMIN = '__admin__'
 export const META_REPO_CORE = '__core__'
 export const META_REPO_ARCHIVED = '__archived__'

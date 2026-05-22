@@ -99,7 +99,7 @@ export function useOverviewData() {
   const orgSummary = computed<OrgSummary | null>(() => {
     if (!data.value) return null
     const { repos, contributors } = data.value
-    const coreRepos = repos.filter(r => !ADMIN_REPOS.has(r.name))
+    const coreRepos = repos.filter(r => !ADMIN_REPOS.has(r.name) && !r.archived)
     return {
       totalStars: coreRepos.reduce((s, r) => s + r.stargazers_count, 0),
       uniqueContributors: contributors.length,
@@ -111,18 +111,25 @@ export function useOverviewData() {
   const coreRepoCards = computed<RepoCardData[]>(() => {
     if (!data.value) return []
     const { repos, commits, prs } = data.value
-    const core = repos.filter(r => !ADMIN_REPOS.has(r.name))
+    const core = repos.filter(r => !ADMIN_REPOS.has(r.name) && !r.archived)
     return buildSparklines(core, commits, prs, months, monthSet)
   })
 
   const adminRepoCards = computed<RepoCardData[]>(() => {
     if (!data.value) return []
     const { repos, commits, prs } = data.value
-    const admin = repos.filter(r => ADMIN_REPOS.has(r.name))
+    const admin = repos.filter(r => ADMIN_REPOS.has(r.name) && !r.archived)
     return buildSparklines(admin, commits, prs, months, monthSet)
+  })
+
+  const archivedRepoCards = computed<RepoCardData[]>(() => {
+    if (!data.value) return []
+    const { repos, commits, prs } = data.value
+    const archived = repos.filter(r => r.archived)
+    return buildSparklines(archived, commits, prs, months, monthSet)
   })
 
   const collectedAt = computed(() => data.value?.meta.collected_at ?? null)
 
-  return { orgSummary, coreRepoCards, adminRepoCards, isLoading: pending, collectedAt, relativeTime, formatLocalTime }
+  return { orgSummary, coreRepoCards, adminRepoCards, archivedRepoCards, isLoading: pending, collectedAt, relativeTime, formatLocalTime }
 }

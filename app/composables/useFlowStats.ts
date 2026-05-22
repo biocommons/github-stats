@@ -1,5 +1,5 @@
 import { toBucket, type TimeBucket } from './useTimeBuckets'
-import { repoDisplayName, ADMIN_REPOS, ARCHIVED_REPOS } from '~/config'
+import { repoDisplayName, ADMIN_REPOS } from '~/config'
 import type { RepoSet } from '~/config'
 
 export type FlowKind = 'issues' | 'prs'
@@ -366,14 +366,23 @@ export function useFlowStats(kind: FlowKind) {
     },
   )
 
+  const { data: repoMeta } = useAsyncData<Set<string>>(
+    () => `repos:${dataBase.value}`,
+    async () => {
+      const repos = await $fetch<{ name: string; archived: boolean }[]>(`${dataBase.value}/repos.json`, { responseType: 'json' })
+      return new Set(repos.filter(r => r.archived).map(r => r.name))
+    },
+  )
+
   // Full repo list from unfiltered data — used for chip display and stable color mapping
   const allRepos = computed<string[]>(() => {
     if (!rawData.value) return []
+    const archived = repoMeta.value ?? new Set<string>()
     const all = [...new Set(rawData.value.map(r => r.repo))].sort(
       (a, b) => repoDisplayName(a).localeCompare(repoDisplayName(b)))
-    if (repoSet.value === 'admin') return all.filter(r => ADMIN_REPOS.has(r) && !ARCHIVED_REPOS.has(r))
-    if (repoSet.value === 'archived') return all.filter(r => ARCHIVED_REPOS.has(r))
-    return all.filter(r => !ADMIN_REPOS.has(r) && !ARCHIVED_REPOS.has(r))
+    if (repoSet.value === 'admin') return all.filter(r => ADMIN_REPOS.has(r) && !archived.has(r))
+    if (repoSet.value === 'archived') return all.filter(r => archived.has(r))
+    return all.filter(r => !ADMIN_REPOS.has(r) && !archived.has(r))
   })
 
   const selectedRepos = ref<Set<string>>(new Set())

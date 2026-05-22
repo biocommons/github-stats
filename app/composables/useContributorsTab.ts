@@ -2,7 +2,7 @@ import { useContributorStats, type ContributorCounts } from './useContributorSta
 import { type FlowTimespan } from './useFlowStats'
 import {
   repoDisplayName, CONTRIBUTOR_EXCLUDE,
-  ADMIN_REPOS, ARCHIVED_REPOS,
+  ADMIN_REPOS,
   META_REPO_ADMIN, META_REPO_CORE, META_REPO_ARCHIVED,
 } from '~/config'
 
@@ -115,6 +115,14 @@ export function useContributorsTab() {
     },
   )
 
+  const { data: repoMeta } = useAsyncData<Set<string>>(
+    () => `repos:${dataBase.value}`,
+    async () => {
+      const repos = await $fetch<{ name: string; archived: boolean }[]>(`${dataBase.value}/repos.json`, { responseType: 'json' })
+      return new Set(repos.filter(r => r.archived).map(r => r.name))
+    },
+  )
+
   function isExcluded(login: string | null): boolean {
     return login !== null && CONTRIBUTOR_EXCLUDE.some(re => re.test(login))
   }
@@ -136,9 +144,10 @@ export function useContributorsTab() {
       ...reviews.map(r => r.repo),
     ])].sort((a, b) => repoDisplayName(a).localeCompare(repoDisplayName(b)))
 
-    const coreRepos     = allEventRepos.filter(r => !ADMIN_REPOS.has(r) && !ARCHIVED_REPOS.has(r))
-    const adminRepos    = allEventRepos.filter(r => ADMIN_REPOS.has(r) && !ARCHIVED_REPOS.has(r))
-    const archivedRepos = allEventRepos.filter(r => ARCHIVED_REPOS.has(r))
+    const archived = repoMeta.value ?? new Set<string>()
+    const coreRepos     = allEventRepos.filter(r => !ADMIN_REPOS.has(r) && !archived.has(r))
+    const adminRepos    = allEventRepos.filter(r => ADMIN_REPOS.has(r) && !archived.has(r))
+    const archivedRepos = allEventRepos.filter(r => archived.has(r))
 
     const repoSetInfos: RepoSetInfo[] = [
       { key: 'core',     label: 'Core',     metaKey: META_REPO_CORE,     repos: coreRepos },
