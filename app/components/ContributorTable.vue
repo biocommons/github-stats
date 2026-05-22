@@ -90,17 +90,13 @@ const sortKey = ref<string>('total')
 const sortDir = ref<'asc' | 'desc'>('desc')
 
 function setSort(key: string) {
-  if (sortKey.value === key) {
-    sortDir.value = sortDir.value === 'asc' ? 'desc' : 'asc'
-  } else {
-    sortKey.value = key
-    sortDir.value = 'desc'
-  }
+  sortKey.value = key
+  sortDir.value = 'desc'
 }
 
 function sortIndicator(key: string): string {
   if (sortKey.value !== key) return ''
-  return sortDir.value === 'asc' ? ' ▲' : ' ▼'
+  return sortDir.value === 'asc' ? ' ▴' : ' ▾'
 }
 
 const sortedRows = computed(() => {
@@ -227,14 +223,9 @@ const sortedRows = computed(() => {
               >
                 <button
                   class="cursor-pointer transition-colors hover:text-slate-700 dark:hover:text-slate-200"
-                  :title="`Sort by ${s.label} aggregate`"
-                  @click="setSort(s.metaKey)"
-                >{{ s.label }}{{ sortIndicator(s.metaKey) }}</button>
-                <button
-                  class="ml-1 opacity-60 hover:opacity-100"
                   :title="expandedSet === s.key ? `Collapse ${s.label}` : `Expand ${s.label}`"
-                  @click.stop="expandedSet = expandedSet === s.key ? '' : s.key"
-                >{{ expandedSet === s.key ? '▾' : '▸' }}</button>
+                  @click="expandedSet = expandedSet === s.key ? '' : s.key"
+                >{{ s.label }} {{ expandedSet === s.key ? '▾' : '▸' }}</button>
               </th>
             </tr>
             <!-- Row 2: individual repo headers (hidden when all sets collapsed) -->
@@ -318,7 +309,7 @@ const sortedRows = computed(() => {
                     :is="CellComponent"
                     :counts="repoCounts(row.byRepo, repo)"
                     :maxes="tabData.colMaxes[repo]!"
-                    :ring-color="row.expertRepos.has(repo) ? columnColor(repo) : undefined"
+                    :ring-color="row.expertRepos.has(repo) && repoCountTotal(repoCounts(row.byRepo, repo)) > 0 ? columnColor(repo) : undefined"
                   />
                 </div>
               </td>
@@ -326,6 +317,11 @@ const sortedRows = computed(() => {
           </tbody>
         </table>
       </div>
+
+    <div class="mt-2 flex items-center gap-2 text-xs text-slate-400 dark:text-slate-500">
+      <div class="h-4 w-4 rounded flex-shrink-0" style="outline: 2px solid #94a3b8; outline-offset: 2px;" />
+      <span>Top contributors for each repo who collectively account for ≥80% of all-time activity</span>
+    </div>
 
     </template>
   </div>
