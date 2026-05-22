@@ -97,7 +97,7 @@ function computeColMaxes(
 
 export function useContributorsTab() {
   const { dataBase } = useDataSource()
-  const timespan = ref<ContribTimespan>('all')
+  const timespan = ref<ContribTimespan>('3mo')
 
   const { data: rawData, pending } = useAsyncData<RawData>(
     () => `contributors-tab:${dataBase.value}`,
@@ -263,7 +263,9 @@ export function useContributorsTab() {
     )
 
     const rows: ContributorRow[] = withCounts
-      .filter(s => activeSetLogins.has(s.login))
+      .filter(s => activeSetLogins.has(s.login) && (
+        cutoff === null || new Date(lastActivityMap[s.login] ?? s.first_contribution_at) >= cutoff
+      ))
       .map(s => {
         const daysOld = (now - new Date(s.first_contribution_at).getTime()) / 86_400_000
         const allTimeCount = allTimeCountMap.get(s.login) ?? 0
