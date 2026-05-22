@@ -155,10 +155,10 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
           <thead>
             <!-- Row 1: set group headers -->
             <tr class="border-b border-slate-100 text-left text-xs font-medium uppercase tracking-wider text-slate-500 dark:border-slate-800">
-              <th class="sticky left-0 z-10 bg-white px-4 py-3 min-w-[200px] dark:bg-slate-950" rowspan="2">Contributor</th>
-              <th class="border-x-2 border-slate-300 bg-slate-100 px-4 py-3 text-center dark:border-slate-600 dark:bg-slate-800/60" rowspan="2">Total</th>
+              <th class="sticky left-0 z-10 bg-white px-4 py-3 min-w-[200px] dark:bg-slate-950" :rowspan="expandedSet !== '' ? 2 : 1">Contributor</th>
+              <th class="border-x-2 border-slate-300 bg-slate-100 px-4 py-3 text-center dark:border-slate-600 dark:bg-slate-800/60" :rowspan="expandedSet !== '' ? 2 : 1">Total</th>
               <th
-                v-for="s in tabData.repoSets"
+                v-for="s in tabData?.repoSets ?? []"
                 :key="s.key"
                 :colspan="expandedSet === s.key ? Math.max(1, s.repos.length) : 1"
                 class="cursor-pointer select-none border-l-2 border-slate-300 px-4 py-2 text-center transition-colors dark:border-slate-600"
