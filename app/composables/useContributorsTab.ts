@@ -173,11 +173,7 @@ export function useContributorsTab() {
           reviews.filter(r => afterCutoff(r.submitted_at)),
         )
 
-    const setDefs = [
-      { metaKey: META_REPO_CORE,     repos: coreRepos },
-      { metaKey: META_REPO_ADMIN,    repos: adminRepos },
-      { metaKey: META_REPO_ARCHIVED, repos: archivedRepos },
-    ]
+    const setDefs = repoSetInfos
 
     // Inject meta columns into each contributor's byRepo (both filtered and all-time)
     for (const s of filteredStats) {
@@ -262,10 +258,7 @@ export function useContributorsTab() {
     // Determine eligible logins using all-time data (not timespan-filtered)
     const activeSetLogins = new Set(
       allTimeStats
-        .filter(s =>
-          allIndividualRepos.some(repo => countTotal(s.by_repo[repo] ?? emptyCounts()) > 0) ||
-          allMetaKeys.some(mk => countTotal(s.by_repo[mk] ?? emptyCounts()) > 0)
-        )
+        .filter(s => countTotal(s.all_time) > 0)
         .map(s => s.login)
     )
 
