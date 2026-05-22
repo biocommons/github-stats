@@ -31,6 +31,11 @@ function columnLabel(repo: string): string {
   return repoDisplayName(repo)
 }
 
+function metaRepoLabel(metaKey: string): string {
+  const n = tabData.value?.repoSets.find(s => s.metaKey === metaKey)?.repos.length ?? 0
+  return `(${n} ${n === 1 ? 'repo' : 'repos'})`
+}
+
 function columnColor(repo: string): string {
   if (isMetaColumn(repo)) return '#64748b'
   return repoColor(repo, displayRepos.value)
@@ -76,6 +81,55 @@ const CellComponent = computed(() => cellMode.value === 'quad' ? QuadCell : Rada
 function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): ContributorCounts {
   return byRepo[repo] ?? EMPTY_COUNTS
 }
+
+function repoCountTotal(c: ContributorCounts): number {
+  return c.commits + c.issues_opened + c.prs_opened + c.reviews_submitted
+}
+
+const sortKey = ref<string>('total')
+const sortDir = ref<'asc' | 'desc'>('desc')
+
+function setSort(key: string) {
+  if (sortKey.value === key) {
+    sortDir.value = sortDir.value === 'asc' ? 'desc' : 'asc'
+  } else {
+    sortKey.value = key
+    sortDir.value = 'desc'
+  }
+}
+
+function sortIndicator(key: string): string {
+  if (sortKey.value !== key) return ''
+  return sortDir.value === 'asc' ? ' ▲' : ' ▼'
+}
+
+const sortedRows = computed(() => {
+  if (!tabData.value) return []
+  const regular = tabData.value.rows.filter(r => !r.isAnonymous)
+  const anon = tabData.value.rows.filter(r => r.isAnonymous)
+  const dir = sortDir.value === 'asc' ? 1 : -1
+  regular.sort((a, b) => {
+    switch (sortKey.value) {
+      case 'name':
+        return dir * a.login.localeCompare(b.login)
+      case 'tenure': {
+        const tA = a.first_contribution_at ? Date.now() - new Date(a.first_contribution_at).getTime() : 0
+        const tB = b.first_contribution_at ? Date.now() - new Date(b.first_contribution_at).getTime() : 0
+        return dir * (tA - tB)
+      }
+      case 'last_seen':
+        return dir * (a.last_activity_at || '').localeCompare(b.last_activity_at || '')
+      case 'total':
+        return dir * (a.totalCount - b.totalCount)
+      default: {
+        const cA = repoCountTotal(a.byRepo[sortKey.value] ?? EMPTY_COUNTS)
+        const cB = repoCountTotal(b.byRepo[sortKey.value] ?? EMPTY_COUNTS)
+        return dir * (cA - cB)
+      }
+    }
+  })
+  return [...regular, ...anon]
+})
 
 </script>
 
@@ -155,21 +209,32 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
           <thead>
             <!-- Row 1: set group headers -->
             <tr class="border-b border-slate-100 text-left text-xs font-medium uppercase tracking-wider text-slate-500 dark:border-slate-800">
-              <th class="sticky left-0 z-10 bg-white px-4 py-3 min-w-[200px] dark:bg-slate-950" :rowspan="expandedSet !== '' ? 2 : 1">Contributor</th>
-              <th class="border-x-2 border-slate-300 bg-slate-100 px-4 py-3 text-center dark:border-slate-600 dark:bg-slate-800/60" :rowspan="expandedSet !== '' ? 2 : 1">Total</th>
+              <th class="sticky left-0 z-10 bg-white px-4 py-3 min-w-[200px] dark:bg-slate-950" :rowspan="expandedSet !== '' ? 2 : 1">
+                <button class="cursor-pointer hover:text-slate-700 dark:hover:text-slate-200" @click="setSort('name')">Contributor{{ sortIndicator('name') }}</button>
+                <div class="mt-0.5 text-[10px] font-normal text-slate-400 dark:text-slate-500">
+                  <button class="hover:text-slate-600 dark:hover:text-slate-300" @click.stop="setSort('tenure')">tenure{{ sortIndicator('tenure') }}</button>
+                  <span class="mx-1">•</span>
+                  <button class="hover:text-slate-600 dark:hover:text-slate-300" @click.stop="setSort('last_seen')">last seen{{ sortIndicator('last_seen') }}</button>
+                </div>
+              </th>
+              <th class="cursor-pointer select-none border-x-2 border-slate-300 bg-slate-100 px-4 py-3 text-center transition-colors hover:text-slate-700 dark:border-slate-600 dark:bg-slate-800/60 dark:hover:text-slate-200" :rowspan="expandedSet !== '' ? 2 : 1" @click="setSort('total')">Total{{ sortIndicator('total') }}</th>
               <th
                 v-for="s in tabData?.repoSets ?? []"
                 :key="s.key"
                 :colspan="expandedSet === s.key ? Math.max(1, s.repos.length) : 1"
-                class="cursor-pointer select-none border-l-2 border-slate-300 px-4 py-2 text-center transition-colors dark:border-slate-600"
-                :class="expandedSet === s.key
-                  ? 'bg-bc-teal-500/10 text-bc-teal-600 dark:text-bc-teal-300'
-                  : 'hover:text-slate-700 dark:hover:text-slate-200'"
-                :title="expandedSet === s.key ? `Click to collapse ${s.label}` : `Click to expand ${s.label}`"
-                @click="expandedSet = expandedSet === s.key ? '' : s.key"
+                class="select-none border-l-2 border-slate-300 px-4 py-2 text-center dark:border-slate-600"
+                :class="expandedSet === s.key ? 'bg-bc-teal-500/10 text-bc-teal-600 dark:text-bc-teal-300' : ''"
               >
-                {{ s.label }}
-                <span class="ml-1 opacity-60">{{ expandedSet === s.key ? '▾' : '▸' }}</span>
+                <button
+                  class="cursor-pointer transition-colors hover:text-slate-700 dark:hover:text-slate-200"
+                  :title="`Sort by ${s.label} aggregate`"
+                  @click="setSort(s.metaKey)"
+                >{{ s.label }}{{ sortIndicator(s.metaKey) }}</button>
+                <button
+                  class="ml-1 opacity-60 hover:opacity-100"
+                  :title="expandedSet === s.key ? `Collapse ${s.label}` : `Expand ${s.label}`"
+                  @click.stop="expandedSet = expandedSet === s.key ? '' : s.key"
+                >{{ expandedSet === s.key ? '▾' : '▸' }}</button>
               </th>
             </tr>
             <!-- Row 2: individual repo headers (hidden when all sets collapsed) -->
@@ -180,17 +245,18 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
               <th
                 v-for="repo in displayRepos"
                 :key="repo"
-                class="px-4 py-2 text-center min-w-[72px]"
+                class="cursor-pointer select-none px-4 py-2 text-center min-w-[72px] transition-colors hover:text-slate-700 dark:hover:text-slate-200"
                 :class="isMetaColumn(repo) ? 'border-l-2 border-slate-300 bg-slate-50 dark:border-slate-600 dark:bg-slate-800/40' : ''"
                 :title="isMetaColumn(repo) ? `Pooled ${columnLabel(repo).toLowerCase()} repos` : repo"
+                @click="setSort(repo)"
               >
-                {{ columnLabel(repo) }}
+                {{ isMetaColumn(repo) ? metaRepoLabel(repo) : columnLabel(repo) }}{{ sortIndicator(repo) }}
               </th>
             </tr>
           </thead>
           <tbody>
             <tr
-              v-for="row in tabData.rows"
+              v-for="row in sortedRows"
               :key="row.login"
               class="border-b border-slate-100 transition-colors hover:bg-slate-50 dark:border-slate-800/60 dark:hover:bg-slate-800/30"
             >
@@ -226,7 +292,7 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
                         <span v-if="row.isNew" title="New contributor — first contribution &lt;90 days ago" class="text-base leading-none">🌱</span>
                       </div>
                       <div v-if="row.first_contribution_at" class="mt-0.5 text-[10px] text-slate-400 dark:text-slate-500">
-                        active: {{ formatActiveSpan(row.first_contribution_at, row.last_activity_at) }}; last: {{ formatRelative(row.last_activity_at) }}
+                        active {{ formatActiveSpan(row.first_contribution_at, row.last_activity_at) }} • last {{ formatRelative(row.last_activity_at) }}
                       </div>
                     </div>
                   </template>
