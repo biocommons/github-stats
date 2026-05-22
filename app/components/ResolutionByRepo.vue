@@ -29,9 +29,6 @@ const repos = computed(() =>
 
 const allWindow = computed(() => props.resolutionWindows.all)
 
-const activeRows = computed(() =>
-  showOpen.value ? allWindow.value?.resolutionRowsWithOpen : allWindow.value?.resolutionRows
-)
 
 function repoTotal(repo: string): number {
   const closed = allWindow.value?.perRepo[repo]?.totalClosed ?? 0
@@ -87,10 +84,6 @@ function openBucketCount(repo: string, bucket: ResolutionBucket): number {
   return withOpen - closedBucketCount(repo, bucket)
 }
 
-// Used by tooltip (total = closed + open)
-function bucketCount(repo: string, bucket: ResolutionBucket): number {
-  return activeRows.value?.find(r => r.bucket === bucket)?.byRepo[repo] ?? 0
-}
 
 function closedFracPct(repo: string, bucket: ResolutionBucket): number {
   const total = repoTotal(repo)
@@ -136,21 +129,33 @@ const tooltipX = ref(0)
 const tooltipY = ref(0)
 
 function tooltipRows(repo: string) {
-  if (repo === ALL_REPOS_KEY) {
-    const totalClosed = allWindow.value?.totalClosed ?? 0
-    const totalOpen = showOpen.value ? (allWindow.value?.totalOpen ?? 0) : 0
-    const total = totalClosed + totalOpen
-    return RESOLUTION_BUCKETS.map(bucket => {
-      const count = activeRows.value?.find(r => r.bucket === bucket)?.total ?? 0
-      const pct = total > 0 ? (count / total) * 100 : 0
-      return { bucket, count, pct, color: BUCKET_COLORS[bucket] }
-    })
-  }
-  const total = repoTotal(repo)
+  const totalClosed = repo === ALL_REPOS_KEY
+    ? (allWindow.value?.totalClosed ?? 0)
+    : (allWindow.value?.resolutionRows.reduce((s, r) => s + (r.byRepo[repo] ?? 0), 0) ?? 0)
+  const totalOpen = showOpen.value
+    ? (repo === ALL_REPOS_KEY
+        ? (allWindow.value?.totalOpen ?? 0)
+        : (allWindow.value?.openByRepo[repo] ?? 0))
+    : 0
+  const total = totalClosed + totalOpen
+
   return RESOLUTION_BUCKETS.map(bucket => {
-    const count = bucketCount(repo, bucket)
-    const pct = total > 0 ? (count / total) * 100 : 0
-    return { bucket, count, pct, color: BUCKET_COLORS[bucket] }
+    const closed = repo === ALL_REPOS_KEY
+      ? (allWindow.value?.resolutionRows.find(r => r.bucket === bucket)?.total ?? 0)
+      : closedBucketCount(repo, bucket)
+    const open = showOpen.value
+      ? (repo === ALL_REPOS_KEY
+          ? ((allWindow.value?.resolutionRowsWithOpen.find(r => r.bucket === bucket)?.total ?? 0) - closed)
+          : openBucketCount(repo, bucket))
+      : 0
+    return {
+      bucket,
+      color: BUCKET_COLORS[bucket],
+      closedCount: closed,
+      closedPct: total > 0 ? (closed / total) * 100 : 0,
+      openCount: open,
+      openPct: total > 0 ? (open / total) * 100 : 0,
+    }
   })
 }
 
@@ -203,9 +208,9 @@ function updatePos(event: MouseEvent) {
       <table class="w-full text-sm">
         <thead>
           <tr class="border-b border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900/60">
-            <th class="px-4 py-3 text-left font-medium text-slate-500 dark:text-slate-400">Repo</th>
+            <th class="w-px pl-4 pr-1 py-3 text-left font-medium text-slate-500 dark:text-slate-400">Repo</th>
             <th
-              class="w-px px-4 py-3 text-right font-medium text-slate-500 dark:text-slate-400"
+              class="w-px pl-1 pr-4 py-3 text-right font-medium text-slate-500 dark:text-slate-400"
               title="Currently open items — not yet closed or merged."
             >Open</th>
             <th
@@ -226,13 +231,13 @@ function updatePos(event: MouseEvent) {
             :key="repo"
             class="border-b border-slate-100 last:border-0 hover:bg-slate-50 dark:border-slate-800/50 dark:hover:bg-slate-800/30"
           >
-            <td class="px-4 py-2">
+            <td class="w-px pl-4 pr-1 py-2">
               <span
                 class="inline-block rounded-full border px-2.5 py-0.5 text-sm font-medium"
                 :style="{ borderColor: repoColor(repo, allRepos), background: repoColor(repo, allRepos) + 'bf', color: contrastColor(repoColor(repo, allRepos), 0.75) }"
               >{{ repoDisplayName(repo) }}</span>
             </td>
-            <td class="w-px px-4 py-2 text-right tabular-nums">
+            <td class="w-px pl-1 pr-4 py-2 text-right tabular-nums">
               <a
                 :href="openIssuesUrl(repo)"
                 target="_blank"
@@ -284,8 +289,8 @@ function updatePos(event: MouseEvent) {
         </tbody>
         <tfoot>
           <tr class="border-t-2 border-slate-200 bg-slate-50 dark:border-slate-700 dark:bg-slate-900/40">
-            <td class="px-4 py-2 text-sm font-semibold text-slate-600 dark:text-slate-300">All repos</td>
-            <td class="w-px px-4 py-2 text-right tabular-nums font-semibold text-slate-600 dark:text-slate-300">
+            <td class="w-px pl-4 pr-1 py-2 text-sm font-semibold text-slate-600 dark:text-slate-300">All repos</td>
+            <td class="w-px pl-1 pr-4 py-2 text-right tabular-nums font-semibold text-slate-600 dark:text-slate-300">
               {{ (allWindow?.totalOpen ?? 0).toLocaleString() }}
             </td>
             <td class="w-px px-4 py-1">
@@ -361,15 +366,29 @@ function updatePos(event: MouseEvent) {
       :style="{ left: `${tooltipX}px`, top: `${tooltipY}px` }"
     >
       <p class="mb-2 text-xs font-semibold text-slate-700 dark:text-slate-300">{{ hoveredRepo === ALL_REPOS_KEY ? 'All repos' : repoDisplayName(hoveredRepo!) }}</p>
-      <table class="w-full text-xs">
+      <table class="text-xs">
+        <thead>
+          <tr>
+            <th class="pb-1 text-left font-normal text-slate-400 dark:text-slate-500">Bucket</th>
+            <th colspan="3" class="pb-1 text-center font-medium text-slate-600 dark:text-slate-300">Closed</th>
+            <th v-if="showOpen" colspan="3" class="pb-1 pl-3 text-center font-medium text-slate-600 dark:text-slate-300">Open</th>
+          </tr>
+        </thead>
         <tbody>
           <tr v-for="row in tooltipRows(hoveredRepo)" :key="row.bucket">
-            <td class="py-0.5 pr-2">
+            <td class="py-0.5 pr-3 text-slate-500 dark:text-slate-400">{{ row.bucket }}</td>
+            <td class="py-0.5 pr-1">
               <span class="inline-block h-2 w-3 rounded-sm" :style="{ background: row.color }" />
             </td>
-            <td class="py-0.5 pr-3 text-slate-500 dark:text-slate-400">{{ row.bucket }}</td>
-            <td class="py-0.5 pr-3 text-right tabular-nums text-slate-800 dark:text-slate-200">{{ row.count.toLocaleString() }}</td>
-            <td class="py-0.5 text-right tabular-nums text-slate-400 dark:text-slate-500">{{ row.pct.toFixed(0) }}%</td>
+            <td class="py-0.5 pr-1 text-right tabular-nums text-slate-800 dark:text-slate-200">{{ row.closedCount.toLocaleString() }}</td>
+            <td class="py-0.5 pr-3 text-right tabular-nums text-slate-400 dark:text-slate-500">{{ row.closedPct.toFixed(0) }}%</td>
+            <template v-if="showOpen">
+              <td class="py-0.5 pl-3 pr-1">
+                <span class="inline-block h-2 w-3 rounded-sm" :style="{ background: row.color, ...HATCH_STYLE }" />
+              </td>
+              <td class="py-0.5 pr-1 text-right tabular-nums text-slate-800 dark:text-slate-200">{{ row.openCount.toLocaleString() }}</td>
+              <td class="py-0.5 text-right tabular-nums text-slate-400 dark:text-slate-500">{{ row.openPct.toFixed(0) }}%</td>
+            </template>
           </tr>
         </tbody>
       </table>
