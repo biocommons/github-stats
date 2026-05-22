@@ -1,38 +1,39 @@
 <script setup lang="ts">
 import { useContributorsTab } from '~/composables/useContributorsTab'
 import type { FlowTimespan as ContribTimespan } from '~/composables/useFlowStats'
-import { repoColor, repoDisplayName, META_REPO_ADMIN, META_REPO_CORE } from '~/config'
+import { repoColor, repoDisplayName } from '~/config'
 import type { ContributorCounts } from '~/composables/useContributorStats'
 import QuadCell from '~/components/QuadCell.vue'
 import RadarCell from '~/components/RadarCell.vue'
 
+const { tabData, timespan, isLoading } = useContributorsTab()
 
-const { tabData, timespan, repoSet, isLoading } = useContributorsTab()
+const expandedSet = ref<string>('core')
 
-const route = useRoute()
-const router = useRouter()
-
-watch(() => route.query.set, (val) => {
-  repoSet.value = val === 'admin' ? 'admin' : 'core'
-}, { immediate: true })
-
-watch(repoSet, (s) => {
-  router.replace({ query: { ...route.query, set: s === 'core' ? undefined : s } })
+const displayRepos = computed(() => {
+  if (!tabData.value) return []
+  return tabData.value.repoSets.flatMap(s =>
+    expandedSet.value === s.key ? s.repos : [s.metaKey]
+  )
 })
 
+const allMetaKeys = computed(() =>
+  tabData.value?.repoSets.map(s => s.metaKey) ?? []
+)
+
 function isMetaColumn(repo: string): boolean {
-  return repo === META_REPO_ADMIN || repo === META_REPO_CORE
+  return allMetaKeys.value.includes(repo)
 }
 
 function columnLabel(repo: string): string {
-  if (repo === META_REPO_ADMIN) return 'Admin'
-  if (repo === META_REPO_CORE) return 'Core'
+  const set = tabData.value?.repoSets.find(s => s.metaKey === repo)
+  if (set) return set.label
   return repoDisplayName(repo)
 }
 
-function columnColor(repo: string, repos: string[]): string {
+function columnColor(repo: string): string {
   if (isMetaColumn(repo)) return '#64748b'
-  return repoColor(repo, repos)
+  return repoColor(repo, displayRepos.value)
 }
 
 function formatActiveSpan(first: string, last: string): string {
@@ -83,26 +84,6 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
     <!-- Toolbar: repo set + timespan left, cell-mode toggle right -->
     <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
       <div class="flex flex-wrap items-center gap-3">
-        <!-- Repo set toggle -->
-        <div class="flex items-center gap-2">
-          <span class="text-xs font-medium uppercase tracking-wider text-slate-500">Repos</span>
-          <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs font-medium dark:border-slate-700 dark:bg-slate-900">
-            <button
-              class="rounded-full px-3 py-1 transition-colors"
-              :class="repoSet === 'core'
-                ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300'
-                : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
-              @click="repoSet = 'core'"
-            >Core</button>
-            <button
-              class="rounded-full px-3 py-1 transition-colors"
-              :class="repoSet === 'admin'
-                ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300'
-                : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
-              @click="repoSet = 'admin'"
-            >Admin</button>
-          </div>
-        </div>
         <!-- Timespan toggle -->
         <div class="flex items-center gap-2">
           <span class="text-xs font-medium uppercase tracking-wider text-slate-500">Timespan</span>
@@ -172,17 +153,36 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
       <div class="overflow-x-auto rounded-lg border border-slate-200 dark:border-slate-800">
         <table class="w-full text-sm">
           <thead>
-            <tr class="border-b border-slate-200 text-left text-xs font-medium uppercase tracking-wider text-slate-500 dark:border-slate-800">
-              <th class="sticky left-0 z-10 bg-white px-4 py-3 min-w-[200px] dark:bg-slate-950">Contributor</th>
-              <th class="border-x-2 border-slate-300 bg-slate-100 px-4 py-3 text-center dark:border-slate-600 dark:bg-slate-800/60">Total</th>
+            <!-- Row 1: set group headers -->
+            <tr class="border-b border-slate-100 text-left text-xs font-medium uppercase tracking-wider text-slate-500 dark:border-slate-800">
+              <th class="sticky left-0 z-10 bg-white px-4 py-3 min-w-[200px] dark:bg-slate-950" rowspan="2">Contributor</th>
+              <th class="border-x-2 border-slate-300 bg-slate-100 px-4 py-3 text-center dark:border-slate-600 dark:bg-slate-800/60" rowspan="2">Total</th>
               <th
-                v-for="repo in tabData.repos"
+                v-for="s in tabData.repoSets"
+                :key="s.key"
+                :colspan="expandedSet === s.key ? Math.max(1, s.repos.length) : 1"
+                class="cursor-pointer select-none border-l-2 border-slate-300 px-4 py-2 text-center transition-colors dark:border-slate-600"
+                :class="expandedSet === s.key
+                  ? 'bg-bc-teal-500/10 text-bc-teal-600 dark:text-bc-teal-300'
+                  : 'hover:text-slate-700 dark:hover:text-slate-200'"
+                :title="expandedSet === s.key ? `Click to collapse ${s.label}` : `Click to expand ${s.label}`"
+                @click="expandedSet = expandedSet === s.key ? '' : s.key"
+              >
+                {{ s.label }}
+                <span class="ml-1 opacity-60">{{ expandedSet === s.key ? '▾' : '▸' }}</span>
+              </th>
+            </tr>
+            <!-- Row 2: individual repo headers (hidden when all sets collapsed) -->
+            <tr
+              v-if="expandedSet !== ''"
+              class="border-b border-slate-200 text-left text-xs font-medium uppercase tracking-wider text-slate-400 dark:border-slate-800"
+            >
+              <th
+                v-for="repo in displayRepos"
                 :key="repo"
-                class="px-4 py-3 text-center min-w-[72px]"
-                :class="isMetaColumn(repo) ? 'border-l-2 border-slate-300 dark:border-slate-600' : ''"
-                :title="isMetaColumn(repo)
-                  ? (repo === META_REPO_ADMIN ? 'Pooled admin repos' : 'Pooled core repos')
-                  : repo"
+                class="px-4 py-2 text-center min-w-[72px]"
+                :class="isMetaColumn(repo) ? 'border-l-2 border-slate-300 bg-slate-50 dark:border-slate-600 dark:bg-slate-800/40' : ''"
+                :title="isMetaColumn(repo) ? `Pooled ${columnLabel(repo).toLowerCase()} repos` : repo"
               >
                 {{ columnLabel(repo) }}
               </th>
@@ -242,17 +242,17 @@ function repoCounts(byRepo: Record<string, ContributorCounts>, repo: string): Co
 
               <!-- Per-repo cells -->
               <td
-                v-for="repo in tabData.repos"
+                v-for="repo in displayRepos"
                 :key="repo"
                 class="px-4 py-2"
-                :class="isMetaColumn(repo) ? 'border-l-2 border-slate-300 dark:border-slate-600' : ''"
+                :class="isMetaColumn(repo) ? 'border-l-2 border-slate-300 bg-slate-50/50 dark:border-slate-600 dark:bg-slate-800/20' : ''"
               >
                 <div class="flex justify-center">
                   <component
                     :is="CellComponent"
                     :counts="repoCounts(row.byRepo, repo)"
                     :maxes="tabData.colMaxes[repo]!"
-                    :ring-color="row.expertRepos.has(repo) ? columnColor(repo, tabData.repos) : undefined"
+                    :ring-color="row.expertRepos.has(repo) ? columnColor(repo) : undefined"
                   />
                 </div>
               </td>
