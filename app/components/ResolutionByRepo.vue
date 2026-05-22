@@ -176,21 +176,6 @@ function updatePos(event: MouseEvent) {
       </table>
     </div>
 
-    <!-- Aggregate summary -->
-    <div class="flex flex-wrap gap-8 rounded-lg border border-slate-200 bg-slate-50 px-6 py-4 dark:border-slate-800 dark:bg-slate-900/60">
-      <div>
-        <p class="mb-0.5 text-xs uppercase tracking-wide text-slate-500">Total {{ closedLabel }}</p>
-        <p class="text-2xl font-semibold text-slate-700 dark:text-slate-200">{{ stats.totalClosed.toLocaleString() }}</p>
-      </div>
-      <div>
-        <p class="mb-0.5 text-xs uppercase tracking-wide text-slate-500">Median</p>
-        <p class="text-2xl font-semibold text-slate-700 dark:text-slate-200">{{ formatDays(stats.medianDays) }}</p>
-      </div>
-      <div :title="`90% of ${closedLabel} resolved within this many days`">
-        <p class="mb-0.5 text-xs uppercase tracking-wide text-slate-500">p90 <span class="normal-case text-slate-400 dark:text-slate-500">ⓘ</span></p>
-        <p class="text-2xl font-semibold text-slate-700 dark:text-slate-200">{{ formatDays(stats.p90Days) }}</p>
-      </div>
-    </div>
   </div>
 
   <!-- Tooltip -->
