@@ -129,18 +129,10 @@ function updatePos(event: MouseEvent) {
     </div>
 
     <!-- Toggle -->
-    <div class="flex items-center rounded-full border border-slate-200 bg-slate-50 p-0.5 text-xs font-medium dark:border-slate-700 dark:bg-slate-900">
-      <button
-        class="rounded-full px-3 py-1 transition-colors"
-        :class="showOpen ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
-        @click="showOpen = true"
-      >open + closed</button>
-      <button
-        class="rounded-full px-3 py-1 transition-colors"
-        :class="!showOpen ? 'bg-bc-teal-500/20 text-bc-teal-600 dark:text-bc-teal-300' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'"
-        @click="showOpen = false"
-      >closed only</button>
-    </div>
+    <label class="flex cursor-pointer items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+      <input type="checkbox" v-model="showOpen" class="accent-bc-teal-500" />
+      Include open issues
+    </label>
 
     <div class="overflow-x-auto rounded-lg border border-slate-200 dark:border-slate-800">
       <table class="w-full text-sm">
