@@ -313,7 +313,14 @@ class DataCollector:
                 f"Slug '{repo}' resolved to GitHub name '{repo_key}' — using canonical name as key."
             )
 
-        if self.prev_collected_at and repo_data["updated_at"] <= self.prev_collected_at:
+        already_collected = any(
+            item["name"] == repo_key for item in self.prev_data.get("repos.json", [])
+        )
+        if (
+            already_collected
+            and self.prev_collected_at
+            and (repo_data["updated_at"] <= self.prev_collected_at)
+        ):
             logger.info(
                 f"Skipping {owner}/{repo_key}: updated_at={repo_data['updated_at']}"
                 f" <= collected_at={self.prev_collected_at}"
