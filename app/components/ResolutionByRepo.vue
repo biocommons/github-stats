@@ -160,8 +160,10 @@ function tooltipRows(repo: string) {
 }
 
 function openIssuesUrl(repo: string): string {
-  const kind = props.itemLabel === 'PRs' ? 'is:pr' : 'is:issue'
-  return `https://github.com/${GITHUB_ORG}/${repo}/issues?q=is:open+${kind}`
+  if (props.itemLabel === 'PRs') {
+    return `https://github.com/${GITHUB_ORG}/${repo}/pulls?q=is:open`
+  }
+  return `https://github.com/${GITHUB_ORG}/${repo}/issues?q=is:open+is:issue`
 }
 
 function onBarEnter(repo: string, event: MouseEvent) {

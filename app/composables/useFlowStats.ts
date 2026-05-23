@@ -335,11 +335,11 @@ export function computeFlowStats(records: FlowRecord[], granularity: TimeBucket,
 
 // Raw API shapes — only the fields we need
 interface RawIssue { repo: string; created_at: string; closed_at: string | null }
-interface RawPR { repo: string; created_at: string; merged_at: string | null }
+interface RawPR { repo: string; created_at: string; merged_at: string | null; closed_at: string | null }
 
 function toFlowRecords(kind: FlowKind, data: unknown[]): FlowRecord[] {
   if (kind === 'prs') {
-    return (data as RawPR[]).map(r => ({ repo: r.repo, created_at: r.created_at, closed_at: r.merged_at }))
+    return (data as RawPR[]).map(r => ({ repo: r.repo, created_at: r.created_at, closed_at: r.merged_at ?? r.closed_at }))
   }
   return (data as RawIssue[]).map(r => ({ repo: r.repo, created_at: r.created_at, closed_at: r.closed_at }))
 }
