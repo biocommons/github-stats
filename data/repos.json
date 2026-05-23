@@ -1,5 +1,21 @@
 [
   {
+    "name": ".github",
+    "full_name": "biocommons/.github",
+    "html_url": "https://github.com/biocommons/.github",
+    "description": "Organization-wide GitHub configuration",
+    "stargazers_count": 2,
+    "forks_count": 0,
+    "open_issues_count": 1,
+    "open_pr_count": 0,
+    "contributors": 2,
+    "latest_release": null,
+    "updated_at": "2026-02-10T21:39:27Z",
+    "default_branch": "main",
+    "private": false,
+    "archived": false
+  },
+  {
     "name": "anyvar",
     "full_name": "biocommons/anyvar",
     "html_url": "https://github.com/biocommons/anyvar",
@@ -30,6 +46,25 @@
     "contributors": 6,
     "latest_release": null,
     "updated_at": "2026-05-23T05:52:51Z",
+    "default_branch": "main",
+    "private": false,
+    "archived": false
+  },
+  {
+    "name": "biocommons.seqrepo",
+    "full_name": "biocommons/biocommons.seqrepo",
+    "html_url": "https://github.com/biocommons/biocommons.seqrepo",
+    "description": "non-redundant, compressed, journalled, file-based storage for biological sequences",
+    "stargazers_count": 51,
+    "forks_count": 36,
+    "open_issues_count": 12,
+    "open_pr_count": 0,
+    "contributors": 19,
+    "latest_release": {
+      "tag_name": "0.6.11",
+      "published_at": "2025-03-19T13:40:21Z"
+    },
+    "updated_at": "2026-05-20T22:08:15Z",
     "default_branch": "main",
     "private": false,
     "archived": false
