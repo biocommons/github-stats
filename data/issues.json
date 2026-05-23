@@ -3108,13 +3108,13 @@
     "number": 28,
     "repo": "biocommons.github.io",
     "created_at": "2026-05-17T18:11:29Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-05-23T05:53:23Z",
+    "state": "closed",
     "author_login": "reece",
     "labels": [
       "enhancement"
     ],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 171728534,

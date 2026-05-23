@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-05-23T05:38:54.373749+00:00",
+  "collected_at": "2026-05-23T08:25:02.908598+00:00",
   "schema_version": "1.2",
   "repos": [
     ".github",
@@ -16,6 +16,6 @@
     "seqrepo-rest-service",
     "uta"
   ],
-  "run_trigger": "workflow_dispatch",
-  "collection_duration_ms": 61910
+  "run_trigger": "schedule",
+  "collection_duration_ms": 60197
 }
