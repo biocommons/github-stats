@@ -169,12 +169,12 @@ function updatePos(event: MouseEvent) {
     >
       <table class="text-xs">
         <tr>
-          <th class="px-2.5 pt-2 pb-0.5 font-medium text-slate-400 dark:text-slate-500" />
+          <th class="px-2.5 pt-2 pb-0.5 font-medium text-slate-400 dark:text-slate-500 underline">Opened:</th>
           <th
             v-for="label in WINDOW_LABELS"
             :key="label"
-            class="px-2.5 pt-2 pb-0.5 font-medium text-slate-400 dark:text-slate-500"
-          >{{ label }}</th>
+            class="px-2.5 pt-2 pb-0.5 font-medium text-slate-400 dark:text-slate-500 underline"
+          >{{ label === 'All' ? label : `≤${label}` }}</th>
         </tr>
         <tr>
           <td class="px-2 pb-1 pt-0.5 text-slate-500 dark:text-slate-400">Closed</td>
