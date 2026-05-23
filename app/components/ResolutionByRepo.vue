@@ -233,7 +233,7 @@ function updatePos(event: MouseEvent) {
           >
             <td class="w-px pl-4 pr-1 py-2">
               <span
-                class="inline-block rounded-full border px-2.5 py-0.5 text-sm font-medium"
+                class="inline-block whitespace-nowrap rounded-full border px-2.5 py-0.5 text-sm font-medium"
                 :style="{ borderColor: repoColor(repo, allRepos), background: repoColor(repo, allRepos) + 'bf', color: contrastColor(repoColor(repo, allRepos), 0.75) }"
               >{{ repoDisplayName(repo) }}</span>
             </td>
