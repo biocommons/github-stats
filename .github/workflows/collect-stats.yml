@@ -2,8 +2,8 @@ name: Collect and publish stats JSON
 
 on:
   schedule:
-    # Run hourly at the top of the hour
-    - cron: '0 * * * *'
+    # Run every 30 minutes
+    - cron: '0,30 * * * *'
   workflow_dispatch:
   repository_dispatch:
     types:
