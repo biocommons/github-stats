@@ -4191,6 +4191,28 @@
     "draft": false
   },
   {
+    "id": 3733861283,
+    "number": 26,
+    "repo": "github-stats",
+    "created_at": "2026-05-23T04:41:50Z",
+    "closed_at": "2026-05-23T04:42:31Z",
+    "merged_at": "2026-05-23T04:42:31Z",
+    "state": "closed",
+    "author_login": "reece",
+    "draft": false
+  },
+  {
+    "id": 3733889350,
+    "number": 27,
+    "repo": "github-stats",
+    "created_at": "2026-05-23T04:58:06Z",
+    "closed_at": "2026-05-23T05:32:47Z",
+    "merged_at": "2026-05-23T05:32:47Z",
+    "state": "closed",
+    "author_login": "reece",
+    "draft": false
+  },
+  {
     "id": 110323612,
     "number": 402,
     "repo": "hgvs",

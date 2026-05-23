@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-05-23T03:23:52.847055+00:00",
+  "collected_at": "2026-05-23T05:38:54.373749+00:00",
   "schema_version": "1.2",
   "repos": [
     ".github",
@@ -16,22 +16,6 @@
     "seqrepo-rest-service",
     "uta"
   ],
-  "collected_repos": [
-    ".github",
-    "anyvar",
-    "biocommons.github.io",
-    "biocommons.seqrepo",
-    "bioutils",
-    "eutils",
-    "github-stats",
-    "hgvs",
-    "hgvs-eval",
-    "infra",
-    "python-package",
-    "seqrepo-rest-service",
-    "uta"
-  ],
-  "skipped_repos": [],
-  "run_trigger": "schedule",
-  "collection_duration_ms": 60850
+  "run_trigger": "workflow_dispatch",
+  "collection_duration_ms": 61910
 }
