@@ -1,40 +1,5 @@
 [
   {
-    "name": ".github",
-    "full_name": "biocommons/.github",
-    "html_url": "https://github.com/biocommons/.github",
-    "description": "Organization-wide GitHub configuration",
-    "stargazers_count": 2,
-    "forks_count": 0,
-    "open_issues_count": 1,
-    "open_pr_count": 0,
-    "contributors": 2,
-    "latest_release": null,
-    "updated_at": "2026-02-10T21:39:27Z",
-    "default_branch": "main",
-    "private": false,
-    "archived": false
-  },
-  {
-    "name": "anyvar",
-    "full_name": "biocommons/anyvar",
-    "html_url": "https://github.com/biocommons/anyvar",
-    "description": "Lightweight, portable variation registration and retrieval",
-    "stargazers_count": 16,
-    "forks_count": 6,
-    "open_issues_count": 38,
-    "open_pr_count": 3,
-    "contributors": 14,
-    "latest_release": {
-      "tag_name": "1.0.0",
-      "published_at": "2026-02-06T19:03:02Z"
-    },
-    "updated_at": "2026-05-22T12:57:42Z",
-    "default_branch": "main",
-    "private": false,
-    "archived": false
-  },
-  {
     "name": "biocommons.github.io",
     "full_name": "biocommons/biocommons.github.io",
     "html_url": "https://github.com/biocommons/biocommons.github.io",
@@ -46,25 +11,6 @@
     "contributors": 6,
     "latest_release": null,
     "updated_at": "2026-05-23T05:52:51Z",
-    "default_branch": "main",
-    "private": false,
-    "archived": false
-  },
-  {
-    "name": "biocommons.seqrepo",
-    "full_name": "biocommons/biocommons.seqrepo",
-    "html_url": "https://github.com/biocommons/biocommons.seqrepo",
-    "description": "non-redundant, compressed, journalled, file-based storage for biological sequences",
-    "stargazers_count": 51,
-    "forks_count": 36,
-    "open_issues_count": 12,
-    "open_pr_count": 0,
-    "contributors": 19,
-    "latest_release": {
-      "tag_name": "0.6.11",
-      "published_at": "2025-03-19T13:40:21Z"
-    },
-    "updated_at": "2026-05-20T22:08:15Z",
     "default_branch": "main",
     "private": false,
     "archived": false
@@ -124,41 +70,6 @@
     "archived": false
   },
   {
-    "name": "hgvs",
-    "full_name": "biocommons/hgvs",
-    "html_url": "https://github.com/biocommons/hgvs",
-    "description": "Python library to parse, format, validate, normalize, and map sequence variants according to HGVS Nomenclature (https://hgvs-nomenclature.org/).",
-    "stargazers_count": 288,
-    "forks_count": 97,
-    "open_issues_count": 46,
-    "open_pr_count": 6,
-    "contributors": 40,
-    "latest_release": {
-      "tag_name": "1.5.7",
-      "published_at": "2026-03-17T05:35:35Z"
-    },
-    "updated_at": "2026-05-17T08:57:15Z",
-    "default_branch": "main",
-    "private": false,
-    "archived": false
-  },
-  {
-    "name": "hgvs-eval",
-    "full_name": "biocommons/hgvs-eval",
-    "html_url": "https://github.com/biocommons/hgvs-eval",
-    "description": "automated evaluation suite to assess tools that manipulate HGVS formatted variants",
-    "stargazers_count": 4,
-    "forks_count": 4,
-    "open_issues_count": 1,
-    "open_pr_count": 0,
-    "contributors": 6,
-    "latest_release": null,
-    "updated_at": "2024-02-01T05:59:05Z",
-    "default_branch": "main",
-    "private": false,
-    "archived": false
-  },
-  {
     "name": "python-package",
     "full_name": "biocommons/python-package",
     "html_url": "https://github.com/biocommons/python-package",
@@ -173,41 +84,6 @@
       "published_at": "2025-08-31T20:43:00Z"
     },
     "updated_at": "2026-05-13T15:53:19Z",
-    "default_branch": "main",
-    "private": false,
-    "archived": false
-  },
-  {
-    "name": "seqrepo-rest-service",
-    "full_name": "biocommons/seqrepo-rest-service",
-    "html_url": "https://github.com/biocommons/seqrepo-rest-service",
-    "description": "OpenAPI-based REST interface to biological sequences and sequence metadata",
-    "stargazers_count": 6,
-    "forks_count": 6,
-    "open_issues_count": 2,
-    "open_pr_count": 0,
-    "contributors": 9,
-    "latest_release": {
-      "tag_name": "0.2.2",
-      "published_at": "2023-11-14T19:59:54Z"
-    },
-    "updated_at": "2025-10-13T16:07:54Z",
-    "default_branch": "main",
-    "private": false,
-    "archived": false
-  },
-  {
-    "name": "uta",
-    "full_name": "biocommons/uta",
-    "html_url": "https://github.com/biocommons/uta",
-    "description": "Universal Transcript Archive: comprehensive genome-transcript alignments; multiple transcript sources, versions, and alignment methods; available as a docker image",
-    "stargazers_count": 71,
-    "forks_count": 25,
-    "open_issues_count": 26,
-    "open_pr_count": 0,
-    "contributors": 14,
-    "latest_release": null,
-    "updated_at": "2026-03-03T20:50:51Z",
     "default_branch": "main",
     "private": false,
     "archived": false
