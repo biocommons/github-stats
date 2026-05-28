@@ -16,6 +16,25 @@
     "archived": false
   },
   {
+    "name": "anyvar",
+    "full_name": "biocommons/anyvar",
+    "html_url": "https://github.com/biocommons/anyvar",
+    "description": "Lightweight, portable variation registration and retrieval",
+    "stargazers_count": 16,
+    "forks_count": 6,
+    "open_issues_count": 38,
+    "open_pr_count": 5,
+    "contributors": 14,
+    "latest_release": {
+      "tag_name": "1.0.0",
+      "published_at": "2026-02-06T19:03:02Z"
+    },
+    "updated_at": "2026-05-22T12:57:42Z",
+    "default_branch": "main",
+    "private": false,
+    "archived": false
+  },
+  {
     "name": "biocommons.github.io",
     "full_name": "biocommons/biocommons.github.io",
     "html_url": "https://github.com/biocommons/biocommons.github.io",
@@ -110,7 +129,7 @@
     "html_url": "https://github.com/biocommons/hgvs",
     "description": "Python library to parse, format, validate, normalize, and map sequence variants according to HGVS Nomenclature (https://hgvs-nomenclature.org/).",
     "stargazers_count": 290,
-    "forks_count": 97,
+    "forks_count": 98,
     "open_issues_count": 46,
     "open_pr_count": 6,
     "contributors": 40,
