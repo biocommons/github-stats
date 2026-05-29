@@ -3025,12 +3025,36 @@
     "number": 471,
     "repo": "anyvar",
     "created_at": "2026-05-29T13:42:27Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-05-29T14:42:00Z",
+    "state": "closed",
     "author_login": "ehclark",
     "labels": [
       "bug"
     ],
+    "closed_by": "ehclark"
+  },
+  {
+    "id": 4549490027,
+    "number": 473,
+    "repo": "anyvar",
+    "created_at": "2026-05-29T15:07:31Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "ehclark",
+    "labels": [
+      "enhancement"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 4550296663,
+    "number": 475,
+    "repo": "anyvar",
+    "created_at": "2026-05-29T17:17:30Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "jsstevenson",
+    "labels": [],
     "closed_by": null
   },
   {
