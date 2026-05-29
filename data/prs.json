@@ -6523,6 +6523,17 @@
     "draft": false
   },
   {
+    "id": 3771771062,
+    "number": 88,
+    "repo": "python-package",
+    "created_at": "2026-05-29T21:41:09Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
     "id": 785033053,
     "number": 6,
     "repo": "seqrepo-rest-service",
