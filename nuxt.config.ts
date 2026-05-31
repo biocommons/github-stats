@@ -13,11 +13,6 @@ export default defineNuxtConfig({
     },
   },
   $development: {
-    runtimeConfig: {
-      public: {
-        dataBase: '/data',
-      },
-    },
     nitro: {
       publicAssets: [{ dir: new URL('./data', import.meta.url).pathname, baseURL: '/data' }],
     },
