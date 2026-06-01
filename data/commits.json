@@ -2225,8 +2225,23 @@
     "repo": "anyvar"
   },
   {
+    "author_login": "jsstevenson",
+    "author_date": "2026-05-28T15:15:38Z",
+    "repo": "anyvar"
+  },
+  {
     "author_login": "ehclark",
     "author_date": "2026-05-29T14:41:58Z",
+    "repo": "anyvar"
+  },
+  {
+    "author_login": "jsstevenson",
+    "author_date": "2026-05-29T18:32:19Z",
+    "repo": "anyvar"
+  },
+  {
+    "author_login": "jsstevenson",
+    "author_date": "2026-06-01T13:28:34Z",
     "repo": "anyvar"
   },
   {
@@ -20267,6 +20282,46 @@
   {
     "author_login": "korikuzma",
     "author_date": "2026-05-13T15:53:13Z",
+    "repo": "python-package"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-05-19T20:55:52Z",
+    "repo": "python-package"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-05-19T21:51:57Z",
+    "repo": "python-package"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-05-29T21:41:08Z",
+    "repo": "python-package"
+  },
+  {
+    "author_login": "korikuzma",
+    "author_date": "2026-06-01T18:08:31Z",
+    "repo": "python-package"
+  },
+  {
+    "author_login": "korikuzma",
+    "author_date": "2026-06-01T18:08:49Z",
+    "repo": "python-package"
+  },
+  {
+    "author_login": "korikuzma",
+    "author_date": "2026-06-01T18:10:06Z",
+    "repo": "python-package"
+  },
+  {
+    "author_login": "korikuzma",
+    "author_date": "2026-06-01T18:10:27Z",
+    "repo": "python-package"
+  },
+  {
+    "author_login": "korikuzma",
+    "author_date": "2026-06-01T18:17:32Z",
     "repo": "python-package"
   },
   {
