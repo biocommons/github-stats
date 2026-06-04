@@ -22,14 +22,14 @@
     "description": "Lightweight, portable variation registration and retrieval",
     "stargazers_count": 16,
     "forks_count": 6,
-    "open_issues_count": 39,
-    "open_pr_count": 5,
+    "open_issues_count": 38,
+    "open_pr_count": 4,
     "contributors": 14,
     "latest_release": {
       "tag_name": "1.0.0",
       "published_at": "2026-02-06T19:03:02Z"
     },
-    "updated_at": "2026-06-01T13:36:30Z",
+    "updated_at": "2026-06-04T13:20:31Z",
     "default_branch": "main",
     "private": false,
     "archived": false
