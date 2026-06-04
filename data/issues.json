@@ -5165,6 +5165,19 @@
     "closed_by": null
   },
   {
+    "id": 4590395509,
+    "number": 86,
+    "repo": "bioutils",
+    "created_at": "2026-06-04T16:29:05Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "bsgiles",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": null
+  },
+  {
     "id": 156911006,
     "number": 1,
     "repo": "eutils",

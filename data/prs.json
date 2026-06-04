@@ -2274,7 +2274,7 @@
     "merged_at": null,
     "state": "open",
     "author_login": "jsstevenson",
-    "draft": true
+    "draft": false
   },
   {
     "id": 3684091184,
@@ -2318,7 +2318,7 @@
     "merged_at": null,
     "state": "open",
     "author_login": "jsstevenson",
-    "draft": true
+    "draft": false
   },
   {
     "id": 3769331748,
@@ -2341,6 +2341,17 @@
     "state": "open",
     "author_login": "jsstevenson",
     "draft": true
+  },
+  {
+    "id": 3803668867,
+    "number": 479,
+    "repo": "anyvar",
+    "created_at": "2026-06-04T14:22:26Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "jennifer-bowser",
+    "draft": false
   },
   {
     "id": 1120100497,
