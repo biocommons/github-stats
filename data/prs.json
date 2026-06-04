@@ -2354,6 +2354,17 @@
     "draft": false
   },
   {
+    "id": 3805450269,
+    "number": 480,
+    "repo": "anyvar",
+    "created_at": "2026-06-04T19:22:03Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "ehclark",
+    "draft": false
+  },
+  {
     "id": 1120100497,
     "number": 1,
     "repo": "biocommons.github.io",
