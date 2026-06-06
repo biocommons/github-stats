@@ -55,7 +55,7 @@
     "full_name": "biocommons/biocommons.seqrepo",
     "html_url": "https://github.com/biocommons/biocommons.seqrepo",
     "description": "non-redundant, compressed, journalled, file-based storage for biological sequences",
-    "stargazers_count": 51,
+    "stargazers_count": 52,
     "forks_count": 36,
     "open_issues_count": 12,
     "open_pr_count": 0,
@@ -64,7 +64,7 @@
       "tag_name": "0.6.11",
       "published_at": "2025-03-19T13:40:21Z"
     },
-    "updated_at": "2026-05-20T22:08:15Z",
+    "updated_at": "2026-06-06T22:12:30Z",
     "default_branch": "main",
     "private": false,
     "archived": false
@@ -201,13 +201,13 @@
     "full_name": "biocommons/uta",
     "html_url": "https://github.com/biocommons/uta",
     "description": "Universal Transcript Archive: comprehensive genome-transcript alignments; multiple transcript sources, versions, and alignment methods; available as a docker image",
-    "stargazers_count": 71,
+    "stargazers_count": 72,
     "forks_count": 25,
     "open_issues_count": 26,
     "open_pr_count": 0,
     "contributors": 14,
     "latest_release": null,
-    "updated_at": "2026-03-03T20:50:51Z",
+    "updated_at": "2026-06-06T22:12:20Z",
     "default_branch": "main",
     "private": false,
     "archived": false
