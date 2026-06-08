@@ -8750,7 +8750,8 @@
     "author_login": "reece",
     "labels": [
       "enhancement",
-      "keep alive"
+      "keep alive",
+      "stale"
     ],
     "closed_by": null
   },
