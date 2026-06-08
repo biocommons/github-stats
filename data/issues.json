@@ -2648,13 +2648,13 @@
     "number": 425,
     "repo": "anyvar",
     "created_at": "2026-04-10T19:53:40Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-06-08T19:03:35Z",
+    "state": "closed",
     "author_login": "jennifer-bowser",
     "labels": [
       "enhancement"
     ],
-    "closed_by": null
+    "closed_by": "jsstevenson"
   },
   {
     "id": 4241444499,
