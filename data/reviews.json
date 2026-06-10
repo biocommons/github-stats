@@ -2960,6 +2960,26 @@
     "repo": "anyvar"
   },
   {
+    "reviewer_login": "jennifer-bowser",
+    "submitted_at": "2026-06-10T13:46:07Z",
+    "repo": "anyvar"
+  },
+  {
+    "reviewer_login": "jsstevenson",
+    "submitted_at": "2026-06-10T13:59:57Z",
+    "repo": "anyvar"
+  },
+  {
+    "reviewer_login": "jsstevenson",
+    "submitted_at": "2026-06-10T14:01:44Z",
+    "repo": "anyvar"
+  },
+  {
+    "reviewer_login": "jsstevenson",
+    "submitted_at": "2026-06-10T14:20:04Z",
+    "repo": "anyvar"
+  },
+  {
     "reviewer_login": "reece",
     "submitted_at": "2023-06-07T17:31:22Z",
     "repo": "biocommons.github.io"
@@ -4777,6 +4797,26 @@
   {
     "reviewer_login": "theferrit32",
     "submitted_at": "2026-04-14T16:13:38Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2026-04-17T20:48:58Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2026-05-07T22:38:18Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2026-05-09T14:54:14Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2026-05-09T14:58:17Z",
     "repo": "hgvs"
   },
   {
