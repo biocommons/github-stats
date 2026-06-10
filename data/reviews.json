@@ -4780,26 +4780,6 @@
     "repo": "hgvs"
   },
   {
-    "reviewer_login": "andreasprlic",
-    "submitted_at": "2026-04-17T20:48:58Z",
-    "repo": "hgvs"
-  },
-  {
-    "reviewer_login": "reece",
-    "submitted_at": "2026-05-07T22:38:18Z",
-    "repo": "hgvs"
-  },
-  {
-    "reviewer_login": "andreasprlic",
-    "submitted_at": "2026-05-09T14:54:14Z",
-    "repo": "hgvs"
-  },
-  {
-    "reviewer_login": "andreasprlic",
-    "submitted_at": "2026-05-09T14:58:17Z",
-    "repo": "hgvs"
-  },
-  {
     "reviewer_login": "reece",
     "submitted_at": "2023-09-09T03:34:24Z",
     "repo": "python-package"
