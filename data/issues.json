@@ -3681,7 +3681,7 @@
     "state": "open",
     "author_login": "reece",
     "labels": [],
-    "closed_by": "github-actions[bot]"
+    "closed_by": null
   },
   {
     "id": 449566380,
@@ -3980,7 +3980,7 @@
     "state": "open",
     "author_login": "reece",
     "labels": [],
-    "closed_by": "github-actions[bot]"
+    "closed_by": null
   },
   {
     "id": 751190155,
@@ -3993,7 +3993,7 @@
     "labels": [
       "enhancement"
     ],
-    "closed_by": "github-actions[bot]"
+    "closed_by": null
   },
   {
     "id": 751842491,
@@ -4094,7 +4094,7 @@
     "state": "open",
     "author_login": "holtgrewe",
     "labels": [],
-    "closed_by": "github-actions[bot]"
+    "closed_by": null
   },
   {
     "id": 1695332590,
@@ -4127,7 +4127,7 @@
     "state": "open",
     "author_login": "holtgrewe",
     "labels": [],
-    "closed_by": "github-actions[bot]"
+    "closed_by": null
   },
   {
     "id": 1735137371,
@@ -9800,7 +9800,7 @@
     "state": "open",
     "author_login": "reece",
     "labels": [],
-    "closed_by": "github-actions[bot]"
+    "closed_by": null
   },
   {
     "id": 213193794,
@@ -12764,7 +12764,7 @@
     "state": "open",
     "author_login": "reece",
     "labels": [],
-    "closed_by": "github-actions[bot]"
+    "closed_by": null
   },
   {
     "id": 245113461,
@@ -13035,7 +13035,7 @@
     "labels": [
       "bug"
     ],
-    "closed_by": "github-actions[bot]"
+    "closed_by": null
   },
   {
     "id": 305884742,
@@ -13204,7 +13204,7 @@
     "state": "open",
     "author_login": "reece",
     "labels": [],
-    "closed_by": "github-actions[bot]"
+    "closed_by": null
   },
   {
     "id": 344541129,
@@ -13435,7 +13435,7 @@
     "labels": [
       "bug"
     ],
-    "closed_by": "github-actions[bot]"
+    "closed_by": null
   },
   {
     "id": 372861782,
@@ -13701,7 +13701,7 @@
     "state": "open",
     "author_login": "reece",
     "labels": [],
-    "closed_by": "github-actions[bot]"
+    "closed_by": null
   },
   {
     "id": 442744508,
@@ -14151,7 +14151,7 @@
     "labels": [
       "bug"
     ],
-    "closed_by": "github-actions[bot]"
+    "closed_by": null
   },
   {
     "id": 710618506,
@@ -14523,7 +14523,7 @@
     "state": "open",
     "author_login": "reece",
     "labels": [],
-    "closed_by": "github-actions[bot]"
+    "closed_by": null
   },
   {
     "id": 1518426891,
@@ -15640,7 +15640,7 @@
     "labels": [
       "keep alive"
     ],
-    "closed_by": "github-actions[bot]"
+    "closed_by": null
   },
   {
     "id": 4052576915,
@@ -18950,7 +18950,7 @@
     "labels": [
       "keep alive"
     ],
-    "closed_by": "github-actions[bot]"
+    "closed_by": null
   },
   {
     "id": 214127889,
@@ -18963,7 +18963,7 @@
     "labels": [
       "keep alive"
     ],
-    "closed_by": "github-actions[bot]"
+    "closed_by": null
   },
   {
     "id": 214155709,
@@ -19050,7 +19050,7 @@
     "labels": [
       "bug"
     ],
-    "closed_by": "github-actions[bot]"
+    "closed_by": null
   },
   {
     "id": 422909799,
@@ -19063,7 +19063,7 @@
     "labels": [
       "bug"
     ],
-    "closed_by": "github-actions[bot]"
+    "closed_by": null
   },
   {
     "id": 468111654,
@@ -19113,7 +19113,7 @@
     "labels": [
       "keep alive"
     ],
-    "closed_by": "github-actions[bot]"
+    "closed_by": null
   },
   {
     "id": 544415417,
@@ -19226,7 +19226,7 @@
     "labels": [
       "keep alive"
     ],
-    "closed_by": "github-actions[bot]"
+    "closed_by": null
   },
   {
     "id": 957165733,
@@ -19239,7 +19239,7 @@
     "labels": [
       "keep alive"
     ],
-    "closed_by": "github-actions[bot]"
+    "closed_by": null
   },
   {
     "id": 1014367810,
@@ -19313,7 +19313,7 @@
     "labels": [
       "keep alive"
     ],
-    "closed_by": "github-actions[bot]"
+    "closed_by": null
   },
   {
     "id": 1735829940,
