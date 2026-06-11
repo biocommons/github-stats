@@ -3051,11 +3051,11 @@
     "number": 475,
     "repo": "anyvar",
     "created_at": "2026-05-29T17:17:30Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-06-11T20:19:43Z",
+    "state": "closed",
     "author_login": "jsstevenson",
     "labels": [],
-    "closed_by": null
+    "closed_by": "jsstevenson"
   },
   {
     "id": 4599531592,
