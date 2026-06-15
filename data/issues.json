@@ -15634,13 +15634,13 @@
     "number": 818,
     "repo": "hgvs",
     "created_at": "2026-02-03T15:55:09Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-06-15T20:01:08Z",
+    "state": "closed",
     "author_login": "rickymagner",
     "labels": [
-      "keep alive"
+      "duplicate"
     ],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 4052576915,
