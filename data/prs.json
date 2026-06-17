@@ -6615,6 +6615,17 @@
     "number": 89,
     "repo": "python-package",
     "created_at": "2026-06-12T22:06:34Z",
+    "closed_at": "2026-06-17T18:03:38Z",
+    "merged_at": null,
+    "state": "closed",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 3885714354,
+    "number": 90,
+    "repo": "python-package",
+    "created_at": "2026-06-17T18:03:34Z",
     "closed_at": null,
     "merged_at": null,
     "state": "open",
