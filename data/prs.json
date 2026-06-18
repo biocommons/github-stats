@@ -6633,6 +6633,28 @@
     "draft": false
   },
   {
+    "id": 3894621401,
+    "number": 91,
+    "repo": "python-package",
+    "created_at": "2026-06-18T21:44:20Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 3894621485,
+    "number": 92,
+    "repo": "python-package",
+    "created_at": "2026-06-18T21:44:21Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
     "id": 785033053,
     "number": 6,
     "repo": "seqrepo-rest-service",
