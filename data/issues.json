@@ -15721,13 +15721,13 @@
     "number": 829,
     "repo": "hgvs",
     "created_at": "2026-05-07T13:43:06Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-06-20T02:55:26Z",
+    "state": "closed",
     "author_login": "b0d0nne11",
     "labels": [
       "bug"
     ],
-    "closed_by": null
+    "closed_by": "andreasprlic"
   },
   {
     "id": 183581420,
