@@ -3055,6 +3055,26 @@
     "repo": "anyvar"
   },
   {
+    "reviewer_login": "theferrit32",
+    "submitted_at": "2026-06-23T20:49:41Z",
+    "repo": "anyvar"
+  },
+  {
+    "reviewer_login": "theferrit32",
+    "submitted_at": "2026-06-23T20:51:01Z",
+    "repo": "anyvar"
+  },
+  {
+    "reviewer_login": "theferrit32",
+    "submitted_at": "2026-06-23T20:54:06Z",
+    "repo": "anyvar"
+  },
+  {
+    "reviewer_login": "theferrit32",
+    "submitted_at": "2026-06-23T20:57:27Z",
+    "repo": "anyvar"
+  },
+  {
     "reviewer_login": "reece",
     "submitted_at": "2023-06-07T17:31:22Z",
     "repo": "biocommons.github.io"
@@ -5187,6 +5207,11 @@
   {
     "reviewer_login": "korikuzma",
     "submitted_at": "2026-06-01T18:17:26Z",
+    "repo": "python-package"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2026-06-23T19:32:47Z",
     "repo": "python-package"
   },
   {

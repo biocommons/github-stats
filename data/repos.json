@@ -95,14 +95,14 @@
     "description": "simplified searching, fetching, and parsing records from NCBI using their E-utilities interface",
     "stargazers_count": 64,
     "forks_count": 29,
-    "open_issues_count": 1,
-    "open_pr_count": 1,
+    "open_issues_count": 0,
+    "open_pr_count": 0,
     "contributors": 14,
     "latest_release": {
       "tag_name": "0.6.1",
       "published_at": "2025-12-07T23:32:55Z"
     },
-    "updated_at": "2026-04-01T07:54:47Z",
+    "updated_at": "2026-06-23T19:41:10Z",
     "default_branch": "main",
     "private": false,
     "archived": true
@@ -166,13 +166,13 @@
     "stargazers_count": 1,
     "forks_count": 2,
     "open_issues_count": 1,
-    "open_pr_count": 5,
+    "open_pr_count": 1,
     "contributors": 7,
     "latest_release": {
       "tag_name": "0.0.6",
       "published_at": "2025-08-31T20:43:00Z"
     },
-    "updated_at": "2026-06-01T18:17:59Z",
+    "updated_at": "2026-06-23T19:36:17Z",
     "default_branch": "main",
     "private": false,
     "archived": false

@@ -7032,13 +7032,13 @@
     "number": 183,
     "repo": "eutils",
     "created_at": "2025-01-17T17:57:50Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-06-23T19:38:44Z",
+    "state": "closed",
     "author_login": "rly",
     "labels": [
       "enhancement"
     ],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 3381765646,
