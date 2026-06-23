@@ -2369,9 +2369,9 @@
     "number": 484,
     "repo": "anyvar",
     "created_at": "2026-06-12T17:02:09Z",
-    "closed_at": null,
-    "merged_at": null,
-    "state": "open",
+    "closed_at": "2026-06-23T18:23:03Z",
+    "merged_at": "2026-06-23T18:23:03Z",
+    "state": "closed",
     "author_login": "jsstevenson",
     "draft": false
   },
