@@ -2358,9 +2358,9 @@
     "number": 480,
     "repo": "anyvar",
     "created_at": "2026-06-04T19:22:03Z",
-    "closed_at": null,
-    "merged_at": null,
-    "state": "open",
+    "closed_at": "2026-06-24T18:59:33Z",
+    "merged_at": "2026-06-24T18:59:33Z",
+    "state": "closed",
     "author_login": "ehclark",
     "draft": false
   },
@@ -2395,6 +2395,17 @@
     "merged_at": "2026-06-24T14:26:15Z",
     "state": "closed",
     "author_login": "jsstevenson",
+    "draft": false
+  },
+  {
+    "id": 3930209748,
+    "number": 489,
+    "repo": "anyvar",
+    "created_at": "2026-06-24T19:34:40Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "ehclark",
     "draft": false
   },
   {
