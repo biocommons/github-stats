@@ -2402,9 +2402,9 @@
     "number": 489,
     "repo": "anyvar",
     "created_at": "2026-06-24T19:34:40Z",
-    "closed_at": null,
-    "merged_at": null,
-    "state": "open",
+    "closed_at": "2026-06-25T14:57:44Z",
+    "merged_at": "2026-06-25T14:57:44Z",
+    "state": "closed",
     "author_login": "ehclark",
     "draft": false
   },
