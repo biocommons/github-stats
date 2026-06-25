@@ -15689,7 +15689,9 @@
     "closed_at": null,
     "state": "open",
     "author_login": "sodiumnitrate",
-    "labels": [],
+    "labels": [
+      "stale"
+    ],
     "closed_by": null
   },
   {
