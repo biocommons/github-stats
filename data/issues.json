@@ -1128,13 +1128,13 @@
     "number": 146,
     "repo": "anyvar",
     "created_at": "2025-05-02T17:24:34Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-06-29T14:02:26Z",
+    "state": "closed",
     "author_login": "ahwagner",
     "labels": [
       "enhancement"
     ],
-    "closed_by": null
+    "closed_by": "jennifer-bowser"
   },
   {
     "id": 3036509121,
