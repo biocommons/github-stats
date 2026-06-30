@@ -3062,13 +3062,13 @@
     "number": 481,
     "repo": "anyvar",
     "created_at": "2026-06-05T19:24:32Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-06-30T14:59:19Z",
+    "state": "closed",
     "author_login": "ehclark",
     "labels": [
       "enhancement"
     ],
-    "closed_by": null
+    "closed_by": "theferrit32"
   },
   {
     "id": 4641093877,
