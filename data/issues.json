@@ -3115,7 +3115,10 @@
     "closed_at": null,
     "state": "open",
     "author_login": "jennifer-bowser",
-    "labels": [],
+    "labels": [
+      "priority:medium",
+      "test"
+    ],
     "closed_by": null
   },
   {
