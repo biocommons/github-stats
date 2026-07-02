@@ -22,7 +22,7 @@
     "description": "Lightweight, portable variation registration and retrieval",
     "stargazers_count": 16,
     "forks_count": 6,
-    "open_issues_count": 32,
+    "open_issues_count": 33,
     "open_pr_count": 0,
     "contributors": 14,
     "latest_release": {
@@ -203,7 +203,7 @@
     "description": "Universal Transcript Archive: comprehensive genome-transcript alignments; multiple transcript sources, versions, and alignment methods; available as a docker image",
     "stargazers_count": 72,
     "forks_count": 25,
-    "open_issues_count": 26,
+    "open_issues_count": 27,
     "open_pr_count": 1,
     "contributors": 14,
     "latest_release": null,

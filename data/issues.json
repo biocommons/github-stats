@@ -3108,6 +3108,17 @@
     "closed_by": null
   },
   {
+    "id": 4794766317,
+    "number": 492,
+    "repo": "anyvar",
+    "created_at": "2026-07-02T13:17:45Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "jennifer-bowser",
+    "labels": [],
+    "closed_by": null
+  },
+  {
     "id": 2095018790,
     "number": 6,
     "repo": "biocommons.github.io",
@@ -19527,6 +19538,17 @@
     "labels": [
       "enhancement"
     ],
+    "closed_by": null
+  },
+  {
+    "id": 4794396670,
+    "number": 281,
+    "repo": "uta",
+    "created_at": "2026-07-02T12:32:01Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "cassiemk",
+    "labels": [],
     "closed_by": null
   }
 ]
