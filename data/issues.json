@@ -2678,7 +2678,8 @@
     "state": "open",
     "author_login": "jennifer-bowser",
     "labels": [
-      "enhancement"
+      "enhancement",
+      "priority:low"
     ],
     "closed_by": null
   },
@@ -2991,7 +2992,9 @@
     "closed_at": null,
     "state": "open",
     "author_login": "jsstevenson",
-    "labels": [],
+    "labels": [
+      "priority:low"
+    ],
     "closed_by": null
   },
   {
