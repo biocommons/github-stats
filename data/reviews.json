@@ -4081,6 +4081,891 @@
   },
   {
     "reviewer_login": "reece",
+    "submitted_at": "2017-05-29T22:36:48Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "lucaswiman",
+    "submitted_at": "2017-06-04T08:32:26Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "icebert",
+    "submitted_at": "2017-06-05T10:36:20Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2017-06-23T09:08:06Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "icebert",
+    "submitted_at": "2017-10-05T16:37:24Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2018-10-19T13:07:57Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2018-10-19T13:26:13Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2018-11-18T15:16:42Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2021-12-17T19:23:59Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "katie-perry",
+    "submitted_at": "2022-05-09T19:18:44Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "bmrobin",
+    "submitted_at": "2022-05-09T19:19:30Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2022-05-09T19:41:48Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "cpeel",
+    "submitted_at": "2022-11-07T18:59:00Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2022-11-09T19:24:38Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "cpeel",
+    "submitted_at": "2022-11-09T20:22:28Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "jdasilva-invitae",
+    "submitted_at": "2022-11-14T15:52:05Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "jdasilva-invitae",
+    "submitted_at": "2022-11-16T17:11:52Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "athaevar",
+    "submitted_at": "2022-11-16T17:17:49Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "bpeterman",
+    "submitted_at": "2022-11-16T18:34:03Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2022-11-16T18:38:46Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-05-23T21:45:59Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-06-13T00:54:35Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-06-13T00:55:55Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-06-14T00:24:22Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "davmlaw",
+    "submitted_at": "2023-06-14T00:58:49Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-07-07T03:24:19Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-09-10T16:24:29Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-09-10T16:25:09Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-09-10T17:56:40Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-09-10T17:57:04Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-09-10T18:01:38Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-09-10T18:02:11Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-09-10T19:35:47Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-09-10T19:36:55Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-09-10T19:37:48Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-09-10T19:38:29Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-09-10T19:39:38Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-09-10T19:56:57Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-09-10T21:02:57Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-09-10T21:06:48Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "ecalifornica",
+    "submitted_at": "2023-09-11T03:55:56Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-09-11T05:08:32Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-09-11T05:09:30Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-09-12T01:21:35Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-09-12T01:22:37Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-09-12T03:44:50Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "davmlaw",
+    "submitted_at": "2023-09-13T00:21:01Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-09-14T05:01:16Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "larrybabb",
+    "submitted_at": "2023-09-18T00:13:01Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2023-09-18T14:47:13Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "katie-perry",
+    "submitted_at": "2023-09-18T17:19:05Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "katie-perry",
+    "submitted_at": "2023-09-18T17:20:07Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2023-09-18T17:47:36Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "katie-perry",
+    "submitted_at": "2023-09-18T22:10:30Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "katie-perry",
+    "submitted_at": "2023-09-18T22:38:35Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-09-18T22:58:25Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-09-18T23:06:03Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-09-18T23:25:48Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-09-18T23:27:47Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "gostachowiak",
+    "submitted_at": "2023-11-15T18:42:14Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "b0d0nne11",
+    "submitted_at": "2023-12-06T16:57:50Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2023-12-11T16:25:39Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2023-12-11T21:42:57Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2023-12-11T23:52:47Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2023-12-11T23:54:00Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-12-12T20:52:21Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2023-12-18T18:42:36Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "gostachowiak",
+    "submitted_at": "2023-12-18T19:05:24Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "b0d0nne11",
+    "submitted_at": "2023-12-19T15:29:32Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "b0d0nne11",
+    "submitted_at": "2023-12-20T16:37:13Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2024-01-02T04:20:34Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "b0d0nne11",
+    "submitted_at": "2024-01-02T19:35:20Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "b0d0nne11",
+    "submitted_at": "2024-01-02T19:36:23Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "b0d0nne11",
+    "submitted_at": "2024-01-02T19:37:20Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "b0d0nne11",
+    "submitted_at": "2024-01-02T19:37:38Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "b0d0nne11",
+    "submitted_at": "2024-01-02T19:37:51Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2024-02-07T12:17:46Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2024-02-09T12:40:52Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2024-02-19T02:57:43Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2024-03-05T05:21:16Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2024-03-05T05:39:27Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2024-03-11T15:36:30Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2024-03-13T02:34:24Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2024-03-14T03:05:20Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2024-03-20T21:45:01Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "ahwagner",
+    "submitted_at": "2024-03-21T02:44:15Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "ahwagner",
+    "submitted_at": "2024-03-21T04:34:45Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2024-03-21T11:14:34Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2024-04-01T12:28:22Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2024-04-22T05:31:45Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2024-04-23T05:59:30Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2024-04-24T21:13:07Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2024-05-22T11:05:01Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2024-05-24T14:16:37Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "b0d0nne11",
+    "submitted_at": "2024-05-24T15:37:48Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2024-06-01T05:54:02Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2024-06-24T11:08:09Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2024-07-09T20:05:31Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2024-07-29T11:37:05Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2024-08-05T11:15:15Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2024-09-02T04:28:22Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2024-09-02T04:37:55Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "davmlaw",
+    "submitted_at": "2024-09-16T04:35:53Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2024-09-16T04:41:14Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2024-12-23T12:32:51Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "jsstevenson",
+    "submitted_at": "2024-12-31T01:51:13Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "jsstevenson",
+    "submitted_at": "2025-01-03T18:23:53Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "jsstevenson",
+    "submitted_at": "2025-01-03T18:26:18Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "jsstevenson",
+    "submitted_at": "2025-01-03T20:41:10Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2025-01-06T13:24:52Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2025-01-13T12:09:30Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2025-01-21T03:04:50Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2025-01-21T03:05:31Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "gostachowiak",
+    "submitted_at": "2025-01-25T14:36:36Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "b0d0nne11",
+    "submitted_at": "2025-01-27T20:19:05Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "b0d0nne11",
+    "submitted_at": "2025-01-27T20:22:11Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "jsstevenson",
+    "submitted_at": "2025-02-28T15:32:29Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2025-03-01T21:55:59Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2025-03-02T08:15:52Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2025-03-02T08:16:01Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2025-03-02T08:16:10Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2025-03-02T08:16:17Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2025-03-03T17:14:03Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2025-03-05T05:17:18Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2025-03-05T18:39:04Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2025-03-10T12:51:59Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2025-03-24T13:39:58Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2025-03-24T16:09:07Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2025-05-22T04:04:17Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2025-06-09T16:23:17Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2025-06-16T16:31:38Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2025-07-16T20:23:29Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2025-07-16T20:34:03Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "theferrit32",
+    "submitted_at": "2025-07-16T20:35:27Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2025-07-21T15:50:39Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "cassiemk",
+    "submitted_at": "2025-07-24T14:06:25Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2025-07-25T16:53:05Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2025-08-25T11:24:51Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2025-09-03T18:36:45Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "theferrit32",
+    "submitted_at": "2025-09-03T20:12:36Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "theferrit32",
+    "submitted_at": "2025-09-04T14:11:40Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "theferrit32",
+    "submitted_at": "2025-09-04T15:21:43Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "theferrit32",
+    "submitted_at": "2025-09-04T18:16:20Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2025-09-05T12:19:20Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "copilot-pull-request-reviewer[bot]",
+    "submitted_at": "2025-09-05T14:23:29Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2025-09-05T14:32:12Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2025-09-05T14:32:30Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2025-09-05T14:41:51Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2025-09-05T14:50:30Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2025-09-05T15:10:57Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2025-09-05T15:11:16Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2025-09-07T18:02:53Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2025-10-14T10:40:24Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2025-10-14T10:41:16Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2025-10-27T18:30:40Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2025-10-29T04:35:04Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2025-10-29T04:35:58Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2025-11-05T03:27:09Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2025-11-05T12:59:50Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2025-11-05T18:44:14Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2025-11-05T18:44:32Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2025-12-16T01:31:40Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2025-12-16T02:30:55Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2025-12-16T02:31:21Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2025-12-17T17:43:39Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2025-12-20T14:05:58Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "anju24",
+    "submitted_at": "2026-02-04T01:13:03Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2026-02-10T18:42:54Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "jsstevenson",
+    "submitted_at": "2026-04-14T14:58:07Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "theferrit32",
+    "submitted_at": "2026-04-14T16:07:14Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2026-04-14T16:10:51Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "theferrit32",
+    "submitted_at": "2026-04-14T16:13:38Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2026-04-17T20:48:58Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2026-05-07T22:38:18Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2026-05-09T14:54:14Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2026-05-09T14:58:17Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2026-06-11T03:29:53Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
     "submitted_at": "2023-09-09T03:34:24Z",
     "repo": "python-package"
   },
