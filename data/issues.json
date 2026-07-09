@@ -8799,15 +8799,16 @@
     "number": 113,
     "repo": "hgvs",
     "created_at": "2014-01-22T19:39:20Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-07-09T04:55:40Z",
+    "state": "closed",
     "author_login": "reece",
     "labels": [
       "enhancement",
       "keep alive",
-      "stale"
+      "stale",
+      "closed-by-stale"
     ],
-    "closed_by": null
+    "closed_by": "github-actions[bot]"
   },
   {
     "id": 213193175,
