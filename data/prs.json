@@ -6754,6 +6754,17 @@
     "draft": false
   },
   {
+    "id": 4032874507,
+    "number": 95,
+    "repo": "python-package",
+    "created_at": "2026-07-10T22:57:25Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
     "id": 785033053,
     "number": 6,
     "repo": "seqrepo-rest-service",
