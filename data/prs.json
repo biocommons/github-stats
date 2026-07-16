@@ -2453,6 +2453,17 @@
     "draft": true
   },
   {
+    "id": 4071340066,
+    "number": 497,
+    "repo": "anyvar",
+    "created_at": "2026-07-16T19:16:36Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "jsstevenson",
+    "draft": false
+  },
+  {
     "id": 1120100497,
     "number": 1,
     "repo": "biocommons.github.io",
