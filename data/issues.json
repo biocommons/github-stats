@@ -13247,7 +13247,9 @@
     "closed_at": null,
     "state": "open",
     "author_login": "reece",
-    "labels": [],
+    "labels": [
+      "stale"
+    ],
     "closed_by": null
   },
   {
