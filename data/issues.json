@@ -15765,6 +15765,17 @@
     "closed_by": "andreasprlic"
   },
   {
+    "id": 4923993197,
+    "number": 832,
+    "repo": "hgvs",
+    "created_at": "2026-07-19T18:59:48Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": null
+  },
+  {
     "id": 183581420,
     "number": 5,
     "repo": "hgvs-eval",
