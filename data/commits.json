@@ -3690,6 +3690,16 @@
     "repo": "biocommons.github.io"
   },
   {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-07-10T21:22:22Z",
+    "repo": "biocommons.github.io"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-07-19T21:03:55Z",
+    "repo": "biocommons.github.io"
+  },
+  {
     "author_login": "reece",
     "author_date": "2016-08-17T07:38:19Z",
     "repo": "biocommons.seqrepo"
@@ -19380,6 +19390,36 @@
     "repo": "hgvs"
   },
   {
+    "author_login": "andreasprlic",
+    "author_date": "2026-03-14T19:41:20Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "andreasprlic",
+    "author_date": "2026-03-14T23:06:46Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "andreasprlic",
+    "author_date": "2026-03-15T22:39:43Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "andreasprlic",
+    "author_date": "2026-03-15T22:45:20Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "andreasprlic",
+    "author_date": "2026-03-16T03:45:33Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "andreasprlic",
+    "author_date": "2026-03-16T05:42:38Z",
+    "repo": "hgvs"
+  },
+  {
     "author_login": "korikuzma",
     "author_date": "2026-04-14T12:12:15Z",
     "repo": "hgvs"
@@ -19427,6 +19467,16 @@
   {
     "author_login": "andreasprlic",
     "author_date": "2026-06-20T02:55:24Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "andreasprlic",
+    "author_date": "2026-06-29T06:00:25Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-07-19T21:09:42Z",
     "repo": "hgvs"
   },
   {
@@ -20872,6 +20922,31 @@
   {
     "author_login": "reece",
     "author_date": "2026-06-23T19:36:12Z",
+    "repo": "python-package"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-07-10T22:57:25Z",
+    "repo": "python-package"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-07-10T23:37:31Z",
+    "repo": "python-package"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-07-19T21:03:03Z",
+    "repo": "python-package"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-07-19T21:03:10Z",
+    "repo": "python-package"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-07-19T21:03:44Z",
     "repo": "python-package"
   },
   {
