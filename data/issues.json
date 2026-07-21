@@ -14160,6 +14160,1622 @@
     "closed_by": "github-actions[bot]"
   },
   {
+    "id": 643392813,
+    "number": 602,
+    "repo": "hgvs",
+    "created_at": "2020-06-22T22:13:34Z",
+    "closed_at": "2020-06-23T18:19:36Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 655311697,
+    "number": 603,
+    "repo": "hgvs",
+    "created_at": "2020-07-12T01:39:09Z",
+    "closed_at": "2024-08-28T02:08:43Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 661923746,
+    "number": 604,
+    "repo": "hgvs",
+    "created_at": "2020-07-20T15:00:11Z",
+    "closed_at": "2024-05-30T01:58:52Z",
+    "state": "closed",
+    "author_login": "lincoln-harris",
+    "labels": [
+      "stale",
+      "closed-by-stale",
+      "resurrected"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 669257134,
+    "number": 606,
+    "repo": "hgvs",
+    "created_at": "2020-07-30T22:44:54Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "sptaylor",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 710618506,
+    "number": 607,
+    "repo": "hgvs",
+    "created_at": "2020-09-28T22:24:23Z",
+    "closed_at": "2024-05-30T01:58:50Z",
+    "state": "closed",
+    "author_login": "andreasprlic",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 741068199,
+    "number": 608,
+    "repo": "hgvs",
+    "created_at": "2020-11-11T21:02:25Z",
+    "closed_at": "2024-05-30T01:58:48Z",
+    "state": "closed",
+    "author_login": "cassiemk",
+    "labels": [
+      "stale",
+      "closed-by-stale",
+      "resurrected"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 788080278,
+    "number": 610,
+    "repo": "hgvs",
+    "created_at": "2021-01-18T09:10:22Z",
+    "closed_at": "2024-05-30T01:58:46Z",
+    "state": "closed",
+    "author_login": "deepik27",
+    "labels": [
+      "stale",
+      "closed-by-stale",
+      "resurrected"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 855853065,
+    "number": 611,
+    "repo": "hgvs",
+    "created_at": "2021-04-12T11:01:20Z",
+    "closed_at": "2021-10-27T04:18:45Z",
+    "state": "closed",
+    "author_login": "FrejaFjellerup",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 880157852,
+    "number": 612,
+    "repo": "hgvs",
+    "created_at": "2021-05-08T03:01:18Z",
+    "closed_at": "2024-02-20T00:26:42Z",
+    "state": "closed",
+    "author_login": "kwuiee",
+    "labels": [
+      "resurrected"
+    ],
+    "closed_by": "davmlaw"
+  },
+  {
+    "id": 907704694,
+    "number": 614,
+    "repo": "hgvs",
+    "created_at": "2021-05-31T20:38:08Z",
+    "closed_at": "2021-06-01T04:00:08Z",
+    "state": "closed",
+    "author_login": "AgustinRamiroDiaz",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 907712615,
+    "number": 615,
+    "repo": "hgvs",
+    "created_at": "2021-05-31T21:00:34Z",
+    "closed_at": "2021-08-08T05:15:43Z",
+    "state": "closed",
+    "author_login": "AgustinRamiroDiaz",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 909556077,
+    "number": 616,
+    "repo": "hgvs",
+    "created_at": "2021-06-02T14:20:09Z",
+    "closed_at": "2023-09-10T21:57:37Z",
+    "state": "closed",
+    "author_login": "AgustinRamiroDiaz",
+    "labels": [],
+    "closed_by": "davmlaw"
+  },
+  {
+    "id": 926368775,
+    "number": 618,
+    "repo": "hgvs",
+    "created_at": "2021-06-21T15:58:52Z",
+    "closed_at": "2021-10-05T15:05:19Z",
+    "state": "closed",
+    "author_login": "worker000000",
+    "labels": [],
+    "closed_by": "worker000000"
+  },
+  {
+    "id": 940399284,
+    "number": 619,
+    "repo": "hgvs",
+    "created_at": "2021-07-09T04:15:18Z",
+    "closed_at": "2021-07-09T04:25:35Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 971123863,
+    "number": 621,
+    "repo": "hgvs",
+    "created_at": "2021-08-15T12:34:13Z",
+    "closed_at": "2021-08-19T04:31:51Z",
+    "state": "closed",
+    "author_login": "alex97751",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 983251144,
+    "number": 622,
+    "repo": "hgvs",
+    "created_at": "2021-08-30T22:13:15Z",
+    "closed_at": "2024-05-30T01:58:45Z",
+    "state": "closed",
+    "author_login": "paul-williams-tfs",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1004434288,
+    "number": 623,
+    "repo": "hgvs",
+    "created_at": "2021-09-22T15:27:35Z",
+    "closed_at": "2021-09-25T00:11:05Z",
+    "state": "closed",
+    "author_login": "DavidCain",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 1004883029,
+    "number": 624,
+    "repo": "hgvs",
+    "created_at": "2021-09-23T00:14:56Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "kislyuk",
+    "labels": [],
+    "closed_by": null
+  },
+  {
+    "id": 1016450616,
+    "number": 626,
+    "repo": "hgvs",
+    "created_at": "2021-10-05T15:11:54Z",
+    "closed_at": "2021-10-24T20:22:39Z",
+    "state": "closed",
+    "author_login": "worker000000",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 1019520071,
+    "number": 627,
+    "repo": "hgvs",
+    "created_at": "2021-10-07T01:39:52Z",
+    "closed_at": "2021-10-07T01:45:29Z",
+    "state": "closed",
+    "author_login": "worker000000",
+    "labels": [],
+    "closed_by": "worker000000"
+  },
+  {
+    "id": 1039956093,
+    "number": 628,
+    "repo": "hgvs",
+    "created_at": "2021-10-29T22:02:44Z",
+    "closed_at": "2024-05-29T02:00:12Z",
+    "state": "closed",
+    "author_login": "andreasprlic",
+    "labels": [
+      "stale",
+      "closed-by-stale",
+      "resurrected"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1063481567,
+    "number": 629,
+    "repo": "hgvs",
+    "created_at": "2021-11-25T11:37:46Z",
+    "closed_at": "2023-07-18T04:36:47Z",
+    "state": "closed",
+    "author_login": "LeoWelter",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 1068786576,
+    "number": 630,
+    "repo": "hgvs",
+    "created_at": "2021-12-01T19:22:32Z",
+    "closed_at": "2022-11-12T04:55:50Z",
+    "state": "closed",
+    "author_login": "andreasprlic",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 1071323394,
+    "number": 631,
+    "repo": "hgvs",
+    "created_at": "2021-12-04T22:48:51Z",
+    "closed_at": "2021-12-18T21:08:36Z",
+    "state": "closed",
+    "author_login": "jossefaz",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 1083715123,
+    "number": 633,
+    "repo": "hgvs",
+    "created_at": "2021-12-18T01:31:25Z",
+    "closed_at": "2024-05-29T02:00:10Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "stale",
+      "closed-by-stale",
+      "resurrected"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1122697748,
+    "number": 634,
+    "repo": "hgvs",
+    "created_at": "2022-02-03T06:19:27Z",
+    "closed_at": "2024-08-30T02:10:41Z",
+    "state": "closed",
+    "author_login": "davmlaw",
+    "labels": [
+      "stale",
+      "closed-by-stale",
+      "resurrected"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1230429224,
+    "number": 636,
+    "repo": "hgvs",
+    "created_at": "2022-05-10T00:12:03Z",
+    "closed_at": "2022-06-09T03:38:31Z",
+    "state": "closed",
+    "author_login": "yxuil",
+    "labels": [
+      "won't fix"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 1282688186,
+    "number": 638,
+    "repo": "hgvs",
+    "created_at": "2022-06-23T16:51:53Z",
+    "closed_at": "2024-05-29T02:00:09Z",
+    "state": "closed",
+    "author_login": "nh13",
+    "labels": [
+      "stale",
+      "closed-by-stale",
+      "resurrected"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1282694639,
+    "number": 639,
+    "repo": "hgvs",
+    "created_at": "2022-06-23T16:58:14Z",
+    "closed_at": "2022-06-23T23:12:41Z",
+    "state": "closed",
+    "author_login": "nh13",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 1282931878,
+    "number": 640,
+    "repo": "hgvs",
+    "created_at": "2022-06-23T20:55:40Z",
+    "closed_at": "2022-06-24T00:02:39Z",
+    "state": "closed",
+    "author_login": "nh13",
+    "labels": [],
+    "closed_by": "nh13"
+  },
+  {
+    "id": 1284097839,
+    "number": 641,
+    "repo": "hgvs",
+    "created_at": "2022-06-24T19:08:48Z",
+    "closed_at": "2026-01-07T02:57:46Z",
+    "state": "closed",
+    "author_login": "nh13",
+    "labels": [
+      "stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1391675448,
+    "number": 642,
+    "repo": "hgvs",
+    "created_at": "2022-09-30T01:05:34Z",
+    "closed_at": "2026-02-13T03:40:34Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1446212582,
+    "number": 644,
+    "repo": "hgvs",
+    "created_at": "2022-11-12T03:22:22Z",
+    "closed_at": "2024-05-29T02:00:07Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "stale",
+      "closed-by-stale",
+      "resurrected"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1446233963,
+    "number": 645,
+    "repo": "hgvs",
+    "created_at": "2022-11-12T04:12:21Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": null
+  },
+  {
+    "id": 1518426891,
+    "number": 649,
+    "repo": "hgvs",
+    "created_at": "2023-01-04T06:54:59Z",
+    "closed_at": "2023-09-19T06:38:58Z",
+    "state": "closed",
+    "author_login": "user-tq",
+    "labels": [],
+    "closed_by": "davmlaw"
+  },
+  {
+    "id": 1652433976,
+    "number": 650,
+    "repo": "hgvs",
+    "created_at": "2023-04-03T16:58:08Z",
+    "closed_at": "2026-01-07T02:57:44Z",
+    "state": "closed",
+    "author_login": "mbiokyle29",
+    "labels": [
+      "stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1656782225,
+    "number": 651,
+    "repo": "hgvs",
+    "created_at": "2023-04-06T06:57:29Z",
+    "closed_at": "2023-09-18T18:06:54Z",
+    "state": "closed",
+    "author_login": "holtgrewe",
+    "labels": [],
+    "closed_by": "katie-perry"
+  },
+  {
+    "id": 1687356160,
+    "number": 652,
+    "repo": "hgvs",
+    "created_at": "2023-04-27T18:22:43Z",
+    "closed_at": "2023-09-10T21:56:42Z",
+    "state": "closed",
+    "author_login": "hotsoupisgood",
+    "labels": [],
+    "closed_by": "davmlaw"
+  },
+  {
+    "id": 1719073900,
+    "number": 653,
+    "repo": "hgvs",
+    "created_at": "2023-05-22T07:28:48Z",
+    "closed_at": "2023-06-13T02:06:30Z",
+    "state": "closed",
+    "author_login": "davmlaw",
+    "labels": [],
+    "closed_by": "davmlaw"
+  },
+  {
+    "id": 1722441273,
+    "number": 655,
+    "repo": "hgvs",
+    "created_at": "2023-05-23T16:39:47Z",
+    "closed_at": "2025-06-02T06:01:33Z",
+    "state": "closed",
+    "author_login": "cassiemk",
+    "labels": [
+      "keep alive"
+    ],
+    "closed_by": "andreasprlic"
+  },
+  {
+    "id": 1746610920,
+    "number": 658,
+    "repo": "hgvs",
+    "created_at": "2023-06-07T20:17:36Z",
+    "closed_at": "2023-07-18T04:35:14Z",
+    "state": "closed",
+    "author_login": "wlymanambry",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 1754440984,
+    "number": 661,
+    "repo": "hgvs",
+    "created_at": "2023-06-13T09:26:23Z",
+    "closed_at": "2023-09-10T21:56:55Z",
+    "state": "closed",
+    "author_login": "davmlaw",
+    "labels": [],
+    "closed_by": "davmlaw"
+  },
+  {
+    "id": 1788739969,
+    "number": 663,
+    "repo": "hgvs",
+    "created_at": "2023-07-05T04:29:41Z",
+    "closed_at": "2025-07-25T16:53:21Z",
+    "state": "closed",
+    "author_login": "davmlaw",
+    "labels": [
+      "keep alive"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 1830574242,
+    "number": 665,
+    "repo": "hgvs",
+    "created_at": "2023-08-01T06:43:50Z",
+    "closed_at": "2023-09-09T11:22:29Z",
+    "state": "closed",
+    "author_login": "davmlaw",
+    "labels": [
+      "won't fix"
+    ],
+    "closed_by": "davmlaw"
+  },
+  {
+    "id": 1833824604,
+    "number": 667,
+    "repo": "hgvs",
+    "created_at": "2023-08-02T19:57:39Z",
+    "closed_at": "2023-08-04T02:19:21Z",
+    "state": "closed",
+    "author_login": "wlymanambry",
+    "labels": [],
+    "closed_by": "davmlaw"
+  },
+  {
+    "id": 1842312221,
+    "number": 670,
+    "repo": "hgvs",
+    "created_at": "2023-08-09T01:30:35Z",
+    "closed_at": "2023-09-18T01:04:12Z",
+    "state": "closed",
+    "author_login": "davmlaw",
+    "labels": [],
+    "closed_by": "davmlaw"
+  },
+  {
+    "id": 1871754521,
+    "number": 682,
+    "repo": "hgvs",
+    "created_at": "2023-08-29T14:06:17Z",
+    "closed_at": "2023-08-29T22:06:08Z",
+    "state": "closed",
+    "author_login": "wlymanambry",
+    "labels": [],
+    "closed_by": "davmlaw"
+  },
+  {
+    "id": 1891521800,
+    "number": 688,
+    "repo": "hgvs",
+    "created_at": "2023-09-12T01:37:06Z",
+    "closed_at": "2024-02-08T23:44:17Z",
+    "state": "closed",
+    "author_login": "ecalifornica",
+    "labels": [],
+    "closed_by": "davmlaw"
+  },
+  {
+    "id": 1893523647,
+    "number": 689,
+    "repo": "hgvs",
+    "created_at": "2023-09-13T00:24:18Z",
+    "closed_at": "2023-09-18T00:47:33Z",
+    "state": "closed",
+    "author_login": "davmlaw",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": "davmlaw"
+  },
+  {
+    "id": 1895608724,
+    "number": 691,
+    "repo": "hgvs",
+    "created_at": "2023-09-14T03:53:00Z",
+    "closed_at": "2025-11-05T18:49:36Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 1899881636,
+    "number": 692,
+    "repo": "hgvs",
+    "created_at": "2023-09-17T18:54:13Z",
+    "closed_at": "2023-09-18T23:33:10Z",
+    "state": "closed",
+    "author_login": "katie-perry",
+    "labels": [],
+    "closed_by": "katie-perry"
+  },
+  {
+    "id": 1899980063,
+    "number": 695,
+    "repo": "hgvs",
+    "created_at": "2023-09-18T00:21:32Z",
+    "closed_at": "2024-02-10T04:24:23Z",
+    "state": "closed",
+    "author_login": "ecalifornica",
+    "labels": [],
+    "closed_by": "davmlaw"
+  },
+  {
+    "id": 1916714020,
+    "number": 700,
+    "repo": "hgvs",
+    "created_at": "2023-09-28T05:16:47Z",
+    "closed_at": "2026-01-07T02:57:42Z",
+    "state": "closed",
+    "author_login": "davmlaw",
+    "labels": [
+      "enhancement",
+      "stale",
+      "closed-by-stale",
+      "data provider schema change"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1923899974,
+    "number": 701,
+    "repo": "hgvs",
+    "created_at": "2023-10-03T11:16:07Z",
+    "closed_at": "2024-01-22T01:19:43Z",
+    "state": "closed",
+    "author_login": "davmlaw",
+    "labels": [],
+    "closed_by": "davmlaw"
+  },
+  {
+    "id": 1925493277,
+    "number": 703,
+    "repo": "hgvs",
+    "created_at": "2023-10-04T06:28:20Z",
+    "closed_at": "2023-10-05T00:53:00Z",
+    "state": "closed",
+    "author_login": "vlakhujani",
+    "labels": [],
+    "closed_by": "davmlaw"
+  },
+  {
+    "id": 1931320929,
+    "number": 704,
+    "repo": "hgvs",
+    "created_at": "2023-10-07T11:50:25Z",
+    "closed_at": "2024-08-05T11:36:52Z",
+    "state": "closed",
+    "author_login": "mihaitodor",
+    "labels": [
+      "keep alive"
+    ],
+    "closed_by": "davmlaw"
+  },
+  {
+    "id": 1932124527,
+    "number": 705,
+    "repo": "hgvs",
+    "created_at": "2023-10-09T00:17:40Z",
+    "closed_at": "2026-01-06T02:57:46Z",
+    "state": "closed",
+    "author_login": "mihaitodor",
+    "labels": [
+      "stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1932132156,
+    "number": 706,
+    "repo": "hgvs",
+    "created_at": "2023-10-09T00:34:39Z",
+    "closed_at": "2026-01-06T02:57:44Z",
+    "state": "closed",
+    "author_login": "davmlaw",
+    "labels": [
+      "enhancement",
+      "stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1955514346,
+    "number": 707,
+    "repo": "hgvs",
+    "created_at": "2023-10-21T14:25:28Z",
+    "closed_at": "2024-09-02T04:38:04Z",
+    "state": "closed",
+    "author_login": "holtgrewe",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 1987083961,
+    "number": 710,
+    "repo": "hgvs",
+    "created_at": "2023-11-10T07:37:11Z",
+    "closed_at": "2026-04-06T05:55:50Z",
+    "state": "closed",
+    "author_login": "holtgrewe",
+    "labels": [
+      "enhancement",
+      "keep alive"
+    ],
+    "closed_by": "andreasprlic"
+  },
+  {
+    "id": 1998174477,
+    "number": 711,
+    "repo": "hgvs",
+    "created_at": "2023-11-17T02:55:03Z",
+    "closed_at": "2026-01-06T02:57:40Z",
+    "state": "closed",
+    "author_login": "mihaitodor",
+    "labels": [
+      "enhancement",
+      "stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 2036590331,
+    "number": 712,
+    "repo": "hgvs",
+    "created_at": "2023-12-11T21:50:16Z",
+    "closed_at": "2023-12-12T21:12:26Z",
+    "state": "closed",
+    "author_login": "andreasprlic",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": "andreasprlic"
+  },
+  {
+    "id": 2049061264,
+    "number": 714,
+    "repo": "hgvs",
+    "created_at": "2023-12-19T16:55:58Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "b0d0nne11",
+    "labels": [],
+    "closed_by": null
+  },
+  {
+    "id": 2066283757,
+    "number": 715,
+    "repo": "hgvs",
+    "created_at": "2024-01-04T20:21:30Z",
+    "closed_at": "2024-06-04T01:50:02Z",
+    "state": "closed",
+    "author_login": "b0d0nne11",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": "jsstevenson"
+  },
+  {
+    "id": 2067625886,
+    "number": 717,
+    "repo": "hgvs",
+    "created_at": "2024-01-05T16:15:45Z",
+    "closed_at": "2024-01-19T22:13:29Z",
+    "state": "closed",
+    "author_login": "mihaitodor",
+    "labels": [
+      "question",
+      "won't fix"
+    ],
+    "closed_by": "andreasprlic"
+  },
+  {
+    "id": 2090776149,
+    "number": 718,
+    "repo": "hgvs",
+    "created_at": "2024-01-19T15:23:55Z",
+    "closed_at": "2024-01-22T07:46:09Z",
+    "state": "closed",
+    "author_login": "jeantristanb",
+    "labels": [
+      "question"
+    ],
+    "closed_by": "jeantristanb"
+  },
+  {
+    "id": 2099379324,
+    "number": 720,
+    "repo": "hgvs",
+    "created_at": "2024-01-25T01:03:50Z",
+    "closed_at": "2026-01-06T02:57:37Z",
+    "state": "closed",
+    "author_login": "davmlaw",
+    "labels": [
+      "stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 2119134885,
+    "number": 721,
+    "repo": "hgvs",
+    "created_at": "2024-02-05T17:53:28Z",
+    "closed_at": "2024-05-15T01:58:53Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "stale",
+      "project proposal",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 2119949186,
+    "number": 722,
+    "repo": "hgvs",
+    "created_at": "2024-02-06T04:41:09Z",
+    "closed_at": "2024-03-21T04:50:39Z",
+    "state": "closed",
+    "author_login": "davmlaw",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": "davmlaw"
+  },
+  {
+    "id": 2122093439,
+    "number": 724,
+    "repo": "hgvs",
+    "created_at": "2024-02-07T03:07:28Z",
+    "closed_at": "2024-02-07T13:45:54Z",
+    "state": "closed",
+    "author_login": "markgene",
+    "labels": [],
+    "closed_by": "markgene"
+  },
+  {
+    "id": 2123176525,
+    "number": 727,
+    "repo": "hgvs",
+    "created_at": "2024-02-07T14:34:44Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "markgene",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 2176902823,
+    "number": 730,
+    "repo": "hgvs",
+    "created_at": "2024-03-08T23:05:15Z",
+    "closed_at": "2024-03-14T03:41:50Z",
+    "state": "closed",
+    "author_login": "jPleyte",
+    "labels": [],
+    "closed_by": "davmlaw"
+  },
+  {
+    "id": 2185118386,
+    "number": 732,
+    "repo": "hgvs",
+    "created_at": "2024-03-13T23:51:08Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "davmlaw",
+    "labels": [
+      "bug",
+      "data provider schema change"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 2202939365,
+    "number": 733,
+    "repo": "hgvs",
+    "created_at": "2024-03-22T17:05:47Z",
+    "closed_at": "2024-04-25T20:37:45Z",
+    "state": "closed",
+    "author_login": "larrybabb",
+    "labels": [],
+    "closed_by": "jsstevenson"
+  },
+  {
+    "id": 2234774648,
+    "number": 735,
+    "repo": "hgvs",
+    "created_at": "2024-04-10T05:18:39Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "marius-mather",
+    "labels": [],
+    "closed_by": null
+  },
+  {
+    "id": 2241054187,
+    "number": 736,
+    "repo": "hgvs",
+    "created_at": "2024-04-12T22:18:46Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "wlymanambry",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 2342580002,
+    "number": 741,
+    "repo": "hgvs",
+    "created_at": "2024-06-10T00:21:08Z",
+    "closed_at": "2025-03-03T17:14:24Z",
+    "state": "closed",
+    "author_login": "andreasprlic",
+    "labels": [
+      "enhancement",
+      "keep alive"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 2365517183,
+    "number": 743,
+    "repo": "hgvs",
+    "created_at": "2024-06-21T01:19:54Z",
+    "closed_at": "2024-08-05T12:00:08Z",
+    "state": "closed",
+    "author_login": "shizipo",
+    "labels": [
+      "enhancement"
+    ],
+    "closed_by": "davmlaw"
+  },
+  {
+    "id": 2367757103,
+    "number": 744,
+    "repo": "hgvs",
+    "created_at": "2024-06-22T11:26:29Z",
+    "closed_at": "2024-06-25T01:44:04Z",
+    "state": "closed",
+    "author_login": "davmlaw",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": "davmlaw"
+  },
+  {
+    "id": 2448370394,
+    "number": 747,
+    "repo": "hgvs",
+    "created_at": "2024-08-05T11:57:15Z",
+    "closed_at": "2026-02-13T03:40:32Z",
+    "state": "closed",
+    "author_login": "davmlaw",
+    "labels": [
+      "enhancement",
+      "stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 2590437121,
+    "number": 749,
+    "repo": "hgvs",
+    "created_at": "2024-10-16T02:52:54Z",
+    "closed_at": "2024-10-18T02:42:03Z",
+    "state": "closed",
+    "author_login": "chaopower-zhang",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": "andreasprlic"
+  },
+  {
+    "id": 2676737828,
+    "number": 750,
+    "repo": "hgvs",
+    "created_at": "2024-11-20T18:06:36Z",
+    "closed_at": "2025-02-26T02:18:54Z",
+    "state": "closed",
+    "author_login": "wlymanambry",
+    "labels": [
+      "stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 2854116048,
+    "number": 757,
+    "repo": "hgvs",
+    "created_at": "2025-02-14T16:01:12Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "tedil",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 2862469936,
+    "number": 758,
+    "repo": "hgvs",
+    "created_at": "2025-02-19T07:36:32Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "davmlaw",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 2880188086,
+    "number": 759,
+    "repo": "hgvs",
+    "created_at": "2025-02-26T04:38:14Z",
+    "closed_at": "2025-03-04T00:03:02Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 2880219731,
+    "number": 760,
+    "repo": "hgvs",
+    "created_at": "2025-02-26T05:02:07Z",
+    "closed_at": "2025-03-04T00:06:20Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 2885055712,
+    "number": 761,
+    "repo": "hgvs",
+    "created_at": "2025-02-27T16:43:49Z",
+    "closed_at": "2025-06-05T02:45:56Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "enhancement",
+      "stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 2885065252,
+    "number": 762,
+    "repo": "hgvs",
+    "created_at": "2025-02-27T16:47:48Z",
+    "closed_at": "2025-06-05T02:45:54Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "enhancement",
+      "stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 2895421711,
+    "number": 764,
+    "repo": "hgvs",
+    "created_at": "2025-03-04T21:11:22Z",
+    "closed_at": "2025-03-05T18:39:15Z",
+    "state": "closed",
+    "author_login": "b0d0nne11",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 2971341333,
+    "number": 766,
+    "repo": "hgvs",
+    "created_at": "2025-04-04T05:50:42Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "davmlaw",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 2990601999,
+    "number": 767,
+    "repo": "hgvs",
+    "created_at": "2025-04-12T17:49:51Z",
+    "closed_at": "2025-04-12T21:19:44Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "bug",
+      "won't fix"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 2994302588,
+    "number": 768,
+    "repo": "hgvs",
+    "created_at": "2025-04-14T21:42:31Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "andreasprlic",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 3007246714,
+    "number": 770,
+    "repo": "hgvs",
+    "created_at": "2025-04-20T21:52:48Z",
+    "closed_at": "2025-07-27T03:07:50Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "enhancement",
+      "stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 3031643291,
+    "number": 771,
+    "repo": "hgvs",
+    "created_at": "2025-04-30T15:24:03Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "theferrit32",
+    "labels": [
+      "enhancement"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 3200342303,
+    "number": 774,
+    "repo": "hgvs",
+    "created_at": "2025-07-03T18:54:36Z",
+    "closed_at": "2025-09-03T18:37:07Z",
+    "state": "closed",
+    "author_login": "b0d0nne11",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": "andreasprlic"
+  },
+  {
+    "id": 3209760022,
+    "number": 776,
+    "repo": "hgvs",
+    "created_at": "2025-07-07T17:22:52Z",
+    "closed_at": "2025-07-14T00:23:29Z",
+    "state": "closed",
+    "author_login": "aroon-color",
+    "labels": [
+      "enhancement"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 3226998809,
+    "number": 777,
+    "repo": "hgvs",
+    "created_at": "2025-07-14T00:22:30Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [
+      "enhancement"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 3333069009,
+    "number": 781,
+    "repo": "hgvs",
+    "created_at": "2025-08-19T06:26:30Z",
+    "closed_at": "2025-09-12T03:57:55Z",
+    "state": "closed",
+    "author_login": "WTFnewlife",
+    "labels": [],
+    "closed_by": "davmlaw"
+  },
+  {
+    "id": 3353477632,
+    "number": 784,
+    "repo": "hgvs",
+    "created_at": "2025-08-25T23:17:48Z",
+    "closed_at": "2025-11-01T19:51:18Z",
+    "state": "closed",
+    "author_login": "jsstevenson",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 3384670472,
+    "number": 787,
+    "repo": "hgvs",
+    "created_at": "2025-09-04T17:25:21Z",
+    "closed_at": "2026-01-03T02:50:01Z",
+    "state": "closed",
+    "author_login": "davmlaw",
+    "labels": [
+      "enhancement",
+      "stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 3384751419,
+    "number": 788,
+    "repo": "hgvs",
+    "created_at": "2025-09-04T17:47:22Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "davmlaw",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 3384933104,
+    "number": 791,
+    "repo": "hgvs",
+    "created_at": "2025-09-04T18:33:17Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "anju24",
+    "labels": [],
+    "closed_by": null
+  },
+  {
+    "id": 3385102598,
+    "number": 793,
+    "repo": "hgvs",
+    "created_at": "2025-09-04T19:15:59Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "davmlaw",
+    "labels": [
+      "enhancement"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 3387918776,
+    "number": 795,
+    "repo": "hgvs",
+    "created_at": "2025-09-05T15:17:49Z",
+    "closed_at": "2026-02-13T03:40:29Z",
+    "state": "closed",
+    "author_login": "davmlaw",
+    "labels": [
+      "stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 3388058627,
+    "number": 796,
+    "repo": "hgvs",
+    "created_at": "2025-09-05T16:00:36Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "andreasprlic",
+    "labels": [
+      "enhancement"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 3392387900,
+    "number": 797,
+    "repo": "hgvs",
+    "created_at": "2025-09-08T02:53:52Z",
+    "closed_at": "2025-09-12T03:59:14Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "enhancement"
+    ],
+    "closed_by": "davmlaw"
+  },
+  {
+    "id": 3392389076,
+    "number": 798,
+    "repo": "hgvs",
+    "created_at": "2025-09-08T02:54:51Z",
+    "closed_at": "2025-10-14T04:22:53Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "enhancement"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 3392503071,
+    "number": 800,
+    "repo": "hgvs",
+    "created_at": "2025-09-08T04:05:11Z",
+    "closed_at": "2025-10-15T18:52:32Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "enhancement"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 3395299229,
+    "number": 801,
+    "repo": "hgvs",
+    "created_at": "2025-09-08T18:51:30Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "davmlaw",
+    "labels": [
+      "keep alive"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 3486733844,
+    "number": 802,
+    "repo": "hgvs",
+    "created_at": "2025-10-06T11:05:04Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "behrj",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 3497682342,
+    "number": 803,
+    "repo": "hgvs",
+    "created_at": "2025-10-09T05:23:37Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "davmlaw",
+    "labels": [],
+    "closed_by": null
+  },
+  {
+    "id": 3503296954,
+    "number": 804,
+    "repo": "hgvs",
+    "created_at": "2025-10-10T14:57:10Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "schorlton-bugseq",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 3557558979,
+    "number": 808,
+    "repo": "hgvs",
+    "created_at": "2025-10-27T16:16:05Z",
+    "closed_at": "2026-02-25T03:36:27Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 3562456853,
+    "number": 809,
+    "repo": "hgvs",
+    "created_at": "2025-10-28T16:45:15Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "crutching",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 3578404797,
+    "number": 810,
+    "repo": "hgvs",
+    "created_at": "2025-11-01T20:19:21Z",
+    "closed_at": "2026-03-02T03:30:46Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 3578955069,
+    "number": 811,
+    "repo": "hgvs",
+    "created_at": "2025-11-02T04:36:10Z",
+    "closed_at": "2026-03-04T03:26:16Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 3579676645,
+    "number": 812,
+    "repo": "hgvs",
+    "created_at": "2025-11-02T15:59:01Z",
+    "closed_at": "2026-03-04T03:26:14Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 3643753230,
+    "number": 813,
+    "repo": "hgvs",
+    "created_at": "2025-11-19T17:35:16Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "msierk",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 3759646979,
+    "number": 816,
+    "repo": "hgvs",
+    "created_at": "2025-12-24T08:37:48Z",
+    "closed_at": "2026-04-24T04:17:37Z",
+    "state": "closed",
+    "author_login": "Leorasaharia",
+    "labels": [
+      "stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 3817583997,
+    "number": 817,
+    "repo": "hgvs",
+    "created_at": "2026-01-15T13:30:48Z",
+    "closed_at": "2026-03-15T06:04:29Z",
+    "state": "closed",
+    "author_login": "FelixMoelder",
+    "labels": [
+      "enhancement"
+    ],
+    "closed_by": "FelixMoelder"
+  },
+  {
+    "id": 3891949337,
+    "number": 818,
+    "repo": "hgvs",
+    "created_at": "2026-02-03T15:55:09Z",
+    "closed_at": "2026-06-15T20:01:08Z",
+    "state": "closed",
+    "author_login": "rickymagner",
+    "labels": [
+      "duplicate"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 4052576915,
+    "number": 819,
+    "repo": "hgvs",
+    "created_at": "2026-03-10T15:31:55Z",
+    "closed_at": "2026-07-19T21:09:43Z",
+    "state": "closed",
+    "author_login": "andreasprlic",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 4123760006,
+    "number": 822,
+    "repo": "hgvs",
+    "created_at": "2026-03-23T21:11:00Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "sodiumnitrate",
+    "labels": [
+      "stale"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 4261903777,
+    "number": 824,
+    "repo": "hgvs",
+    "created_at": "2026-04-14T12:07:24Z",
+    "closed_at": "2026-04-14T16:35:26Z",
+    "state": "closed",
+    "author_login": "korikuzma",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": "korikuzma"
+  },
+  {
+    "id": 4311322618,
+    "number": 828,
+    "repo": "hgvs",
+    "created_at": "2026-04-22T19:17:30Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "theferrit32",
+    "labels": [],
+    "closed_by": null
+  },
+  {
+    "id": 4399219362,
+    "number": 829,
+    "repo": "hgvs",
+    "created_at": "2026-05-07T13:43:06Z",
+    "closed_at": "2026-06-20T02:55:26Z",
+    "state": "closed",
+    "author_login": "b0d0nne11",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": "andreasprlic"
+  },
+  {
+    "id": 4923993197,
+    "number": 832,
+    "repo": "hgvs",
+    "created_at": "2026-07-19T18:59:48Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": null
+  },
+  {
     "id": 183581420,
     "number": 5,
     "repo": "hgvs-eval",
