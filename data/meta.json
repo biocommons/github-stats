@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-07-22T09:29:41.726856+00:00",
+  "collected_at": "2026-07-22T11:27:53.559899+00:00",
   "schema_version": "1.2",
   "repos": [
     ".github",
@@ -17,5 +17,5 @@
     "uta"
   ],
   "run_trigger": "schedule",
-  "collection_duration_ms": 80773
+  "collection_duration_ms": 90487
 }
