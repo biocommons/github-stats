@@ -3151,6 +3151,19 @@
     "closed_by": null
   },
   {
+    "id": 4959148927,
+    "number": 500,
+    "repo": "anyvar",
+    "created_at": "2026-07-23T13:11:34Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "jennifer-bowser",
+    "labels": [
+      "priority:high"
+    ],
+    "closed_by": null
+  },
+  {
     "id": 2095018790,
     "number": 6,
     "repo": "biocommons.github.io",
