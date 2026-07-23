@@ -4995,6 +4995,11 @@
     "repo": "hgvs"
   },
   {
+    "reviewer_login": "jsstevenson",
+    "submitted_at": "2026-07-23T00:05:51Z",
+    "repo": "hgvs"
+  },
+  {
     "reviewer_login": "reece",
     "submitted_at": "2023-09-09T03:34:24Z",
     "repo": "python-package"
