@@ -2989,13 +2989,13 @@
     "number": 465,
     "repo": "anyvar",
     "created_at": "2026-05-22T17:07:45Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-07-24T17:09:54Z",
+    "state": "closed",
     "author_login": "jsstevenson",
     "labels": [
       "priority:low"
     ],
-    "closed_by": null
+    "closed_by": "jennifer-bowser"
   },
   {
     "id": 4504598310,
@@ -3155,13 +3155,13 @@
     "number": 500,
     "repo": "anyvar",
     "created_at": "2026-07-23T13:11:34Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-07-24T17:35:19Z",
+    "state": "closed",
     "author_login": "jennifer-bowser",
     "labels": [
       "priority:high"
     ],
-    "closed_by": null
+    "closed_by": "jennifer-bowser"
   },
   {
     "id": 2095018790,
