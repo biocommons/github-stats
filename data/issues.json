@@ -15774,7 +15774,9 @@
     "closed_at": null,
     "state": "open",
     "author_login": "theferrit32",
-    "labels": [],
+    "labels": [
+      "stale"
+    ],
     "closed_by": null
   },
   {
