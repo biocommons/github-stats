@@ -93,7 +93,7 @@
     "full_name": "biocommons/eutils",
     "html_url": "https://github.com/biocommons/eutils",
     "description": "simplified searching, fetching, and parsing records from NCBI using their E-utilities interface",
-    "stargazers_count": 64,
+    "stargazers_count": 63,
     "forks_count": 29,
     "open_issues_count": 0,
     "open_pr_count": 0,
@@ -102,7 +102,7 @@
       "tag_name": "0.6.1",
       "published_at": "2025-12-07T23:32:55Z"
     },
-    "updated_at": "2026-06-23T19:41:10Z",
+    "updated_at": "2026-07-25T15:15:11Z",
     "default_branch": "main",
     "private": false,
     "archived": true
