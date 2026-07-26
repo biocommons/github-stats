@@ -130,8 +130,8 @@
     "description": "Python library to parse, format, validate, normalize, and map sequence variants according to HGVS Nomenclature (https://hgvs-nomenclature.org/).",
     "stargazers_count": 291,
     "forks_count": 99,
-    "open_issues_count": 43,
-    "open_pr_count": 4,
+    "open_issues_count": 42,
+    "open_pr_count": 5,
     "contributors": 40,
     "latest_release": {
       "tag_name": "1.5.7",

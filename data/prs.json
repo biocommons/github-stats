@@ -6116,6 +6116,17 @@
     "draft": false
   },
   {
+    "id": 4135161776,
+    "number": 835,
+    "repo": "hgvs",
+    "created_at": "2026-07-26T05:17:15Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "andreasprlic",
+    "draft": false
+  },
+  {
     "id": 89712043,
     "number": 1,
     "repo": "hgvs-eval",
