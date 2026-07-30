@@ -2475,6 +2475,17 @@
     "draft": true
   },
   {
+    "id": 4169726766,
+    "number": 502,
+    "repo": "anyvar",
+    "created_at": "2026-07-30T13:21:10Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "jennifer-bowser",
+    "draft": true
+  },
+  {
     "id": 1120100497,
     "number": 1,
     "repo": "biocommons.github.io",
