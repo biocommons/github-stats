@@ -4437,6 +4437,17 @@
     "number": 28,
     "repo": "github-stats",
     "created_at": "2026-06-16T18:52:34Z",
+    "closed_at": "2026-08-07T18:08:53Z",
+    "merged_at": null,
+    "state": "closed",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 4230656230,
+    "number": 29,
+    "repo": "github-stats",
+    "created_at": "2026-08-07T18:08:51Z",
     "closed_at": null,
     "merged_at": null,
     "state": "open",
