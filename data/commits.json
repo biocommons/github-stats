@@ -19495,6 +19495,26 @@
     "repo": "hgvs"
   },
   {
+    "author_login": null,
+    "author_date": "2026-08-07T21:52:31Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-08-07T21:53:33Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-08-07T21:57:33Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-08-07T22:03:44Z",
+    "repo": "hgvs"
+  },
+  {
     "author_login": "reece",
     "author_date": "2016-10-17T15:37:39Z",
     "repo": "hgvs-eval"
