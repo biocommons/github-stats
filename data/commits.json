@@ -19490,6 +19490,11 @@
     "repo": "hgvs"
   },
   {
+    "author_login": "andreasprlic",
+    "author_date": "2026-07-27T05:15:32Z",
+    "repo": "hgvs"
+  },
+  {
     "author_login": null,
     "author_date": "2026-08-07T21:33:34Z",
     "repo": "hgvs"
@@ -19512,6 +19517,21 @@
   {
     "author_login": null,
     "author_date": "2026-08-07T22:03:44Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-08-07T23:02:56Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-08-07T23:23:14Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-08-07T23:30:55Z",
     "repo": "hgvs"
   },
   {

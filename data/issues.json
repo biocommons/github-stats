@@ -15381,13 +15381,13 @@
     "number": 771,
     "repo": "hgvs",
     "created_at": "2025-04-30T15:24:03Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-08-07T23:30:57Z",
+    "state": "closed",
     "author_login": "theferrit32",
     "labels": [
       "enhancement"
     ],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 3200342303,
