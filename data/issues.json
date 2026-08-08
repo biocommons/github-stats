@@ -15573,13 +15573,13 @@
     "number": 801,
     "repo": "hgvs",
     "created_at": "2025-09-08T18:51:30Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-08-08T13:16:19Z",
+    "state": "closed",
     "author_login": "davmlaw",
     "labels": [
       "keep alive"
     ],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 3486733844,
