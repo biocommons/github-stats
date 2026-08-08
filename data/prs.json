@@ -6087,9 +6087,9 @@
     "number": 821,
     "repo": "hgvs",
     "created_at": "2026-03-22T05:58:24Z",
-    "closed_at": null,
-    "merged_at": null,
-    "state": "open",
+    "closed_at": "2026-08-08T17:59:14Z",
+    "merged_at": "2026-08-08T17:59:14Z",
+    "state": "closed",
     "author_login": "andreasprlic",
     "draft": false
   },

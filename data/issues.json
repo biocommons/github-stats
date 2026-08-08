@@ -14972,11 +14972,11 @@
     "number": 714,
     "repo": "hgvs",
     "created_at": "2023-12-19T16:55:58Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-08-08T17:59:16Z",
+    "state": "closed",
     "author_login": "b0d0nne11",
     "labels": [],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 2066283757,

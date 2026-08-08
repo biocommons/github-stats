@@ -18465,6 +18465,11 @@
     "repo": "hgvs"
   },
   {
+    "author_login": "b0d0nne11",
+    "author_date": "2023-12-13T21:44:24Z",
+    "repo": "hgvs"
+  },
+  {
     "author_login": "reece",
     "author_date": "2024-01-19T04:38:29Z",
     "repo": "hgvs"
@@ -19015,6 +19020,11 @@
     "repo": "hgvs"
   },
   {
+    "author_login": "b0d0nne11",
+    "author_date": "2025-08-18T18:44:01Z",
+    "repo": "hgvs"
+  },
+  {
     "author_login": "jsstevenson",
     "author_date": "2025-08-25T14:26:36Z",
     "repo": "hgvs"
@@ -19125,6 +19135,11 @@
     "repo": "hgvs"
   },
   {
+    "author_login": "b0d0nne11",
+    "author_date": "2025-09-04T19:15:21Z",
+    "repo": "hgvs"
+  },
+  {
     "author_login": "andreasprlic",
     "author_date": "2025-09-04T23:46:43Z",
     "repo": "hgvs"
@@ -19222,6 +19237,11 @@
   {
     "author_login": null,
     "author_date": "2025-09-08T04:05:45Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "b0d0nne11",
+    "author_date": "2025-10-03T20:26:38Z",
     "repo": "hgvs"
   },
   {
@@ -19420,6 +19440,16 @@
     "repo": "hgvs"
   },
   {
+    "author_login": "andreasprlic",
+    "author_date": "2026-03-22T05:42:22Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "andreasprlic",
+    "author_date": "2026-03-22T14:23:48Z",
+    "repo": "hgvs"
+  },
+  {
     "author_login": "korikuzma",
     "author_date": "2026-04-14T12:12:15Z",
     "repo": "hgvs"
@@ -19516,6 +19546,16 @@
   },
   {
     "author_login": "andreasprlic",
+    "author_date": "2026-07-24T22:59:44Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "andreasprlic",
+    "author_date": "2026-07-24T23:07:49Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "andreasprlic",
     "author_date": "2026-07-25T21:41:47Z",
     "repo": "hgvs"
   },
@@ -19557,6 +19597,16 @@
   {
     "author_login": null,
     "author_date": "2026-08-07T22:03:44Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-08-07T22:07:27Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-08-07T22:32:48Z",
     "repo": "hgvs"
   },
   {
@@ -19617,6 +19667,16 @@
   {
     "author_login": "reece",
     "author_date": "2026-08-08T15:12:18Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-08-08T17:49:28Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-08-08T17:59:13Z",
     "repo": "hgvs"
   },
   {
