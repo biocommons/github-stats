@@ -13296,13 +13296,13 @@
     "number": 505,
     "repo": "hgvs",
     "created_at": "2018-07-25T17:31:16Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-08-08T16:33:26Z",
+    "state": "closed",
     "author_login": "reece",
     "labels": [
       "stale"
     ],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 344541129,
@@ -15599,11 +15599,11 @@
     "number": 803,
     "repo": "hgvs",
     "created_at": "2025-10-09T05:23:37Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-08-08T16:35:23Z",
+    "state": "closed",
     "author_login": "davmlaw",
     "labels": [],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 3503296954,
@@ -15811,11 +15811,11 @@
     "number": 832,
     "repo": "hgvs",
     "created_at": "2026-07-19T18:59:48Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-08-08T16:35:10Z",
+    "state": "closed",
     "author_login": "reece",
     "labels": [],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 4952864845,
