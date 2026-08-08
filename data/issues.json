@@ -19,7 +19,7 @@
     "state": "closed",
     "author_login": "korikuzma",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -32,7 +32,7 @@
     "state": "closed",
     "author_login": "korikuzma",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -45,7 +45,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -58,7 +58,7 @@
     "state": "open",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": null
   },
