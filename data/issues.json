@@ -13795,11 +13795,11 @@
     "number": 559,
     "repo": "hgvs",
     "created_at": "2019-04-21T22:51:49Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-08-08T20:47:28Z",
+    "state": "closed",
     "author_login": "reece",
     "labels": [],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 442744508,
@@ -15848,11 +15848,11 @@
     "number": 838,
     "repo": "hgvs",
     "created_at": "2026-08-07T18:46:44Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-08-08T20:44:48Z",
+    "state": "closed",
     "author_login": "reece",
     "labels": [],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 5098988830,
@@ -15892,6 +15892,28 @@
       "bug"
     ],
     "closed_by": "reece"
+  },
+  {
+    "id": 5099398946,
+    "number": 858,
+    "repo": "hgvs",
+    "created_at": "2026-08-08T20:48:23Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": null
+  },
+  {
+    "id": 5099487269,
+    "number": 859,
+    "repo": "hgvs",
+    "created_at": "2026-08-08T21:10:48Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": null
   },
   {
     "id": 183581420,

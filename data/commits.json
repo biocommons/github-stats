@@ -19585,8 +19585,23 @@
     "repo": "hgvs"
   },
   {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-08-07T21:36:18Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-08-07T21:39:39Z",
+    "repo": "hgvs"
+  },
+  {
     "author_login": null,
     "author_date": "2026-08-07T21:52:31Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-08-07T21:53:29Z",
     "repo": "hgvs"
   },
   {
@@ -19675,6 +19690,21 @@
     "repo": "hgvs"
   },
   {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-08-08T15:14:43Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-08-08T15:14:45Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-08-08T15:14:50Z",
+    "repo": "hgvs"
+  },
+  {
     "author_login": null,
     "author_date": "2026-08-08T17:49:28Z",
     "repo": "hgvs"
@@ -19717,6 +19747,86 @@
   {
     "author_login": "reece",
     "author_date": "2026-08-08T19:38:49Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-08-08T19:40:45Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-08-08T20:39:11Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-08-08T20:39:16Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-08-08T20:39:21Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-08-08T20:39:26Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-08-08T20:39:31Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-08-08T20:39:35Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-08-08T20:41:36Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-08-08T20:42:51Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-08-08T20:42:56Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-08-08T20:43:55Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-08-08T21:10:48Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-08-08T21:12:04Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-08-08T21:12:42Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-08-08T21:12:57Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-08-08T21:13:24Z",
     "repo": "hgvs"
   },
   {
