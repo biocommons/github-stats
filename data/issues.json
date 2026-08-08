@@ -15916,6 +15916,30 @@
     "closed_by": null
   },
   {
+    "id": 5099620145,
+    "number": 867,
+    "repo": "hgvs",
+    "created_at": "2026-08-08T21:47:37Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 5099712162,
+    "number": 868,
+    "repo": "hgvs",
+    "created_at": "2026-08-08T22:14:07Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": null
+  },
+  {
     "id": 183581420,
     "number": 5,
     "repo": "hgvs-eval",
