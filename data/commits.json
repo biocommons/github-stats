@@ -19475,6 +19475,31 @@
     "repo": "hgvs"
   },
   {
+    "author_login": "davmlaw",
+    "author_date": "2026-07-09T12:40:26Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "davmlaw",
+    "author_date": "2026-07-17T13:20:20Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "davmlaw",
+    "author_date": "2026-07-17T13:23:23Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "davmlaw",
+    "author_date": "2026-07-17T13:26:06Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-07-19T18:33:10Z",
+    "repo": "hgvs"
+  },
+  {
     "author_login": "reece",
     "author_date": "2026-07-19T21:09:42Z",
     "repo": "hgvs"
@@ -19561,12 +19586,37 @@
   },
   {
     "author_login": null,
+    "author_date": "2026-08-08T12:49:47Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-08-08T12:56:12Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
     "author_date": "2026-08-08T13:09:33Z",
     "repo": "hgvs"
   },
   {
     "author_login": "reece",
     "author_date": "2026-08-08T13:16:17Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-08-08T14:46:10Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-08-08T15:08:18Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-08-08T15:12:18Z",
     "repo": "hgvs"
   },
   {

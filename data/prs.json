@@ -6120,9 +6120,9 @@
     "number": 826,
     "repo": "hgvs",
     "created_at": "2026-04-15T05:24:07Z",
-    "closed_at": null,
-    "merged_at": null,
-    "state": "open",
+    "closed_at": "2026-08-08T15:12:19Z",
+    "merged_at": "2026-08-08T15:12:19Z",
+    "state": "closed",
     "author_login": "davmlaw",
     "draft": false
   },
