@@ -19580,6 +19580,11 @@
     "repo": "hgvs"
   },
   {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-08-07T21:36:17Z",
+    "repo": "hgvs"
+  },
+  {
     "author_login": null,
     "author_date": "2026-08-07T21:52:31Z",
     "repo": "hgvs"
@@ -19682,6 +19687,36 @@
   {
     "author_login": null,
     "author_date": "2026-08-08T19:07:30Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-08-08T19:30:09Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-08-08T19:34:13Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-08-08T19:35:54Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-08-08T19:36:57Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-08-08T19:38:11Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-08-08T19:38:49Z",
     "repo": "hgvs"
   },
   {
