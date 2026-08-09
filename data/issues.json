@@ -15934,6 +15934,19 @@
     "closed_by": null
   },
   {
+    "id": 5104385477,
+    "number": 871,
+    "repo": "hgvs",
+    "created_at": "2026-08-09T19:43:36Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [
+      "type:feature"
+    ],
+    "closed_by": null
+  },
+  {
     "id": 183581420,
     "number": 5,
     "repo": "hgvs-eval",
