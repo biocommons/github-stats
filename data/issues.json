@@ -7531,7 +7531,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -7544,7 +7544,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -7689,7 +7689,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -7702,7 +7702,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -7715,7 +7715,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -7739,7 +7739,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -7752,7 +7752,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -7765,7 +7765,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -7866,7 +7866,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -7879,7 +7879,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -7925,7 +7925,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -7971,7 +7971,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -7984,7 +7984,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -7997,7 +7997,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -8010,7 +8010,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -8034,7 +8034,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -8047,7 +8047,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -8071,7 +8071,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -8128,7 +8128,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -8163,7 +8163,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -8176,7 +8176,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -8189,7 +8189,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -8257,7 +8257,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -8270,7 +8270,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -8294,7 +8294,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -8362,7 +8362,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -8375,7 +8375,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -8421,7 +8421,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -8500,7 +8500,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -8535,7 +8535,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -8570,7 +8570,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -8594,7 +8594,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -8607,7 +8607,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -8631,7 +8631,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -8655,7 +8655,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -8679,7 +8679,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -8692,7 +8692,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -8727,7 +8727,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -8740,8 +8740,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -8755,7 +8755,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -8768,7 +8768,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -8792,7 +8792,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -8805,7 +8805,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -8818,7 +8818,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -8831,7 +8831,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -8855,9 +8855,9 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement",
+      "type:feature",
       "keep alive",
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -8871,7 +8871,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -9060,7 +9060,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -9128,7 +9128,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -9152,7 +9152,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -9187,8 +9187,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -9257,7 +9257,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -9292,7 +9292,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -9360,7 +9360,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -9373,7 +9373,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -9386,7 +9386,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -9410,7 +9410,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -9423,7 +9423,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -9436,7 +9436,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -9449,7 +9449,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -9462,7 +9462,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -9475,7 +9475,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -9488,7 +9488,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -9501,7 +9501,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -9514,7 +9514,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -9538,7 +9538,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -9551,7 +9551,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -9564,7 +9564,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -9577,7 +9577,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -9590,7 +9590,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -9603,7 +9603,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -9616,7 +9616,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -9629,8 +9629,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -9644,7 +9644,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -9668,7 +9668,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -9681,7 +9681,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -9694,7 +9694,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -9707,7 +9707,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -9720,7 +9720,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -9733,8 +9733,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -9748,7 +9748,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -9761,8 +9761,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -9787,7 +9787,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -9811,7 +9811,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -9824,7 +9824,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -9837,7 +9837,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -9850,7 +9850,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -9918,7 +9918,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -9931,7 +9931,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -9944,7 +9944,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -9957,7 +9957,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -9970,7 +9970,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -9983,7 +9983,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -9996,7 +9996,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "won't fix"
+      "meta:wontfix"
     ],
     "closed_by": "reece"
   },
@@ -10020,7 +10020,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10044,7 +10044,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -10057,7 +10057,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -10070,7 +10070,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10083,7 +10083,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10096,7 +10096,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10109,9 +10109,9 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "duplicate",
-      "enhancement",
-      "stale"
+      "meta:duplicate",
+      "type:feature",
+      "meta:stale"
     ],
     "closed_by": "davmlaw"
   },
@@ -10124,7 +10124,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -10137,7 +10137,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10150,7 +10150,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -10163,7 +10163,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -10176,7 +10176,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10189,7 +10189,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10202,7 +10202,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -10215,8 +10215,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -10230,7 +10230,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10243,7 +10243,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10256,7 +10256,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10269,7 +10269,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -10282,7 +10282,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -10295,7 +10295,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10308,7 +10308,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10321,7 +10321,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10334,7 +10334,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10347,7 +10347,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10360,7 +10360,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10373,7 +10373,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10386,7 +10386,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10399,7 +10399,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10412,7 +10412,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10425,7 +10425,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10438,7 +10438,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10451,8 +10451,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -10488,7 +10488,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -10512,7 +10512,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10525,7 +10525,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -10560,7 +10560,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10573,7 +10573,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -10587,7 +10587,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10600,7 +10600,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10613,7 +10613,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10626,7 +10626,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10650,7 +10650,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -10663,7 +10663,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "icebert"
   },
@@ -10676,7 +10676,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -10700,7 +10700,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10724,7 +10724,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -10737,8 +10737,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -10763,7 +10763,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -10810,7 +10810,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10834,7 +10834,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -10848,7 +10848,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -10861,7 +10861,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -10874,7 +10874,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -10887,7 +10887,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -10911,7 +10911,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -10925,7 +10925,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10938,7 +10938,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -10951,7 +10951,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -10964,7 +10964,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -10977,7 +10977,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -10990,7 +10990,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11003,7 +11003,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11016,7 +11016,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11029,7 +11029,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11042,7 +11042,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -11066,7 +11066,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -11079,7 +11079,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11092,7 +11092,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11105,7 +11105,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11118,7 +11118,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11131,8 +11131,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -11146,7 +11146,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -11159,7 +11159,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -11172,7 +11172,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -11185,7 +11185,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -11209,7 +11209,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11222,7 +11222,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -11268,7 +11268,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11281,7 +11281,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11294,7 +11294,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11307,7 +11307,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11320,7 +11320,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11333,7 +11333,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11346,7 +11346,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11359,7 +11359,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11372,7 +11372,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -11385,7 +11385,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -11398,7 +11398,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -11411,7 +11411,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11435,7 +11435,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -11449,7 +11449,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11462,7 +11462,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11475,7 +11475,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -11489,7 +11489,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11502,7 +11502,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11515,7 +11515,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -11528,8 +11528,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -11543,7 +11543,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -11556,7 +11556,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11569,7 +11569,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11582,8 +11582,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -11597,7 +11597,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -11610,8 +11610,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -11625,7 +11625,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11638,7 +11638,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11651,7 +11651,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11664,7 +11664,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11677,7 +11677,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11690,8 +11690,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -11705,7 +11705,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11718,7 +11718,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -11731,7 +11731,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11766,7 +11766,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11779,7 +11779,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11792,7 +11792,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -11805,8 +11805,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -11820,7 +11820,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11833,7 +11833,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11846,7 +11846,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -11859,7 +11859,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -11872,7 +11872,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "icebert"
   },
@@ -11907,7 +11907,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -11920,7 +11920,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -11944,8 +11944,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -11959,7 +11959,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -12027,7 +12027,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -12040,7 +12040,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -12065,7 +12065,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -12078,7 +12078,7 @@
     "state": "open",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -12091,7 +12091,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -12115,7 +12115,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -12129,7 +12129,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -12176,7 +12176,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -12189,7 +12189,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -12202,7 +12202,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -12216,7 +12216,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -12229,7 +12229,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -12242,7 +12242,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -12255,8 +12255,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -12270,8 +12270,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "duplicate",
-      "enhancement"
+      "meta:duplicate",
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -12284,7 +12284,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -12297,7 +12297,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -12321,7 +12321,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -12334,7 +12334,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -12347,7 +12347,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -12360,7 +12360,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -12374,7 +12374,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -12387,7 +12387,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -12400,7 +12400,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -12413,7 +12413,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -12426,7 +12426,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -12439,7 +12439,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -12452,7 +12452,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -12465,7 +12465,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -12500,7 +12500,7 @@
     "state": "closed",
     "author_login": "icebert",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -12535,7 +12535,7 @@
     "state": "closed",
     "author_login": "icebert",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -12559,7 +12559,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -12595,7 +12595,7 @@
     "state": "open",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -12608,7 +12608,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -12643,7 +12643,7 @@
     "state": "closed",
     "author_login": "davemcg",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -12656,7 +12656,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "icebert"
   },
@@ -12669,7 +12669,7 @@
     "state": "closed",
     "author_login": "Akeeeeshi",
     "labels": [
-      "duplicate"
+      "meta:duplicate"
     ],
     "closed_by": "reece"
   },
@@ -12693,7 +12693,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -12706,7 +12706,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale",
       "resurrected"
     ],
@@ -12732,7 +12732,7 @@
     "state": "closed",
     "author_login": "yujiang02",
     "labels": [
-      "won't fix"
+      "meta:wontfix"
     ],
     "closed_by": "reece"
   },
@@ -12811,7 +12811,7 @@
     "state": "closed",
     "author_login": "icebert",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -12835,7 +12835,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -12871,7 +12871,7 @@
     "state": "closed",
     "author_login": "icebert",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "icebert"
   },
@@ -12928,7 +12928,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "won't fix"
+      "meta:wontfix"
     ],
     "closed_by": "reece"
   },
@@ -12952,7 +12952,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale",
       "resurrected"
     ],
@@ -12967,7 +12967,7 @@
     "state": "closed",
     "author_login": "Akeeeeshi",
     "labels": [
-      "won't fix"
+      "meta:wontfix"
     ],
     "closed_by": "reece"
   },
@@ -12991,7 +12991,7 @@
     "state": "closed",
     "author_login": "icebert",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -13048,7 +13048,7 @@
     "state": "closed",
     "author_login": "ianfab",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -13105,7 +13105,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -13129,7 +13129,7 @@
     "state": "open",
     "author_login": "akeeeshi",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -13186,7 +13186,7 @@
     "state": "closed",
     "author_login": "Peter-J-Freeman",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -13287,7 +13287,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "duplicate"
+      "meta:duplicate"
     ],
     "closed_by": "reece"
   },
@@ -13300,7 +13300,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale"
+      "meta:stale"
     ],
     "closed_by": "reece"
   },
@@ -13401,7 +13401,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -13426,7 +13426,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -13473,7 +13473,7 @@
     "state": "closed",
     "author_login": "khmccurdy",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -13531,7 +13531,7 @@
     "state": "open",
     "author_login": "sptaylor",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -13566,7 +13566,7 @@
     "state": "open",
     "author_login": "dhauge",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -13658,7 +13658,7 @@
     "state": "open",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -13737,7 +13737,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -13762,7 +13762,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale",
       "resurrected"
     ],
@@ -13810,7 +13810,7 @@
     "state": "closed",
     "author_login": "nathanmadams",
     "labels": [
-      "won't fix"
+      "meta:wontfix"
     ],
     "closed_by": "reece"
   },
@@ -13845,7 +13845,7 @@
     "state": "closed",
     "author_login": "dariober",
     "labels": [
-      "invalid"
+      "meta:invalid"
     ],
     "closed_by": "reece"
   },
@@ -13926,7 +13926,7 @@
     "state": "open",
     "author_login": "EnriqueDMeneses",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -14073,7 +14073,7 @@
     "state": "closed",
     "author_login": "akeeeshi",
     "labels": [
-      "question"
+      "type:question"
     ],
     "closed_by": "reece"
   },
@@ -14099,7 +14099,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -14112,7 +14112,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -14126,7 +14126,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -14140,7 +14140,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -14153,7 +14153,7 @@
     "state": "open",
     "author_login": "melissacline",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -14177,7 +14177,7 @@
     "state": "closed",
     "author_login": "sachalau",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale",
       "resurrected"
     ],
@@ -14192,7 +14192,7 @@
     "state": "closed",
     "author_login": "xiucz",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale",
       "resurrected"
     ],
@@ -14218,7 +14218,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -14232,7 +14232,7 @@
     "state": "closed",
     "author_login": "lincoln-harris",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale",
       "resurrected"
     ],
@@ -14247,7 +14247,7 @@
     "state": "open",
     "author_login": "sptaylor",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -14260,7 +14260,7 @@
     "state": "closed",
     "author_login": "andreasprlic",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "github-actions[bot]"
   },
@@ -14273,7 +14273,7 @@
     "state": "closed",
     "author_login": "cassiemk",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale",
       "resurrected"
     ],
@@ -14288,7 +14288,7 @@
     "state": "closed",
     "author_login": "deepik27",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale",
       "resurrected"
     ],
@@ -14393,7 +14393,7 @@
     "state": "closed",
     "author_login": "paul-williams-tfs",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "github-actions[bot]"
   },
@@ -14450,7 +14450,7 @@
     "state": "closed",
     "author_login": "andreasprlic",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale",
       "resurrected"
     ],
@@ -14498,7 +14498,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale",
       "resurrected"
     ],
@@ -14513,7 +14513,7 @@
     "state": "closed",
     "author_login": "davmlaw",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale",
       "resurrected"
     ],
@@ -14528,7 +14528,7 @@
     "state": "closed",
     "author_login": "yxuil",
     "labels": [
-      "won't fix"
+      "meta:wontfix"
     ],
     "closed_by": "reece"
   },
@@ -14541,7 +14541,7 @@
     "state": "closed",
     "author_login": "nh13",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale",
       "resurrected"
     ],
@@ -14578,7 +14578,7 @@
     "state": "closed",
     "author_login": "nh13",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -14592,7 +14592,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -14606,7 +14606,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale",
       "resurrected"
     ],
@@ -14643,7 +14643,7 @@
     "state": "closed",
     "author_login": "mbiokyle29",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -14738,7 +14738,7 @@
     "state": "closed",
     "author_login": "davmlaw",
     "labels": [
-      "won't fix"
+      "meta:wontfix"
     ],
     "closed_by": "davmlaw"
   },
@@ -14795,7 +14795,7 @@
     "state": "closed",
     "author_login": "davmlaw",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "davmlaw"
   },
@@ -14841,8 +14841,8 @@
     "state": "closed",
     "author_login": "davmlaw",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale",
       "data provider schema change"
     ],
@@ -14892,7 +14892,7 @@
     "state": "closed",
     "author_login": "mihaitodor",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -14906,8 +14906,8 @@
     "state": "closed",
     "author_login": "davmlaw",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -14921,7 +14921,7 @@
     "state": "closed",
     "author_login": "holtgrewe",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -14934,7 +14934,7 @@
     "state": "closed",
     "author_login": "holtgrewe",
     "labels": [
-      "enhancement",
+      "type:feature",
       "keep alive"
     ],
     "closed_by": "andreasprlic"
@@ -14948,8 +14948,8 @@
     "state": "closed",
     "author_login": "mihaitodor",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -14963,7 +14963,7 @@
     "state": "closed",
     "author_login": "andreasprlic",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "andreasprlic"
   },
@@ -14987,7 +14987,7 @@
     "state": "closed",
     "author_login": "b0d0nne11",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "jsstevenson"
   },
@@ -15000,8 +15000,8 @@
     "state": "closed",
     "author_login": "mihaitodor",
     "labels": [
-      "question",
-      "won't fix"
+      "type:question",
+      "meta:wontfix"
     ],
     "closed_by": "andreasprlic"
   },
@@ -15014,7 +15014,7 @@
     "state": "closed",
     "author_login": "jeantristanb",
     "labels": [
-      "question"
+      "type:question"
     ],
     "closed_by": "jeantristanb"
   },
@@ -15027,7 +15027,7 @@
     "state": "closed",
     "author_login": "davmlaw",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -15041,8 +15041,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
-      "project proposal",
+      "meta:stale",
+      "type:proposal",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -15056,7 +15056,7 @@
     "state": "closed",
     "author_login": "davmlaw",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "davmlaw"
   },
@@ -15080,7 +15080,7 @@
     "state": "open",
     "author_login": "markgene",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -15104,7 +15104,7 @@
     "state": "open",
     "author_login": "davmlaw",
     "labels": [
-      "bug",
+      "type:bug",
       "data provider schema change"
     ],
     "closed_by": null
@@ -15140,7 +15140,7 @@
     "state": "open",
     "author_login": "wlymanambry",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -15153,7 +15153,7 @@
     "state": "closed",
     "author_login": "andreasprlic",
     "labels": [
-      "enhancement",
+      "type:feature",
       "keep alive"
     ],
     "closed_by": "reece"
@@ -15167,7 +15167,7 @@
     "state": "closed",
     "author_login": "shizipo",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "davmlaw"
   },
@@ -15180,7 +15180,7 @@
     "state": "closed",
     "author_login": "davmlaw",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "davmlaw"
   },
@@ -15193,8 +15193,8 @@
     "state": "closed",
     "author_login": "davmlaw",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -15208,7 +15208,7 @@
     "state": "closed",
     "author_login": "chaopower-zhang",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "andreasprlic"
   },
@@ -15221,7 +15221,7 @@
     "state": "closed",
     "author_login": "wlymanambry",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -15235,7 +15235,7 @@
     "state": "open",
     "author_login": "tedil",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -15248,7 +15248,7 @@
     "state": "open",
     "author_login": "davmlaw",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -15261,7 +15261,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -15274,7 +15274,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -15287,8 +15287,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -15302,8 +15302,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -15317,7 +15317,7 @@
     "state": "closed",
     "author_login": "b0d0nne11",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -15330,7 +15330,7 @@
     "state": "open",
     "author_login": "davmlaw",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -15343,8 +15343,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug",
-      "won't fix"
+      "type:bug",
+      "meta:wontfix"
     ],
     "closed_by": "reece"
   },
@@ -15357,7 +15357,7 @@
     "state": "open",
     "author_login": "andreasprlic",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -15370,8 +15370,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -15385,7 +15385,7 @@
     "state": "closed",
     "author_login": "theferrit32",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -15398,7 +15398,7 @@
     "state": "closed",
     "author_login": "b0d0nne11",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "andreasprlic"
   },
@@ -15411,7 +15411,7 @@
     "state": "closed",
     "author_login": "aroon-color",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -15424,7 +15424,7 @@
     "state": "open",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": null
   },
@@ -15459,8 +15459,8 @@
     "state": "closed",
     "author_login": "davmlaw",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -15474,7 +15474,7 @@
     "state": "open",
     "author_login": "davmlaw",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -15498,7 +15498,7 @@
     "state": "open",
     "author_login": "davmlaw",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": null
   },
@@ -15511,7 +15511,7 @@
     "state": "closed",
     "author_login": "davmlaw",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -15525,7 +15525,7 @@
     "state": "open",
     "author_login": "andreasprlic",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": null
   },
@@ -15538,7 +15538,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "davmlaw"
   },
@@ -15551,7 +15551,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -15564,7 +15564,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -15590,7 +15590,7 @@
     "state": "open",
     "author_login": "behrj",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -15614,7 +15614,7 @@
     "state": "open",
     "author_login": "schorlton-bugseq",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -15627,7 +15627,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -15641,7 +15641,7 @@
     "state": "open",
     "author_login": "crutching",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -15654,7 +15654,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -15668,7 +15668,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -15682,7 +15682,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -15696,7 +15696,7 @@
     "state": "open",
     "author_login": "msierk",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -15709,7 +15709,7 @@
     "state": "closed",
     "author_login": "Leorasaharia",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -15723,7 +15723,7 @@
     "state": "closed",
     "author_login": "FelixMoelder",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "FelixMoelder"
   },
@@ -15736,7 +15736,7 @@
     "state": "closed",
     "author_login": "rickymagner",
     "labels": [
-      "duplicate"
+      "meta:duplicate"
     ],
     "closed_by": "reece"
   },
@@ -15749,7 +15749,7 @@
     "state": "closed",
     "author_login": "andreasprlic",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -15762,7 +15762,7 @@
     "state": "closed",
     "author_login": "sodiumnitrate",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -15776,7 +15776,7 @@
     "state": "closed",
     "author_login": "korikuzma",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "korikuzma"
   },
@@ -15789,7 +15789,7 @@
     "state": "open",
     "author_login": "theferrit32",
     "labels": [
-      "stale"
+      "meta:stale"
     ],
     "closed_by": null
   },
@@ -15802,7 +15802,7 @@
     "state": "closed",
     "author_login": "b0d0nne11",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "andreasprlic"
   },
@@ -15826,7 +15826,7 @@
     "state": "closed",
     "author_login": "korikuzma",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "korikuzma"
   },
@@ -15839,7 +15839,7 @@
     "state": "open",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -15863,7 +15863,7 @@
     "state": "open",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": null
   },
@@ -15876,7 +15876,7 @@
     "state": "open",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -15889,7 +15889,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -15924,7 +15924,7 @@
     "state": "open",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -15948,7 +15948,7 @@
     "state": "open",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
