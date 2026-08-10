@@ -15121,7 +15121,8 @@
     "state": "open",
     "author_login": "wlymanambry",
     "labels": [
-      "type:bug"
+      "type:bug",
+      "stale"
     ],
     "closed_by": null
   },
@@ -15216,7 +15217,8 @@
     "state": "open",
     "author_login": "tedil",
     "labels": [
-      "type:bug"
+      "type:bug",
+      "stale"
     ],
     "closed_by": null
   },
@@ -15229,7 +15231,8 @@
     "state": "open",
     "author_login": "davmlaw",
     "labels": [
-      "type:bug"
+      "type:bug",
+      "stale"
     ],
     "closed_by": null
   },
@@ -15338,7 +15341,8 @@
     "state": "open",
     "author_login": "andreasprlic",
     "labels": [
-      "type:bug"
+      "type:bug",
+      "stale"
     ],
     "closed_by": null
   },
@@ -15455,7 +15459,8 @@
     "state": "open",
     "author_login": "davmlaw",
     "labels": [
-      "type:bug"
+      "type:bug",
+      "stale"
     ],
     "closed_by": null
   },
@@ -15571,7 +15576,8 @@
     "state": "open",
     "author_login": "behrj",
     "labels": [
-      "type:bug"
+      "type:bug",
+      "stale"
     ],
     "closed_by": null
   },
@@ -15622,7 +15628,8 @@
     "state": "open",
     "author_login": "crutching",
     "labels": [
-      "type:bug"
+      "type:bug",
+      "stale"
     ],
     "closed_by": null
   },
@@ -15677,7 +15684,8 @@
     "state": "open",
     "author_login": "msierk",
     "labels": [
-      "type:bug"
+      "type:bug",
+      "stale"
     ],
     "closed_by": null
   },
