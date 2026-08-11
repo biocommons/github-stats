@@ -12595,7 +12595,8 @@
     "state": "open",
     "author_login": "reece",
     "labels": [
-      "type:bug"
+      "type:bug",
+      "stale"
     ],
     "closed_by": null
   },
@@ -13127,7 +13128,8 @@
     "state": "open",
     "author_login": "akeeeshi",
     "labels": [
-      "type:bug"
+      "type:bug",
+      "stale"
     ],
     "closed_by": null
   },
@@ -13529,7 +13531,8 @@
     "state": "open",
     "author_login": "sptaylor",
     "labels": [
-      "type:bug"
+      "type:bug",
+      "stale"
     ],
     "closed_by": null
   },
@@ -13564,7 +13567,8 @@
     "state": "open",
     "author_login": "dhauge",
     "labels": [
-      "type:bug"
+      "type:bug",
+      "stale"
     ],
     "closed_by": null
   },
@@ -13656,7 +13660,8 @@
     "state": "open",
     "author_login": "reece",
     "labels": [
-      "type:bug"
+      "type:bug",
+      "stale"
     ],
     "closed_by": null
   },
@@ -13923,7 +13928,8 @@
     "state": "open",
     "author_login": "EnriqueDMeneses",
     "labels": [
-      "type:bug"
+      "type:bug",
+      "stale"
     ],
     "closed_by": null
   },
@@ -14148,7 +14154,8 @@
     "state": "open",
     "author_login": "melissacline",
     "labels": [
-      "type:bug"
+      "type:bug",
+      "stale"
     ],
     "closed_by": null
   },
@@ -14239,7 +14246,8 @@
     "state": "open",
     "author_login": "sptaylor",
     "labels": [
-      "type:bug"
+      "type:bug",
+      "stale"
     ],
     "closed_by": null
   },
