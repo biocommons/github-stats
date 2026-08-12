@@ -12078,7 +12078,8 @@
     "state": "open",
     "author_login": "reece",
     "labels": [
-      "type:bug"
+      "type:bug",
+      "stale"
     ],
     "closed_by": null
   },
@@ -15869,13 +15870,13 @@
     "number": 850,
     "repo": "hgvs",
     "created_at": "2026-08-08T19:18:58Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-08-12T02:25:55Z",
+    "state": "closed",
     "author_login": "reece",
     "labels": [
       "type:bug"
     ],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 5099115171,

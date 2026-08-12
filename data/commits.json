@@ -10305,6 +10305,16 @@
     "repo": "github-stats"
   },
   {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-08-07T18:08:49Z",
+    "repo": "github-stats"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-08-12T02:23:52Z",
+    "repo": "github-stats"
+  },
+  {
     "author_login": "reece",
     "author_date": "2013-07-29T22:27:27Z",
     "repo": "hgvs"
@@ -19840,6 +19850,31 @@
     "repo": "hgvs"
   },
   {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-08-08T21:14:18Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-08-08T21:14:18Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-08-08T21:14:51Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-08-08T21:14:52Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-08-08T21:14:58Z",
+    "repo": "hgvs"
+  },
+  {
     "author_login": null,
     "author_date": "2026-08-08T21:35:34Z",
     "repo": "hgvs"
@@ -19847,6 +19882,21 @@
   {
     "author_login": null,
     "author_date": "2026-08-08T21:37:34Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-08-08T21:57:49Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-08-08T22:00:31Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-08-08T22:10:34Z",
     "repo": "hgvs"
   },
   {
@@ -19861,7 +19911,42 @@
   },
   {
     "author_login": null,
+    "author_date": "2026-08-08T22:24:36Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-08-08T22:31:05Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-08-08T22:42:11Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-08-09T04:40:57Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-08-09T04:56:25Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-08-09T13:49:28Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
     "author_date": "2026-08-09T14:21:13Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-08-09T14:21:58Z",
     "repo": "hgvs"
   },
   {
@@ -19870,8 +19955,88 @@
     "repo": "hgvs"
   },
   {
+    "author_login": null,
+    "author_date": "2026-08-09T15:07:26Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-08-09T15:16:53Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-08-09T15:34:58Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-08-09T16:05:17Z",
+    "repo": "hgvs"
+  },
+  {
     "author_login": "reece",
     "author_date": "2026-08-09T16:08:38Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-08-09T19:02:02Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-08-09T19:16:33Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-08-09T19:41:26Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-08-12T02:25:53Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-08-12T02:28:30Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-08-12T02:29:28Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-08-12T02:29:50Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-08-12T02:30:56Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-08-12T02:31:31Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-08-12T02:31:37Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-08-12T02:32:10Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-08-12T02:32:40Z",
     "repo": "hgvs"
   },
   {
