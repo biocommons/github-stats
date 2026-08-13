@@ -21326,6 +21326,11 @@
   },
   {
     "author_login": "dependabot[bot]",
+    "author_date": "2026-04-13T22:18:39Z",
+    "repo": "python-package"
+  },
+  {
+    "author_login": "dependabot[bot]",
     "author_date": "2026-04-21T18:06:26Z",
     "repo": "python-package"
   },
@@ -21507,6 +21512,31 @@
   {
     "author_login": "reece",
     "author_date": "2026-07-19T21:03:44Z",
+    "repo": "python-package"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-07-26T08:51:43Z",
+    "repo": "python-package"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-08-09T08:48:22Z",
+    "repo": "python-package"
+  },
+  {
+    "author_login": "korikuzma",
+    "author_date": "2026-08-13T11:35:18Z",
+    "repo": "python-package"
+  },
+  {
+    "author_login": "korikuzma",
+    "author_date": "2026-08-13T11:35:34Z",
+    "repo": "python-package"
+  },
+  {
+    "author_login": "korikuzma",
+    "author_date": "2026-08-13T11:36:26Z",
     "repo": "python-package"
   },
   {

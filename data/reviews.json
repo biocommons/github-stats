@@ -5510,6 +5510,16 @@
     "repo": "python-package"
   },
   {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2026-08-13T11:35:13Z",
+    "repo": "python-package"
+  },
+  {
+    "reviewer_login": "korikuzma",
+    "submitted_at": "2026-08-13T11:36:21Z",
+    "repo": "python-package"
+  },
+  {
     "reviewer_login": "andreasprlic",
     "submitted_at": "2021-11-19T23:33:36Z",
     "repo": "seqrepo-rest-service"
