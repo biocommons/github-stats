@@ -6534,6 +6534,17 @@
     "draft": false
   },
   {
+    "id": 4299374414,
+    "number": 878,
+    "repo": "hgvs",
+    "created_at": "2026-08-17T21:28:59Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
     "id": 89712043,
     "number": 1,
     "repo": "hgvs-eval",
