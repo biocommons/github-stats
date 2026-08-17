@@ -195,5 +195,21 @@
     "default_branch": "main",
     "private": false,
     "archived": false
+  },
+  {
+    "name": "uta",
+    "full_name": "biocommons/uta",
+    "html_url": "https://github.com/biocommons/uta",
+    "description": "Universal Transcript Archive: comprehensive genome-transcript alignments; multiple transcript sources, versions, and alignment methods; available as a docker image",
+    "stargazers_count": 72,
+    "forks_count": 25,
+    "open_issues_count": 27,
+    "open_pr_count": 1,
+    "contributors": 14,
+    "latest_release": null,
+    "updated_at": "2026-08-07T22:01:58Z",
+    "default_branch": "main",
+    "private": false,
+    "archived": false
   }
 ]
