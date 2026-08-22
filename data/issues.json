@@ -5297,6 +5297,17 @@
     "closed_by": null
   },
   {
+    "id": 5222608791,
+    "number": 87,
+    "repo": "bioutils",
+    "created_at": "2026-08-22T15:28:32Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "schorlton-bugseq",
+    "labels": [],
+    "closed_by": null
+  },
+  {
     "id": 156911006,
     "number": 1,
     "repo": "eutils",
