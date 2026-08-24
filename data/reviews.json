@@ -5221,6 +5221,41 @@
   },
   {
     "reviewer_login": "reece",
+    "submitted_at": "2026-08-24T15:20:57Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2026-08-24T15:23:46Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2026-08-24T15:26:13Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2026-08-24T15:29:51Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2026-08-24T15:31:14Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2026-08-24T15:32:21Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2026-08-24T15:32:35Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
     "submitted_at": "2023-09-09T03:34:24Z",
     "repo": "python-package"
   },
@@ -5522,6 +5557,11 @@
   {
     "reviewer_login": "korikuzma",
     "submitted_at": "2026-08-13T11:36:21Z",
+    "repo": "python-package"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2026-08-24T15:33:02Z",
     "repo": "python-package"
   },
   {
