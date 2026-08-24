@@ -3710,6 +3710,16 @@
     "repo": "biocommons.github.io"
   },
   {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-08-09T11:30:06Z",
+    "repo": "biocommons.github.io"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-08-24T12:47:36Z",
+    "repo": "biocommons.github.io"
+  },
+  {
     "author_login": "reece",
     "author_date": "2016-08-17T07:38:19Z",
     "repo": "biocommons.seqrepo"
