@@ -2923,14 +2923,14 @@
     "number": 454,
     "repo": "anyvar",
     "created_at": "2026-05-05T19:41:39Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-08-24T17:55:23Z",
+    "state": "closed",
     "author_login": "jennifer-bowser",
     "labels": [
       "enhancement",
       "priority:high"
     ],
-    "closed_by": null
+    "closed_by": "jsstevenson"
   },
   {
     "id": 4386684778,
