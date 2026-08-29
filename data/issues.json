@@ -15690,8 +15690,7 @@
     "state": "open",
     "author_login": "reece",
     "labels": [
-      "meta:stale",
-      "closed-by-stale"
+      "meta:stale"
     ],
     "closed_by": null
   },
