@@ -6560,10 +6560,21 @@
     "number": 880,
     "repo": "hgvs",
     "created_at": "2026-08-28T04:48:11Z",
+    "closed_at": "2026-08-28T23:45:54Z",
+    "merged_at": "2026-08-28T23:45:54Z",
+    "state": "closed",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 4388855469,
+    "number": 882,
+    "repo": "hgvs",
+    "created_at": "2026-08-28T23:35:09Z",
     "closed_at": null,
     "merged_at": null,
     "state": "open",
-    "author_login": "dependabot[bot]",
+    "author_login": "andreasprlic",
     "draft": false
   },
   {
