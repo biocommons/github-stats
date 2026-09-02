@@ -13936,14 +13936,14 @@
     "number": 573,
     "repo": "hgvs",
     "created_at": "2019-10-30T20:42:39Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-09-01T23:35:15Z",
+    "state": "closed",
     "author_login": "EnriqueDMeneses",
     "labels": [
       "type:bug",
       "stale"
     ],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 517663521,
@@ -15078,13 +15078,13 @@
     "number": 727,
     "repo": "hgvs",
     "created_at": "2024-02-07T14:34:44Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-09-01T23:35:15Z",
+    "state": "closed",
     "author_login": "markgene",
     "labels": [
       "type:bug"
     ],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 2176902823,

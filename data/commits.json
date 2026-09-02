@@ -20155,6 +20155,31 @@
     "repo": "hgvs"
   },
   {
+    "author_login": "darkavatar23",
+    "author_date": "2026-08-30T14:22:29Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-09-01T21:51:41Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-09-01T23:35:14Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-09-01T23:35:40Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-09-01T23:40:05Z",
+    "repo": "hgvs"
+  },
+  {
     "author_login": "reece",
     "author_date": "2016-10-17T15:37:39Z",
     "repo": "hgvs-eval"
