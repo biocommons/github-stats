@@ -15357,14 +15357,15 @@
     "number": 768,
     "repo": "hgvs",
     "created_at": "2025-04-14T21:42:31Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-09-10T05:41:53Z",
+    "state": "closed",
     "author_login": "andreasprlic",
     "labels": [
       "type:bug",
+      "closed-by-stale",
       "stale"
     ],
-    "closed_by": null
+    "closed_by": "github-actions[bot]"
   },
   {
     "id": 3007246714,
@@ -15475,14 +15476,15 @@
     "number": 788,
     "repo": "hgvs",
     "created_at": "2025-09-04T17:47:22Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-09-10T05:41:51Z",
+    "state": "closed",
     "author_login": "davmlaw",
     "labels": [
       "type:bug",
+      "closed-by-stale",
       "stale"
     ],
-    "closed_by": null
+    "closed_by": "github-actions[bot]"
   },
   {
     "id": 3384933104,
@@ -15592,14 +15594,15 @@
     "number": 802,
     "repo": "hgvs",
     "created_at": "2025-10-06T11:05:04Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-09-10T05:41:49Z",
+    "state": "closed",
     "author_login": "behrj",
     "labels": [
       "type:bug",
+      "closed-by-stale",
       "stale"
     ],
-    "closed_by": null
+    "closed_by": "github-actions[bot]"
   },
   {
     "id": 3497682342,
@@ -15644,14 +15647,15 @@
     "number": 809,
     "repo": "hgvs",
     "created_at": "2025-10-28T16:45:15Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-09-10T05:41:46Z",
+    "state": "closed",
     "author_login": "crutching",
     "labels": [
       "type:bug",
+      "closed-by-stale",
       "stale"
     ],
-    "closed_by": null
+    "closed_by": "github-actions[bot]"
   },
   {
     "id": 3578404797,
@@ -15699,14 +15703,15 @@
     "number": 813,
     "repo": "hgvs",
     "created_at": "2025-11-19T17:35:16Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-09-10T05:41:44Z",
+    "state": "closed",
     "author_login": "msierk",
     "labels": [
       "type:bug",
+      "closed-by-stale",
       "stale"
     ],
-    "closed_by": null
+    "closed_by": "github-actions[bot]"
   },
   {
     "id": 3759646979,
