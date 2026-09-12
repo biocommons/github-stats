@@ -12085,14 +12085,15 @@
     "number": 370,
     "repo": "hgvs",
     "created_at": "2016-09-23T15:14:07Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-09-12T05:28:13Z",
+    "state": "closed",
     "author_login": "reece",
     "labels": [
       "type:bug",
+      "closed-by-stale",
       "stale"
     ],
-    "closed_by": null
+    "closed_by": "github-actions[bot]"
   },
   {
     "id": 213195215,
@@ -12603,14 +12604,15 @@
     "number": 420,
     "repo": "hgvs",
     "created_at": "2017-04-04T18:24:46Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-09-12T05:28:11Z",
+    "state": "closed",
     "author_login": "reece",
     "labels": [
       "type:bug",
+      "closed-by-stale",
       "stale"
     ],
-    "closed_by": null
+    "closed_by": "github-actions[bot]"
   },
   {
     "id": 219357780,
@@ -13136,14 +13138,15 @@
     "number": 482,
     "repo": "hgvs",
     "created_at": "2018-02-27T17:04:31Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-09-12T05:28:09Z",
+    "state": "closed",
     "author_login": "akeeeshi",
     "labels": [
       "type:bug",
+      "closed-by-stale",
       "stale"
     ],
-    "closed_by": null
+    "closed_by": "github-actions[bot]"
   },
   {
     "id": 305884742,
@@ -13539,14 +13542,15 @@
     "number": 529,
     "repo": "hgvs",
     "created_at": "2018-10-22T18:40:42Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-09-12T05:28:07Z",
+    "state": "closed",
     "author_login": "sptaylor",
     "labels": [
       "type:bug",
+      "closed-by-stale",
       "stale"
     ],
-    "closed_by": null
+    "closed_by": "github-actions[bot]"
   },
   {
     "id": 372861782,
@@ -13575,14 +13579,15 @@
     "number": 532,
     "repo": "hgvs",
     "created_at": "2018-11-01T00:02:12Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-09-12T05:28:05Z",
+    "state": "closed",
     "author_login": "dhauge",
     "labels": [
       "type:bug",
+      "closed-by-stale",
       "stale"
     ],
-    "closed_by": null
+    "closed_by": "github-actions[bot]"
   },
   {
     "id": 377165991,
