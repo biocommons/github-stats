@@ -2794,6 +2794,17 @@
     "draft": false
   },
   {
+    "id": 4564490341,
+    "number": 36,
+    "repo": "biocommons.github.io",
+    "created_at": "2026-09-18T01:30:30Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
     "id": 84768449,
     "number": 7,
     "repo": "biocommons.seqrepo",
@@ -6626,6 +6637,28 @@
     "number": 886,
     "repo": "hgvs",
     "created_at": "2026-09-04T04:46:43Z",
+    "closed_at": "2026-09-18T04:45:05Z",
+    "merged_at": null,
+    "state": "closed",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 4564492678,
+    "number": 887,
+    "repo": "hgvs",
+    "created_at": "2026-09-18T01:30:52Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 4565524379,
+    "number": 888,
+    "repo": "hgvs",
+    "created_at": "2026-09-18T04:45:13Z",
     "closed_at": null,
     "merged_at": null,
     "state": "open",

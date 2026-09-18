@@ -42,7 +42,7 @@
     "stargazers_count": 1,
     "forks_count": 2,
     "open_issues_count": 4,
-    "open_pr_count": 1,
+    "open_pr_count": 2,
     "contributors": 6,
     "latest_release": null,
     "updated_at": "2026-08-24T12:49:42Z",
@@ -131,7 +131,7 @@
     "stargazers_count": 292,
     "forks_count": 100,
     "open_issues_count": 26,
-    "open_pr_count": 3,
+    "open_pr_count": 4,
     "contributors": 43,
     "latest_release": {
       "tag_name": "1.5.7",
