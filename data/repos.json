@@ -129,9 +129,9 @@
     "html_url": "https://github.com/biocommons/hgvs",
     "description": "Python library to parse, format, validate, normalize, and map sequence variants according to HGVS Nomenclature (https://hgvs-nomenclature.org/).",
     "stargazers_count": 293,
-    "forks_count": 100,
+    "forks_count": 101,
     "open_issues_count": 26,
-    "open_pr_count": 5,
+    "open_pr_count": 6,
     "contributors": 43,
     "latest_release": {
       "tag_name": "1.5.7",

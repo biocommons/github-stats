@@ -6677,6 +6677,17 @@
     "draft": false
   },
   {
+    "id": 4622255815,
+    "number": 890,
+    "repo": "hgvs",
+    "created_at": "2026-09-24T06:08:08Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "developer-rpai",
+    "draft": false
+  },
+  {
     "id": 89712043,
     "number": 1,
     "repo": "hgvs-eval",
