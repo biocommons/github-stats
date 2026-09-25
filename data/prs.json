@@ -6659,9 +6659,9 @@
     "number": 888,
     "repo": "hgvs",
     "created_at": "2026-09-18T04:45:13Z",
-    "closed_at": null,
+    "closed_at": "2026-09-25T04:45:57Z",
     "merged_at": null,
-    "state": "open",
+    "state": "closed",
     "author_login": "dependabot[bot]",
     "draft": false
   },
@@ -6685,6 +6685,17 @@
     "merged_at": null,
     "state": "open",
     "author_login": "developer-rpai",
+    "draft": false
+  },
+  {
+    "id": 4634170421,
+    "number": 891,
+    "repo": "hgvs",
+    "created_at": "2026-09-25T04:46:11Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
     "draft": false
   },
   {
