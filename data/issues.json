@@ -16012,6 +16012,17 @@
     "closed_by": null
   },
   {
+    "id": 5667084929,
+    "number": 895,
+    "repo": "hgvs",
+    "created_at": "2026-10-01T18:26:03Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "b0d0nne11",
+    "labels": [],
+    "closed_by": null
+  },
+  {
     "id": 183581420,
     "number": 5,
     "repo": "hgvs-eval",
