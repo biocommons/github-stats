@@ -4521,6 +4521,17 @@
     "draft": false
   },
   {
+    "id": 4776194937,
+    "number": 31,
+    "repo": "github-stats",
+    "created_at": "2026-10-07T17:33:33Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
     "id": 110323612,
     "number": 402,
     "repo": "hgvs",
@@ -6806,6 +6817,17 @@
     "merged_at": null,
     "state": "open",
     "author_login": "davmlaw",
+    "draft": false
+  },
+  {
+    "id": 4775025555,
+    "number": 904,
+    "repo": "hgvs",
+    "created_at": "2026-10-07T15:47:35Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
     "draft": false
   },
   {
