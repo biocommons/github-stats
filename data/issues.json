@@ -2801,13 +2801,13 @@
     "number": 444,
     "repo": "anyvar",
     "created_at": "2026-05-01T17:48:41Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-10-09T16:59:54Z",
+    "state": "closed",
     "author_login": "jennifer-bowser",
     "labels": [
       "priority:low"
     ],
-    "closed_by": null
+    "closed_by": "jennifer-bowser"
   },
   {
     "id": 4365834954,
