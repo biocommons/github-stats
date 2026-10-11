@@ -3358,8 +3358,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "documentation",
-      "stale",
+      "type:docs",
+      "meta:stale",
       "keep alive",
       "closed-by-stale"
     ],
@@ -3429,7 +3429,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "won't fix"
+      "meta:wontfix"
     ],
     "closed_by": "reece"
   },
@@ -3442,7 +3442,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -3467,7 +3467,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -3481,7 +3481,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "won't fix"
+      "meta:wontfix"
     ],
     "closed_by": "reece"
   },
@@ -3494,7 +3494,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "won't fix"
+      "meta:wontfix"
     ],
     "closed_by": "reece"
   },
@@ -3540,7 +3540,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "won't fix"
+      "meta:wontfix"
     ],
     "closed_by": "reece"
   },
@@ -3773,7 +3773,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -3831,7 +3831,7 @@
     "state": "closed",
     "author_login": "akeeeshi",
     "labels": [
-      "question"
+      "type:question"
     ],
     "closed_by": "reece"
   },
@@ -3844,8 +3844,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "keep alive",
       "closed-by-stale"
     ],
@@ -3860,7 +3860,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -3929,8 +3929,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "documentation",
-      "stale",
+      "type:docs",
+      "meta:stale",
       "keep alive",
       "closed-by-stale"
     ],
@@ -4011,8 +4011,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "keep alive",
       "closed-by-stale"
     ],
@@ -4071,7 +4071,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "keep alive",
       "closed-by-stale"
     ],
@@ -4097,7 +4097,7 @@
     "state": "open",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": null
   },
@@ -4121,7 +4121,7 @@
     "state": "closed",
     "author_login": "git4waki",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "jsstevenson"
   },
@@ -4134,7 +4134,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "keep alive",
       "closed-by-stale"
     ],
@@ -4160,7 +4160,7 @@
     "state": "closed",
     "author_login": "korikuzma",
     "labels": [
-      "stale"
+      "meta:stale"
     ],
     "closed_by": "korikuzma"
   },
@@ -4184,8 +4184,8 @@
     "state": "closed",
     "author_login": "davmlaw",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "keep alive",
       "closed-by-stale"
     ],
@@ -4266,7 +4266,7 @@
     "state": "closed",
     "author_login": "ahwagner",
     "labels": [
-      "question"
+      "type:question"
     ],
     "closed_by": "ahwagner"
   },
@@ -4312,7 +4312,7 @@
     "state": "closed",
     "author_login": "ehclark",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "andreasprlic"
   },
@@ -4325,7 +4325,7 @@
     "state": "closed",
     "author_login": "jsstevenson",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "jsstevenson"
   },
@@ -4338,7 +4338,7 @@
     "state": "open",
     "author_login": "wlymanambry",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -4351,7 +4351,7 @@
     "state": "open",
     "author_login": "wlymanambry",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -4375,7 +4375,7 @@
     "state": "closed",
     "author_login": "jsstevenson",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "jsstevenson"
   },
@@ -4388,7 +4388,7 @@
     "state": "closed",
     "author_login": "andreasprlic",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -4402,7 +4402,7 @@
     "author_login": "reece",
     "labels": [
       "keep alive",
-      "project proposal"
+      "type:proposal"
     ],
     "closed_by": null
   },
@@ -4415,8 +4415,8 @@
     "state": "open",
     "author_login": "yxuil",
     "labels": [
-      "bug",
-      "documentation"
+      "type:bug",
+      "type:docs"
     ],
     "closed_by": null
   },
@@ -4429,7 +4429,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -4453,7 +4453,7 @@
     "state": "closed",
     "author_login": "theferrit32",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "theferrit32"
   },
@@ -4477,7 +4477,7 @@
     "state": "closed",
     "author_login": "jsstevenson",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "jsstevenson"
   },
@@ -4490,7 +4490,7 @@
     "state": "open",
     "author_login": "jsstevenson",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -4503,7 +4503,7 @@
     "state": "closed",
     "author_login": "jsstevenson",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "jsstevenson"
   },
@@ -4516,8 +4516,8 @@
     "state": "closed",
     "author_login": "jsstevenson",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -4531,7 +4531,7 @@
     "state": "closed",
     "author_login": "jsstevenson",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "jsstevenson"
   },
@@ -4544,7 +4544,7 @@
     "state": "closed",
     "author_login": "jsstevenson",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "jsstevenson"
   },
@@ -4557,7 +4557,7 @@
     "state": "closed",
     "author_login": "jsstevenson",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "jsstevenson"
   },
@@ -4570,7 +4570,7 @@
     "state": "open",
     "author_login": "gromdimon",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -4583,7 +4583,7 @@
     "state": "closed",
     "author_login": "wlymanambry",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "wlymanambry"
   },
@@ -4596,7 +4596,7 @@
     "state": "closed",
     "author_login": "brendanreardon",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "jsstevenson"
   },
@@ -4609,7 +4609,7 @@
     "state": "closed",
     "author_login": "jsstevenson",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -4623,7 +4623,7 @@
     "state": "closed",
     "author_login": "jsstevenson",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -4637,7 +4637,7 @@
     "state": "closed",
     "author_login": "jsstevenson",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -4651,7 +4651,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -4664,7 +4664,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale"
+      "meta:stale"
     ],
     "closed_by": "reece"
   },
@@ -4677,7 +4677,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale"
+      "meta:stale"
     ],
     "closed_by": "reece"
   },
@@ -4690,7 +4690,7 @@
     "state": "closed",
     "author_login": "theferrit32",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "theferrit32"
   },
@@ -4703,9 +4703,9 @@
     "state": "closed",
     "author_login": "theferrit32",
     "labels": [
-      "enhancement",
-      "help wanted",
-      "stale",
+      "type:feature",
+      "help-wanted",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -4730,7 +4730,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -4743,7 +4743,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -4767,7 +4767,7 @@
     "state": "closed",
     "author_login": "korikuzma",
     "labels": [
-      "documentation"
+      "type:docs"
     ],
     "closed_by": "korikuzma"
   },
@@ -4791,7 +4791,7 @@
     "state": "closed",
     "author_login": "williamevanl",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "jsstevenson"
   },
@@ -4804,7 +4804,7 @@
     "state": "open",
     "author_login": "jsstevenson",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": null
   },
@@ -16320,7 +16320,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -16400,7 +16400,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -16414,7 +16414,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -16439,7 +16439,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "keep alive",
       "closed-by-stale"
     ],
@@ -16454,7 +16454,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -16490,7 +16490,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -16552,7 +16552,7 @@
     "state": "closed",
     "author_login": "korikuzma",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -16566,7 +16566,7 @@
     "state": "closed",
     "author_login": "jsstevenson",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -16579,9 +16579,9 @@
     "state": "closed",
     "author_login": "jsstevenson",
     "labels": [
-      "enhancement",
-      "rfc",
-      "stale",
+      "type:feature",
+      "type:rfc",
+      "meta:stale",
       "keep alive",
       "closed-by-stale"
     ],
@@ -16596,7 +16596,7 @@
     "state": "closed",
     "author_login": "jsstevenson",
     "labels": [
-      "enhancement",
+      "type:feature",
       "keep alive"
     ],
     "closed_by": "reece"
@@ -16610,7 +16610,7 @@
     "state": "closed",
     "author_login": "jsstevenson",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "jsstevenson"
   },
@@ -16634,7 +16634,7 @@
     "state": "closed",
     "author_login": "jsstevenson",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "jsstevenson"
   },
@@ -16647,8 +16647,8 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement",
-      "stale",
+      "type:feature",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -16662,7 +16662,7 @@
     "state": "closed",
     "author_login": "jsstevenson",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -16720,7 +16720,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -16734,7 +16734,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },

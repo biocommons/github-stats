@@ -3820,6 +3820,36 @@
     "repo": "biocommons.github.io"
   },
   {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-09-03T23:19:14Z",
+    "repo": "biocommons.github.io"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-09-18T01:30:29Z",
+    "repo": "biocommons.github.io"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-05T20:30:37Z",
+    "repo": "biocommons.github.io"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-11T05:58:05Z",
+    "repo": "biocommons.github.io"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-11T05:58:16Z",
+    "repo": "biocommons.github.io"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-11T05:58:27Z",
+    "repo": "biocommons.github.io"
+  },
+  {
     "author_login": "reece",
     "author_date": "2016-08-17T07:38:19Z",
     "repo": "biocommons.seqrepo"
@@ -6257,6 +6287,151 @@
   {
     "author_login": "reece",
     "author_date": "2025-11-10T18:13:38Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-10-11T05:53:03Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-11T05:55:41Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-11T05:55:47Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-11T05:55:54Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-11T05:55:56Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-11T05:55:59Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-11T05:56:08Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-11T05:59:54Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-10-11T06:00:40Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-10-11T06:01:25Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-11T06:03:06Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-11T06:03:28Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-11T06:03:48Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-11T06:03:51Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-10-11T06:04:20Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-11T06:06:06Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-11T06:06:11Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-11T06:06:16Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-11T06:06:31Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-10-11T06:09:10Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-10-11T06:09:17Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-10-11T06:09:22Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-10-11T06:09:26Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-11T06:09:39Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-10-11T06:09:46Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-11T06:09:48Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-10-11T06:09:50Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-10-11T06:09:54Z",
+    "repo": "biocommons.seqrepo"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-11T06:11:18Z",
     "repo": "biocommons.seqrepo"
   },
   {
@@ -10422,6 +10597,26 @@
   {
     "author_login": "reece",
     "author_date": "2026-08-12T02:23:52Z",
+    "repo": "github-stats"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-05T21:46:44Z",
+    "repo": "github-stats"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-07T17:33:32Z",
+    "repo": "github-stats"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-11T05:57:46Z",
+    "repo": "github-stats"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-11T06:10:10Z",
     "repo": "github-stats"
   },
   {
@@ -20281,12 +20476,37 @@
   },
   {
     "author_login": "dependabot[bot]",
+    "author_date": "2026-09-18T01:30:51Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-09-18T20:24:27Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "dependabot[bot]",
     "author_date": "2026-10-06T17:27:03Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "davmlaw",
+    "author_date": "2026-10-07T04:35:14Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "davmlaw",
+    "author_date": "2026-10-07T04:35:29Z",
     "repo": "hgvs"
   },
   {
     "author_login": "dependabot[bot]",
     "author_date": "2026-10-07T15:47:33Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-07T21:08:24Z",
     "repo": "hgvs"
   },
   {
@@ -20325,8 +20545,18 @@
     "repo": "hgvs"
   },
   {
+    "author_login": "reece",
+    "author_date": "2026-10-11T00:16:28Z",
+    "repo": "hgvs"
+  },
+  {
     "author_login": "github-actions[bot]",
     "author_date": "2026-10-11T00:17:27Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-11T00:17:40Z",
     "repo": "hgvs"
   },
   {
@@ -20337,6 +20567,76 @@
   {
     "author_login": "github-actions[bot]",
     "author_date": "2026-10-11T00:18:28Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-11T00:18:54Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-11T00:19:30Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-11T00:19:34Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-10-11T00:24:41Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-11T00:25:26Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-11T00:25:52Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-10-11T00:26:21Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-11T00:28:52Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-11T00:33:52Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-11T00:57:46Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-10-11T04:18:44Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-11T04:20:09Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-10-11T04:34:23Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-10-11T05:01:59Z",
     "repo": "hgvs"
   },
   {
@@ -21847,6 +22147,21 @@
   {
     "author_login": "reece",
     "author_date": "2026-08-24T15:33:12Z",
+    "repo": "python-package"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-11T05:36:16Z",
+    "repo": "python-package"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-11T05:38:34Z",
+    "repo": "python-package"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-11T06:11:48Z",
     "repo": "python-package"
   },
   {
