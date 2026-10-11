@@ -3240,7 +3240,7 @@
     "state": "closed",
     "author_login": "korikuzma",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -3253,7 +3253,7 @@
     "state": "closed",
     "author_login": "korikuzma",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "andreasprlic"
   },
@@ -3266,7 +3266,7 @@
     "state": "open",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": null
   },
@@ -3290,7 +3290,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },

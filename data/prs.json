@@ -2827,6 +2827,17 @@
     "draft": false
   },
   {
+    "id": 4822329040,
+    "number": 38,
+    "repo": "biocommons.github.io",
+    "created_at": "2026-10-11T21:03:25Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
     "id": 84768449,
     "number": 7,
     "repo": "biocommons.seqrepo",
