@@ -3188,6 +3188,17 @@
     "closed_by": null
   },
   {
+    "id": 5799320250,
+    "number": 506,
+    "repo": "anyvar",
+    "created_at": "2026-10-11T08:16:35Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": null
+  },
+  {
     "id": 2095018790,
     "number": 6,
     "repo": "biocommons.github.io",
