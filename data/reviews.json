@@ -20,6 +20,11 @@
     "repo": ".github"
   },
   {
+    "reviewer_login": "reece",
+    "submitted_at": "2026-10-12T05:51:23Z",
+    "repo": ".github"
+  },
+  {
     "reviewer_login": "andreasprlic",
     "submitted_at": "2022-07-12T02:54:38Z",
     "repo": "anyvar"
@@ -5507,6 +5512,16 @@
   {
     "reviewer_login": "reece",
     "submitted_at": "2026-10-11T04:07:25Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2026-10-12T04:23:34Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2026-10-12T05:47:06Z",
     "repo": "hgvs"
   },
   {
