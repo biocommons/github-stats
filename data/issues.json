@@ -3227,13 +3227,13 @@
     "number": 10,
     "repo": "biocommons.github.io",
     "created_at": "2025-02-06T07:17:52Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-10-12T13:32:19Z",
+    "state": "closed",
     "author_login": "henrykironde",
     "labels": [
       "stale"
     ],
-    "closed_by": null
+    "closed_by": "henrykironde"
   },
   {
     "id": 3168862470,
