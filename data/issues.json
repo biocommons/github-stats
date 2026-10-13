@@ -16100,14 +16100,14 @@
     "number": 912,
     "repo": "hgvs",
     "created_at": "2026-10-12T04:52:03Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-10-13T04:19:49Z",
+    "state": "closed",
     "author_login": "reece",
     "labels": [
       "good-first-issue",
       "type:chore"
     ],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 183581420,

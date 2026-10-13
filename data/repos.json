@@ -42,10 +42,10 @@
     "stargazers_count": 1,
     "forks_count": 2,
     "open_issues_count": 3,
-    "open_pr_count": 1,
-    "contributors": 6,
+    "open_pr_count": 0,
+    "contributors": 7,
     "latest_release": null,
-    "updated_at": "2026-10-11T21:12:17Z",
+    "updated_at": "2026-10-13T04:29:03Z",
     "default_branch": "main",
     "private": false,
     "archived": false
@@ -77,13 +77,13 @@
     "stargazers_count": 25,
     "forks_count": 21,
     "open_issues_count": 4,
-    "open_pr_count": 1,
+    "open_pr_count": 0,
     "contributors": 15,
     "latest_release": {
       "tag_name": "0.6.1",
       "published_at": "2024-11-04T01:40:38Z"
     },
-    "updated_at": "2026-08-07T22:02:10Z",
+    "updated_at": "2026-10-13T04:41:09Z",
     "default_branch": "main",
     "private": false,
     "archived": false
@@ -130,14 +130,14 @@
     "description": "Python library to parse, format, validate, normalize, and map sequence variants according to HGVS Nomenclature (https://hgvs-nomenclature.org/).",
     "stargazers_count": 294,
     "forks_count": 103,
-    "open_issues_count": 29,
-    "open_pr_count": 8,
+    "open_issues_count": 28,
+    "open_pr_count": 6,
     "contributors": 43,
     "latest_release": {
       "tag_name": "1.5.7",
       "published_at": "2026-03-17T05:35:35Z"
     },
-    "updated_at": "2026-10-12T05:47:27Z",
+    "updated_at": "2026-10-13T04:19:52Z",
     "default_branch": "main",
     "private": false,
     "archived": false

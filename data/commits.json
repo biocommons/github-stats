@@ -3880,6 +3880,16 @@
     "repo": "biocommons.github.io"
   },
   {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-11T21:03:23Z",
+    "repo": "biocommons.github.io"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-10-13T04:28:58Z",
+    "repo": "biocommons.github.io"
+  },
+  {
     "author_login": "reece",
     "author_date": "2016-08-17T07:38:19Z",
     "repo": "biocommons.seqrepo"
@@ -8387,6 +8397,26 @@
   {
     "author_login": "korikuzma",
     "author_date": "2026-01-12T13:53:41Z",
+    "repo": "bioutils"
+  },
+  {
+    "author_login": "davmlaw",
+    "author_date": "2026-10-06T04:50:56Z",
+    "repo": "bioutils"
+  },
+  {
+    "author_login": "davmlaw",
+    "author_date": "2026-10-06T05:00:49Z",
+    "repo": "bioutils"
+  },
+  {
+    "author_login": "davmlaw",
+    "author_date": "2026-10-07T05:22:45Z",
+    "repo": "bioutils"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-13T04:41:03Z",
     "repo": "bioutils"
   },
   {
@@ -20727,6 +20757,46 @@
   {
     "author_login": "reece",
     "author_date": "2026-10-12T05:47:22Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-10-12T09:39:19Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-10-12T09:40:05Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-10-13T03:51:42Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-13T03:59:42Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-13T04:00:37Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-10-13T04:16:58Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": null,
+    "author_date": "2026-10-13T04:17:31Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-13T04:19:47Z",
     "repo": "hgvs"
   },
   {
