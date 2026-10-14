@@ -4279,6 +4279,83 @@
     "draft": false
   },
   {
+    "id": 4864333477,
+    "number": 89,
+    "repo": "bioutils",
+    "created_at": "2026-10-14T20:49:44Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 4864340142,
+    "number": 90,
+    "repo": "bioutils",
+    "created_at": "2026-10-14T20:50:17Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 4864357922,
+    "number": 91,
+    "repo": "bioutils",
+    "created_at": "2026-10-14T20:51:46Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 4864373937,
+    "number": 92,
+    "repo": "bioutils",
+    "created_at": "2026-10-14T20:53:07Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 4864377221,
+    "number": 93,
+    "repo": "bioutils",
+    "created_at": "2026-10-14T20:53:25Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 4864986065,
+    "number": 94,
+    "repo": "bioutils",
+    "created_at": "2026-10-14T21:45:57Z",
+    "closed_at": "2026-10-14T21:54:21Z",
+    "merged_at": "2026-10-14T21:54:21Z",
+    "state": "closed",
+    "author_login": "Copilot",
+    "draft": false
+  },
+  {
+    "id": 4865140675,
+    "number": 96,
+    "repo": "bioutils",
+    "created_at": "2026-10-14T21:59:36Z",
+    "closed_at": "2026-10-14T22:05:46Z",
+    "merged_at": "2026-10-14T22:05:46Z",
+    "state": "closed",
+    "author_login": "Copilot",
+    "draft": false
+  },
+  {
     "id": 79716422,
     "number": 135,
     "repo": "eutils",

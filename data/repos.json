@@ -6,7 +6,7 @@
     "description": "Organization-wide GitHub configuration",
     "stargazers_count": 2,
     "forks_count": 0,
-    "open_issues_count": 1,
+    "open_issues_count": 2,
     "open_pr_count": 0,
     "contributors": 3,
     "latest_release": null,
@@ -76,14 +76,14 @@
     "description": "provides common tools and lookup tables used primarily by the hgvs and uta packages",
     "stargazers_count": 25,
     "forks_count": 21,
-    "open_issues_count": 3,
-    "open_pr_count": 0,
-    "contributors": 15,
+    "open_issues_count": 1,
+    "open_pr_count": 5,
+    "contributors": 16,
     "latest_release": {
-      "tag_name": "0.6.1",
-      "published_at": "2024-11-04T01:40:38Z"
+      "tag_name": "0.6.2",
+      "published_at": "2026-10-14T22:10:17Z"
     },
-    "updated_at": "2026-10-14T19:54:41Z",
+    "updated_at": "2026-10-14T22:05:50Z",
     "default_branch": "main",
     "private": false,
     "archived": false
@@ -165,7 +165,7 @@
     "description": "Template for new biocommons packages, and source of configuration for periodic updates to derived packages",
     "stargazers_count": 1,
     "forks_count": 2,
-    "open_issues_count": 3,
+    "open_issues_count": 4,
     "open_pr_count": 1,
     "contributors": 7,
     "latest_release": {
