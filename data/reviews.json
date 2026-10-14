@@ -5545,6 +5545,26 @@
     "repo": "hgvs"
   },
   {
+    "reviewer_login": "davmlaw",
+    "submitted_at": "2026-10-14T01:00:08Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "davmlaw",
+    "submitted_at": "2026-10-14T02:19:27Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2026-10-14T04:54:55Z",
+    "repo": "hgvs"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2026-10-14T05:04:20Z",
+    "repo": "hgvs"
+  },
+  {
     "reviewer_login": "reece",
     "submitted_at": "2023-09-09T03:34:24Z",
     "repo": "python-package"

@@ -5306,11 +5306,11 @@
     "number": 85,
     "repo": "bioutils",
     "created_at": "2026-05-27T20:30:53Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-10-14T05:09:35Z",
+    "state": "closed",
     "author_login": "theferrit32",
     "labels": [],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 4590395509,
@@ -15660,13 +15660,13 @@
     "number": 804,
     "repo": "hgvs",
     "created_at": "2025-10-10T14:57:10Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-10-14T05:05:33Z",
+    "state": "closed",
     "author_login": "schorlton-bugseq",
     "labels": [
       "type:bug"
     ],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 3557558979,

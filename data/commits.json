@@ -20565,6 +20565,16 @@
     "repo": "hgvs"
   },
   {
+    "author_login": "developer-rpai",
+    "author_date": "2026-09-24T06:07:58Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "developer-rpai",
+    "author_date": "2026-10-06T05:03:51Z",
+    "repo": "hgvs"
+  },
+  {
     "author_login": "dependabot[bot]",
     "author_date": "2026-10-06T17:27:03Z",
     "repo": "hgvs"
@@ -20582,6 +20592,11 @@
   {
     "author_login": "davmlaw",
     "author_date": "2026-10-07T04:35:29Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "davmlaw",
+    "author_date": "2026-10-07T04:35:51Z",
     "repo": "hgvs"
   },
   {
@@ -20705,6 +20720,11 @@
     "repo": "hgvs"
   },
   {
+    "author_login": "reece",
+    "author_date": "2026-10-11T01:05:15Z",
+    "repo": "hgvs"
+  },
+  {
     "author_login": null,
     "author_date": "2026-10-11T04:18:44Z",
     "repo": "hgvs"
@@ -20726,12 +20746,27 @@
   },
   {
     "author_login": "davmlaw",
+    "author_date": "2026-10-11T23:52:45Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "davmlaw",
+    "author_date": "2026-10-12T00:04:18Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "davmlaw",
     "author_date": "2026-10-12T01:31:53Z",
     "repo": "hgvs"
   },
   {
     "author_login": "reece",
     "author_date": "2026-10-12T04:23:49Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-12T04:24:46Z",
     "repo": "hgvs"
   },
   {
@@ -20757,6 +20792,21 @@
   {
     "author_login": "reece",
     "author_date": "2026-10-12T05:47:22Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-12T05:48:57Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-12T05:49:39Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "developer-rpai",
+    "author_date": "2026-10-12T06:01:44Z",
     "repo": "hgvs"
   },
   {
@@ -20797,6 +20847,36 @@
   {
     "author_login": "reece",
     "author_date": "2026-10-13T04:19:47Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-13T04:24:45Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-13T17:32:26Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "davmlaw",
+    "author_date": "2026-10-14T01:41:04Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-14T04:55:07Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-14T05:03:07Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-14T05:05:31Z",
     "repo": "hgvs"
   },
   {
