@@ -3223,6 +3223,17 @@
     "closed_by": null
   },
   {
+    "id": 5866910324,
+    "number": 509,
+    "repo": "anyvar",
+    "created_at": "2026-10-15T13:19:31Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "jennifer-bowser",
+    "labels": [],
+    "closed_by": null
+  },
+  {
     "id": 2095018790,
     "number": 6,
     "repo": "biocommons.github.io",
@@ -5400,6 +5411,17 @@
     "number": 105,
     "repo": "bioutils",
     "created_at": "2026-10-15T03:43:33Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": null
+  },
+  {
+    "id": 5869282204,
+    "number": 108,
+    "repo": "bioutils",
+    "created_at": "2026-10-15T15:45:08Z",
     "closed_at": null,
     "state": "open",
     "author_login": "reece",

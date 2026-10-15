@@ -22,7 +22,7 @@
     "description": "Lightweight, portable variation registration and retrieval",
     "stargazers_count": 17,
     "forks_count": 6,
-    "open_issues_count": 34,
+    "open_issues_count": 35,
     "open_pr_count": 2,
     "contributors": 14,
     "latest_release": {
@@ -76,8 +76,8 @@
     "description": "provides common tools and lookup tables used primarily by the hgvs and uta packages",
     "stargazers_count": 25,
     "forks_count": 21,
-    "open_issues_count": 3,
-    "open_pr_count": 4,
+    "open_issues_count": 4,
+    "open_pr_count": 5,
     "contributors": 17,
     "latest_release": {
       "tag_name": "0.6.2",
@@ -172,7 +172,7 @@
       "tag_name": "0.0.6",
       "published_at": "2025-08-31T20:43:00Z"
     },
-    "updated_at": "2026-10-14T18:04:01Z",
+    "updated_at": "2026-10-15T16:08:12Z",
     "default_branch": "main",
     "private": false,
     "archived": false
