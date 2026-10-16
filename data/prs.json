@@ -2483,7 +2483,7 @@
     "merged_at": null,
     "state": "open",
     "author_login": "jennifer-bowser",
-    "draft": true
+    "draft": false
   },
   {
     "id": 4169726766,
@@ -2516,6 +2516,17 @@
     "merged_at": null,
     "state": "open",
     "author_login": "reece",
+    "draft": false
+  },
+  {
+    "id": 4891055529,
+    "number": 510,
+    "repo": "anyvar",
+    "created_at": "2026-10-16T16:09:51Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "korikuzma",
     "draft": false
   },
   {
@@ -8640,6 +8651,28 @@
     "repo": "uta",
     "created_at": "2026-10-15T23:01:38Z",
     "closed_at": "2026-10-15T23:04:59Z",
+    "merged_at": null,
+    "state": "closed",
+    "author_login": "bpblanken",
+    "draft": false
+  },
+  {
+    "id": 4889626134,
+    "number": 283,
+    "repo": "uta",
+    "created_at": "2026-10-16T14:13:45Z",
+    "closed_at": "2026-10-16T14:15:04Z",
+    "merged_at": null,
+    "state": "closed",
+    "author_login": "bpblanken",
+    "draft": false
+  },
+  {
+    "id": 4889684216,
+    "number": 284,
+    "repo": "uta",
+    "created_at": "2026-10-16T14:18:27Z",
+    "closed_at": "2026-10-16T14:19:42Z",
     "merged_at": null,
     "state": "closed",
     "author_login": "bpblanken",
