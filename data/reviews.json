@@ -3175,6 +3175,26 @@
     "repo": "anyvar"
   },
   {
+    "reviewer_login": "jennifer-bowser",
+    "submitted_at": "2026-10-16T18:16:45Z",
+    "repo": "anyvar"
+  },
+  {
+    "reviewer_login": "jsstevenson",
+    "submitted_at": "2026-10-16T18:20:05Z",
+    "repo": "anyvar"
+  },
+  {
+    "reviewer_login": "jsstevenson",
+    "submitted_at": "2026-10-16T19:13:11Z",
+    "repo": "anyvar"
+  },
+  {
+    "reviewer_login": "jsstevenson",
+    "submitted_at": "2026-10-16T19:27:57Z",
+    "repo": "anyvar"
+  },
+  {
     "reviewer_login": "reece",
     "submitted_at": "2023-06-07T17:31:22Z",
     "repo": "biocommons.github.io"
