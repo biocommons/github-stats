@@ -7304,6 +7304,39 @@
     "draft": false
   },
   {
+    "id": 4883613440,
+    "number": 916,
+    "repo": "hgvs",
+    "created_at": "2026-10-16T04:46:15Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 4883614698,
+    "number": 917,
+    "repo": "hgvs",
+    "created_at": "2026-10-16T04:46:26Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 4883619057,
+    "number": 918,
+    "repo": "hgvs",
+    "created_at": "2026-10-16T04:47:05Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
     "id": 89712043,
     "number": 1,
     "repo": "hgvs-eval",
