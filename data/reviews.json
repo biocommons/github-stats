@@ -4260,6 +4260,11 @@
     "repo": "bioutils"
   },
   {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2026-10-19T19:54:47Z",
+    "repo": "bioutils"
+  },
+  {
     "reviewer_login": "reece",
     "submitted_at": "2023-05-19T21:29:45Z",
     "repo": "eutils"
@@ -5962,6 +5967,11 @@
   {
     "reviewer_login": "reece",
     "submitted_at": "2026-10-11T06:15:51Z",
+    "repo": "python-package"
+  },
+  {
+    "reviewer_login": "copilot-pull-request-reviewer[bot]",
+    "submitted_at": "2026-10-19T20:40:38Z",
     "repo": "python-package"
   },
   {
