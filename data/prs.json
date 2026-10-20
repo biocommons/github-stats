@@ -8133,9 +8133,9 @@
     "number": 105,
     "repo": "python-package",
     "created_at": "2026-10-14T18:51:42Z",
-    "closed_at": null,
-    "merged_at": null,
-    "state": "open",
+    "closed_at": "2026-10-20T16:02:42Z",
+    "merged_at": "2026-10-20T16:02:42Z",
+    "state": "closed",
     "author_login": "reece",
     "draft": false
   },
