@@ -22645,6 +22645,26 @@
     "repo": "python-package"
   },
   {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-20T23:22:55Z",
+    "repo": "python-package"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-21T00:58:44Z",
+    "repo": "python-package"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-10-21T13:59:03Z",
+    "repo": "python-package"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-10-21T14:00:06Z",
+    "repo": "python-package"
+  },
+  {
     "author_login": "reece",
     "author_date": "2019-05-20T00:37:13Z",
     "repo": "seqrepo-rest-service"
