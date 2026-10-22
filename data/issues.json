@@ -15945,7 +15945,8 @@
     "state": "open",
     "author_login": "theferrit32",
     "labels": [
-      "meta:stale"
+      "meta:stale",
+      "stale"
     ],
     "closed_by": null
   },
