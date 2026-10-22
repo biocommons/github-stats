@@ -149,7 +149,7 @@
     "description": "automated evaluation suite to assess tools that manipulate HGVS formatted variants",
     "stargazers_count": 4,
     "forks_count": 4,
-    "open_issues_count": 0,
+    "open_issues_count": 1,
     "open_pr_count": 0,
     "contributors": 6,
     "latest_release": null,
@@ -184,7 +184,7 @@
     "description": "OpenAPI-based REST interface to biological sequences and sequence metadata",
     "stargazers_count": 6,
     "forks_count": 6,
-    "open_issues_count": 0,
+    "open_issues_count": 2,
     "open_pr_count": 0,
     "contributors": 9,
     "latest_release": {
