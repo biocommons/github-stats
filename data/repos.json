@@ -75,15 +75,15 @@
     "html_url": "https://github.com/biocommons/bioutils",
     "description": "provides common tools and lookup tables used primarily by the hgvs and uta packages",
     "stargazers_count": 25,
-    "forks_count": 22,
-    "open_issues_count": 3,
+    "forks_count": 23,
+    "open_issues_count": 4,
     "open_pr_count": 5,
-    "contributors": 17,
+    "contributors": 18,
     "latest_release": {
       "tag_name": "0.6.2",
       "published_at": "2026-10-14T22:10:17Z"
     },
-    "updated_at": "2026-10-19T19:56:28Z",
+    "updated_at": "2026-10-22T14:28:33Z",
     "default_branch": "main",
     "private": false,
     "archived": false
@@ -149,7 +149,7 @@
     "description": "automated evaluation suite to assess tools that manipulate HGVS formatted variants",
     "stargazers_count": 4,
     "forks_count": 4,
-    "open_issues_count": 1,
+    "open_issues_count": 0,
     "open_pr_count": 0,
     "contributors": 6,
     "latest_release": null,
@@ -184,7 +184,7 @@
     "description": "OpenAPI-based REST interface to biological sequences and sequence metadata",
     "stargazers_count": 6,
     "forks_count": 6,
-    "open_issues_count": 2,
+    "open_issues_count": 0,
     "open_pr_count": 0,
     "contributors": 9,
     "latest_release": {
