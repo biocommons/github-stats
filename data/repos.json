@@ -6,7 +6,7 @@
     "description": "Organization-wide GitHub configuration",
     "stargazers_count": 2,
     "forks_count": 0,
-    "open_issues_count": 2,
+    "open_issues_count": 3,
     "open_pr_count": 0,
     "contributors": 3,
     "latest_release": null,
@@ -46,25 +46,6 @@
     "contributors": 7,
     "latest_release": null,
     "updated_at": "2026-10-13T04:29:03Z",
-    "default_branch": "main",
-    "private": false,
-    "archived": false
-  },
-  {
-    "name": "biocommons.seqrepo",
-    "full_name": "biocommons/biocommons.seqrepo",
-    "html_url": "https://github.com/biocommons/biocommons.seqrepo",
-    "description": "non-redundant, compressed, journalled, file-based storage for biological sequences",
-    "stargazers_count": 52,
-    "forks_count": 36,
-    "open_issues_count": 13,
-    "open_pr_count": 3,
-    "contributors": 21,
-    "latest_release": {
-      "tag_name": "0.6.11",
-      "published_at": "2025-03-19T13:40:21Z"
-    },
-    "updated_at": "2026-10-11T07:06:35Z",
     "default_branch": "main",
     "private": false,
     "archived": false
@@ -159,20 +140,20 @@
     "archived": false
   },
   {
-    "name": "python-package",
-    "full_name": "biocommons/python-package",
-    "html_url": "https://github.com/biocommons/python-package",
-    "description": "Template for new biocommons packages, and source of configuration for periodic updates to derived packages",
-    "stargazers_count": 1,
-    "forks_count": 2,
-    "open_issues_count": 5,
-    "open_pr_count": 1,
-    "contributors": 8,
+    "name": "seqrepo",
+    "full_name": "biocommons/seqrepo",
+    "html_url": "https://github.com/biocommons/seqrepo",
+    "description": "non-redundant, compressed, journalled, file-based storage for biological sequences",
+    "stargazers_count": 52,
+    "forks_count": 36,
+    "open_issues_count": 0,
+    "open_pr_count": 3,
+    "contributors": 21,
     "latest_release": {
-      "tag_name": "0.0.6",
-      "published_at": "2025-08-31T20:43:00Z"
+      "tag_name": "0.6.11",
+      "published_at": "2025-03-19T13:40:21Z"
     },
-    "updated_at": "2026-10-21T14:00:14Z",
+    "updated_at": "2026-10-23T00:37:36Z",
     "default_branch": "main",
     "private": false,
     "archived": false
@@ -192,6 +173,25 @@
       "published_at": "2023-11-14T19:59:54Z"
     },
     "updated_at": "2026-08-07T22:01:59Z",
+    "default_branch": "main",
+    "private": false,
+    "archived": false
+  },
+  {
+    "name": "template-py",
+    "full_name": "biocommons/template-py",
+    "html_url": "https://github.com/biocommons/template-py",
+    "description": "Template for new biocommons packages, and source of configuration for periodic updates to derived packages",
+    "stargazers_count": 1,
+    "forks_count": 2,
+    "open_issues_count": 0,
+    "open_pr_count": 1,
+    "contributors": 8,
+    "latest_release": {
+      "tag_name": "0.0.6",
+      "published_at": "2025-08-31T20:43:00Z"
+    },
+    "updated_at": "2026-10-23T01:32:55Z",
     "default_branch": "main",
     "private": false,
     "archived": false

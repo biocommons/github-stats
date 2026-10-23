@@ -74,6 +74,17 @@
     "closed_by": null
   },
   {
+    "id": 5990400098,
+    "number": 11,
+    "repo": ".github",
+    "created_at": "2026-10-23T01:45:47Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": null
+  },
+  {
     "id": 440851531,
     "number": 1,
     "repo": "anyvar",
@@ -3335,1542 +3346,6 @@
       "type:feature"
     ],
     "closed_by": "reece"
-  },
-  {
-    "id": 171728534,
-    "number": 1,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2016-08-17T18:32:43Z",
-    "closed_at": "2016-08-17T22:49:10Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 172752372,
-    "number": 2,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2016-08-23T16:58:29Z",
-    "closed_at": "2016-08-23T21:26:11Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 173677115,
-    "number": 3,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2016-08-29T00:32:15Z",
-    "closed_at": "2016-08-30T20:09:31Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 173677882,
-    "number": 4,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2016-08-29T00:47:41Z",
-    "closed_at": "2018-08-14T00:29:24Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 175164552,
-    "number": 5,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2016-09-06T05:41:10Z",
-    "closed_at": "2016-09-08T04:45:50Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 175604395,
-    "number": 6,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2016-09-07T20:56:08Z",
-    "closed_at": "2016-09-10T21:32:15Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 180529004,
-    "number": 8,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2016-10-02T19:12:34Z",
-    "closed_at": "2025-12-11T02:55:17Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "type:docs",
-      "meta:stale",
-      "keep alive",
-      "closed-by-stale"
-    ],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 195403651,
-    "number": 10,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2016-12-13T23:57:22Z",
-    "closed_at": "2016-12-14T06:03:59Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 224870269,
-    "number": 11,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2017-04-27T18:19:07Z",
-    "closed_at": "2018-08-14T00:20:47Z",
-    "state": "closed",
-    "author_login": "chenliangomc",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 240244575,
-    "number": 14,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2017-07-03T18:54:07Z",
-    "closed_at": "2017-07-03T22:43:22Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 240469375,
-    "number": 16,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2017-07-04T17:05:17Z",
-    "closed_at": "2017-07-04T17:32:40Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 240470113,
-    "number": 17,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2017-07-04T17:10:56Z",
-    "closed_at": "2017-07-16T21:55:13Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 240473515,
-    "number": 18,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2017-07-04T17:37:51Z",
-    "closed_at": "2018-08-14T00:15:07Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "meta:wontfix"
-    ],
-    "closed_by": "reece"
-  },
-  {
-    "id": 240474657,
-    "number": 19,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2017-07-04T17:47:28Z",
-    "closed_at": "2024-03-16T01:37:58Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "meta:stale",
-      "closed-by-stale"
-    ],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 240722618,
-    "number": 20,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2017-07-05T17:32:00Z",
-    "closed_at": "2017-07-05T17:52:05Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 241296514,
-    "number": 21,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2017-07-07T15:19:19Z",
-    "closed_at": "2024-03-16T01:37:56Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "meta:stale",
-      "closed-by-stale"
-    ],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 243194586,
-    "number": 22,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2017-07-15T19:18:30Z",
-    "closed_at": "2018-08-14T00:14:22Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "meta:wontfix"
-    ],
-    "closed_by": "reece"
-  },
-  {
-    "id": 243254294,
-    "number": 23,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2017-07-16T17:41:01Z",
-    "closed_at": "2018-08-14T00:12:22Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "meta:wontfix"
-    ],
-    "closed_by": "reece"
-  },
-  {
-    "id": 243256025,
-    "number": 24,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2017-07-16T18:10:56Z",
-    "closed_at": "2019-05-28T22:42:06Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 306183586,
-    "number": 27,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2018-03-17T19:27:51Z",
-    "closed_at": "2018-08-13T20:45:19Z",
-    "state": "closed",
-    "author_login": "roysomak4",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 350125800,
-    "number": 28,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2018-08-13T17:40:09Z",
-    "closed_at": "2018-08-13T20:17:19Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 354702521,
-    "number": 29,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2018-08-28T12:10:36Z",
-    "closed_at": "2018-10-21T15:45:34Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "meta:wontfix"
-    ],
-    "closed_by": "reece"
-  },
-  {
-    "id": 358779517,
-    "number": 30,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2018-09-10T20:22:14Z",
-    "closed_at": "2018-09-12T22:37:37Z",
-    "state": "closed",
-    "author_login": "andreas-invitae",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 360724128,
-    "number": 31,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2018-09-17T05:06:10Z",
-    "closed_at": "2020-07-06T06:01:05Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 362300680,
-    "number": 32,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2018-09-20T18:04:52Z",
-    "closed_at": "2019-04-18T03:40:19Z",
-    "state": "closed",
-    "author_login": "khmccurdy",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 362780173,
-    "number": 33,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2018-09-21T21:28:30Z",
-    "closed_at": "2018-10-01T23:30:28Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 364309040,
-    "number": 34,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2018-09-27T05:21:32Z",
-    "closed_at": "2018-09-27T05:22:33Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 365080844,
-    "number": 35,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2018-09-29T00:53:13Z",
-    "closed_at": "2018-10-01T00:58:33Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 370556731,
-    "number": 37,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2018-10-16T11:02:48Z",
-    "closed_at": "2018-10-18T15:31:31Z",
-    "state": "closed",
-    "author_login": "viv-1",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 372228983,
-    "number": 38,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2018-10-20T16:37:23Z",
-    "closed_at": "2018-10-21T15:40:11Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 372253228,
-    "number": 39,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2018-10-20T21:10:37Z",
-    "closed_at": "2018-10-21T14:01:12Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 372336521,
-    "number": 40,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2018-10-21T17:16:24Z",
-    "closed_at": "2018-10-21T18:13:19Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 372349031,
-    "number": 41,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2018-10-21T19:36:57Z",
-    "closed_at": "2018-10-21T20:20:27Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 372355434,
-    "number": 42,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2018-10-21T20:49:34Z",
-    "closed_at": "2018-10-21T20:53:10Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 386493086,
-    "number": 43,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2018-12-01T20:08:28Z",
-    "closed_at": "2018-12-03T05:45:00Z",
-    "state": "closed",
-    "author_login": "jfreidin",
-    "labels": [],
-    "closed_by": "jfreidin"
-  },
-  {
-    "id": 386575042,
-    "number": 44,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2018-12-02T16:26:22Z",
-    "closed_at": "2018-12-03T18:56:23Z",
-    "state": "closed",
-    "author_login": "jfreidin",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 386898863,
-    "number": 45,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2018-12-03T16:29:48Z",
-    "closed_at": "2020-07-06T06:06:03Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 402790065,
-    "number": 50,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2019-01-24T16:28:52Z",
-    "closed_at": "2020-07-06T06:04:57Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 425488459,
-    "number": 55,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2019-03-26T15:28:56Z",
-    "closed_at": "2020-04-06T20:57:47Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 442426506,
-    "number": 57,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2019-05-09T20:47:56Z",
-    "closed_at": "2019-05-20T05:10:46Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 443135626,
-    "number": 58,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2019-05-12T18:58:44Z",
-    "closed_at": "2019-05-14T15:35:53Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 444318808,
-    "number": 59,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2019-05-15T09:02:32Z",
-    "closed_at": "2019-05-17T06:58:50Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 447443731,
-    "number": 60,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2019-05-23T04:19:39Z",
-    "closed_at": "2024-03-16T01:37:54Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "meta:stale",
-      "closed-by-stale"
-    ],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 449566242,
-    "number": 61,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2019-05-29T02:22:12Z",
-    "closed_at": null,
-    "state": "open",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": null
-  },
-  {
-    "id": 449566380,
-    "number": 62,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2019-05-29T02:22:49Z",
-    "closed_at": "2020-07-06T06:58:57Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 467539328,
-    "number": 64,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2019-07-12T18:13:39Z",
-    "closed_at": "2019-07-22T12:28:08Z",
-    "state": "closed",
-    "author_login": "andreasprlic",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 471080905,
-    "number": 66,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2019-07-22T12:58:08Z",
-    "closed_at": "2019-07-22T12:58:29Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 471950456,
-    "number": 67,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2019-07-23T21:10:00Z",
-    "closed_at": "2019-07-23T23:07:32Z",
-    "state": "closed",
-    "author_login": "akeeeshi",
-    "labels": [
-      "type:question"
-    ],
-    "closed_by": "reece"
-  },
-  {
-    "id": 490655454,
-    "number": 70,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2019-09-07T16:40:15Z",
-    "closed_at": "2025-12-11T02:55:15Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "type:feature",
-      "meta:stale",
-      "keep alive",
-      "closed-by-stale"
-    ],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 542958973,
-    "number": 71,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2019-12-27T18:48:10Z",
-    "closed_at": "2024-03-16T01:37:52Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "meta:stale",
-      "closed-by-stale"
-    ],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 590848164,
-    "number": 72,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2020-03-31T06:58:45Z",
-    "closed_at": "2020-03-31T17:41:35Z",
-    "state": "closed",
-    "author_login": "ypchan",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 592567413,
-    "number": 73,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2020-04-02T11:43:16Z",
-    "closed_at": "2020-04-03T05:33:00Z",
-    "state": "closed",
-    "author_login": "izcram",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 593037762,
-    "number": 74,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2020-04-03T02:44:45Z",
-    "closed_at": "2020-04-03T02:45:16Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 594191793,
-    "number": 75,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2020-04-05T01:03:16Z",
-    "closed_at": "2020-04-05T02:34:38Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 594222037,
-    "number": 76,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2020-04-05T02:47:17Z",
-    "closed_at": "2020-07-05T19:00:00Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 594516096,
-    "number": 77,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2020-04-05T15:32:00Z",
-    "closed_at": "2025-12-11T02:55:13Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "type:docs",
-      "meta:stale",
-      "keep alive",
-      "closed-by-stale"
-    ],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 597598976,
-    "number": 78,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2020-04-09T22:53:35Z",
-    "closed_at": "2020-04-10T00:40:48Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 597600928,
-    "number": 79,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2020-04-09T22:59:34Z",
-    "closed_at": "2020-04-10T02:22:07Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 597603323,
-    "number": 80,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2020-04-09T23:06:50Z",
-    "closed_at": "2020-04-11T15:21:48Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 597603614,
-    "number": 81,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2020-04-09T23:07:42Z",
-    "closed_at": "2020-04-11T21:37:29Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 597606232,
-    "number": 82,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2020-04-09T23:15:44Z",
-    "closed_at": "2020-07-06T05:56:28Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 597630406,
-    "number": 83,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2020-04-10T00:38:56Z",
-    "closed_at": "2020-04-11T21:15:31Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 598284533,
-    "number": 84,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2020-04-11T15:07:39Z",
-    "closed_at": "2025-12-11T02:55:10Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "type:feature",
-      "meta:stale",
-      "keep alive",
-      "closed-by-stale"
-    ],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 616789373,
-    "number": 85,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2020-05-12T16:22:46Z",
-    "closed_at": "2020-05-12T18:32:47Z",
-    "state": "closed",
-    "author_login": "crutching",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 651138756,
-    "number": 86,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2020-07-05T20:19:53Z",
-    "closed_at": "2020-07-06T06:01:04Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 651615911,
-    "number": 87,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2020-07-06T15:09:53Z",
-    "closed_at": "2024-04-09T12:24:02Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "jsstevenson"
-  },
-  {
-    "id": 688879902,
-    "number": 88,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2020-08-31T04:03:35Z",
-    "closed_at": "2020-09-03T04:37:29Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 733816361,
-    "number": 89,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2020-10-31T22:10:33Z",
-    "closed_at": "2025-12-11T02:55:08Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "meta:stale",
-      "keep alive",
-      "closed-by-stale"
-    ],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 750981361,
-    "number": 90,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2020-11-25T16:58:59Z",
-    "closed_at": null,
-    "state": "open",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": null
-  },
-  {
-    "id": 751190155,
-    "number": 91,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2020-11-26T00:12:42Z",
-    "closed_at": null,
-    "state": "open",
-    "author_login": "reece",
-    "labels": [
-      "type:feature"
-    ],
-    "closed_by": null
-  },
-  {
-    "id": 751842491,
-    "number": 92,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2020-11-26T21:57:26Z",
-    "closed_at": "2022-02-22T05:12:59Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 794167523,
-    "number": 93,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2021-01-26T11:46:38Z",
-    "closed_at": "2024-06-04T11:53:42Z",
-    "state": "closed",
-    "author_login": "git4waki",
-    "labels": [
-      "type:bug"
-    ],
-    "closed_by": "jsstevenson"
-  },
-  {
-    "id": 820705230,
-    "number": 94,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2021-03-03T04:49:30Z",
-    "closed_at": "2025-12-12T02:53:35Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "meta:stale",
-      "keep alive",
-      "closed-by-stale"
-    ],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 896300195,
-    "number": 95,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2021-05-20T05:32:05Z",
-    "closed_at": "2021-05-25T03:22:41Z",
-    "state": "closed",
-    "author_login": "ok-gitr",
-    "labels": [],
-    "closed_by": "ok-gitr"
-  },
-  {
-    "id": 969261094,
-    "number": 97,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2021-08-12T17:41:29Z",
-    "closed_at": "2024-03-08T01:40:43Z",
-    "state": "closed",
-    "author_login": "korikuzma",
-    "labels": [
-      "meta:stale"
-    ],
-    "closed_by": "korikuzma"
-  },
-  {
-    "id": 1058916875,
-    "number": 99,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2021-11-19T21:06:24Z",
-    "closed_at": "2021-11-19T23:33:43Z",
-    "state": "closed",
-    "author_login": "bmrobin",
-    "labels": [],
-    "closed_by": "andreasprlic"
-  },
-  {
-    "id": 1633284997,
-    "number": 103,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2023-03-21T06:05:28Z",
-    "closed_at": "2025-12-12T02:53:32Z",
-    "state": "closed",
-    "author_login": "davmlaw",
-    "labels": [
-      "type:feature",
-      "meta:stale",
-      "keep alive",
-      "closed-by-stale"
-    ],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 1694324527,
-    "number": 104,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2023-05-03T15:36:49Z",
-    "closed_at": null,
-    "state": "open",
-    "author_login": "holtgrewe",
-    "labels": [],
-    "closed_by": null
-  },
-  {
-    "id": 1695332590,
-    "number": 105,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2023-05-04T06:21:53Z",
-    "closed_at": "2023-05-04T06:29:00Z",
-    "state": "closed",
-    "author_login": "holtgrewe",
-    "labels": [],
-    "closed_by": "holtgrewe"
-  },
-  {
-    "id": 1695335491,
-    "number": 106,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2023-05-04T06:24:57Z",
-    "closed_at": "2025-11-10T01:54:26Z",
-    "state": "closed",
-    "author_login": "holtgrewe",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 1695345641,
-    "number": 108,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2023-05-04T06:35:16Z",
-    "closed_at": null,
-    "state": "open",
-    "author_login": "holtgrewe",
-    "labels": [],
-    "closed_by": null
-  },
-  {
-    "id": 1735137371,
-    "number": 112,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2023-05-31T22:45:01Z",
-    "closed_at": "2023-11-14T22:59:39Z",
-    "state": "closed",
-    "author_login": "theferrit32",
-    "labels": [],
-    "closed_by": "theferrit32"
-  },
-  {
-    "id": 1772046098,
-    "number": 113,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2023-06-23T19:56:07Z",
-    "closed_at": "2023-07-17T18:42:28Z",
-    "state": "closed",
-    "author_login": "ahwagner",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 1803217329,
-    "number": 114,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2023-07-13T14:58:57Z",
-    "closed_at": "2024-02-21T03:10:55Z",
-    "state": "closed",
-    "author_login": "ahwagner",
-    "labels": [
-      "type:question"
-    ],
-    "closed_by": "ahwagner"
-  },
-  {
-    "id": 1899639511,
-    "number": 119,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2023-09-17T03:16:33Z",
-    "closed_at": "2025-11-10T01:44:33Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 1899879937,
-    "number": 121,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2023-09-17T18:48:37Z",
-    "closed_at": "2023-09-20T00:07:32Z",
-    "state": "closed",
-    "author_login": "dylan-myome",
-    "labels": [],
-    "closed_by": "katie-perry"
-  },
-  {
-    "id": 1929434898,
-    "number": 125,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2023-10-06T04:55:12Z",
-    "closed_at": "2024-04-16T18:49:18Z",
-    "state": "closed",
-    "author_login": "theferrit32",
-    "labels": [],
-    "closed_by": "theferrit32"
-  },
-  {
-    "id": 2044347180,
-    "number": 126,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2023-12-15T20:45:24Z",
-    "closed_at": "2024-02-21T04:08:09Z",
-    "state": "closed",
-    "author_login": "ehclark",
-    "labels": [
-      "type:bug"
-    ],
-    "closed_by": "andreasprlic"
-  },
-  {
-    "id": 2062445963,
-    "number": 127,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2024-01-02T13:47:41Z",
-    "closed_at": "2024-08-26T12:24:26Z",
-    "state": "closed",
-    "author_login": "jsstevenson",
-    "labels": [
-      "type:bug"
-    ],
-    "closed_by": "jsstevenson"
-  },
-  {
-    "id": 2062569197,
-    "number": 128,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2024-01-02T15:21:56Z",
-    "closed_at": null,
-    "state": "open",
-    "author_login": "wlymanambry",
-    "labels": [
-      "type:bug"
-    ],
-    "closed_by": null
-  },
-  {
-    "id": 2067695803,
-    "number": 129,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2024-01-05T16:54:16Z",
-    "closed_at": null,
-    "state": "open",
-    "author_login": "wlymanambry",
-    "labels": [
-      "type:bug"
-    ],
-    "closed_by": null
-  },
-  {
-    "id": 2070793149,
-    "number": 130,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2024-01-08T16:17:20Z",
-    "closed_at": "2024-01-23T16:34:32Z",
-    "state": "closed",
-    "author_login": "andreasprlic",
-    "labels": [],
-    "closed_by": "andreasprlic"
-  },
-  {
-    "id": 2088572181,
-    "number": 132,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2024-01-18T15:49:49Z",
-    "closed_at": "2024-02-18T13:08:43Z",
-    "state": "closed",
-    "author_login": "jsstevenson",
-    "labels": [
-      "type:feature"
-    ],
-    "closed_by": "jsstevenson"
-  },
-  {
-    "id": 2091566089,
-    "number": 134,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2024-01-19T22:42:29Z",
-    "closed_at": "2024-02-21T02:11:34Z",
-    "state": "closed",
-    "author_login": "andreasprlic",
-    "labels": [
-      "type:bug"
-    ],
-    "closed_by": "reece"
-  },
-  {
-    "id": 2119108309,
-    "number": 136,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2024-02-05T17:40:47Z",
-    "closed_at": null,
-    "state": "open",
-    "author_login": "reece",
-    "labels": [
-      "keep alive",
-      "type:proposal"
-    ],
-    "closed_by": null
-  },
-  {
-    "id": 2131627902,
-    "number": 137,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2024-02-13T07:31:37Z",
-    "closed_at": null,
-    "state": "open",
-    "author_login": "yxuil",
-    "labels": [
-      "type:bug",
-      "type:docs"
-    ],
-    "closed_by": null
-  },
-  {
-    "id": 2142969124,
-    "number": 138,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2024-02-19T18:47:44Z",
-    "closed_at": "2024-02-20T02:40:20Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "type:bug"
-    ],
-    "closed_by": "reece"
-  },
-  {
-    "id": 2145240801,
-    "number": 140,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2024-02-20T20:43:11Z",
-    "closed_at": "2024-02-22T03:15:40Z",
-    "state": "closed",
-    "author_login": "quinnwai",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 2234158299,
-    "number": 142,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2024-04-09T19:24:22Z",
-    "closed_at": "2024-04-21T09:47:34Z",
-    "state": "closed",
-    "author_login": "theferrit32",
-    "labels": [
-      "type:bug"
-    ],
-    "closed_by": "theferrit32"
-  },
-  {
-    "id": 2234237614,
-    "number": 143,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2024-04-09T20:23:04Z",
-    "closed_at": "2024-06-04T11:52:30Z",
-    "state": "closed",
-    "author_login": "theferrit32",
-    "labels": [],
-    "closed_by": "jsstevenson"
-  },
-  {
-    "id": 2246811935,
-    "number": 145,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2024-04-16T20:13:31Z",
-    "closed_at": "2024-06-04T11:51:41Z",
-    "state": "closed",
-    "author_login": "jsstevenson",
-    "labels": [
-      "type:bug"
-    ],
-    "closed_by": "jsstevenson"
-  },
-  {
-    "id": 2254581661,
-    "number": 146,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2024-04-20T14:40:04Z",
-    "closed_at": null,
-    "state": "open",
-    "author_login": "jsstevenson",
-    "labels": [
-      "type:bug"
-    ],
-    "closed_by": null
-  },
-  {
-    "id": 2289759613,
-    "number": 147,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2024-05-10T13:41:27Z",
-    "closed_at": "2024-07-25T00:49:20Z",
-    "state": "closed",
-    "author_login": "jsstevenson",
-    "labels": [
-      "type:feature"
-    ],
-    "closed_by": "jsstevenson"
-  },
-  {
-    "id": 2319245920,
-    "number": 150,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2024-05-27T14:03:08Z",
-    "closed_at": "2025-12-10T02:52:52Z",
-    "state": "closed",
-    "author_login": "jsstevenson",
-    "labels": [
-      "type:feature",
-      "meta:stale",
-      "closed-by-stale"
-    ],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 2334210525,
-    "number": 156,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2024-06-04T19:18:18Z",
-    "closed_at": "2024-06-05T12:06:06Z",
-    "state": "closed",
-    "author_login": "jsstevenson",
-    "labels": [
-      "type:bug"
-    ],
-    "closed_by": "jsstevenson"
-  },
-  {
-    "id": 2351093420,
-    "number": 159,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2024-06-13T13:00:31Z",
-    "closed_at": "2024-06-13T15:54:10Z",
-    "state": "closed",
-    "author_login": "jsstevenson",
-    "labels": [
-      "type:bug"
-    ],
-    "closed_by": "jsstevenson"
-  },
-  {
-    "id": 2351414478,
-    "number": 162,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2024-06-13T15:13:43Z",
-    "closed_at": "2024-06-13T15:54:51Z",
-    "state": "closed",
-    "author_login": "jsstevenson",
-    "labels": [
-      "type:feature"
-    ],
-    "closed_by": "jsstevenson"
-  },
-  {
-    "id": 2456748242,
-    "number": 166,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2024-08-08T22:29:40Z",
-    "closed_at": null,
-    "state": "open",
-    "author_login": "gromdimon",
-    "labels": [
-      "type:bug"
-    ],
-    "closed_by": null
-  },
-  {
-    "id": 2534232082,
-    "number": 169,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2024-09-18T16:52:33Z",
-    "closed_at": "2024-09-19T15:42:39Z",
-    "state": "closed",
-    "author_login": "wlymanambry",
-    "labels": [
-      "type:bug"
-    ],
-    "closed_by": "wlymanambry"
-  },
-  {
-    "id": 2745279379,
-    "number": 171,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2024-12-17T15:44:47Z",
-    "closed_at": "2025-02-27T21:25:39Z",
-    "state": "closed",
-    "author_login": "brendanreardon",
-    "labels": [
-      "type:bug"
-    ],
-    "closed_by": "jsstevenson"
-  },
-  {
-    "id": 2816642780,
-    "number": 173,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2025-01-28T20:21:42Z",
-    "closed_at": "2025-12-10T02:52:50Z",
-    "state": "closed",
-    "author_login": "jsstevenson",
-    "labels": [
-      "meta:stale",
-      "closed-by-stale"
-    ],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 2816645523,
-    "number": 174,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2025-01-28T20:23:24Z",
-    "closed_at": "2025-12-10T02:52:48Z",
-    "state": "closed",
-    "author_login": "jsstevenson",
-    "labels": [
-      "meta:stale",
-      "closed-by-stale"
-    ],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 2843183419,
-    "number": 175,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2025-02-10T17:44:23Z",
-    "closed_at": "2025-12-10T02:52:46Z",
-    "state": "closed",
-    "author_login": "jsstevenson",
-    "labels": [
-      "meta:stale",
-      "closed-by-stale"
-    ],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 2889315252,
-    "number": 176,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2025-03-02T04:13:42Z",
-    "closed_at": "2025-03-02T19:41:36Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "type:feature"
-    ],
-    "closed_by": "reece"
-  },
-  {
-    "id": 2892883082,
-    "number": 179,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2025-03-04T04:20:08Z",
-    "closed_at": "2025-11-10T02:11:39Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "meta:stale"
-    ],
-    "closed_by": "reece"
-  },
-  {
-    "id": 2892884224,
-    "number": 180,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2025-03-04T04:21:13Z",
-    "closed_at": "2025-11-10T02:10:37Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "meta:stale"
-    ],
-    "closed_by": "reece"
-  },
-  {
-    "id": 2929829402,
-    "number": 181,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2025-03-18T20:54:27Z",
-    "closed_at": "2025-03-19T15:24:10Z",
-    "state": "closed",
-    "author_login": "theferrit32",
-    "labels": [
-      "type:bug"
-    ],
-    "closed_by": "theferrit32"
-  },
-  {
-    "id": 2954353575,
-    "number": 183,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2025-03-27T20:29:30Z",
-    "closed_at": "2025-12-10T02:52:44Z",
-    "state": "closed",
-    "author_login": "theferrit32",
-    "labels": [
-      "type:feature",
-      "help-wanted",
-      "meta:stale",
-      "closed-by-stale"
-    ],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 2970472316,
-    "number": 184,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2025-04-03T19:20:01Z",
-    "closed_at": "2025-11-10T01:40:40Z",
-    "state": "closed",
-    "author_login": "mbutterfield-GENOME",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 2986677726,
-    "number": 186,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2025-04-10T19:28:45Z",
-    "closed_at": "2025-04-14T01:02:03Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "type:bug"
-    ],
-    "closed_by": "reece"
-  },
-  {
-    "id": 2986845858,
-    "number": 187,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2025-04-10T20:43:27Z",
-    "closed_at": "2025-04-14T01:40:39Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "type:bug"
-    ],
-    "closed_by": "reece"
-  },
-  {
-    "id": 2990605717,
-    "number": 189,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2025-04-12T17:53:50Z",
-    "closed_at": "2025-04-14T02:45:41Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 3278238704,
-    "number": 192,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2025-07-30T19:37:30Z",
-    "closed_at": "2025-07-31T11:10:20Z",
-    "state": "closed",
-    "author_login": "korikuzma",
-    "labels": [
-      "type:docs"
-    ],
-    "closed_by": "korikuzma"
-  },
-  {
-    "id": 3608957009,
-    "number": 199,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2025-11-10T17:13:45Z",
-    "closed_at": "2025-11-10T18:13:39Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 3831641890,
-    "number": 201,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2026-01-20T01:06:46Z",
-    "closed_at": "2026-01-22T03:14:20Z",
-    "state": "closed",
-    "author_login": "williamevanl",
-    "labels": [
-      "type:bug"
-    ],
-    "closed_by": "jsstevenson"
-  },
-  {
-    "id": 4504183392,
-    "number": 202,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2026-05-22T16:37:18Z",
-    "closed_at": null,
-    "state": "open",
-    "author_login": "jsstevenson",
-    "labels": [
-      "type:feature"
-    ],
-    "closed_by": null
-  },
-  {
-    "id": 5931907417,
-    "number": 219,
-    "repo": "biocommons.seqrepo",
-    "created_at": "2026-10-19T21:32:03Z",
-    "closed_at": null,
-    "state": "open",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": null
   },
   {
     "id": 163496195,
@@ -16391,560 +14866,1535 @@
     "closed_by": null
   },
   {
-    "id": 1808380031,
+    "id": 171728534,
     "number": 1,
-    "repo": "python-package",
-    "created_at": "2023-05-04T07:03:02Z",
-    "closed_at": "2023-09-09T03:40:08Z",
+    "repo": "seqrepo",
+    "created_at": "2016-08-17T18:32:43Z",
+    "closed_at": "2016-08-17T22:49:10Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 172752372,
+    "number": 2,
+    "repo": "seqrepo",
+    "created_at": "2016-08-23T16:58:29Z",
+    "closed_at": "2016-08-23T21:26:11Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 173677115,
+    "number": 3,
+    "repo": "seqrepo",
+    "created_at": "2016-08-29T00:32:15Z",
+    "closed_at": "2016-08-30T20:09:31Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 173677882,
+    "number": 4,
+    "repo": "seqrepo",
+    "created_at": "2016-08-29T00:47:41Z",
+    "closed_at": "2018-08-14T00:29:24Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 175164552,
+    "number": 5,
+    "repo": "seqrepo",
+    "created_at": "2016-09-06T05:41:10Z",
+    "closed_at": "2016-09-08T04:45:50Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 175604395,
+    "number": 6,
+    "repo": "seqrepo",
+    "created_at": "2016-09-07T20:56:08Z",
+    "closed_at": "2016-09-10T21:32:15Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 180529004,
+    "number": 8,
+    "repo": "seqrepo",
+    "created_at": "2016-10-02T19:12:34Z",
+    "closed_at": "2025-12-11T02:55:17Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "type:docs",
+      "meta:stale",
+      "keep alive",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 195403651,
+    "number": 10,
+    "repo": "seqrepo",
+    "created_at": "2016-12-13T23:57:22Z",
+    "closed_at": "2016-12-14T06:03:59Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 224870269,
+    "number": 11,
+    "repo": "seqrepo",
+    "created_at": "2017-04-27T18:19:07Z",
+    "closed_at": "2018-08-14T00:20:47Z",
+    "state": "closed",
+    "author_login": "chenliangomc",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 240244575,
+    "number": 14,
+    "repo": "seqrepo",
+    "created_at": "2017-07-03T18:54:07Z",
+    "closed_at": "2017-07-03T22:43:22Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 240469375,
+    "number": 16,
+    "repo": "seqrepo",
+    "created_at": "2017-07-04T17:05:17Z",
+    "closed_at": "2017-07-04T17:32:40Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 240470113,
+    "number": 17,
+    "repo": "seqrepo",
+    "created_at": "2017-07-04T17:10:56Z",
+    "closed_at": "2017-07-16T21:55:13Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 240473515,
+    "number": 18,
+    "repo": "seqrepo",
+    "created_at": "2017-07-04T17:37:51Z",
+    "closed_at": "2018-08-14T00:15:07Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "meta:wontfix"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 240474657,
+    "number": 19,
+    "repo": "seqrepo",
+    "created_at": "2017-07-04T17:47:28Z",
+    "closed_at": "2024-03-16T01:37:58Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "meta:stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 240722618,
+    "number": 20,
+    "repo": "seqrepo",
+    "created_at": "2017-07-05T17:32:00Z",
+    "closed_at": "2017-07-05T17:52:05Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 241296514,
+    "number": 21,
+    "repo": "seqrepo",
+    "created_at": "2017-07-07T15:19:19Z",
+    "closed_at": "2024-03-16T01:37:56Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "meta:stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 243194586,
+    "number": 22,
+    "repo": "seqrepo",
+    "created_at": "2017-07-15T19:18:30Z",
+    "closed_at": "2018-08-14T00:14:22Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "meta:wontfix"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 243254294,
+    "number": 23,
+    "repo": "seqrepo",
+    "created_at": "2017-07-16T17:41:01Z",
+    "closed_at": "2018-08-14T00:12:22Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "meta:wontfix"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 243256025,
+    "number": 24,
+    "repo": "seqrepo",
+    "created_at": "2017-07-16T18:10:56Z",
+    "closed_at": "2019-05-28T22:42:06Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 306183586,
+    "number": 27,
+    "repo": "seqrepo",
+    "created_at": "2018-03-17T19:27:51Z",
+    "closed_at": "2018-08-13T20:45:19Z",
+    "state": "closed",
+    "author_login": "roysomak4",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 350125800,
+    "number": 28,
+    "repo": "seqrepo",
+    "created_at": "2018-08-13T17:40:09Z",
+    "closed_at": "2018-08-13T20:17:19Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 354702521,
+    "number": 29,
+    "repo": "seqrepo",
+    "created_at": "2018-08-28T12:10:36Z",
+    "closed_at": "2018-10-21T15:45:34Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "meta:wontfix"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 358779517,
+    "number": 30,
+    "repo": "seqrepo",
+    "created_at": "2018-09-10T20:22:14Z",
+    "closed_at": "2018-09-12T22:37:37Z",
+    "state": "closed",
+    "author_login": "andreas-invitae",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 360724128,
+    "number": 31,
+    "repo": "seqrepo",
+    "created_at": "2018-09-17T05:06:10Z",
+    "closed_at": "2020-07-06T06:01:05Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 362300680,
+    "number": 32,
+    "repo": "seqrepo",
+    "created_at": "2018-09-20T18:04:52Z",
+    "closed_at": "2019-04-18T03:40:19Z",
+    "state": "closed",
+    "author_login": "khmccurdy",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 362780173,
+    "number": 33,
+    "repo": "seqrepo",
+    "created_at": "2018-09-21T21:28:30Z",
+    "closed_at": "2018-10-01T23:30:28Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 364309040,
+    "number": 34,
+    "repo": "seqrepo",
+    "created_at": "2018-09-27T05:21:32Z",
+    "closed_at": "2018-09-27T05:22:33Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 365080844,
+    "number": 35,
+    "repo": "seqrepo",
+    "created_at": "2018-09-29T00:53:13Z",
+    "closed_at": "2018-10-01T00:58:33Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 370556731,
+    "number": 37,
+    "repo": "seqrepo",
+    "created_at": "2018-10-16T11:02:48Z",
+    "closed_at": "2018-10-18T15:31:31Z",
+    "state": "closed",
+    "author_login": "viv-1",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 372228983,
+    "number": 38,
+    "repo": "seqrepo",
+    "created_at": "2018-10-20T16:37:23Z",
+    "closed_at": "2018-10-21T15:40:11Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 372253228,
+    "number": 39,
+    "repo": "seqrepo",
+    "created_at": "2018-10-20T21:10:37Z",
+    "closed_at": "2018-10-21T14:01:12Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 372336521,
+    "number": 40,
+    "repo": "seqrepo",
+    "created_at": "2018-10-21T17:16:24Z",
+    "closed_at": "2018-10-21T18:13:19Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 372349031,
+    "number": 41,
+    "repo": "seqrepo",
+    "created_at": "2018-10-21T19:36:57Z",
+    "closed_at": "2018-10-21T20:20:27Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 372355434,
+    "number": 42,
+    "repo": "seqrepo",
+    "created_at": "2018-10-21T20:49:34Z",
+    "closed_at": "2018-10-21T20:53:10Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 386493086,
+    "number": 43,
+    "repo": "seqrepo",
+    "created_at": "2018-12-01T20:08:28Z",
+    "closed_at": "2018-12-03T05:45:00Z",
+    "state": "closed",
+    "author_login": "jfreidin",
+    "labels": [],
+    "closed_by": "jfreidin"
+  },
+  {
+    "id": 386575042,
+    "number": 44,
+    "repo": "seqrepo",
+    "created_at": "2018-12-02T16:26:22Z",
+    "closed_at": "2018-12-03T18:56:23Z",
+    "state": "closed",
+    "author_login": "jfreidin",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 386898863,
+    "number": 45,
+    "repo": "seqrepo",
+    "created_at": "2018-12-03T16:29:48Z",
+    "closed_at": "2020-07-06T06:06:03Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 402790065,
+    "number": 50,
+    "repo": "seqrepo",
+    "created_at": "2019-01-24T16:28:52Z",
+    "closed_at": "2020-07-06T06:04:57Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 425488459,
+    "number": 55,
+    "repo": "seqrepo",
+    "created_at": "2019-03-26T15:28:56Z",
+    "closed_at": "2020-04-06T20:57:47Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 442426506,
+    "number": 57,
+    "repo": "seqrepo",
+    "created_at": "2019-05-09T20:47:56Z",
+    "closed_at": "2019-05-20T05:10:46Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 443135626,
+    "number": 58,
+    "repo": "seqrepo",
+    "created_at": "2019-05-12T18:58:44Z",
+    "closed_at": "2019-05-14T15:35:53Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 444318808,
+    "number": 59,
+    "repo": "seqrepo",
+    "created_at": "2019-05-15T09:02:32Z",
+    "closed_at": "2019-05-17T06:58:50Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 447443731,
+    "number": 60,
+    "repo": "seqrepo",
+    "created_at": "2019-05-23T04:19:39Z",
+    "closed_at": "2024-03-16T01:37:54Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "meta:stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 449566242,
+    "number": 61,
+    "repo": "seqrepo",
+    "created_at": "2019-05-29T02:22:12Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": null
+  },
+  {
+    "id": 449566380,
+    "number": 62,
+    "repo": "seqrepo",
+    "created_at": "2019-05-29T02:22:49Z",
+    "closed_at": "2020-07-06T06:58:57Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 467539328,
+    "number": 64,
+    "repo": "seqrepo",
+    "created_at": "2019-07-12T18:13:39Z",
+    "closed_at": "2019-07-22T12:28:08Z",
+    "state": "closed",
+    "author_login": "andreasprlic",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 471080905,
+    "number": 66,
+    "repo": "seqrepo",
+    "created_at": "2019-07-22T12:58:08Z",
+    "closed_at": "2019-07-22T12:58:29Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 471950456,
+    "number": 67,
+    "repo": "seqrepo",
+    "created_at": "2019-07-23T21:10:00Z",
+    "closed_at": "2019-07-23T23:07:32Z",
+    "state": "closed",
+    "author_login": "akeeeshi",
+    "labels": [
+      "type:question"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 490655454,
+    "number": 70,
+    "repo": "seqrepo",
+    "created_at": "2019-09-07T16:40:15Z",
+    "closed_at": "2025-12-11T02:55:15Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "type:feature",
+      "meta:stale",
+      "keep alive",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 542958973,
+    "number": 71,
+    "repo": "seqrepo",
+    "created_at": "2019-12-27T18:48:10Z",
+    "closed_at": "2024-03-16T01:37:52Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "meta:stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 590848164,
+    "number": 72,
+    "repo": "seqrepo",
+    "created_at": "2020-03-31T06:58:45Z",
+    "closed_at": "2020-03-31T17:41:35Z",
+    "state": "closed",
+    "author_login": "ypchan",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 592567413,
+    "number": 73,
+    "repo": "seqrepo",
+    "created_at": "2020-04-02T11:43:16Z",
+    "closed_at": "2020-04-03T05:33:00Z",
+    "state": "closed",
+    "author_login": "izcram",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 593037762,
+    "number": 74,
+    "repo": "seqrepo",
+    "created_at": "2020-04-03T02:44:45Z",
+    "closed_at": "2020-04-03T02:45:16Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 594191793,
+    "number": 75,
+    "repo": "seqrepo",
+    "created_at": "2020-04-05T01:03:16Z",
+    "closed_at": "2020-04-05T02:34:38Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 594222037,
+    "number": 76,
+    "repo": "seqrepo",
+    "created_at": "2020-04-05T02:47:17Z",
+    "closed_at": "2020-07-05T19:00:00Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 594516096,
+    "number": 77,
+    "repo": "seqrepo",
+    "created_at": "2020-04-05T15:32:00Z",
+    "closed_at": "2025-12-11T02:55:13Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "type:docs",
+      "meta:stale",
+      "keep alive",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 597598976,
+    "number": 78,
+    "repo": "seqrepo",
+    "created_at": "2020-04-09T22:53:35Z",
+    "closed_at": "2020-04-10T00:40:48Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 597600928,
+    "number": 79,
+    "repo": "seqrepo",
+    "created_at": "2020-04-09T22:59:34Z",
+    "closed_at": "2020-04-10T02:22:07Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 597603323,
+    "number": 80,
+    "repo": "seqrepo",
+    "created_at": "2020-04-09T23:06:50Z",
+    "closed_at": "2020-04-11T15:21:48Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 597603614,
+    "number": 81,
+    "repo": "seqrepo",
+    "created_at": "2020-04-09T23:07:42Z",
+    "closed_at": "2020-04-11T21:37:29Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 597606232,
+    "number": 82,
+    "repo": "seqrepo",
+    "created_at": "2020-04-09T23:15:44Z",
+    "closed_at": "2020-07-06T05:56:28Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 597630406,
+    "number": 83,
+    "repo": "seqrepo",
+    "created_at": "2020-04-10T00:38:56Z",
+    "closed_at": "2020-04-11T21:15:31Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 598284533,
+    "number": 84,
+    "repo": "seqrepo",
+    "created_at": "2020-04-11T15:07:39Z",
+    "closed_at": "2025-12-11T02:55:10Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "type:feature",
+      "meta:stale",
+      "keep alive",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 616789373,
+    "number": 85,
+    "repo": "seqrepo",
+    "created_at": "2020-05-12T16:22:46Z",
+    "closed_at": "2020-05-12T18:32:47Z",
+    "state": "closed",
+    "author_login": "crutching",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 651138756,
+    "number": 86,
+    "repo": "seqrepo",
+    "created_at": "2020-07-05T20:19:53Z",
+    "closed_at": "2020-07-06T06:01:04Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 651615911,
+    "number": 87,
+    "repo": "seqrepo",
+    "created_at": "2020-07-06T15:09:53Z",
+    "closed_at": "2024-04-09T12:24:02Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "jsstevenson"
+  },
+  {
+    "id": 688879902,
+    "number": 88,
+    "repo": "seqrepo",
+    "created_at": "2020-08-31T04:03:35Z",
+    "closed_at": "2020-09-03T04:37:29Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 733816361,
+    "number": 89,
+    "repo": "seqrepo",
+    "created_at": "2020-10-31T22:10:33Z",
+    "closed_at": "2025-12-11T02:55:08Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "meta:stale",
+      "keep alive",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 750981361,
+    "number": 90,
+    "repo": "seqrepo",
+    "created_at": "2020-11-25T16:58:59Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": null
+  },
+  {
+    "id": 751190155,
+    "number": 91,
+    "repo": "seqrepo",
+    "created_at": "2020-11-26T00:12:42Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [
+      "type:feature"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 751842491,
+    "number": 92,
+    "repo": "seqrepo",
+    "created_at": "2020-11-26T21:57:26Z",
+    "closed_at": "2022-02-22T05:12:59Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 794167523,
+    "number": 93,
+    "repo": "seqrepo",
+    "created_at": "2021-01-26T11:46:38Z",
+    "closed_at": "2024-06-04T11:53:42Z",
+    "state": "closed",
+    "author_login": "git4waki",
+    "labels": [
+      "type:bug"
+    ],
+    "closed_by": "jsstevenson"
+  },
+  {
+    "id": 820705230,
+    "number": 94,
+    "repo": "seqrepo",
+    "created_at": "2021-03-03T04:49:30Z",
+    "closed_at": "2025-12-12T02:53:35Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "meta:stale",
+      "keep alive",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 896300195,
+    "number": 95,
+    "repo": "seqrepo",
+    "created_at": "2021-05-20T05:32:05Z",
+    "closed_at": "2021-05-25T03:22:41Z",
+    "state": "closed",
+    "author_login": "ok-gitr",
+    "labels": [],
+    "closed_by": "ok-gitr"
+  },
+  {
+    "id": 969261094,
+    "number": 97,
+    "repo": "seqrepo",
+    "created_at": "2021-08-12T17:41:29Z",
+    "closed_at": "2024-03-08T01:40:43Z",
+    "state": "closed",
+    "author_login": "korikuzma",
+    "labels": [
+      "meta:stale"
+    ],
+    "closed_by": "korikuzma"
+  },
+  {
+    "id": 1058916875,
+    "number": 99,
+    "repo": "seqrepo",
+    "created_at": "2021-11-19T21:06:24Z",
+    "closed_at": "2021-11-19T23:33:43Z",
+    "state": "closed",
+    "author_login": "bmrobin",
+    "labels": [],
+    "closed_by": "andreasprlic"
+  },
+  {
+    "id": 1633284997,
+    "number": 103,
+    "repo": "seqrepo",
+    "created_at": "2023-03-21T06:05:28Z",
+    "closed_at": "2025-12-12T02:53:32Z",
+    "state": "closed",
+    "author_login": "davmlaw",
+    "labels": [
+      "type:feature",
+      "meta:stale",
+      "keep alive",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1694324527,
+    "number": 104,
+    "repo": "seqrepo",
+    "created_at": "2023-05-03T15:36:49Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "holtgrewe",
+    "labels": [],
+    "closed_by": null
+  },
+  {
+    "id": 1695332590,
+    "number": 105,
+    "repo": "seqrepo",
+    "created_at": "2023-05-04T06:21:53Z",
+    "closed_at": "2023-05-04T06:29:00Z",
+    "state": "closed",
+    "author_login": "holtgrewe",
+    "labels": [],
+    "closed_by": "holtgrewe"
+  },
+  {
+    "id": 1695335491,
+    "number": 106,
+    "repo": "seqrepo",
+    "created_at": "2023-05-04T06:24:57Z",
+    "closed_at": "2025-11-10T01:54:26Z",
     "state": "closed",
     "author_login": "holtgrewe",
     "labels": [],
     "closed_by": "reece"
   },
   {
-    "id": 1808380588,
-    "number": 2,
-    "repo": "python-package",
-    "created_at": "2023-07-17T18:50:36Z",
-    "closed_at": "2023-09-09T14:27:30Z",
+    "id": 1695345641,
+    "number": 108,
+    "repo": "seqrepo",
+    "created_at": "2023-05-04T06:35:16Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "holtgrewe",
+    "labels": [],
+    "closed_by": null
+  },
+  {
+    "id": 1735137371,
+    "number": 112,
+    "repo": "seqrepo",
+    "created_at": "2023-05-31T22:45:01Z",
+    "closed_at": "2023-11-14T22:59:39Z",
+    "state": "closed",
+    "author_login": "theferrit32",
+    "labels": [],
+    "closed_by": "theferrit32"
+  },
+  {
+    "id": 1772046098,
+    "number": 113,
+    "repo": "seqrepo",
+    "created_at": "2023-06-23T19:56:07Z",
+    "closed_at": "2023-07-17T18:42:28Z",
+    "state": "closed",
+    "author_login": "ahwagner",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 1803217329,
+    "number": 114,
+    "repo": "seqrepo",
+    "created_at": "2023-07-13T14:58:57Z",
+    "closed_at": "2024-02-21T03:10:55Z",
+    "state": "closed",
+    "author_login": "ahwagner",
+    "labels": [
+      "type:question"
+    ],
+    "closed_by": "ahwagner"
+  },
+  {
+    "id": 1899639511,
+    "number": 119,
+    "repo": "seqrepo",
+    "created_at": "2023-09-17T03:16:33Z",
+    "closed_at": "2025-11-10T01:44:33Z",
     "state": "closed",
     "author_login": "reece",
     "labels": [],
     "closed_by": "reece"
   },
   {
-    "id": 1808381170,
-    "number": 3,
-    "repo": "python-package",
-    "created_at": "2023-07-17T18:51:00Z",
-    "closed_at": "2024-06-05T12:37:28Z",
+    "id": 1899879937,
+    "number": 121,
+    "repo": "seqrepo",
+    "created_at": "2023-09-17T18:48:37Z",
+    "closed_at": "2023-09-20T00:07:32Z",
     "state": "closed",
-    "author_login": "reece",
+    "author_login": "dylan-myome",
+    "labels": [],
+    "closed_by": "katie-perry"
+  },
+  {
+    "id": 1929434898,
+    "number": 125,
+    "repo": "seqrepo",
+    "created_at": "2023-10-06T04:55:12Z",
+    "closed_at": "2024-04-16T18:49:18Z",
+    "state": "closed",
+    "author_login": "theferrit32",
+    "labels": [],
+    "closed_by": "theferrit32"
+  },
+  {
+    "id": 2044347180,
+    "number": 126,
+    "repo": "seqrepo",
+    "created_at": "2023-12-15T20:45:24Z",
+    "closed_at": "2024-02-21T04:08:09Z",
+    "state": "closed",
+    "author_login": "ehclark",
     "labels": [
-      "keep alive"
+      "type:bug"
+    ],
+    "closed_by": "andreasprlic"
+  },
+  {
+    "id": 2062445963,
+    "number": 127,
+    "repo": "seqrepo",
+    "created_at": "2024-01-02T13:47:41Z",
+    "closed_at": "2024-08-26T12:24:26Z",
+    "state": "closed",
+    "author_login": "jsstevenson",
+    "labels": [
+      "type:bug"
     ],
     "closed_by": "jsstevenson"
   },
   {
-    "id": 1808381824,
-    "number": 4,
-    "repo": "python-package",
-    "created_at": "2023-07-17T18:51:31Z",
-    "closed_at": "2023-09-26T15:49:11Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 1808388254,
-    "number": 5,
-    "repo": "python-package",
-    "created_at": "2023-07-17T18:55:37Z",
-    "closed_at": "2023-09-19T01:50:12Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 1808388752,
-    "number": 6,
-    "repo": "python-package",
-    "created_at": "2023-07-17T18:56:00Z",
-    "closed_at": "2023-09-18T01:49:29Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 1808407130,
-    "number": 7,
-    "repo": "python-package",
-    "created_at": "2023-07-17T19:02:07Z",
-    "closed_at": "2023-09-09T03:37:24Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 1808408510,
-    "number": 8,
-    "repo": "python-package",
-    "created_at": "2023-07-17T19:02:33Z",
-    "closed_at": "2024-05-27T02:02:05Z",
-    "state": "closed",
-    "author_login": "reece",
+    "id": 2062569197,
+    "number": 128,
+    "repo": "seqrepo",
+    "created_at": "2024-01-02T15:21:56Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "wlymanambry",
     "labels": [
-      "meta:stale",
-      "closed-by-stale"
+      "type:bug"
     ],
-    "closed_by": "github-actions[bot]"
+    "closed_by": null
   },
   {
-    "id": 1808422518,
-    "number": 9,
-    "repo": "python-package",
-    "created_at": "2023-07-17T19:07:37Z",
-    "closed_at": "2023-09-18T22:33:49Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 1808428928,
-    "number": 10,
-    "repo": "python-package",
-    "created_at": "2023-07-17T19:10:14Z",
-    "closed_at": "2023-09-18T01:49:27Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 1808431965,
-    "number": 11,
-    "repo": "python-package",
-    "created_at": "2023-07-17T19:11:35Z",
-    "closed_at": "2023-09-18T01:49:26Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 1808443047,
-    "number": 12,
-    "repo": "python-package",
-    "created_at": "2023-07-17T19:18:54Z",
-    "closed_at": "2023-09-18T22:17:05Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 1808444552,
-    "number": 13,
-    "repo": "python-package",
-    "created_at": "2023-07-17T19:20:06Z",
-    "closed_at": "2023-09-18T01:49:24Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 1808447585,
-    "number": 14,
-    "repo": "python-package",
-    "created_at": "2023-07-17T19:21:54Z",
-    "closed_at": "2023-09-18T01:49:23Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 1888556516,
-    "number": 16,
-    "repo": "python-package",
-    "created_at": "2023-09-09T03:24:23Z",
-    "closed_at": "2024-05-27T02:02:03Z",
-    "state": "closed",
-    "author_login": "reece",
+    "id": 2067695803,
+    "number": 129,
+    "repo": "seqrepo",
+    "created_at": "2024-01-05T16:54:16Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "wlymanambry",
     "labels": [
-      "meta:stale",
-      "closed-by-stale"
+      "type:bug"
     ],
-    "closed_by": "github-actions[bot]"
+    "closed_by": null
   },
   {
-    "id": 1888556557,
-    "number": 17,
-    "repo": "python-package",
-    "created_at": "2023-09-09T03:24:36Z",
-    "closed_at": "2024-05-27T02:02:01Z",
+    "id": 2070793149,
+    "number": 130,
+    "repo": "seqrepo",
+    "created_at": "2024-01-08T16:17:20Z",
+    "closed_at": "2024-01-23T16:34:32Z",
     "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "meta:stale",
-      "closed-by-stale"
-    ],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 1888556590,
-    "number": 18,
-    "repo": "python-package",
-    "created_at": "2023-09-09T03:24:46Z",
-    "closed_at": "2023-09-18T22:41:52Z",
-    "state": "closed",
-    "author_login": "reece",
+    "author_login": "andreasprlic",
     "labels": [],
-    "closed_by": "dylan-myome"
+    "closed_by": "andreasprlic"
   },
   {
-    "id": 1888556740,
-    "number": 19,
-    "repo": "python-package",
-    "created_at": "2023-09-09T03:25:27Z",
-    "closed_at": "2026-01-01T03:08:03Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "meta:stale",
-      "keep alive",
-      "closed-by-stale"
-    ],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 1888556858,
-    "number": 20,
-    "repo": "python-package",
-    "created_at": "2023-09-09T03:26:02Z",
-    "closed_at": "2024-05-27T02:02:00Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "meta:stale",
-      "closed-by-stale"
-    ],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 1888558059,
-    "number": 21,
-    "repo": "python-package",
-    "created_at": "2023-09-09T03:31:30Z",
-    "closed_at": "2023-09-09T15:28:57Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 1888566360,
-    "number": 23,
-    "repo": "python-package",
-    "created_at": "2023-09-09T04:08:06Z",
-    "closed_at": "2023-09-09T15:43:44Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 1913814271,
-    "number": 34,
-    "repo": "python-package",
-    "created_at": "2023-09-26T15:47:03Z",
-    "closed_at": "2024-05-27T02:01:58Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "meta:stale",
-      "closed-by-stale"
-    ],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 1915714054,
-    "number": 35,
-    "repo": "python-package",
-    "created_at": "2023-05-29T23:19:48Z",
-    "closed_at": "2025-09-02T03:43:32Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "keep alive"
-    ],
-    "closed_by": "reece"
-  },
-  {
-    "id": 2047103455,
-    "number": 37,
-    "repo": "python-package",
-    "created_at": "2023-12-18T17:15:01Z",
-    "closed_at": "2023-12-21T13:51:39Z",
+    "id": 2088572181,
+    "number": 132,
+    "repo": "seqrepo",
+    "created_at": "2024-01-18T15:49:49Z",
+    "closed_at": "2024-02-18T13:08:43Z",
     "state": "closed",
     "author_login": "jsstevenson",
-    "labels": [],
+    "labels": [
+      "type:feature"
+    ],
     "closed_by": "jsstevenson"
   },
   {
-    "id": 2095048029,
-    "number": 38,
-    "repo": "python-package",
-    "created_at": "2024-01-23T00:59:32Z",
-    "closed_at": "2024-07-06T04:54:21Z",
+    "id": 2091566089,
+    "number": 134,
+    "repo": "seqrepo",
+    "created_at": "2024-01-19T22:42:29Z",
+    "closed_at": "2024-02-21T02:11:34Z",
     "state": "closed",
-    "author_login": "korikuzma",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 2095066887,
-    "number": 39,
-    "repo": "python-package",
-    "created_at": "2024-01-23T01:23:20Z",
-    "closed_at": "2024-09-01T23:40:23Z",
-    "state": "closed",
-    "author_login": "korikuzma",
-    "labels": [
-      "keep alive"
-    ],
-    "closed_by": "reece"
-  },
-  {
-    "id": 2095081142,
-    "number": 40,
-    "repo": "python-package",
-    "created_at": "2024-01-23T01:41:27Z",
-    "closed_at": "2025-09-06T02:19:09Z",
-    "state": "closed",
-    "author_login": "korikuzma",
-    "labels": [
-      "meta:stale",
-      "closed-by-stale"
-    ],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 2208389811,
-    "number": 41,
-    "repo": "python-package",
-    "created_at": "2024-03-26T14:17:05Z",
-    "closed_at": "2024-07-08T15:34:30Z",
-    "state": "closed",
-    "author_login": "jsstevenson",
+    "author_login": "andreasprlic",
     "labels": [
       "type:bug"
     ],
     "closed_by": "reece"
   },
   {
-    "id": 2220583821,
-    "number": 43,
-    "repo": "python-package",
-    "created_at": "2024-04-02T13:50:09Z",
-    "closed_at": "2025-10-09T02:23:24Z",
-    "state": "closed",
-    "author_login": "jsstevenson",
+    "id": 2119108309,
+    "number": 136,
+    "repo": "seqrepo",
+    "created_at": "2024-02-05T17:40:47Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
     "labels": [
-      "type:feature",
-      "type:rfc",
-      "meta:stale",
       "keep alive",
-      "closed-by-stale"
+      "type:proposal"
     ],
-    "closed_by": "github-actions[bot]"
+    "closed_by": null
   },
   {
-    "id": 2225746078,
-    "number": 44,
-    "repo": "python-package",
-    "created_at": "2024-04-04T14:56:12Z",
-    "closed_at": "2024-07-11T22:36:00Z",
-    "state": "closed",
-    "author_login": "jsstevenson",
-    "labels": [
-      "type:feature",
-      "keep alive"
-    ],
-    "closed_by": "reece"
-  },
-  {
-    "id": 2366496744,
-    "number": 46,
-    "repo": "python-package",
-    "created_at": "2024-06-21T12:57:42Z",
-    "closed_at": "2024-06-21T17:30:48Z",
-    "state": "closed",
-    "author_login": "jsstevenson",
-    "labels": [
-      "type:feature"
-    ],
-    "closed_by": "jsstevenson"
-  },
-  {
-    "id": 2512024329,
-    "number": 51,
-    "repo": "python-package",
-    "created_at": "2024-09-07T19:00:27Z",
-    "closed_at": "2024-09-11T11:54:59Z",
-    "state": "closed",
-    "author_login": "jsstevenson",
-    "labels": [],
-    "closed_by": "jsstevenson"
-  },
-  {
-    "id": 2519545135,
-    "number": 52,
-    "repo": "python-package",
-    "created_at": "2024-09-11T11:57:00Z",
-    "closed_at": "2024-09-23T16:42:47Z",
-    "state": "closed",
-    "author_login": "jsstevenson",
-    "labels": [
-      "type:feature"
-    ],
-    "closed_by": "jsstevenson"
-  },
-  {
-    "id": 2939643408,
-    "number": 55,
-    "repo": "python-package",
-    "created_at": "2025-03-21T22:26:44Z",
-    "closed_at": "2025-12-18T02:50:08Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "type:feature",
-      "meta:stale",
-      "closed-by-stale"
-    ],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 3315239949,
-    "number": 56,
-    "repo": "python-package",
-    "created_at": "2025-08-12T17:45:40Z",
-    "closed_at": "2026-01-01T03:08:00Z",
-    "state": "closed",
-    "author_login": "jsstevenson",
-    "labels": [
-      "meta:stale",
-      "closed-by-stale"
-    ],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 3330733567,
-    "number": 60,
-    "repo": "python-package",
-    "created_at": "2025-08-18T13:25:46Z",
-    "closed_at": "2025-09-02T03:40:59Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 3330733954,
-    "number": 61,
-    "repo": "python-package",
-    "created_at": "2025-08-18T13:25:53Z",
-    "closed_at": "2025-09-02T03:41:00Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 3330734132,
-    "number": 62,
-    "repo": "python-package",
-    "created_at": "2025-08-18T13:25:57Z",
-    "closed_at": "2025-09-02T03:41:00Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 3330734632,
-    "number": 63,
-    "repo": "python-package",
-    "created_at": "2025-08-18T13:26:01Z",
-    "closed_at": "2025-09-02T03:40:41Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [],
-    "closed_by": "reece"
-  },
-  {
-    "id": 3330734775,
-    "number": 64,
-    "repo": "python-package",
-    "created_at": "2025-08-18T13:26:04Z",
-    "closed_at": "2026-01-01T03:07:59Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "meta:stale",
-      "closed-by-stale"
-    ],
-    "closed_by": "github-actions[bot]"
-  },
-  {
-    "id": 3360678825,
-    "number": 70,
-    "repo": "python-package",
-    "created_at": "2025-08-27T19:54:44Z",
-    "closed_at": "2025-08-28T05:07:07Z",
-    "state": "closed",
-    "author_login": "reece",
-    "labels": [
-      "type:feature"
-    ],
-    "closed_by": "reece"
-  },
-  {
-    "id": 3510615153,
-    "number": 74,
-    "repo": "python-package",
-    "created_at": "2025-10-13T16:03:15Z",
+    "id": 2131627902,
+    "number": 137,
+    "repo": "seqrepo",
+    "created_at": "2024-02-13T07:31:37Z",
     "closed_at": null,
     "state": "open",
+    "author_login": "yxuil",
+    "labels": [
+      "type:bug",
+      "type:docs"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 2142969124,
+    "number": 138,
+    "repo": "seqrepo",
+    "created_at": "2024-02-19T18:47:44Z",
+    "closed_at": "2024-02-20T02:40:20Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "type:bug"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 2145240801,
+    "number": 140,
+    "repo": "seqrepo",
+    "created_at": "2024-02-20T20:43:11Z",
+    "closed_at": "2024-02-22T03:15:40Z",
+    "state": "closed",
+    "author_login": "quinnwai",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 2234158299,
+    "number": 142,
+    "repo": "seqrepo",
+    "created_at": "2024-04-09T19:24:22Z",
+    "closed_at": "2024-04-21T09:47:34Z",
+    "state": "closed",
+    "author_login": "theferrit32",
+    "labels": [
+      "type:bug"
+    ],
+    "closed_by": "theferrit32"
+  },
+  {
+    "id": 2234237614,
+    "number": 143,
+    "repo": "seqrepo",
+    "created_at": "2024-04-09T20:23:04Z",
+    "closed_at": "2024-06-04T11:52:30Z",
+    "state": "closed",
+    "author_login": "theferrit32",
+    "labels": [],
+    "closed_by": "jsstevenson"
+  },
+  {
+    "id": 2246811935,
+    "number": 145,
+    "repo": "seqrepo",
+    "created_at": "2024-04-16T20:13:31Z",
+    "closed_at": "2024-06-04T11:51:41Z",
+    "state": "closed",
+    "author_login": "jsstevenson",
+    "labels": [
+      "type:bug"
+    ],
+    "closed_by": "jsstevenson"
+  },
+  {
+    "id": 2254581661,
+    "number": 146,
+    "repo": "seqrepo",
+    "created_at": "2024-04-20T14:40:04Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "jsstevenson",
+    "labels": [
+      "type:bug"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 2289759613,
+    "number": 147,
+    "repo": "seqrepo",
+    "created_at": "2024-05-10T13:41:27Z",
+    "closed_at": "2024-07-25T00:49:20Z",
+    "state": "closed",
+    "author_login": "jsstevenson",
+    "labels": [
+      "type:feature"
+    ],
+    "closed_by": "jsstevenson"
+  },
+  {
+    "id": 2319245920,
+    "number": 150,
+    "repo": "seqrepo",
+    "created_at": "2024-05-27T14:03:08Z",
+    "closed_at": "2025-12-10T02:52:52Z",
+    "state": "closed",
+    "author_login": "jsstevenson",
+    "labels": [
+      "type:feature",
+      "meta:stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 2334210525,
+    "number": 156,
+    "repo": "seqrepo",
+    "created_at": "2024-06-04T19:18:18Z",
+    "closed_at": "2024-06-05T12:06:06Z",
+    "state": "closed",
+    "author_login": "jsstevenson",
+    "labels": [
+      "type:bug"
+    ],
+    "closed_by": "jsstevenson"
+  },
+  {
+    "id": 2351093420,
+    "number": 159,
+    "repo": "seqrepo",
+    "created_at": "2024-06-13T13:00:31Z",
+    "closed_at": "2024-06-13T15:54:10Z",
+    "state": "closed",
+    "author_login": "jsstevenson",
+    "labels": [
+      "type:bug"
+    ],
+    "closed_by": "jsstevenson"
+  },
+  {
+    "id": 2351414478,
+    "number": 162,
+    "repo": "seqrepo",
+    "created_at": "2024-06-13T15:13:43Z",
+    "closed_at": "2024-06-13T15:54:51Z",
+    "state": "closed",
+    "author_login": "jsstevenson",
+    "labels": [
+      "type:feature"
+    ],
+    "closed_by": "jsstevenson"
+  },
+  {
+    "id": 2456748242,
+    "number": 166,
+    "repo": "seqrepo",
+    "created_at": "2024-08-08T22:29:40Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "gromdimon",
+    "labels": [
+      "type:bug"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 2534232082,
+    "number": 169,
+    "repo": "seqrepo",
+    "created_at": "2024-09-18T16:52:33Z",
+    "closed_at": "2024-09-19T15:42:39Z",
+    "state": "closed",
+    "author_login": "wlymanambry",
+    "labels": [
+      "type:bug"
+    ],
+    "closed_by": "wlymanambry"
+  },
+  {
+    "id": 2745279379,
+    "number": 171,
+    "repo": "seqrepo",
+    "created_at": "2024-12-17T15:44:47Z",
+    "closed_at": "2025-02-27T21:25:39Z",
+    "state": "closed",
+    "author_login": "brendanreardon",
+    "labels": [
+      "type:bug"
+    ],
+    "closed_by": "jsstevenson"
+  },
+  {
+    "id": 2816642780,
+    "number": 173,
+    "repo": "seqrepo",
+    "created_at": "2025-01-28T20:21:42Z",
+    "closed_at": "2025-12-10T02:52:50Z",
+    "state": "closed",
+    "author_login": "jsstevenson",
+    "labels": [
+      "meta:stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 2816645523,
+    "number": 174,
+    "repo": "seqrepo",
+    "created_at": "2025-01-28T20:23:24Z",
+    "closed_at": "2025-12-10T02:52:48Z",
+    "state": "closed",
+    "author_login": "jsstevenson",
+    "labels": [
+      "meta:stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 2843183419,
+    "number": 175,
+    "repo": "seqrepo",
+    "created_at": "2025-02-10T17:44:23Z",
+    "closed_at": "2025-12-10T02:52:46Z",
+    "state": "closed",
+    "author_login": "jsstevenson",
+    "labels": [
+      "meta:stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 2889315252,
+    "number": 176,
+    "repo": "seqrepo",
+    "created_at": "2025-03-02T04:13:42Z",
+    "closed_at": "2025-03-02T19:41:36Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "type:feature"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 2892883082,
+    "number": 179,
+    "repo": "seqrepo",
+    "created_at": "2025-03-04T04:20:08Z",
+    "closed_at": "2025-11-10T02:11:39Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "meta:stale"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 2892884224,
+    "number": 180,
+    "repo": "seqrepo",
+    "created_at": "2025-03-04T04:21:13Z",
+    "closed_at": "2025-11-10T02:10:37Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "meta:stale"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 2929829402,
+    "number": 181,
+    "repo": "seqrepo",
+    "created_at": "2025-03-18T20:54:27Z",
+    "closed_at": "2025-03-19T15:24:10Z",
+    "state": "closed",
+    "author_login": "theferrit32",
+    "labels": [
+      "type:bug"
+    ],
+    "closed_by": "theferrit32"
+  },
+  {
+    "id": 2954353575,
+    "number": 183,
+    "repo": "seqrepo",
+    "created_at": "2025-03-27T20:29:30Z",
+    "closed_at": "2025-12-10T02:52:44Z",
+    "state": "closed",
+    "author_login": "theferrit32",
+    "labels": [
+      "type:feature",
+      "help-wanted",
+      "meta:stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 2970472316,
+    "number": 184,
+    "repo": "seqrepo",
+    "created_at": "2025-04-03T19:20:01Z",
+    "closed_at": "2025-11-10T01:40:40Z",
+    "state": "closed",
+    "author_login": "mbutterfield-GENOME",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 2986677726,
+    "number": 186,
+    "repo": "seqrepo",
+    "created_at": "2025-04-10T19:28:45Z",
+    "closed_at": "2025-04-14T01:02:03Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "type:bug"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 2986845858,
+    "number": 187,
+    "repo": "seqrepo",
+    "created_at": "2025-04-10T20:43:27Z",
+    "closed_at": "2025-04-14T01:40:39Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "type:bug"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 2990605717,
+    "number": 189,
+    "repo": "seqrepo",
+    "created_at": "2025-04-12T17:53:50Z",
+    "closed_at": "2025-04-14T02:45:41Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 3278238704,
+    "number": 192,
+    "repo": "seqrepo",
+    "created_at": "2025-07-30T19:37:30Z",
+    "closed_at": "2025-07-31T11:10:20Z",
+    "state": "closed",
     "author_login": "korikuzma",
-    "labels": [],
-    "closed_by": null
+    "labels": [
+      "type:docs"
+    ],
+    "closed_by": "korikuzma"
   },
   {
-    "id": 5585100443,
-    "number": 101,
-    "repo": "python-package",
-    "created_at": "2026-09-25T15:46:39Z",
-    "closed_at": null,
-    "state": "open",
-    "author_login": "jsstevenson",
-    "labels": [],
-    "closed_by": null
-  },
-  {
-    "id": 5682447172,
-    "number": 102,
-    "repo": "python-package",
-    "created_at": "2026-10-02T19:39:14Z",
-    "closed_at": null,
-    "state": "open",
-    "author_login": "jsstevenson",
-    "labels": [],
-    "closed_by": null
-  },
-  {
-    "id": 5855395756,
-    "number": 106,
-    "repo": "python-package",
-    "created_at": "2026-10-14T20:47:14Z",
-    "closed_at": null,
-    "state": "open",
+    "id": 3608957009,
+    "number": 199,
+    "repo": "seqrepo",
+    "created_at": "2025-11-10T17:13:45Z",
+    "closed_at": "2025-11-10T18:13:39Z",
+    "state": "closed",
     "author_login": "reece",
     "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 3831641890,
+    "number": 201,
+    "repo": "seqrepo",
+    "created_at": "2026-01-20T01:06:46Z",
+    "closed_at": "2026-01-22T03:14:20Z",
+    "state": "closed",
+    "author_login": "williamevanl",
+    "labels": [
+      "type:bug"
+    ],
+    "closed_by": "jsstevenson"
+  },
+  {
+    "id": 4504183392,
+    "number": 202,
+    "repo": "seqrepo",
+    "created_at": "2026-05-22T16:37:18Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "jsstevenson",
+    "labels": [
+      "type:feature"
+    ],
     "closed_by": null
   },
   {
-    "id": 5904919497,
-    "number": 107,
-    "repo": "python-package",
-    "created_at": "2026-10-18T01:17:39Z",
+    "id": 5931907417,
+    "number": 219,
+    "repo": "seqrepo",
+    "created_at": "2026-10-19T21:32:03Z",
     "closed_at": null,
     "state": "open",
     "author_login": "reece",
@@ -17131,6 +16581,567 @@
     "labels": [
       "enhancement"
     ],
+    "closed_by": null
+  },
+  {
+    "id": 1808380031,
+    "number": 1,
+    "repo": "template-py",
+    "created_at": "2023-05-04T07:03:02Z",
+    "closed_at": "2023-09-09T03:40:08Z",
+    "state": "closed",
+    "author_login": "holtgrewe",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 1808380588,
+    "number": 2,
+    "repo": "template-py",
+    "created_at": "2023-07-17T18:50:36Z",
+    "closed_at": "2023-09-09T14:27:30Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 1808381170,
+    "number": 3,
+    "repo": "template-py",
+    "created_at": "2023-07-17T18:51:00Z",
+    "closed_at": "2024-06-05T12:37:28Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "keep alive"
+    ],
+    "closed_by": "jsstevenson"
+  },
+  {
+    "id": 1808381824,
+    "number": 4,
+    "repo": "template-py",
+    "created_at": "2023-07-17T18:51:31Z",
+    "closed_at": "2023-09-26T15:49:11Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 1808388254,
+    "number": 5,
+    "repo": "template-py",
+    "created_at": "2023-07-17T18:55:37Z",
+    "closed_at": "2023-09-19T01:50:12Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1808388752,
+    "number": 6,
+    "repo": "template-py",
+    "created_at": "2023-07-17T18:56:00Z",
+    "closed_at": "2023-09-18T01:49:29Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1808407130,
+    "number": 7,
+    "repo": "template-py",
+    "created_at": "2023-07-17T19:02:07Z",
+    "closed_at": "2023-09-09T03:37:24Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 1808408510,
+    "number": 8,
+    "repo": "template-py",
+    "created_at": "2023-07-17T19:02:33Z",
+    "closed_at": "2024-05-27T02:02:05Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "meta:stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1808422518,
+    "number": 9,
+    "repo": "template-py",
+    "created_at": "2023-07-17T19:07:37Z",
+    "closed_at": "2023-09-18T22:33:49Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 1808428928,
+    "number": 10,
+    "repo": "template-py",
+    "created_at": "2023-07-17T19:10:14Z",
+    "closed_at": "2023-09-18T01:49:27Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1808431965,
+    "number": 11,
+    "repo": "template-py",
+    "created_at": "2023-07-17T19:11:35Z",
+    "closed_at": "2023-09-18T01:49:26Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1808443047,
+    "number": 12,
+    "repo": "template-py",
+    "created_at": "2023-07-17T19:18:54Z",
+    "closed_at": "2023-09-18T22:17:05Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 1808444552,
+    "number": 13,
+    "repo": "template-py",
+    "created_at": "2023-07-17T19:20:06Z",
+    "closed_at": "2023-09-18T01:49:24Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1808447585,
+    "number": 14,
+    "repo": "template-py",
+    "created_at": "2023-07-17T19:21:54Z",
+    "closed_at": "2023-09-18T01:49:23Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1888556516,
+    "number": 16,
+    "repo": "template-py",
+    "created_at": "2023-09-09T03:24:23Z",
+    "closed_at": "2024-05-27T02:02:03Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "meta:stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1888556557,
+    "number": 17,
+    "repo": "template-py",
+    "created_at": "2023-09-09T03:24:36Z",
+    "closed_at": "2024-05-27T02:02:01Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "meta:stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1888556590,
+    "number": 18,
+    "repo": "template-py",
+    "created_at": "2023-09-09T03:24:46Z",
+    "closed_at": "2023-09-18T22:41:52Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "dylan-myome"
+  },
+  {
+    "id": 1888556740,
+    "number": 19,
+    "repo": "template-py",
+    "created_at": "2023-09-09T03:25:27Z",
+    "closed_at": "2026-01-01T03:08:03Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "meta:stale",
+      "keep alive",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1888556858,
+    "number": 20,
+    "repo": "template-py",
+    "created_at": "2023-09-09T03:26:02Z",
+    "closed_at": "2024-05-27T02:02:00Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "meta:stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1888558059,
+    "number": 21,
+    "repo": "template-py",
+    "created_at": "2023-09-09T03:31:30Z",
+    "closed_at": "2023-09-09T15:28:57Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 1888566360,
+    "number": 23,
+    "repo": "template-py",
+    "created_at": "2023-09-09T04:08:06Z",
+    "closed_at": "2023-09-09T15:43:44Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 1913814271,
+    "number": 34,
+    "repo": "template-py",
+    "created_at": "2023-09-26T15:47:03Z",
+    "closed_at": "2024-05-27T02:01:58Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "meta:stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1915714054,
+    "number": 35,
+    "repo": "template-py",
+    "created_at": "2023-05-29T23:19:48Z",
+    "closed_at": "2025-09-02T03:43:32Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "keep alive"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 2047103455,
+    "number": 37,
+    "repo": "template-py",
+    "created_at": "2023-12-18T17:15:01Z",
+    "closed_at": "2023-12-21T13:51:39Z",
+    "state": "closed",
+    "author_login": "jsstevenson",
+    "labels": [],
+    "closed_by": "jsstevenson"
+  },
+  {
+    "id": 2095048029,
+    "number": 38,
+    "repo": "template-py",
+    "created_at": "2024-01-23T00:59:32Z",
+    "closed_at": "2024-07-06T04:54:21Z",
+    "state": "closed",
+    "author_login": "korikuzma",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 2095066887,
+    "number": 39,
+    "repo": "template-py",
+    "created_at": "2024-01-23T01:23:20Z",
+    "closed_at": "2024-09-01T23:40:23Z",
+    "state": "closed",
+    "author_login": "korikuzma",
+    "labels": [
+      "keep alive"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 2095081142,
+    "number": 40,
+    "repo": "template-py",
+    "created_at": "2024-01-23T01:41:27Z",
+    "closed_at": "2025-09-06T02:19:09Z",
+    "state": "closed",
+    "author_login": "korikuzma",
+    "labels": [
+      "meta:stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 2208389811,
+    "number": 41,
+    "repo": "template-py",
+    "created_at": "2024-03-26T14:17:05Z",
+    "closed_at": "2024-07-08T15:34:30Z",
+    "state": "closed",
+    "author_login": "jsstevenson",
+    "labels": [
+      "type:bug"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 2220583821,
+    "number": 43,
+    "repo": "template-py",
+    "created_at": "2024-04-02T13:50:09Z",
+    "closed_at": "2025-10-09T02:23:24Z",
+    "state": "closed",
+    "author_login": "jsstevenson",
+    "labels": [
+      "type:feature",
+      "type:rfc",
+      "meta:stale",
+      "keep alive",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 2225746078,
+    "number": 44,
+    "repo": "template-py",
+    "created_at": "2024-04-04T14:56:12Z",
+    "closed_at": "2024-07-11T22:36:00Z",
+    "state": "closed",
+    "author_login": "jsstevenson",
+    "labels": [
+      "type:feature",
+      "keep alive"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 2366496744,
+    "number": 46,
+    "repo": "template-py",
+    "created_at": "2024-06-21T12:57:42Z",
+    "closed_at": "2024-06-21T17:30:48Z",
+    "state": "closed",
+    "author_login": "jsstevenson",
+    "labels": [
+      "type:feature"
+    ],
+    "closed_by": "jsstevenson"
+  },
+  {
+    "id": 2512024329,
+    "number": 51,
+    "repo": "template-py",
+    "created_at": "2024-09-07T19:00:27Z",
+    "closed_at": "2024-09-11T11:54:59Z",
+    "state": "closed",
+    "author_login": "jsstevenson",
+    "labels": [],
+    "closed_by": "jsstevenson"
+  },
+  {
+    "id": 2519545135,
+    "number": 52,
+    "repo": "template-py",
+    "created_at": "2024-09-11T11:57:00Z",
+    "closed_at": "2024-09-23T16:42:47Z",
+    "state": "closed",
+    "author_login": "jsstevenson",
+    "labels": [
+      "type:feature"
+    ],
+    "closed_by": "jsstevenson"
+  },
+  {
+    "id": 2939643408,
+    "number": 55,
+    "repo": "template-py",
+    "created_at": "2025-03-21T22:26:44Z",
+    "closed_at": "2025-12-18T02:50:08Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "type:feature",
+      "meta:stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 3315239949,
+    "number": 56,
+    "repo": "template-py",
+    "created_at": "2025-08-12T17:45:40Z",
+    "closed_at": "2026-01-01T03:08:00Z",
+    "state": "closed",
+    "author_login": "jsstevenson",
+    "labels": [
+      "meta:stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 3330733567,
+    "number": 60,
+    "repo": "template-py",
+    "created_at": "2025-08-18T13:25:46Z",
+    "closed_at": "2025-09-02T03:40:59Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 3330733954,
+    "number": 61,
+    "repo": "template-py",
+    "created_at": "2025-08-18T13:25:53Z",
+    "closed_at": "2025-09-02T03:41:00Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 3330734132,
+    "number": 62,
+    "repo": "template-py",
+    "created_at": "2025-08-18T13:25:57Z",
+    "closed_at": "2025-09-02T03:41:00Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 3330734632,
+    "number": 63,
+    "repo": "template-py",
+    "created_at": "2025-08-18T13:26:01Z",
+    "closed_at": "2025-09-02T03:40:41Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 3330734775,
+    "number": 64,
+    "repo": "template-py",
+    "created_at": "2025-08-18T13:26:04Z",
+    "closed_at": "2026-01-01T03:07:59Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "meta:stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 3360678825,
+    "number": 70,
+    "repo": "template-py",
+    "created_at": "2025-08-27T19:54:44Z",
+    "closed_at": "2025-08-28T05:07:07Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "type:feature"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 3510615153,
+    "number": 74,
+    "repo": "template-py",
+    "created_at": "2025-10-13T16:03:15Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "korikuzma",
+    "labels": [],
+    "closed_by": null
+  },
+  {
+    "id": 5585100443,
+    "number": 101,
+    "repo": "template-py",
+    "created_at": "2026-09-25T15:46:39Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "jsstevenson",
+    "labels": [],
+    "closed_by": null
+  },
+  {
+    "id": 5682447172,
+    "number": 102,
+    "repo": "template-py",
+    "created_at": "2026-10-02T19:39:14Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "jsstevenson",
+    "labels": [],
+    "closed_by": null
+  },
+  {
+    "id": 5855395756,
+    "number": 106,
+    "repo": "template-py",
+    "created_at": "2026-10-14T20:47:14Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": null
+  },
+  {
+    "id": 5904919497,
+    "number": 107,
+    "repo": "template-py",
+    "created_at": "2026-10-18T01:17:39Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [],
     "closed_by": null
   },
   {
