@@ -3568,9 +3568,9 @@
     "number": 109,
     "repo": "bioutils",
     "created_at": "2026-10-15T15:52:12Z",
-    "closed_at": null,
-    "merged_at": null,
-    "state": "open",
+    "closed_at": "2026-10-23T23:21:52Z",
+    "merged_at": "2026-10-23T23:21:52Z",
+    "state": "closed",
     "author_login": "reece",
     "draft": false
   },
@@ -3623,9 +3623,42 @@
     "number": 115,
     "repo": "bioutils",
     "created_at": "2026-10-23T08:25:48Z",
-    "closed_at": null,
+    "closed_at": "2026-10-23T23:24:46Z",
     "merged_at": null,
-    "state": "open",
+    "state": "closed",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 4990500258,
+    "number": 116,
+    "repo": "bioutils",
+    "created_at": "2026-10-23T23:24:20Z",
+    "closed_at": "2026-10-23T23:30:03Z",
+    "merged_at": "2026-10-23T23:30:03Z",
+    "state": "closed",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 4990501013,
+    "number": 117,
+    "repo": "bioutils",
+    "created_at": "2026-10-23T23:24:26Z",
+    "closed_at": "2026-10-23T23:48:50Z",
+    "merged_at": "2026-10-23T23:48:50Z",
+    "state": "closed",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 4990502474,
+    "number": 118,
+    "repo": "bioutils",
+    "created_at": "2026-10-23T23:24:36Z",
+    "closed_at": "2026-10-23T23:50:19Z",
+    "merged_at": "2026-10-23T23:50:19Z",
+    "state": "closed",
     "author_login": "dependabot[bot]",
     "draft": false
   },
@@ -8617,9 +8650,9 @@
     "number": 111,
     "repo": "template-py",
     "created_at": "2026-10-22T23:17:07Z",
-    "closed_at": null,
-    "merged_at": null,
-    "state": "open",
+    "closed_at": "2026-10-23T22:22:14Z",
+    "merged_at": "2026-10-23T22:22:14Z",
+    "state": "closed",
     "author_login": "dependabot[bot]",
     "draft": false
   },
@@ -8654,6 +8687,17 @@
     "merged_at": "2026-10-23T20:46:07Z",
     "state": "closed",
     "author_login": "reece",
+    "draft": false
+  },
+  {
+    "id": 4989998605,
+    "number": 115,
+    "repo": "template-py",
+    "created_at": "2026-10-23T22:24:34Z",
+    "closed_at": "2026-10-23T22:32:25Z",
+    "merged_at": "2026-10-23T22:32:25Z",
+    "state": "closed",
+    "author_login": "dependabot[bot]",
     "draft": false
   },
   {

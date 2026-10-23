@@ -100,6 +100,17 @@
     "number": 14,
     "repo": ".github",
     "created_at": "2026-10-23T02:15:24Z",
+    "closed_at": "2026-10-23T22:33:39Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 6005042655,
+    "number": 15,
+    "repo": ".github",
+    "created_at": "2026-10-23T20:34:25Z",
     "closed_at": null,
     "state": "open",
     "author_login": "reece",
@@ -107,10 +118,10 @@
     "closed_by": null
   },
   {
-    "id": 6005042655,
-    "number": 15,
+    "id": 6006491695,
+    "number": 17,
     "repo": ".github",
-    "created_at": "2026-10-23T20:34:25Z",
+    "created_at": "2026-10-23T22:40:21Z",
     "closed_at": null,
     "state": "open",
     "author_login": "reece",
@@ -3455,7 +3466,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "won't fix"
+      "meta:wontfix"
     ],
     "closed_by": "stale[bot]"
   },
@@ -3490,7 +3501,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "won't fix"
+      "meta:wontfix"
     ],
     "closed_by": "stale[bot]"
   },
@@ -3525,7 +3536,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "won't fix"
+      "meta:wontfix"
     ],
     "closed_by": "stale[bot]"
   },
@@ -3560,7 +3571,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "won't fix"
+      "meta:wontfix"
     ],
     "closed_by": "stale[bot]"
   },
@@ -3573,7 +3584,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "won't fix"
+      "meta:wontfix"
     ],
     "closed_by": "reece"
   },
@@ -3586,7 +3597,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "won't fix"
+      "meta:wontfix"
     ],
     "closed_by": "stale[bot]"
   },
@@ -3632,7 +3643,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "won't fix"
+      "meta:wontfix"
     ],
     "closed_by": "stale[bot]"
   },
@@ -3645,7 +3656,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "won't fix"
+      "meta:wontfix"
     ],
     "closed_by": "stale[bot]"
   },
@@ -3757,7 +3768,7 @@
     "state": "closed",
     "author_login": "andreasprlic",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -3771,7 +3782,7 @@
     "state": "closed",
     "author_login": "bsgiles73",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "andreasprlic"
   },
@@ -3784,7 +3795,7 @@
     "state": "closed",
     "author_login": "jsstevenson",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "jsstevenson"
   },
@@ -3797,9 +3808,9 @@
     "state": "closed",
     "author_login": "bsgiles73",
     "labels": [
-      "enhancement",
+      "type:feature",
       "keep alive",
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -3813,7 +3824,7 @@
     "state": "closed",
     "author_login": "davmlaw",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -3826,7 +3837,7 @@
     "state": "closed",
     "author_login": "jsstevenson",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -3851,7 +3862,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": "reece"
   },
@@ -3875,7 +3886,7 @@
     "state": "closed",
     "author_login": "bsgiles",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "andreasprlic"
   },
@@ -3899,7 +3910,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": "reece"
   },
@@ -3941,11 +3952,11 @@
     "number": 108,
     "repo": "bioutils",
     "created_at": "2026-10-15T15:45:08Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-10-23T23:21:54Z",
+    "state": "closed",
     "author_login": "reece",
     "labels": [],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 5979736412,
