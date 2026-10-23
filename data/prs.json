@@ -2893,6 +2893,17 @@
     "draft": false
   },
   {
+    "id": 4979941969,
+    "number": 40,
+    "repo": "biocommons.github.io",
+    "created_at": "2026-10-23T08:21:52Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
     "id": 122508618,
     "number": 4,
     "repo": "bioutils",
@@ -3583,6 +3594,28 @@
     "merged_at": "2026-10-23T02:00:41Z",
     "state": "closed",
     "author_login": "reece",
+    "draft": false
+  },
+  {
+    "id": 4979983209,
+    "number": 114,
+    "repo": "bioutils",
+    "created_at": "2026-10-23T08:25:42Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 4979984293,
+    "number": 115,
+    "repo": "bioutils",
+    "created_at": "2026-10-23T08:25:48Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
     "draft": false
   },
   {
@@ -7612,6 +7645,28 @@
     "draft": false
   },
   {
+    "id": 4979882362,
+    "number": 223,
+    "repo": "seqrepo",
+    "created_at": "2026-10-23T08:16:12Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 4979884306,
+    "number": 224,
+    "repo": "seqrepo",
+    "created_at": "2026-10-23T08:16:24Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
     "id": 785033053,
     "number": 6,
     "repo": "seqrepo-rest-service",
@@ -7807,6 +7862,39 @@
     "merged_at": "2026-10-23T01:59:15Z",
     "state": "closed",
     "author_login": "reece",
+    "draft": false
+  },
+  {
+    "id": 4979847718,
+    "number": 34,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2026-10-23T08:12:57Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 4979847984,
+    "number": 35,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2026-10-23T08:12:59Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 4979848061,
+    "number": 36,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2026-10-23T08:12:59Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
     "draft": false
   },
   {
