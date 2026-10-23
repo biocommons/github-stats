@@ -67,11 +67,11 @@
     "number": 10,
     "repo": ".github",
     "created_at": "2026-10-14T20:47:22Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-10-23T20:41:19Z",
+    "state": "closed",
     "author_login": "reece",
     "labels": [],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 5990400098,
@@ -100,6 +100,17 @@
     "number": 14,
     "repo": ".github",
     "created_at": "2026-10-23T02:15:24Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": null
+  },
+  {
+    "id": 6005042655,
+    "number": 15,
+    "repo": ".github",
+    "created_at": "2026-10-23T20:34:25Z",
     "closed_at": null,
     "state": "open",
     "author_login": "reece",
@@ -17151,11 +17162,11 @@
     "number": 106,
     "repo": "template-py",
     "created_at": "2026-10-14T20:47:14Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-10-23T20:46:08Z",
+    "state": "closed",
     "author_login": "reece",
     "labels": [],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 5904919497,
