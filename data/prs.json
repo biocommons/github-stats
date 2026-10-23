@@ -44,6 +44,17 @@
     "draft": false
   },
   {
+    "id": 4976640909,
+    "number": 12,
+    "repo": ".github",
+    "created_at": "2026-10-23T01:53:47Z",
+    "closed_at": "2026-10-23T01:56:56Z",
+    "merged_at": "2026-10-23T01:56:56Z",
+    "state": "closed",
+    "author_login": "reece",
+    "draft": false
+  },
+  {
     "id": 559726330,
     "number": 4,
     "repo": "anyvar",
@@ -2530,6 +2541,17 @@
     "draft": false
   },
   {
+    "id": 4976638628,
+    "number": 511,
+    "repo": "anyvar",
+    "created_at": "2026-10-23T01:53:29Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "draft": false
+  },
+  {
     "id": 1120100497,
     "number": 1,
     "repo": "biocommons.github.io",
@@ -2857,6 +2879,17 @@
     "merged_at": "2026-10-13T04:28:59Z",
     "state": "closed",
     "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 4976639495,
+    "number": 39,
+    "repo": "biocommons.github.io",
+    "created_at": "2026-10-23T01:53:36Z",
+    "closed_at": "2026-10-23T02:00:24Z",
+    "merged_at": "2026-10-23T02:00:24Z",
+    "state": "closed",
+    "author_login": "reece",
     "draft": false
   },
   {
@@ -3539,6 +3572,17 @@
     "merged_at": "2026-10-22T14:12:42Z",
     "state": "closed",
     "author_login": "rub-br",
+    "draft": false
+  },
+  {
+    "id": 4976604391,
+    "number": 113,
+    "repo": "bioutils",
+    "created_at": "2026-10-23T01:48:49Z",
+    "closed_at": "2026-10-23T02:00:41Z",
+    "merged_at": "2026-10-23T02:00:41Z",
+    "state": "closed",
+    "author_login": "reece",
     "draft": false
   },
   {
@@ -6457,6 +6501,39 @@
     "draft": false
   },
   {
+    "id": 4976605166,
+    "number": 923,
+    "repo": "hgvs",
+    "created_at": "2026-10-23T01:48:56Z",
+    "closed_at": "2026-10-23T02:00:54Z",
+    "merged_at": "2026-10-23T02:00:54Z",
+    "state": "closed",
+    "author_login": "reece",
+    "draft": false
+  },
+  {
+    "id": 4979195969,
+    "number": 924,
+    "repo": "hgvs",
+    "created_at": "2026-10-23T07:09:26Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 4979196692,
+    "number": 925,
+    "repo": "hgvs",
+    "created_at": "2026-10-23T07:09:31Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
     "id": 89712043,
     "number": 1,
     "repo": "hgvs-eval",
@@ -7524,6 +7601,17 @@
     "draft": false
   },
   {
+    "id": 4976605883,
+    "number": 222,
+    "repo": "seqrepo",
+    "created_at": "2026-10-23T01:49:02Z",
+    "closed_at": "2026-10-23T02:02:36Z",
+    "merged_at": "2026-10-23T02:02:36Z",
+    "state": "closed",
+    "author_login": "reece",
+    "draft": false
+  },
+  {
     "id": 785033053,
     "number": 6,
     "repo": "seqrepo-rest-service",
@@ -7708,6 +7796,17 @@
     "merged_at": "2025-10-13T16:07:49Z",
     "state": "closed",
     "author_login": "korikuzma",
+    "draft": false
+  },
+  {
+    "id": 4976637860,
+    "number": 33,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2026-10-23T01:53:23Z",
+    "closed_at": "2026-10-23T01:59:15Z",
+    "merged_at": "2026-10-23T01:59:15Z",
+    "state": "closed",
+    "author_login": "reece",
     "draft": false
   },
   {
@@ -8432,6 +8531,17 @@
     "created_at": "2026-10-23T01:03:09Z",
     "closed_at": "2026-10-23T01:32:51Z",
     "merged_at": "2026-10-23T01:32:50Z",
+    "state": "closed",
+    "author_login": "reece",
+    "draft": false
+  },
+  {
+    "id": 4976602751,
+    "number": 113,
+    "repo": "template-py",
+    "created_at": "2026-10-23T01:48:36Z",
+    "closed_at": "2026-10-23T01:52:13Z",
+    "merged_at": "2026-10-23T01:52:13Z",
     "state": "closed",
     "author_login": "reece",
     "draft": false

@@ -78,6 +78,28 @@
     "number": 11,
     "repo": ".github",
     "created_at": "2026-10-23T01:45:47Z",
+    "closed_at": "2026-10-23T02:04:56Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 5990646772,
+    "number": 13,
+    "repo": ".github",
+    "created_at": "2026-10-23T02:12:37Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": null
+  },
+  {
+    "id": 5990673766,
+    "number": 14,
+    "repo": ".github",
+    "created_at": "2026-10-23T02:15:24Z",
     "closed_at": null,
     "state": "open",
     "author_login": "reece",
@@ -17097,7 +17119,9 @@
     "closed_at": null,
     "state": "open",
     "author_login": "korikuzma",
-    "labels": [],
+    "labels": [
+      "stale"
+    ],
     "closed_by": null
   },
   {

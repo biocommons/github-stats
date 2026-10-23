@@ -3195,6 +3195,11 @@
     "repo": "anyvar"
   },
   {
+    "reviewer_login": "github-advanced-security[bot]",
+    "submitted_at": "2026-10-23T01:54:24Z",
+    "repo": "anyvar"
+  },
+  {
     "reviewer_login": "reece",
     "submitted_at": "2023-06-07T17:31:22Z",
     "repo": "biocommons.github.io"
@@ -3342,6 +3347,11 @@
   {
     "reviewer_login": "reece",
     "submitted_at": "2026-10-13T04:28:31Z",
+    "repo": "biocommons.github.io"
+  },
+  {
+    "reviewer_login": "github-advanced-security[bot]",
+    "submitted_at": "2026-10-23T01:54:35Z",
     "repo": "biocommons.github.io"
   },
   {
@@ -3777,6 +3787,11 @@
   {
     "reviewer_login": "jsstevenson",
     "submitted_at": "2026-10-22T14:12:31Z",
+    "repo": "bioutils"
+  },
+  {
+    "reviewer_login": "github-advanced-security[bot]",
+    "submitted_at": "2026-10-23T01:49:29Z",
     "repo": "bioutils"
   },
   {
@@ -5165,6 +5180,11 @@
     "repo": "hgvs"
   },
   {
+    "reviewer_login": "github-advanced-security[bot]",
+    "submitted_at": "2026-10-23T01:49:34Z",
+    "repo": "hgvs"
+  },
+  {
     "reviewer_login": "reece",
     "submitted_at": "2019-03-06T21:08:50Z",
     "repo": "seqrepo"
@@ -5652,6 +5672,11 @@
   {
     "reviewer_login": "reece",
     "submitted_at": "2026-10-11T07:02:07Z",
+    "repo": "seqrepo"
+  },
+  {
+    "reviewer_login": "github-advanced-security[bot]",
+    "submitted_at": "2026-10-23T01:49:36Z",
     "repo": "seqrepo"
   },
   {
