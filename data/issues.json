@@ -14755,6 +14755,28 @@
     "closed_by": null
   },
   {
+    "id": 6007230462,
+    "number": 926,
+    "repo": "hgvs",
+    "created_at": "2026-10-23T23:57:06Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": null
+  },
+  {
+    "id": 6008014685,
+    "number": 927,
+    "repo": "hgvs",
+    "created_at": "2026-10-24T01:28:36Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": null
+  },
+  {
     "id": 183581420,
     "number": 5,
     "repo": "hgvs-eval",
@@ -16531,7 +16553,7 @@
     "state": "closed",
     "author_login": "theferrit32",
     "labels": [
-      "stale",
+      "meta:stale",
       "keep alive",
       "closed-by-stale"
     ],
@@ -16557,7 +16579,7 @@
     "state": "closed",
     "author_login": "theferrit32",
     "labels": [
-      "stale",
+      "meta:stale",
       "keep alive",
       "closed-by-stale"
     ],
@@ -16596,7 +16618,7 @@
     "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale",
+      "meta:stale",
       "closed-by-stale"
     ],
     "closed_by": "github-actions[bot]"
@@ -16610,7 +16632,7 @@
     "state": "open",
     "author_login": "theferrit32",
     "labels": [
-      "bug"
+      "type:bug"
     ],
     "closed_by": null
   },
@@ -16623,7 +16645,7 @@
     "state": "open",
     "author_login": "reece",
     "labels": [
-      "enhancement"
+      "type:feature"
     ],
     "closed_by": null
   },
@@ -17184,6 +17206,17 @@
     "number": 107,
     "repo": "template-py",
     "created_at": "2026-10-18T01:17:39Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": null
+  },
+  {
+    "id": 6007230330,
+    "number": 116,
+    "repo": "template-py",
+    "created_at": "2026-10-23T23:57:05Z",
     "closed_at": null,
     "state": "open",
     "author_login": "reece",
