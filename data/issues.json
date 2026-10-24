@@ -3289,6 +3289,17 @@
     "closed_by": "korikuzma"
   },
   {
+    "id": 6014095910,
+    "number": 512,
+    "repo": "anyvar",
+    "created_at": "2026-10-24T14:40:23Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "jsstevenson",
+    "labels": [],
+    "closed_by": null
+  },
+  {
     "id": 2095018790,
     "number": 6,
     "repo": "biocommons.github.io",
@@ -16468,6 +16479,28 @@
     "closed_by": null
   },
   {
+    "id": 6014959734,
+    "number": 227,
+    "repo": "seqrepo",
+    "created_at": "2026-10-24T16:14:59Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": null
+  },
+  {
+    "id": 6014960117,
+    "number": 228,
+    "repo": "seqrepo",
+    "created_at": "2026-10-24T16:15:01Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": null
+  },
+  {
     "id": 445925409,
     "number": 1,
     "repo": "seqrepo-rest-service",
@@ -16647,6 +16680,17 @@
     "labels": [
       "type:feature"
     ],
+    "closed_by": null
+  },
+  {
+    "id": 6014959950,
+    "number": 42,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2026-10-24T16:15:00Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [],
     "closed_by": null
   },
   {
