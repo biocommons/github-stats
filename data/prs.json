@@ -4114,6 +4114,17 @@
     "draft": false
   },
   {
+    "id": 5003286072,
+    "number": 32,
+    "repo": "github-stats",
+    "created_at": "2026-10-25T08:56:21Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
     "id": 110323612,
     "number": 402,
     "repo": "hgvs",

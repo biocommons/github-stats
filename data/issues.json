@@ -15997,7 +15997,8 @@
     "state": "open",
     "author_login": "wlymanambry",
     "labels": [
-      "type:bug"
+      "type:bug",
+      "stale"
     ],
     "closed_by": null
   },
@@ -16010,7 +16011,8 @@
     "state": "open",
     "author_login": "wlymanambry",
     "labels": [
-      "type:bug"
+      "type:bug",
+      "stale"
     ],
     "closed_by": null
   },
@@ -16061,7 +16063,8 @@
     "author_login": "reece",
     "labels": [
       "keep alive",
-      "type:proposal"
+      "type:proposal",
+      "stale"
     ],
     "closed_by": null
   },
@@ -16075,7 +16078,8 @@
     "author_login": "yxuil",
     "labels": [
       "type:bug",
-      "type:docs"
+      "type:docs",
+      "stale"
     ],
     "closed_by": null
   },
@@ -16149,7 +16153,8 @@
     "state": "open",
     "author_login": "jsstevenson",
     "labels": [
-      "type:bug"
+      "type:bug",
+      "stale"
     ],
     "closed_by": null
   },
@@ -16229,7 +16234,8 @@
     "state": "open",
     "author_login": "gromdimon",
     "labels": [
-      "type:bug"
+      "type:bug",
+      "stale"
     ],
     "closed_by": null
   },
@@ -16463,7 +16469,8 @@
     "state": "open",
     "author_login": "jsstevenson",
     "labels": [
-      "type:feature"
+      "type:feature",
+      "stale"
     ],
     "closed_by": null
   },
