@@ -14690,11 +14690,11 @@
     "number": 895,
     "repo": "hgvs",
     "created_at": "2026-10-01T18:26:03Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-10-26T03:50:27Z",
+    "state": "closed",
     "author_login": "b0d0nne11",
     "labels": [],
-    "closed_by": null
+    "closed_by": "andreasprlic"
   },
   {
     "id": 5739583938,
@@ -14785,6 +14785,19 @@
     "state": "open",
     "author_login": "reece",
     "labels": [],
+    "closed_by": null
+  },
+  {
+    "id": 6032921570,
+    "number": 931,
+    "repo": "hgvs",
+    "created_at": "2026-10-26T03:45:51Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "andreasprlic",
+    "labels": [
+      "type:bug"
+    ],
     "closed_by": null
   },
   {
@@ -16234,8 +16247,7 @@
     "state": "open",
     "author_login": "gromdimon",
     "labels": [
-      "type:bug",
-      "stale"
+      "type:bug"
     ],
     "closed_by": null
   },

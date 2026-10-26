@@ -18260,8 +18260,28 @@
     "repo": "hgvs"
   },
   {
+    "author_login": "b0d0nne11",
+    "author_date": "2026-09-21T19:00:55Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "b0d0nne11",
+    "author_date": "2026-09-23T20:08:21Z",
+    "repo": "hgvs"
+  },
+  {
     "author_login": "developer-rpai",
     "author_date": "2026-09-24T06:07:58Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "b0d0nne11",
+    "author_date": "2026-09-24T16:14:16Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "b0d0nne11",
+    "author_date": "2026-09-28T19:06:59Z",
     "repo": "hgvs"
   },
   {
@@ -18590,6 +18610,36 @@
     "repo": "hgvs"
   },
   {
+    "author_login": "b0d0nne11",
+    "author_date": "2026-10-18T01:31:58Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "b0d0nne11",
+    "author_date": "2026-10-18T03:32:52Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "b0d0nne11",
+    "author_date": "2026-10-18T15:25:44Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "b0d0nne11",
+    "author_date": "2026-10-18T21:31:01Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "b0d0nne11",
+    "author_date": "2026-10-18T23:06:44Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "b0d0nne11",
+    "author_date": "2026-10-19T05:06:29Z",
+    "repo": "hgvs"
+  },
+  {
     "author_login": "dependabot[bot]",
     "author_date": "2026-10-20T23:04:15Z",
     "repo": "hgvs"
@@ -18647,6 +18697,11 @@
   {
     "author_login": "github-actions[bot]",
     "author_date": "2026-10-24T16:29:55Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "andreasprlic",
+    "author_date": "2026-10-26T03:50:25Z",
     "repo": "hgvs"
   },
   {

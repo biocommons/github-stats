@@ -4125,6 +4125,17 @@
     "draft": false
   },
   {
+    "id": 5012893881,
+    "number": 33,
+    "repo": "github-stats",
+    "created_at": "2026-10-26T06:09:00Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
     "id": 110323612,
     "number": 402,
     "repo": "hgvs",
@@ -6362,9 +6373,9 @@
     "number": 896,
     "repo": "hgvs",
     "created_at": "2026-10-01T18:32:44Z",
-    "closed_at": null,
-    "merged_at": null,
-    "state": "open",
+    "closed_at": "2026-10-26T03:50:25Z",
+    "merged_at": "2026-10-26T03:50:25Z",
+    "state": "closed",
     "author_login": "b0d0nne11",
     "draft": false
   },
@@ -6652,6 +6663,17 @@
     "merged_at": null,
     "state": "open",
     "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 5011914278,
+    "number": 932,
+    "repo": "hgvs",
+    "created_at": "2026-10-26T04:12:45Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "andreasprlic",
     "draft": false
   },
   {
