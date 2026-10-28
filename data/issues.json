@@ -14781,24 +14781,24 @@
     "number": 927,
     "repo": "hgvs",
     "created_at": "2026-10-24T01:28:36Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-10-28T01:51:58Z",
+    "state": "closed",
     "author_login": "reece",
     "labels": [],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 6032921570,
     "number": 931,
     "repo": "hgvs",
     "created_at": "2026-10-26T03:45:51Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-10-28T03:17:13Z",
+    "state": "closed",
     "author_login": "andreasprlic",
     "labels": [
       "type:bug"
     ],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 183581420,
