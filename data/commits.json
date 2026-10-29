@@ -18705,6 +18705,11 @@
     "repo": "hgvs"
   },
   {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-24T22:26:24Z",
+    "repo": "hgvs"
+  },
+  {
     "author_login": "andreasprlic",
     "author_date": "2026-10-26T03:50:25Z",
     "repo": "hgvs"
@@ -18735,6 +18740,11 @@
     "repo": "hgvs"
   },
   {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-28T01:55:10Z",
+    "repo": "hgvs"
+  },
+  {
     "author_login": "reece",
     "author_date": "2026-10-28T03:13:32Z",
     "repo": "hgvs"
@@ -18751,7 +18761,67 @@
   },
   {
     "author_login": "reece",
+    "author_date": "2026-10-28T03:18:35Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
     "author_date": "2026-10-28T03:19:31Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-28T03:19:43Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-28T03:20:02Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-28T03:20:13Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-28T03:20:22Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "Copilot",
+    "author_date": "2026-10-29T19:04:11Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-29T19:15:11Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-29T19:17:32Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-10-29T19:18:54Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-29T19:26:09Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-29T20:27:11Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-29T20:35:10Z",
     "repo": "hgvs"
   },
   {
