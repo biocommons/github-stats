@@ -3663,6 +3663,17 @@
     "draft": false
   },
   {
+    "id": 5077792718,
+    "number": 119,
+    "repo": "bioutils",
+    "created_at": "2026-10-30T00:57:11Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
     "id": 79716422,
     "number": 135,
     "repo": "eutils",
@@ -4140,6 +4151,17 @@
     "number": 34,
     "repo": "github-stats",
     "created_at": "2026-10-28T02:50:59Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 5078088749,
+    "number": 35,
+    "repo": "github-stats",
+    "created_at": "2026-10-30T01:33:06Z",
     "closed_at": null,
     "merged_at": null,
     "state": "open",

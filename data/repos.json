@@ -58,7 +58,7 @@
     "stargazers_count": 25,
     "forks_count": 23,
     "open_issues_count": 3,
-    "open_pr_count": 2,
+    "open_pr_count": 3,
     "contributors": 18,
     "latest_release": {
       "tag_name": "0.6.2",
@@ -96,7 +96,7 @@
     "stargazers_count": 0,
     "forks_count": 0,
     "open_issues_count": 0,
-    "open_pr_count": 3,
+    "open_pr_count": 4,
     "contributors": 3,
     "latest_release": null,
     "updated_at": "2026-10-11T06:10:15Z",
@@ -153,7 +153,7 @@
       "tag_name": "0.6.11",
       "published_at": "2025-03-19T13:40:21Z"
     },
-    "updated_at": "2026-10-24T01:41:10Z",
+    "updated_at": "2026-10-30T01:09:11Z",
     "default_branch": "main",
     "private": false,
     "archived": false
