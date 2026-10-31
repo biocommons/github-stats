@@ -6776,6 +6776,17 @@
     "draft": false
   },
   {
+    "id": 5094779017,
+    "number": 938,
+    "repo": "hgvs",
+    "created_at": "2026-10-31T05:10:39Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "davmlaw",
+    "draft": false
+  },
+  {
     "id": 89712043,
     "number": 1,
     "repo": "hgvs-eval",

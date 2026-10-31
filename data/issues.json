@@ -14723,11 +14723,11 @@
     "number": 903,
     "repo": "hgvs",
     "created_at": "2026-10-07T05:31:11Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-10-31T04:57:36Z",
+    "state": "closed",
     "author_login": "davmlaw",
     "labels": [],
-    "closed_by": null
+    "closed_by": "davmlaw"
   },
   {
     "id": 5796493839,
@@ -14799,6 +14799,17 @@
       "type:bug"
     ],
     "closed_by": "reece"
+  },
+  {
+    "id": 6131436137,
+    "number": 937,
+    "repo": "hgvs",
+    "created_at": "2026-10-31T05:10:20Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "davmlaw",
+    "labels": [],
+    "closed_by": null
   },
   {
     "id": 183581420,
