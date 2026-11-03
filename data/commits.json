@@ -3950,6 +3950,36 @@
     "repo": "biocommons.github.io"
   },
   {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-23T08:21:47Z",
+    "repo": "biocommons.github.io"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-30T05:19:13Z",
+    "repo": "biocommons.github.io"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-30T05:19:25Z",
+    "repo": "biocommons.github.io"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-11-03T02:46:18Z",
+    "repo": "biocommons.github.io"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-11-03T02:46:42Z",
+    "repo": "biocommons.github.io"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-11-03T02:54:08Z",
+    "repo": "biocommons.github.io"
+  },
+  {
     "author_login": "reece",
     "author_date": "2014-09-02T22:20:31Z",
     "repo": "bioutils"
@@ -8416,12 +8446,47 @@
   },
   {
     "author_login": "dependabot[bot]",
+    "author_date": "2026-10-26T06:08:57Z",
+    "repo": "github-stats"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-28T02:50:56Z",
+    "repo": "github-stats"
+  },
+  {
+    "author_login": "dependabot[bot]",
     "author_date": "2026-10-30T01:33:04Z",
     "repo": "github-stats"
   },
   {
     "author_login": "reece",
     "author_date": "2026-11-02T23:04:20Z",
+    "repo": "github-stats"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-11-03T01:09:50Z",
+    "repo": "github-stats"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-11-03T01:10:24Z",
+    "repo": "github-stats"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-11-03T01:15:17Z",
+    "repo": "github-stats"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-11-03T01:17:02Z",
+    "repo": "github-stats"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-11-03T02:47:59Z",
     "repo": "github-stats"
   },
   {
@@ -18850,8 +18915,33 @@
     "repo": "hgvs"
   },
   {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-29T20:29:49Z",
+    "repo": "hgvs"
+  },
+  {
     "author_login": "reece",
     "author_date": "2026-10-29T20:35:10Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-10-29T20:41:24Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-30T04:46:17Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-11-03T01:16:29Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-11-03T01:17:46Z",
     "repo": "hgvs"
   },
   {
@@ -21710,6 +21800,11 @@
     "repo": "seqrepo"
   },
   {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-23T08:16:10Z",
+    "repo": "seqrepo"
+  },
+  {
     "author_login": null,
     "author_date": "2026-10-24T01:39:26Z",
     "repo": "seqrepo"
@@ -21730,8 +21825,63 @@
     "repo": "seqrepo"
   },
   {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-24T01:43:44Z",
+    "repo": "seqrepo"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-24T01:43:50Z",
+    "repo": "seqrepo"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-24T05:01:20Z",
+    "repo": "seqrepo"
+  },
+  {
     "author_login": null,
     "author_date": "2026-10-30T01:09:03Z",
+    "repo": "seqrepo"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-30T20:16:50Z",
+    "repo": "seqrepo"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-30T21:47:32Z",
+    "repo": "seqrepo"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-11-03T01:18:45Z",
+    "repo": "seqrepo"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-11-03T01:19:02Z",
+    "repo": "seqrepo"
+  },
+  {
+    "author_login": "github-actions[bot]",
+    "author_date": "2026-11-03T01:19:10Z",
+    "repo": "seqrepo"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-11-03T01:21:10Z",
+    "repo": "seqrepo"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-11-03T01:21:21Z",
+    "repo": "seqrepo"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-11-03T01:22:03Z",
     "repo": "seqrepo"
   },
   {
@@ -22187,6 +22337,86 @@
   {
     "author_login": null,
     "author_date": "2026-10-24T01:50:37Z",
+    "repo": "seqrepo-rest-service"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-24T01:53:45Z",
+    "repo": "seqrepo-rest-service"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-10-24T05:38:43Z",
+    "repo": "seqrepo-rest-service"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-11-02T03:19:52Z",
+    "repo": "seqrepo-rest-service"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-11-03T02:45:32Z",
+    "repo": "seqrepo-rest-service"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-11-03T02:45:34Z",
+    "repo": "seqrepo-rest-service"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-11-03T02:48:15Z",
+    "repo": "seqrepo-rest-service"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-11-03T02:50:17Z",
+    "repo": "seqrepo-rest-service"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-11-03T02:56:49Z",
+    "repo": "seqrepo-rest-service"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-11-03T03:02:47Z",
+    "repo": "seqrepo-rest-service"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-11-03T03:03:08Z",
+    "repo": "seqrepo-rest-service"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-11-03T03:05:15Z",
+    "repo": "seqrepo-rest-service"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-11-03T03:05:19Z",
+    "repo": "seqrepo-rest-service"
+  },
+  {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-11-03T03:05:23Z",
+    "repo": "seqrepo-rest-service"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-11-03T04:09:41Z",
+    "repo": "seqrepo-rest-service"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-11-03T04:09:44Z",
+    "repo": "seqrepo-rest-service"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-11-03T04:10:12Z",
     "repo": "seqrepo-rest-service"
   },
   {
