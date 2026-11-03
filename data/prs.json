@@ -6831,6 +6831,17 @@
     "draft": false
   },
   {
+    "id": 5133256979,
+    "number": 942,
+    "repo": "hgvs",
+    "created_at": "2026-11-03T07:05:50Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "Mohit-Ak",
+    "draft": true
+  },
+  {
     "id": 89712043,
     "number": 1,
     "repo": "hgvs-eval",
