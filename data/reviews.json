@@ -3200,6 +3200,11 @@
     "repo": "anyvar"
   },
   {
+    "reviewer_login": "jennifer-bowser",
+    "submitted_at": "2026-11-03T18:48:56Z",
+    "repo": "anyvar"
+  },
+  {
     "reviewer_login": "reece",
     "submitted_at": "2023-06-07T17:31:22Z",
     "repo": "biocommons.github.io"
@@ -6047,6 +6052,11 @@
   {
     "reviewer_login": "reece",
     "submitted_at": "2026-11-03T04:12:48Z",
+    "repo": "seqrepo-rest-service"
+  },
+  {
+    "reviewer_login": "reece",
+    "submitted_at": "2026-11-03T19:27:50Z",
     "repo": "seqrepo-rest-service"
   },
   {

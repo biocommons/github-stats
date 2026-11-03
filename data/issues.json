@@ -16713,13 +16713,13 @@
     "number": 30,
     "repo": "seqrepo-rest-service",
     "created_at": "2025-03-24T20:15:38Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-11-03T19:24:02Z",
+    "state": "closed",
     "author_login": "theferrit32",
     "labels": [
       "type:bug"
     ],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 3510624832,
@@ -16739,11 +16739,37 @@
     "number": 42,
     "repo": "seqrepo-rest-service",
     "created_at": "2026-10-24T16:15:00Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-11-03T19:24:02Z",
+    "state": "closed",
     "author_login": "reece",
     "labels": [],
-    "closed_by": null
+    "closed_by": "reece"
+  },
+  {
+    "id": 6188165796,
+    "number": 49,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2026-11-03T17:51:22Z",
+    "closed_at": "2026-11-03T18:40:26Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "type:bug"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 6188166311,
+    "number": 50,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2026-11-03T17:51:24Z",
+    "closed_at": "2026-11-03T18:30:22Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "type:bug"
+    ],
+    "closed_by": "reece"
   },
   {
     "id": 1808380031,

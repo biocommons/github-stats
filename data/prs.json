@@ -8221,9 +8221,9 @@
     "number": 38,
     "repo": "seqrepo-rest-service",
     "created_at": "2026-10-24T01:53:32Z",
-    "closed_at": null,
-    "merged_at": null,
-    "state": "open",
+    "closed_at": "2026-11-03T19:29:03Z",
+    "merged_at": "2026-11-03T19:29:02Z",
+    "state": "closed",
     "author_login": "dependabot[bot]",
     "draft": false
   },
@@ -8324,6 +8324,39 @@
     "merged_at": "2026-11-03T04:10:13Z",
     "state": "closed",
     "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 5141995699,
+    "number": 51,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2026-11-03T17:51:49Z",
+    "closed_at": "2026-11-03T18:30:20Z",
+    "merged_at": "2026-11-03T18:30:20Z",
+    "state": "closed",
+    "author_login": "reece",
+    "draft": false
+  },
+  {
+    "id": 5142548842,
+    "number": 52,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2026-11-03T18:33:31Z",
+    "closed_at": "2026-11-03T18:40:25Z",
+    "merged_at": "2026-11-03T18:40:25Z",
+    "state": "closed",
+    "author_login": "reece",
+    "draft": false
+  },
+  {
+    "id": 5143155011,
+    "number": 53,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2026-11-03T19:19:07Z",
+    "closed_at": "2026-11-03T19:24:01Z",
+    "merged_at": "2026-11-03T19:24:01Z",
+    "state": "closed",
+    "author_login": "reece",
     "draft": false
   },
   {

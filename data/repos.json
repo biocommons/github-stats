@@ -165,14 +165,14 @@
     "description": "OpenAPI-based REST interface to biological sequences and sequence metadata",
     "stargazers_count": 6,
     "forks_count": 6,
-    "open_issues_count": 3,
-    "open_pr_count": 1,
-    "contributors": 10,
+    "open_issues_count": 1,
+    "open_pr_count": 0,
+    "contributors": 11,
     "latest_release": {
       "tag_name": "0.2.2",
       "published_at": "2023-11-14T19:59:54Z"
     },
-    "updated_at": "2026-11-03T04:10:18Z",
+    "updated_at": "2026-11-03T19:29:08Z",
     "default_branch": "main",
     "private": false,
     "archived": false
@@ -191,7 +191,7 @@
       "tag_name": "0.0.6",
       "published_at": "2025-08-31T20:43:00Z"
     },
-    "updated_at": "2026-10-28T00:37:21Z",
+    "updated_at": "2026-11-03T18:32:10Z",
     "default_branch": "main",
     "private": false,
     "archived": false
