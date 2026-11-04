@@ -3293,11 +3293,11 @@
     "number": 512,
     "repo": "anyvar",
     "created_at": "2026-10-24T14:40:23Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-11-04T15:31:28Z",
+    "state": "closed",
     "author_login": "jsstevenson",
     "labels": [],
-    "closed_by": null
+    "closed_by": "jsstevenson"
   },
   {
     "id": 2095018790,
