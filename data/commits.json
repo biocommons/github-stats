@@ -18935,6 +18935,16 @@
     "repo": "hgvs"
   },
   {
+    "author_login": "davmlaw",
+    "author_date": "2026-11-02T06:40:26Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "davmlaw",
+    "author_date": "2026-11-02T06:48:55Z",
+    "repo": "hgvs"
+  },
+  {
     "author_login": "reece",
     "author_date": "2026-11-03T01:16:29Z",
     "repo": "hgvs"
@@ -18942,6 +18952,11 @@
   {
     "author_login": "reece",
     "author_date": "2026-11-03T01:17:46Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-11-03T22:48:12Z",
     "repo": "hgvs"
   },
   {
