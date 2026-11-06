@@ -3740,6 +3740,28 @@
     "draft": false
   },
   {
+    "id": 5181111732,
+    "number": 123,
+    "repo": "bioutils",
+    "created_at": "2026-11-06T00:57:03Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 5181113377,
+    "number": 124,
+    "repo": "bioutils",
+    "created_at": "2026-11-06T00:57:14Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
     "id": 79716422,
     "number": 135,
     "repo": "eutils",
@@ -6868,6 +6890,28 @@
     "number": 943,
     "repo": "hgvs",
     "created_at": "2026-11-05T20:04:22Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 5183043534,
+    "number": 944,
+    "repo": "hgvs",
+    "created_at": "2026-11-06T04:45:59Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 5183046747,
+    "number": 945,
+    "repo": "hgvs",
+    "created_at": "2026-11-06T04:46:24Z",
     "closed_at": null,
     "merged_at": null,
     "state": "open",
