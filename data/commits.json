@@ -18970,6 +18970,16 @@
     "repo": "hgvs"
   },
   {
+    "author_login": "dependabot[bot]",
+    "author_date": "2026-11-05T20:04:19Z",
+    "repo": "hgvs"
+  },
+  {
+    "author_login": "reece",
+    "author_date": "2026-11-07T03:18:32Z",
+    "repo": "hgvs"
+  },
+  {
     "author_login": "reece",
     "author_date": "2016-10-17T15:37:39Z",
     "repo": "hgvs-eval"

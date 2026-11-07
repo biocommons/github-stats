@@ -112,13 +112,13 @@
     "stargazers_count": 294,
     "forks_count": 106,
     "open_issues_count": 29,
-    "open_pr_count": 8,
+    "open_pr_count": 7,
     "contributors": 45,
     "latest_release": {
       "tag_name": "1.5.7",
       "published_at": "2026-03-17T05:35:35Z"
     },
-    "updated_at": "2026-11-03T22:48:19Z",
+    "updated_at": "2026-11-07T03:18:38Z",
     "default_branch": "main",
     "private": false,
     "archived": false
