@@ -13798,7 +13798,8 @@
     "state": "open",
     "author_login": "davmlaw",
     "labels": [
-      "type:bug"
+      "type:bug",
+      "stale"
     ],
     "closed_by": null
   },
@@ -14645,7 +14646,9 @@
     "closed_at": null,
     "state": "open",
     "author_login": "reece",
-    "labels": [],
+    "labels": [
+      "stale"
+    ],
     "closed_by": null
   },
   {
@@ -14657,7 +14660,8 @@
     "state": "open",
     "author_login": "reece",
     "labels": [
-      "type:bug"
+      "type:bug",
+      "stale"
     ],
     "closed_by": null
   },
@@ -14670,7 +14674,8 @@
     "state": "open",
     "author_login": "reece",
     "labels": [
-      "type:feature"
+      "type:feature",
+      "stale"
     ],
     "closed_by": null
   },
