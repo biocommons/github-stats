@@ -14850,6 +14850,17 @@
     "closed_by": null
   },
   {
+    "id": 6281735708,
+    "number": 947,
+    "repo": "hgvs",
+    "created_at": "2026-11-09T07:19:00Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "davmlaw",
+    "labels": [],
+    "closed_by": null
+  },
+  {
     "id": 183581420,
     "number": 5,
     "repo": "hgvs-eval",
