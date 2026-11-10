@@ -3300,6 +3300,19 @@
     "closed_by": "jsstevenson"
   },
   {
+    "id": 6294039740,
+    "number": 514,
+    "repo": "anyvar",
+    "created_at": "2026-11-09T20:23:50Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "MikeWLloyd",
+    "labels": [
+      "bug"
+    ],
+    "closed_by": null
+  },
+  {
     "id": 2095018790,
     "number": 6,
     "repo": "biocommons.github.io",
