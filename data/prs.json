@@ -6930,6 +6930,17 @@
     "draft": false
   },
   {
+    "id": 5264113316,
+    "number": 948,
+    "repo": "hgvs",
+    "created_at": "2026-11-11T17:42:58Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "bpblanken",
+    "draft": false
+  },
+  {
     "id": 89712043,
     "number": 1,
     "repo": "hgvs-eval",
