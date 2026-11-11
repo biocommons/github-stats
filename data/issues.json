@@ -3317,13 +3317,14 @@
     "number": 6,
     "repo": "biocommons.github.io",
     "created_at": "2024-01-23T00:29:00Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-11-11T07:35:39Z",
+    "state": "closed",
     "author_login": "korikuzma",
     "labels": [
-      "stale"
+      "stale",
+      "closed-by-stale"
     ],
-    "closed_by": null
+    "closed_by": "github-actions[bot]"
   },
   {
     "id": 2120927927,
@@ -3380,27 +3381,29 @@
     "number": 21,
     "repo": "biocommons.github.io",
     "created_at": "2025-12-06T16:49:34Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-11-11T07:35:36Z",
+    "state": "closed",
     "author_login": "reece",
     "labels": [
       "type:feature",
-      "stale"
+      "stale",
+      "closed-by-stale"
     ],
-    "closed_by": null
+    "closed_by": "github-actions[bot]"
   },
   {
     "id": 3858766401,
     "number": 24,
     "repo": "biocommons.github.io",
     "created_at": "2026-01-27T04:32:57Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-11-11T07:35:33Z",
+    "state": "closed",
     "author_login": "reece",
     "labels": [
-      "stale"
+      "stale",
+      "closed-by-stale"
     ],
-    "closed_by": null
+    "closed_by": "github-actions[bot]"
   },
   {
     "id": 4464482942,
