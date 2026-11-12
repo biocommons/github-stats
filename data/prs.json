@@ -9266,6 +9266,17 @@
     "number": 117,
     "repo": "template-py",
     "created_at": "2026-11-04T20:36:12Z",
+    "closed_at": "2026-11-12T22:24:37Z",
+    "merged_at": null,
+    "state": "closed",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 5286234018,
+    "number": 118,
+    "repo": "template-py",
+    "created_at": "2026-11-12T22:25:00Z",
     "closed_at": null,
     "merged_at": null,
     "state": "open",
