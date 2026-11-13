@@ -3313,6 +3313,17 @@
     "closed_by": "MikeWLloyd"
   },
   {
+    "id": 6362194200,
+    "number": 515,
+    "repo": "anyvar",
+    "created_at": "2026-11-13T00:46:33Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": null
+  },
+  {
     "id": 2095018790,
     "number": 6,
     "repo": "biocommons.github.io",

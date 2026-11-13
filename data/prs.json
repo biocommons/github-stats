@@ -2585,6 +2585,17 @@
     "draft": false
   },
   {
+    "id": 5287946184,
+    "number": 516,
+    "repo": "anyvar",
+    "created_at": "2026-11-13T00:52:46Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "draft": true
+  },
+  {
     "id": 1120100497,
     "number": 1,
     "repo": "biocommons.github.io",
@@ -3744,9 +3755,9 @@
     "number": 123,
     "repo": "bioutils",
     "created_at": "2026-11-06T00:57:03Z",
-    "closed_at": null,
+    "closed_at": "2026-11-13T00:56:15Z",
     "merged_at": null,
-    "state": "open",
+    "state": "closed",
     "author_login": "dependabot[bot]",
     "draft": false
   },
@@ -3755,6 +3766,17 @@
     "number": 124,
     "repo": "bioutils",
     "created_at": "2026-11-06T00:57:14Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 5287985787,
+    "number": 125,
+    "repo": "bioutils",
+    "created_at": "2026-11-13T00:56:41Z",
     "closed_at": null,
     "merged_at": null,
     "state": "open",
