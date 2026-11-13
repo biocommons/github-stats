@@ -2981,6 +2981,17 @@
     "draft": false
   },
   {
+    "id": 5297497934,
+    "number": 44,
+    "repo": "biocommons.github.io",
+    "created_at": "2026-11-13T14:44:58Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
     "id": 122508618,
     "number": 4,
     "repo": "bioutils",
@@ -6985,6 +6996,17 @@
     "draft": false
   },
   {
+    "id": 5296884558,
+    "number": 950,
+    "repo": "hgvs",
+    "created_at": "2026-11-13T14:06:43Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
     "id": 89712043,
     "number": 1,
     "repo": "hgvs-eval",
@@ -8133,6 +8155,17 @@
     "number": 231,
     "repo": "seqrepo",
     "created_at": "2026-11-06T21:48:15Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 5297868100,
+    "number": 233,
+    "repo": "seqrepo",
+    "created_at": "2026-11-13T15:07:20Z",
     "closed_at": null,
     "merged_at": null,
     "state": "open",
