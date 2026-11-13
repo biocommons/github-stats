@@ -2593,7 +2593,7 @@
     "merged_at": null,
     "state": "open",
     "author_login": "reece",
-    "draft": true
+    "draft": false
   },
   {
     "id": 1120100497,
@@ -2966,6 +2966,17 @@
     "closed_at": "2026-11-03T02:46:43Z",
     "merged_at": "2026-11-03T02:46:43Z",
     "state": "closed",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 5290486544,
+    "number": 43,
+    "repo": "biocommons.github.io",
+    "created_at": "2026-11-13T05:16:01Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
     "author_login": "dependabot[bot]",
     "draft": false
   },
@@ -3777,6 +3788,17 @@
     "number": 125,
     "repo": "bioutils",
     "created_at": "2026-11-13T00:56:41Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 5290426208,
+    "number": 126,
+    "repo": "bioutils",
+    "created_at": "2026-11-13T05:09:52Z",
     "closed_at": null,
     "merged_at": null,
     "state": "open",
@@ -6912,9 +6934,9 @@
     "number": 944,
     "repo": "hgvs",
     "created_at": "2026-11-06T04:45:59Z",
-    "closed_at": null,
+    "closed_at": "2026-11-13T04:46:31Z",
     "merged_at": null,
-    "state": "open",
+    "state": "closed",
     "author_login": "dependabot[bot]",
     "draft": false
   },
@@ -6949,6 +6971,17 @@
     "merged_at": null,
     "state": "open",
     "author_login": "bpblanken",
+    "draft": false
+  },
+  {
+    "id": 5290205527,
+    "number": 949,
+    "repo": "hgvs",
+    "created_at": "2026-11-13T04:46:54Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
     "draft": false
   },
   {
@@ -8525,6 +8558,17 @@
     "draft": false
   },
   {
+    "id": 5290389886,
+    "number": 57,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2026-11-13T05:05:47Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
     "id": 1488835751,
     "number": 15,
     "repo": "template-py",
@@ -9299,6 +9343,17 @@
     "number": 118,
     "repo": "template-py",
     "created_at": "2026-11-12T22:25:00Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 5290346035,
+    "number": 119,
+    "repo": "template-py",
+    "created_at": "2026-11-13T05:01:09Z",
     "closed_at": null,
     "merged_at": null,
     "state": "open",
