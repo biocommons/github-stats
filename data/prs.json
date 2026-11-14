@@ -3817,6 +3817,17 @@
     "draft": false
   },
   {
+    "id": 5303230483,
+    "number": 127,
+    "repo": "bioutils",
+    "created_at": "2026-11-13T21:38:10Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
     "id": 79716422,
     "number": 135,
     "repo": "eutils",
@@ -7007,6 +7018,17 @@
     "draft": false
   },
   {
+    "id": 5303352218,
+    "number": 951,
+    "repo": "hgvs",
+    "created_at": "2026-11-13T21:47:50Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
     "id": 89712043,
     "number": 1,
     "repo": "hgvs-eval",
@@ -8144,9 +8166,9 @@
     "number": 230,
     "repo": "seqrepo",
     "created_at": "2026-11-06T21:48:00Z",
-    "closed_at": null,
+    "closed_at": "2026-11-13T21:47:33Z",
     "merged_at": null,
-    "state": "open",
+    "state": "closed",
     "author_login": "dependabot[bot]",
     "draft": false
   },
@@ -8166,6 +8188,28 @@
     "number": 233,
     "repo": "seqrepo",
     "created_at": "2026-11-13T15:07:20Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 5303268162,
+    "number": 234,
+    "repo": "seqrepo",
+    "created_at": "2026-11-13T21:41:03Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 5303357176,
+    "number": 235,
+    "repo": "seqrepo",
+    "created_at": "2026-11-13T21:48:13Z",
     "closed_at": null,
     "merged_at": null,
     "state": "open",
@@ -8562,9 +8606,9 @@
     "number": 54,
     "repo": "seqrepo-rest-service",
     "created_at": "2026-11-06T22:17:14Z",
-    "closed_at": null,
+    "closed_at": "2026-11-13T22:16:47Z",
     "merged_at": null,
-    "state": "open",
+    "state": "closed",
     "author_login": "dependabot[bot]",
     "draft": false
   },
@@ -8595,6 +8639,28 @@
     "number": 57,
     "repo": "seqrepo-rest-service",
     "created_at": "2026-11-13T05:05:47Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 5303514523,
+    "number": 58,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2026-11-13T22:01:57Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 5303690969,
+    "number": 59,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2026-11-13T22:17:10Z",
     "closed_at": null,
     "merged_at": null,
     "state": "open",
@@ -9387,6 +9453,17 @@
     "number": 119,
     "repo": "template-py",
     "created_at": "2026-11-13T05:01:09Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 5303570018,
+    "number": 120,
+    "repo": "template-py",
+    "created_at": "2026-11-13T22:06:33Z",
     "closed_at": null,
     "merged_at": null,
     "state": "open",
