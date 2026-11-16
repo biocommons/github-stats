@@ -4334,6 +4334,17 @@
     "draft": false
   },
   {
+    "id": 5339539785,
+    "number": 38,
+    "repo": "github-stats",
+    "created_at": "2026-11-16T15:10:29Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
     "id": 110323612,
     "number": 402,
     "repo": "hgvs",
@@ -6967,9 +6978,9 @@
     "number": 945,
     "repo": "hgvs",
     "created_at": "2026-11-06T04:46:24Z",
-    "closed_at": null,
-    "merged_at": null,
-    "state": "open",
+    "closed_at": "2026-11-16T18:19:35Z",
+    "merged_at": "2026-11-16T18:19:35Z",
+    "state": "closed",
     "author_login": "dependabot[bot]",
     "draft": false
   },
@@ -7011,9 +7022,9 @@
     "number": 950,
     "repo": "hgvs",
     "created_at": "2026-11-13T14:06:43Z",
-    "closed_at": null,
-    "merged_at": null,
-    "state": "open",
+    "closed_at": "2026-11-16T18:20:39Z",
+    "merged_at": "2026-11-16T18:20:39Z",
+    "state": "closed",
     "author_login": "dependabot[bot]",
     "draft": false
   },
@@ -7022,9 +7033,9 @@
     "number": 951,
     "repo": "hgvs",
     "created_at": "2026-11-13T21:47:50Z",
-    "closed_at": null,
-    "merged_at": null,
-    "state": "open",
+    "closed_at": "2026-11-16T18:22:13Z",
+    "merged_at": "2026-11-16T18:22:13Z",
+    "state": "closed",
     "author_login": "dependabot[bot]",
     "draft": false
   },
@@ -7044,9 +7055,9 @@
     "number": 953,
     "repo": "hgvs",
     "created_at": "2026-11-16T04:50:48Z",
-    "closed_at": null,
+    "closed_at": "2026-11-16T15:05:16Z",
     "merged_at": null,
-    "state": "open",
+    "state": "closed",
     "author_login": "andreasprlic",
     "draft": true
   },
@@ -7055,11 +7066,11 @@
     "number": 954,
     "repo": "hgvs",
     "created_at": "2026-11-16T04:50:51Z",
-    "closed_at": null,
-    "merged_at": null,
-    "state": "open",
+    "closed_at": "2026-11-16T15:34:01Z",
+    "merged_at": "2026-11-16T15:34:01Z",
+    "state": "closed",
     "author_login": "andreasprlic",
-    "draft": true
+    "draft": false
   },
   {
     "id": 5331254041,
@@ -7070,18 +7081,18 @@
     "merged_at": null,
     "state": "open",
     "author_login": "andreasprlic",
-    "draft": true
+    "draft": false
   },
   {
     "id": 5331254365,
     "number": 956,
     "repo": "hgvs",
     "created_at": "2026-11-16T04:50:56Z",
-    "closed_at": null,
-    "merged_at": null,
-    "state": "open",
+    "closed_at": "2026-11-16T15:50:43Z",
+    "merged_at": "2026-11-16T15:50:43Z",
+    "state": "closed",
     "author_login": "andreasprlic",
-    "draft": true
+    "draft": false
   },
   {
     "id": 89712043,
