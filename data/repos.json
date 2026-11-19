@@ -159,25 +159,6 @@
     "archived": false
   },
   {
-    "name": "seqrepo-rest-service",
-    "full_name": "biocommons/seqrepo-rest-service",
-    "html_url": "https://github.com/biocommons/seqrepo-rest-service",
-    "description": "OpenAPI-based REST interface to biological sequences and sequence metadata",
-    "stargazers_count": 6,
-    "forks_count": 6,
-    "open_issues_count": 1,
-    "open_pr_count": 5,
-    "contributors": 11,
-    "latest_release": {
-      "tag_name": "0.2.2",
-      "published_at": "2023-11-14T19:59:54Z"
-    },
-    "updated_at": "2026-11-03T19:29:08Z",
-    "default_branch": "main",
-    "private": false,
-    "archived": false
-  },
-  {
     "name": "template-py",
     "full_name": "biocommons/template-py",
     "html_url": "https://github.com/biocommons/template-py",
