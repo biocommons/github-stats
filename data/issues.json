@@ -3317,11 +3317,11 @@
     "number": 515,
     "repo": "anyvar",
     "created_at": "2026-11-13T00:46:33Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-11-19T21:33:52Z",
+    "state": "closed",
     "author_login": "reece",
     "labels": [],
-    "closed_by": null
+    "closed_by": "reece"
   },
   {
     "id": 6380530598,
@@ -16633,6 +16633,225 @@
     "state": "closed",
     "author_login": "MikeWLloyd",
     "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 445925409,
+    "number": 1,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2019-05-20T05:10:10Z",
+    "closed_at": "2019-05-21T21:05:00Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 446823548,
+    "number": 2,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2019-05-21T21:01:22Z",
+    "closed_at": "2019-05-24T21:59:48Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 446824102,
+    "number": 3,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2019-05-21T21:02:50Z",
+    "closed_at": "2019-05-27T15:48:28Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 449295229,
+    "number": 4,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2019-05-28T14:15:03Z",
+    "closed_at": "2020-07-14T15:51:01Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 818854502,
+    "number": 5,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2021-03-01T13:13:23Z",
+    "closed_at": "2021-03-03T16:43:12Z",
+    "state": "closed",
+    "author_login": "korikuzma",
+    "labels": [],
+    "closed_by": "korikuzma"
+  },
+  {
+    "id": 1066053494,
+    "number": 7,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2021-11-29T13:41:56Z",
+    "closed_at": "2021-11-29T13:43:02Z",
+    "state": "closed",
+    "author_login": "bmrobin",
+    "labels": [],
+    "closed_by": "bmrobin"
+  },
+  {
+    "id": 1369086204,
+    "number": 9,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2022-09-11T22:43:30Z",
+    "closed_at": "2022-09-11T22:44:51Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 1728143636,
+    "number": 11,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2023-05-26T19:40:03Z",
+    "closed_at": "2025-11-13T02:41:37Z",
+    "state": "closed",
+    "author_login": "theferrit32",
+    "labels": [
+      "meta:stale",
+      "keep alive",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1735066222,
+    "number": 12,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2023-05-31T21:38:07Z",
+    "closed_at": "2023-09-15T04:27:52Z",
+    "state": "closed",
+    "author_login": "theferrit32",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 1779173058,
+    "number": 13,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2023-06-28T15:12:34Z",
+    "closed_at": "2025-11-13T02:41:35Z",
+    "state": "closed",
+    "author_login": "theferrit32",
+    "labels": [
+      "meta:stale",
+      "keep alive",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 1863639169,
+    "number": 14,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2023-08-23T16:15:21Z",
+    "closed_at": "2023-09-07T14:34:09Z",
+    "state": "closed",
+    "author_login": "wlymanambry",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 1899656391,
+    "number": 16,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2023-09-17T04:50:48Z",
+    "closed_at": "2024-03-26T14:13:33Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "keep alive"
+    ],
+    "closed_by": "korikuzma"
+  },
+  {
+    "id": 1993416790,
+    "number": 19,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2023-11-14T19:24:56Z",
+    "closed_at": "2024-02-21T01:49:02Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "meta:stale",
+      "closed-by-stale"
+    ],
+    "closed_by": "github-actions[bot]"
+  },
+  {
+    "id": 2944360562,
+    "number": 30,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2025-03-24T20:15:38Z",
+    "closed_at": "2026-11-03T19:24:02Z",
+    "state": "closed",
+    "author_login": "theferrit32",
+    "labels": [
+      "type:bug"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 3510624832,
+    "number": 32,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2025-10-13T16:06:12Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "reece",
+    "labels": [
+      "type:feature"
+    ],
+    "closed_by": null
+  },
+  {
+    "id": 6014959950,
+    "number": 42,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2026-10-24T16:15:00Z",
+    "closed_at": "2026-11-03T19:24:02Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [],
+    "closed_by": "reece"
+  },
+  {
+    "id": 6188165796,
+    "number": 49,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2026-11-03T17:51:22Z",
+    "closed_at": "2026-11-03T18:40:26Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "type:bug"
+    ],
+    "closed_by": "reece"
+  },
+  {
+    "id": 6188166311,
+    "number": 50,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2026-11-03T17:51:24Z",
+    "closed_at": "2026-11-03T18:30:22Z",
+    "state": "closed",
+    "author_login": "reece",
+    "labels": [
+      "type:bug"
+    ],
     "closed_by": "reece"
   },
   {
