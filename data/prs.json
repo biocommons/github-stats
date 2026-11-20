@@ -6710,17 +6710,6 @@
     "draft": false
   },
   {
-    "id": 4827605052,
-    "number": 914,
-    "repo": "hgvs",
-    "created_at": "2026-10-12T09:40:13Z",
-    "closed_at": "2026-10-13T04:19:48Z",
-    "merged_at": "2026-10-13T04:19:48Z",
-    "state": "closed",
-    "author_login": "HarshRajSinghania",
-    "draft": false
-  },
-  {
     "id": 4838150060,
     "number": 915,
     "repo": "hgvs",
@@ -6989,9 +6978,9 @@
     "number": 946,
     "repo": "hgvs",
     "created_at": "2026-11-09T06:18:39Z",
-    "closed_at": null,
+    "closed_at": "2026-11-20T03:27:10Z",
     "merged_at": null,
-    "state": "open",
+    "state": "closed",
     "author_login": "davmlaw",
     "draft": false
   },
@@ -7011,9 +7000,9 @@
     "number": 949,
     "repo": "hgvs",
     "created_at": "2026-11-13T04:46:54Z",
-    "closed_at": null,
-    "merged_at": null,
-    "state": "open",
+    "closed_at": "2026-11-20T02:42:55Z",
+    "merged_at": "2026-11-20T02:42:55Z",
+    "state": "closed",
     "author_login": "dependabot[bot]",
     "draft": false
   },
@@ -7092,6 +7081,28 @@
     "merged_at": "2026-11-16T15:50:43Z",
     "state": "closed",
     "author_login": "andreasprlic",
+    "draft": false
+  },
+  {
+    "id": 5406995419,
+    "number": 957,
+    "repo": "hgvs",
+    "created_at": "2026-11-20T03:06:49Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 5407900836,
+    "number": 959,
+    "repo": "hgvs",
+    "created_at": "2026-11-20T04:46:09Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
     "draft": false
   },
   {
