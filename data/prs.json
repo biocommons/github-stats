@@ -2992,6 +2992,17 @@
     "draft": false
   },
   {
+    "id": 5422050804,
+    "number": 45,
+    "repo": "biocommons.github.io",
+    "created_at": "2026-11-20T23:55:33Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
     "id": 122508618,
     "number": 4,
     "repo": "bioutils",
@@ -3821,6 +3832,17 @@
     "number": 127,
     "repo": "bioutils",
     "created_at": "2026-11-13T21:38:10Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 5422215084,
+    "number": 128,
+    "repo": "bioutils",
+    "created_at": "2026-11-21T00:14:06Z",
     "closed_at": null,
     "merged_at": null,
     "state": "open",
@@ -8287,6 +8309,17 @@
     "number": 235,
     "repo": "seqrepo",
     "created_at": "2026-11-13T21:48:13Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 5422209485,
+    "number": 236,
+    "repo": "seqrepo",
+    "created_at": "2026-11-21T00:13:27Z",
     "closed_at": null,
     "merged_at": null,
     "state": "open",
