@@ -14539,14 +14539,15 @@
     "number": 828,
     "repo": "hgvs",
     "created_at": "2026-04-22T19:17:30Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-11-21T08:04:43Z",
+    "state": "closed",
     "author_login": "theferrit32",
     "labels": [
       "meta:stale",
+      "closed-by-stale",
       "stale"
     ],
-    "closed_by": null
+    "closed_by": "github-actions[bot]"
   },
   {
     "id": 4399219362,
