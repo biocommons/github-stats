@@ -5460,6 +5460,11 @@
     "repo": "hgvs"
   },
   {
+    "reviewer_login": "andreasprlic",
+    "submitted_at": "2026-11-23T05:01:05Z",
+    "repo": "hgvs"
+  },
+  {
     "reviewer_login": "reece",
     "submitted_at": "2019-03-06T21:08:50Z",
     "repo": "seqrepo"
