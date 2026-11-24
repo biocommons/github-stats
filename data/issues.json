@@ -3258,11 +3258,11 @@
     "number": 506,
     "repo": "anyvar",
     "created_at": "2026-10-11T08:16:35Z",
-    "closed_at": null,
-    "state": "open",
+    "closed_at": "2026-11-23T21:34:05Z",
+    "state": "closed",
     "author_login": "reece",
     "labels": [],
-    "closed_by": null
+    "closed_by": "korikuzma"
   },
   {
     "id": 5865656503,
@@ -3332,6 +3332,30 @@
     "state": "open",
     "author_login": "jennifer-bowser",
     "labels": [],
+    "closed_by": null
+  },
+  {
+    "id": 6561242296,
+    "number": 518,
+    "repo": "anyvar",
+    "created_at": "2026-11-23T14:14:20Z",
+    "closed_at": "2026-11-23T20:45:06Z",
+    "state": "closed",
+    "author_login": "korikuzma",
+    "labels": [],
+    "closed_by": "korikuzma"
+  },
+  {
+    "id": 6568620821,
+    "number": 520,
+    "repo": "anyvar",
+    "created_at": "2026-11-23T20:53:52Z",
+    "closed_at": null,
+    "state": "open",
+    "author_login": "korikuzma",
+    "labels": [
+      "bug"
+    ],
     "closed_by": null
   },
   {
