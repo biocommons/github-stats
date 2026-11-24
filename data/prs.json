@@ -2607,6 +2607,17 @@
     "draft": false
   },
   {
+    "id": 5466707687,
+    "number": 521,
+    "repo": "anyvar",
+    "created_at": "2026-11-24T05:32:26Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "theferrit32",
+    "draft": false
+  },
+  {
     "id": 1120100497,
     "number": 1,
     "repo": "biocommons.github.io",
@@ -7136,6 +7147,28 @@
     "merged_at": null,
     "state": "open",
     "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 5467597353,
+    "number": 961,
+    "repo": "hgvs",
+    "created_at": "2026-11-24T06:57:02Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "andreasprlic",
+    "draft": false
+  },
+  {
+    "id": 5467890235,
+    "number": 962,
+    "repo": "hgvs",
+    "created_at": "2026-11-24T07:22:15Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "andreasprlic",
     "draft": false
   },
   {
