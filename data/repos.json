@@ -23,7 +23,7 @@
     "stargazers_count": 18,
     "forks_count": 7,
     "open_issues_count": 0,
-    "open_pr_count": 2,
+    "open_pr_count": 1,
     "contributors": 14,
     "latest_release": {
       "tag_name": "1.0.0",
@@ -87,22 +87,6 @@
     "default_branch": "main",
     "private": false,
     "archived": true
-  },
-  {
-    "name": "github-stats",
-    "full_name": "biocommons/github-stats",
-    "html_url": "https://github.com/biocommons/github-stats",
-    "description": "GitHub repository statistics collection for biocommons repositories",
-    "stargazers_count": 0,
-    "forks_count": 0,
-    "open_issues_count": 1,
-    "open_pr_count": 1,
-    "contributors": 3,
-    "latest_release": null,
-    "updated_at": "2026-11-03T02:48:04Z",
-    "default_branch": "main",
-    "private": false,
-    "archived": false
   },
   {
     "name": "hgvs",
