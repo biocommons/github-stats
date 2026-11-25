@@ -17,7 +17,7 @@
   {
     "login": "Copilot",
     "avatar_url": "https://avatars.githubusercontent.com/Copilot",
-    "first_contribution_at": "2026-10-14T21:45:55Z"
+    "first_contribution_at": "2026-05-20T18:52:41Z"
   },
   {
     "login": "DGMichael",
@@ -335,6 +335,11 @@
     "first_contribution_at": "2025-09-05T14:23:29Z"
   },
   {
+    "login": "copilot-swe-agent[bot]",
+    "avatar_url": "https://avatars.githubusercontent.com/copilot-swe-agent[bot]",
+    "first_contribution_at": "2026-05-20T18:52:48Z"
+  },
+  {
     "login": "cpeel",
     "avatar_url": "https://avatars.githubusercontent.com/cpeel",
     "first_contribution_at": "2022-11-07T18:59:00Z"
@@ -483,6 +488,11 @@
     "login": "github-advanced-security[bot]",
     "avatar_url": "https://avatars.githubusercontent.com/github-advanced-security[bot]",
     "first_contribution_at": "2024-04-23T19:36:18Z"
+  },
+  {
+    "login": "github-code-quality[bot]",
+    "avatar_url": "https://avatars.githubusercontent.com/github-code-quality[bot]",
+    "first_contribution_at": "2026-08-09T19:46:29Z"
   },
   {
     "login": "gitter-badger",
