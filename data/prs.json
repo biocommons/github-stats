@@ -8452,9 +8452,9 @@
     "number": 235,
     "repo": "seqrepo",
     "created_at": "2026-11-13T21:48:13Z",
-    "closed_at": null,
+    "closed_at": "2026-11-27T21:47:19Z",
     "merged_at": null,
-    "state": "open",
+    "state": "closed",
     "author_login": "dependabot[bot]",
     "draft": false
   },
@@ -8478,6 +8478,17 @@
     "merged_at": null,
     "state": "open",
     "author_login": "chenyangsu",
+    "draft": false
+  },
+  {
+    "id": 5533506052,
+    "number": 238,
+    "repo": "seqrepo",
+    "created_at": "2026-11-27T21:47:52Z",
+    "closed_at": null,
+    "merged_at": null,
+    "state": "open",
+    "author_login": "dependabot[bot]",
     "draft": false
   },
   {
@@ -8936,6 +8947,17 @@
     "number": 60,
     "repo": "seqrepo-rest-service",
     "created_at": "2026-11-20T22:17:56Z",
+    "closed_at": "2026-11-27T22:16:33Z",
+    "merged_at": null,
+    "state": "closed",
+    "author_login": "dependabot[bot]",
+    "draft": false
+  },
+  {
+    "id": 5533808034,
+    "number": 61,
+    "repo": "seqrepo-rest-service",
+    "created_at": "2026-11-27T22:16:59Z",
     "closed_at": null,
     "merged_at": null,
     "state": "open",
